@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class HRV : MonoBehaviour
 {
-    public Text HRValue;
-    private int random;
+    public Text HRValueDisplay;
+    public int HRValue;
 
     // Start is called before the first frame update
     void Start()
@@ -18,9 +18,9 @@ public class HRV : MonoBehaviour
         while (true)
         {
             
-            random = Random.Range(600, 700);
+            HRValue = Random.Range(600, 700);
             // Update text
-            HRValue.text = "HRV: " + random.ToString() + " ms";
+            HRValueDisplay.text = "HRV: " + HRValue.ToString() + " ms";
             
             yield return new WaitForSeconds(30f);
         }

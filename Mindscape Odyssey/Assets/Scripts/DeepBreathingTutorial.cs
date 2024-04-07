@@ -5,7 +5,6 @@ public class DeepBreathingTutorial : MonoBehaviour
 {
     public GameObject textBox; 
     public GameObject dialogueBox; 
-    public Animator dialogueAnimator; 
     public Text dialogueText; 
     private bool inRange = false;
     private bool dialogueStarted = false;

@@ -388,6 +388,7 @@
 "Assets/Levels/Dark Forest/scripts/ParallaxEffect/ParallaxBehavior.cs"
 "Assets/Scripts/CameraMovement.cs"
 "Assets/Scripts/DeepBreathingTutorial.cs"
+"Assets/Scripts/ForestMonsterSpawner.cs"
 "Assets/Scripts/GaleneMovement.cs"
 "Assets/Scripts/HRV.cs"
 -langversion:9.0
