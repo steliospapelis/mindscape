@@ -78,15 +78,15 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Progress: 0.695
+    - _Progress: 0.677
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WaterAngle: 1
-    - _WaterTransparency: 0.5
+    - _WaterAngle: 2
+    - _WaterTransparency: 0.3
     - _WaveFrequency: 180
-    - _WaveStrength: 1
+    - _WaveStrength: 2
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.745283, g: 0.18561764, b: 0.18561764, a: 1}

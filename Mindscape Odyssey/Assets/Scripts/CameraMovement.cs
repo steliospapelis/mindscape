@@ -1,16 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
- public Transform player;
- public Vector3 offset;
- 
- void Update () 
- {
-     transform.position = new Vector3 (player.position.x + offset.x, player.position.y + offset.y, offset.z); // Η κάμερα ακολουθεί τον παίχτη με κάποιο offset
+    public Transform target; 
+    public float followSpeed = 0.2f; 
+    public Vector3 offset; 
 
-}
 
+    void FixedUpdate()
+    {
+        
+        Vector3 targetPosition = target.position + offset;
+
+        
+        transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
+    }
 }

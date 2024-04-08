@@ -11,6 +11,7 @@ public class GaleneMovement : MonoBehaviour
     private bool isFacingRight = true;
     public bool canMove = true;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,6 +48,7 @@ public class GaleneMovement : MonoBehaviour
         // Jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 
 
