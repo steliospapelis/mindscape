@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; // Import the Unity UI namespace
+using UnityEngine.UI; 
 
 public class DeepBreathingTutorial : MonoBehaviour
 {
@@ -12,6 +12,9 @@ public class DeepBreathingTutorial : MonoBehaviour
     public GaleneMovement GaleneMovement;
 
     public GameObject chart;
+    public Animator anim;
+
+    public DeepBreathing deepBreathing;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -47,6 +50,7 @@ public class DeepBreathingTutorial : MonoBehaviour
     private void StartDialogue()
     {
         GaleneMovement.canMove = false;
+        anim.SetBool("Run",false);
         dialogueStarted = true;
         textBox.SetActive(false);
         dialogueBox.SetActive(true);
@@ -66,6 +70,7 @@ public class DeepBreathingTutorial : MonoBehaviour
             dialogueText.text = GetDialogueText(dialogueIndex);
             if(dialogueIndex ==2){
                 chart.SetActive(true);
+                anim.SetBool("Breathing",true);
             }
         }
         else
@@ -82,7 +87,9 @@ public class DeepBreathingTutorial : MonoBehaviour
         dialogueStarted = false;
         dialogueIndex = 0; 
         GaleneMovement.canMove = true;
+        anim.SetBool("Breathing",false);
         chart.SetActive(false);
+        deepBreathing.enabled = true;
     }
 
     

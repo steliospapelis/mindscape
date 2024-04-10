@@ -11,6 +11,8 @@ public class GaleneMovement : MonoBehaviour
     private bool isFacingRight = true;
     public bool canMove = true;
 
+    public Transform chart;
+
 
     void Start()
     {
@@ -19,6 +21,7 @@ public class GaleneMovement : MonoBehaviour
 
 
         anim.Play("recover", 0, 0); 
+        Time.timeScale = 1f;
     
     }
 
@@ -27,6 +30,7 @@ public class GaleneMovement : MonoBehaviour
     void Update()
     {
         if(canMove){
+       
         // Check if the player is grounded
         isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(0, -0.6f), 0.1f);
 
@@ -67,7 +71,10 @@ public class GaleneMovement : MonoBehaviour
     {
         isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
+        chart.Rotate(0f, -180f, 0f);
     }
+
+
 
 }
 }

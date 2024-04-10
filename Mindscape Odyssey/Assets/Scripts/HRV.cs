@@ -7,7 +7,7 @@ public class HRV : MonoBehaviour
     public Text HRValueDisplay;
     public int HRValue;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         StartCoroutine(ChangeText());
@@ -19,10 +19,18 @@ public class HRV : MonoBehaviour
         {
             
             HRValue = Random.Range(600, 700);
-            // Update text
-            HRValueDisplay.text = "HRV: " + HRValue.ToString() + " ms";
             
-            yield return new WaitForSeconds(30f);
+            if(HRValue>=650){
+            HRValueDisplay.text = "Calm";
+            HRValueDisplay.color = Color.green;
+            }
+            else{
+            HRValueDisplay.text = "Anxious";
+            HRValueDisplay.color = Color.red;
+
+            }
+            
+            yield return new WaitForSeconds(15f);
         }
     }
 }
