@@ -1,0 +1,345 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.9f1 (ea401c316338) revision 15351836'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit Professional' Language: 'el' Physical Memory: 7872 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+C:/Users/user/Desktop/mindscape/Mindscape Odyssey
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+54136
+Successfully changed project path to: C:/Users/user/Desktop/mindscape/Mindscape Odyssey
+C:/Users/user/Desktop/mindscape/Mindscape Odyssey
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [15836] Host "[IP] 192.168.1.49 [Port] 0 [Flags] 2 [Guid] 3044467920 [EditorId] 3044467920 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-9QQE4U6) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [15836] Host "[IP] 192.168.1.49 [Port] 0 [Flags] 2 [Guid] 3044467920 [EditorId] 3044467920 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-9QQE4U6) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
+Refreshing native plugins compatible for Editor in 21.30 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.9f1 (ea401c316338)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/user/Desktop/mindscape/Mindscape Odyssey/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Iris(R) Xe Graphics (ID=0x9a49)
+    Vendor:   Intel
+    VRAM:     3936 MB
+    Driver:   31.0.101.4887
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56780
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.013113 seconds.
+- Loaded All Assemblies, in  0.987 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.759 seconds
+Domain Reload Profiling: 1745ms
+	BeginReloadAssembly (303ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (102ms)
+	RebuildNativeTypeToScriptingClass (32ms)
+	initialDomainReloadingComplete (153ms)
+	LoadAllAssembliesAndSetupDomain (394ms)
+		LoadAssemblies (297ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (390ms)
+			TypeCache.Refresh (385ms)
+				TypeCache.ScanAssembly (352ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (761ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (595ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (27ms)
+			SetLoadedEditorAssemblies (19ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (7ms)
+			ProcessInitializeOnLoadAttributes (391ms)
+			ProcessInitializeOnLoadMethodAttributes (151ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.820 seconds
+Refreshing native plugins compatible for Editor in 4.16 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.850 seconds
+Domain Reload Profiling: 1668ms
+	BeginReloadAssembly (180ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (25ms)
+	RebuildCommonClasses (42ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (47ms)
+	LoadAllAssembliesAndSetupDomain (534ms)
+		LoadAssemblies (358ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (277ms)
+			TypeCache.Refresh (215ms)
+				TypeCache.ScanAssembly (190ms)
+			ScanForSourceGeneratedMonoScriptInfo (45ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (851ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (590ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (102ms)
+			ProcessInitializeOnLoadAttributes (386ms)
+			ProcessInitializeOnLoadMethodAttributes (84ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 3.84 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5579 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 92 unused Assets / (0.9 MB). Loaded Objects now: 6053.
+Memory consumption went from 208.4 MB to 207.5 MB.
+Total: 4.964000 ms (FindLiveObjects: 0.444900 ms CreateObjectMapping: 0.261800 ms MarkObjects: 3.793600 ms  DeleteObjects: 0.462300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 218356.990577 seconds.
+  path: Assets/Levels/mainlevbuild_84.asset
+  artifactKey: Guid(dafac60aecd2433459ce7a8aa18bc337) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_84.asset using Guid(dafac60aecd2433459ce7a8aa18bc337) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab044ac24a34022d583c913411d1fae3') in 0.120089 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 1.112002 seconds.
+  path: Assets/Levels/mainlevbuild_112.asset
+  artifactKey: Guid(20d56c6a8b0723641afb7fb1a8c797b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_112.asset using Guid(20d56c6a8b0723641afb7fb1a8c797b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd653cb54e1885acdf06308484e646f61') in 0.018327 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 4.560606 seconds.
+  path: Assets/Levels/mainlevbuild_210.asset
+  artifactKey: Guid(fb3f3c4c719ea0547b48d16580301d40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_210.asset using Guid(fb3f3c4c719ea0547b48d16580301d40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1a7d6ecfd7c58240d52c9a7506b4ce3') in 0.023424 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 73.456353 seconds.
+  path: Assets/Levels/mainlevbuild_1188.asset
+  artifactKey: Guid(9f2bb828abdd8f5458480dcf69cef264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1188.asset using Guid(9f2bb828abdd8f5458480dcf69cef264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea1571be4468bb484d369b6e85df17fd') in 0.036489 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Levels/mainlevbuild_1190.asset
+  artifactKey: Guid(d3d928a5d082f8f49b0f6451ad2c3ecf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1190.asset using Guid(d3d928a5d082f8f49b0f6451ad2c3ecf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbcd271e79a75f81f4865b93de77f56e') in 0.040043 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Levels/mainlevbuild_1198.asset
+  artifactKey: Guid(b1e447246e005ac4e82f980f3e104db8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1198.asset using Guid(b1e447246e005ac4e82f980f3e104db8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6334706bb99cca1a8a56caa7aaa736c0') in 0.025455 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Levels/mainlevbuild_1196.asset
+  artifactKey: Guid(eee05de74ad98f241a8c8d8956787767) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1196.asset using Guid(eee05de74ad98f241a8c8d8956787767) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a1182c30da77d0b1245c1b7e7c86385') in 0.023091 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Levels/mainlevbuild_1201.asset
+  artifactKey: Guid(41f174798e0885d4d98c5c147e4af27d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1201.asset using Guid(41f174798e0885d4d98c5c147e4af27d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a34dcec77bee9c7b5fa7e17c6321b54e') in 0.015741 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Levels/mainlevbuild_1207.asset
+  artifactKey: Guid(92dc06df89dee5b4faa691c18271169f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1207.asset using Guid(92dc06df89dee5b4faa691c18271169f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa921e77814e045938c0c4d969318a3e') in 0.021222 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Levels/mainlevbuild_1210.asset
+  artifactKey: Guid(bee23eb10d77a0f42899abc5a8381a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1210.asset using Guid(bee23eb10d77a0f42899abc5a8381a14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83e4ec26f38def15998436a92ad2c146') in 0.013944 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Levels/mainlevbuild_1209.asset
+  artifactKey: Guid(fa9d774e4b337424d8a6020620496de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1209.asset using Guid(fa9d774e4b337424d8a6020620496de1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cba67d987720487ed85d61f98b0b573d') in 0.013112 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Levels/mainlevbuild_1203.asset
+  artifactKey: Guid(5e285bd1d3ce2cb4b8f598327486b600) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1203.asset using Guid(5e285bd1d3ce2cb4b8f598327486b600) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a90db10a191b6483ae27eb883ac50151') in 0.024180 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Levels/mainlevbuild_1206.asset
+  artifactKey: Guid(52b8001326d648e4c9b8697034898ea3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1206.asset using Guid(52b8001326d648e4c9b8697034898ea3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53266f62726c4146c500ba5ce6c90f12') in 0.025456 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Levels/mainlevbuild_1216.asset
+  artifactKey: Guid(e4d6fa304f7b2f44889714c1df73569f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1216.asset using Guid(e4d6fa304f7b2f44889714c1df73569f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3981e0fed27f3add7272a839c642a0b6') in 0.024022 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Levels/mainlevbuild_1222.asset
+  artifactKey: Guid(155c862601e6e094eaea10cf9496a052) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1222.asset using Guid(155c862601e6e094eaea10cf9496a052) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdce9146c56808a7373313d5280077dc') in 0.024816 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Levels/mainlevbuild_1221.asset
+  artifactKey: Guid(f143a862157e89943927f429ab976340) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1221.asset using Guid(f143a862157e89943927f429ab976340) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d8a11bf497c61284861473246c06c7e') in 0.022603 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Levels/mainlevbuild_1199.asset
+  artifactKey: Guid(803e6c65fbeda564c9872767acaf35e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1199.asset using Guid(803e6c65fbeda564c9872767acaf35e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf9450996fa5b5860f4841b95209e107') in 0.031215 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Levels/mainlevbuild_1215.asset
+  artifactKey: Guid(2b246642311809a4d8abc836a3bfb367) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1215.asset using Guid(2b246642311809a4d8abc836a3bfb367) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '521410e64063c107656cf62bcd19fe38') in 0.031942 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Levels/mainlevbuild_1213.asset
+  artifactKey: Guid(ff668280cbecd054d8ba9e77fb239501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1213.asset using Guid(ff668280cbecd054d8ba9e77fb239501) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce1877a1c80ad0e8eb3dc4ba4950cc88') in 0.021867 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Levels/mainlevbuild_1205.asset
+  artifactKey: Guid(03093ebac90c3204eb84c1dedbd197d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Levels/mainlevbuild_1205.asset using Guid(03093ebac90c3204eb84c1dedbd197d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0d7b89386077d9c7f06904d815bf833') in 0.025327 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: Η λειτουργία εισόδου/εξόδου ματαιώθηκε εξαιτίας μιας εξόδου από το νήμα ή μιας αίτησης από κάποια εφαρμογή.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
