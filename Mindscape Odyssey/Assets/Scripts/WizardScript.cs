@@ -1,30 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WizardScript : MonoBehaviour
 {
-    public float moveSpeed = 2f; // Adjust the speed of the wizard's movement
-    public GameObject galene; // Assign Galene's GameObject here in the editor
-    private Animator anim; // Reference to the animator component
+    public float moveSpeed = 2f; 
+    public GameObject galene; 
+    public GameObject dialogueBox;
+    public Text dialogueText;
+    public float stopXPosition = -12f; 
+    private Animator anim; 
+    private Animator galeneAnim; 
+    private GaleneMovement galeneMovement; 
     private bool hasMoved = false;
-    private float moveDistance = 6f; // The distance the wizard will move initially
-    private float moveBackDistance = 2f; // The distance the wizard will move back
+    private float moveDistance = 6f; 
+    private float moveBackDistance = 2f; 
     private Vector3 startPosition;
     private bool isMovingBack = false;
+    private bool dialogueStarted = false;
+    private int dialogueIndex = 0; 
 
     void Start()
     {
-        anim = GetComponent<Animator>(); // Get the animator component
-        anim.SetBool("idle", true); // Start idle animation
-        startPosition = transform.position; // Remember start position
+        anim = GetComponent<Animator>();
+        galeneMovement = galene.GetComponent<GaleneMovement>();
+        galeneAnim = galene.GetComponent<Animator>();
+        anim.SetBool("idle", true);
+        startPosition = transform.position;
+        dialogueBox.SetActive(false);
     }
 
     void Update()
     {
-        if (!hasMoved && galene.transform.position.x >= -12)
+        if (galene.transform.position.x >= stopXPosition && galeneMovement.canMove)
+        {
+            galeneAnim.SetBool("Run", false);
+            galeneAnim.SetBool("Grounded", true);
+            galeneMovement.canMove = false;
+            if (galene.transform.localScale.x < 0)
+            {
+                galene.transform.localScale = new Vector3(galene.transform.localScale.x * -1, galene.transform.localScale.y, galene.transform.localScale.z);
+            }
+        }
+
+        if (!hasMoved && galene.transform.position.x >= stopXPosition)
         {
             MoveWizard(Vector3.left, moveDistance);
+        }
+
+        if (dialogueStarted && Input.GetKeyDown(KeyCode.Return))
+        {
+            NextDialogue();
         }
 
         if (isMovingBack)
@@ -36,41 +63,82 @@ public class WizardScript : MonoBehaviour
     private void MoveWizard(Vector3 direction, float distance)
     {
         anim.SetBool("idle", false);
-        anim.SetBool("isRun", true); // Start moving animation
+        anim.SetBool("isRun", true);
 
-        // Move the wizard in the specified direction
         if (Vector3.Distance(transform.position, startPosition) < distance)
         {
             transform.position += direction * moveSpeed * Time.deltaTime;
         }
         else if (!hasMoved)
         {
-            // Once the initial movement distance is reached, stop and idle
-            hasMoved = true; // Prevent further initial movement
+            hasMoved = true;
             anim.SetBool("isRun", false);
-            anim.SetBool("idle", true); // Switch back to idle
-            StartCoroutine(WaitAndMoveBack());
+            anim.SetBool("idle", true);
+            StartDialogue();
         }
         else if (isMovingBack)
         {
-            // Make the wizard inactive after moving back
             gameObject.SetActive(false);
+            galeneMovement.canMove = true;
         }
     }
 
-    IEnumerator WaitAndMoveBack()
+    private void StartDialogue()
     {
-        yield return new WaitForSeconds(3);
-        startPosition = transform.position; // Reset start position for moving back
-        Flip(); // Flip the wizard to face the other direction
-        isMovingBack = true; // Enable moving back
+        dialogueStarted = true;
+        dialogueBox.SetActive(true);
+        dialogueText.text = GetDialogueText(dialogueIndex);
+    }
+
+    private void NextDialogue()
+    {
+        dialogueIndex++;
+        if (dialogueIndex < 3)
+        {
+            dialogueText.text = GetDialogueText(dialogueIndex);
+        }
+        else
+        {
+            EndDialogue();
+        }
+    }
+
+    private void EndDialogue()
+    {
+        dialogueBox.SetActive(false);
+        dialogueStarted = false;
+        dialogueIndex = 0;
+        startPosition = transform.position;
+        Flip();
+        isMovingBack = true;
+    }
+
+    private string GetDialogueText(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return "The wizard speaks...";
+            case 1:
+                return "Another piece of wisdom...";
+            case 2:
+                return "End of the wizard's tales.";
+            default:
+                return "End of dialogue.";
+        }
     }
 
     void Flip()
     {
-        // Flip the wizard by multiplying the x scale by -1
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        if (transform != null)
+        {
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
+        }
+        else
+        {
+            Debug.LogError("Transform component missing on the wizard object.");
+        }
     }
 }
