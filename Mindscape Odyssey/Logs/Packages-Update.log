@@ -26,3 +26,34 @@ Update Mode: mergeDefaultDependencies
 
 The following packages were added:
   com.unity.render-pipelines.universal@14.0.8
+
+=== Fri Apr 12 15:10:03 2024
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.2d.animation from version 3.2.6 to 9.0.3
+  com.unity.2d.pixel-perfect from version 2.1.0 to 5.0.3
+  com.unity.2d.psdimporter from version 2.1.6 to 8.0.2
+  com.unity.2d.spriteshape from version 3.0.14 to 9.0.2
+  com.unity.collab-proxy from version 1.2.16 to 2.0.7
+  com.unity.ide.rider from version 1.1.4 to 3.0.24
+  com.unity.ide.vscode from version 1.2.3 to 1.2.5
+  com.unity.test-framework from version 1.1.20 to 1.1.33
+  com.unity.textmeshpro from version 2.1.1 to 3.0.6
+  com.unity.timeline from version 1.2.17 to 1.7.5
+
+=== Fri Apr 12 15:10:04 2024
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.2d.animation@9.0.3
+  com.unity.2d.pixel-perfect@5.0.3
+  com.unity.2d.psdimporter@8.0.2
+  com.unity.2d.sprite@1.0.0
+  com.unity.2d.spriteshape@9.0.2
+  com.unity.2d.tilemap@1.0.0
+  com.unity.ide.vscode@1.2.5
