@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 266.4
     height: 479.2
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -412,21 +412,21 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 74.79999}
-      m_SelectedIDs: c4790000
-      m_LastClickedID: 31172
-      m_ExpandedIDs: 1cfbffffc2780000f07800001479000016790000207900002a7900003c790000b4790000
+      scrollPos: {x: 0, y: 406.8}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: b214ffffc288ffffe4c7000012c8000036c800005ec800008ec80000acc80000d6c80000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Chart
-        m_OriginalName: Chart
+        m_Name: Galene
+        m_OriginalName: Galene
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 30988
+        m_UserData: 51254
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -821,9 +821,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.4031805, y: -3.3929775, z: 29.111853}
+    m_Target: {x: 129.72253, y: -2.3104177, z: 3540.7002}
     speed: 2
-    m_Value: {x: -0.4031805, y: -3.3929775, z: 29.111853}
+    m_Value: {x: 128.93777, y: -2.075779, z: 3385.961}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -873,9 +873,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 8.214099
+    m_Target: 24.725796
     speed: 2
-    m_Value: 8.214099
+    m_Value: 23.661049
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -923,7 +923,7 @@ MonoBehaviour:
     x: 266.4
     y: 73.6
     width: 904.4
-    height: 447
+    height: 458.2
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -941,14 +941,14 @@ MonoBehaviour:
     - {fileID: -43381501726062254, guid: cf0d40a4ead7f0f479acb21dc2b95b6a, type: 2}
     - {fileID: -2392370946678758701, guid: fe79526b5cda9684bbfddbfe18a7f75c, type: 2}
     m_ValueSerializationHelper:
-    - e00: 1.309502
+    - e00: 1.1955652
       e01: 0
       e02: 0
-      e03: -397.34915
+      e03: -49.214153
       e10: 0
-      e11: 1.309502
+      e11: 1.1955652
       e12: 0
-      e13: 138.41154
+      e13: 72.955864
       e20: 0
       e21: 0
       e22: 1
@@ -1100,7 +1100,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Animations/Galene
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1108,16 +1108,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 46
   m_LastFolders:
-  - Assets
+  - Assets/Animations/Galene
   m_LastFoldersGridSize: 46
   m_LastProjectPath: C:\Users\user\Desktop\mindscape\Mindscape Odyssey
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 6a820000
-    m_LastClickedID: 33386
-    m_ExpandedIDs: 0000000060820000628200006482000066820000688200006a82000000ca9a3bffffff7f
+    m_SelectedIDs: 28340000
+    m_LastClickedID: 13352
+    m_ExpandedIDs: 00000000d03100002834000036350000f2370000103900000e3a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1145,7 +1145,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000060820000628200006482000066820000688200006a820000
+    m_ExpandedIDs: 00000000d03100002834000036350000f2370000103900000e3a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1189,7 +1189,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 9}
+      m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
