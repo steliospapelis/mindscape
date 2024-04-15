@@ -15,4 +15,4 @@ MonoBehaviour:
   m_Keys:
   - __PanelContainer__rootVisualContainer__unity-tilepalette-splitview-data__UnityEngine.UIElements.TwoPaneSplitView
   m_Values:
-  - '{"m_FixedPaneDimension":316.20001220703127}'
+  - '{"m_FixedPaneDimension":316.0}'
