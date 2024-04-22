@@ -11,10 +11,14 @@ public class DeepBreathingTutorial : MonoBehaviour
     private int dialogueIndex = 0; 
     public GaleneMovement GaleneMovement;
 
+    public HealthManager healthScript;
+
     public GameObject chart;
     public Animator anim;
 
     public DeepBreathing deepBreathing;
+
+    public Transform respawn;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -49,6 +53,7 @@ public class DeepBreathingTutorial : MonoBehaviour
 
     private void StartDialogue()
     {
+        healthScript.respawnPoint = respawn;
         GaleneMovement.canMove = false;
         anim.SetBool("Run",false);
         dialogueStarted = true;
@@ -103,7 +108,7 @@ public class DeepBreathingTutorial : MonoBehaviour
             case 1:
                 return "Deep Breathing blah blah blah ";
             case 2:
-                return "blah blah blah try it ";
+                return "Deep Breathing is a useful CBT technique...";
             default:
                 return "End of dialogue.";
         }

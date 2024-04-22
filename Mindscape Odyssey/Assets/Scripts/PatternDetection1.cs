@@ -1,10 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI; 
 
 public class PatternDetection1 : MonoBehaviour
 {
     float holdTimer;
     float timer;
+
+    public Text help;
 
     public HealthManager health;
 
@@ -14,6 +17,11 @@ public class PatternDetection1 : MonoBehaviour
     {
         holdTimer = 0;
         StartCoroutine(Pattern());
+    }
+
+    void OnDisable()
+    {
+        particles.SetActive(false);
     }
 
     void Update(){
@@ -30,6 +38,7 @@ public class PatternDetection1 : MonoBehaviour
         timer=0;
         while (timer < 4)
         {
+            help.text="Breath In";
             if (Input.GetButton("Jump"))
             {
                 holdTimer += Time.deltaTime;
@@ -43,6 +52,7 @@ public class PatternDetection1 : MonoBehaviour
         }
         while (timer < 5.1666f)
         {
+            help.text="Hold";
             if (!Input.GetButton("Jump"))
             {
                 holdTimer += Time.deltaTime;
@@ -56,6 +66,7 @@ public class PatternDetection1 : MonoBehaviour
         }
         while (timer < 11.1666f)
         {
+            help.text="Breath Out";
             if (Input.GetButton("Jump"))
             {
                 holdTimer += Time.deltaTime;
@@ -69,6 +80,7 @@ public class PatternDetection1 : MonoBehaviour
         }
         while (timer < 12.2666f)
         {
+            help.text="Hold";
             if (!Input.GetButton("Jump"))
             {
                 holdTimer += Time.deltaTime;
