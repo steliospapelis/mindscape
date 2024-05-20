@@ -11,14 +11,21 @@ import numpy as np
 from peaks_hrv_functions import detect_peaks, calculate_rmssd
 
 
-data = pd.read_csv("./sd_data/data_1/2024-04-22_15-13-15-160161_PG.csv")
-#data = pd.read_csv("./sd_data/data_2/2024-04-22_16-49-57-721143_PG.csv")
+#data = nk.data("bio_resting_5min_100hz")
+#ppg_signal = data['PPG']
+#sampling_rate = 100
+
+
+
+#data = pd.read_csv("./sd_data/data_1/2024-04-22_15-13-15-160161_PG.csv")
+data = pd.read_csv("./sd_data/data_3/2024-05-20_15-46-34-532101_PG.csv")
 ppg_signal = data['PG']
 ppg_timestamp = data['EmotiBitTimestamp']
+sampling_rate = 1000 / (ppg_timestamp.diff().median())  #25 defaulte value since osc prototcol has no timestamp
+
 
 # Assuming the EmotiBitTimestamp is in milliseconds and represents the sampling frequency
 # Calculate sampling rate based on median diff
-sampling_rate = 1000 / (ppg_timestamp.diff().median())  #25 defaulte value since osc prototcol has no timestamp
 
 window_size = int(30 * sampling_rate)  
 step_size = int(5 * sampling_rate)  #how often hrv is updated
@@ -51,6 +58,11 @@ for start in range(0, len(ppg_signal), step_size):
         #to test more parameters use emotibit_testing notebook
         rr_intervals = np.diff(peaks) / sampling_rate
         current_hrv = calculate_rmssd(rr_intervals)
+        
+        # Find peaks
+        #peaks, info = nk.ecg_peaks(buffer, sampling_rate=100)
+        #hrv_time = nk.hrv_time(peaks, sampling_rate=100, show=True)
+        #hrv_time
         
     
         current_step += 1  

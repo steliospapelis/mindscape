@@ -8,11 +8,20 @@ from data_processor import data_processor
 
 # Global queue for sharing data between threads
 data_queue = queue.Queue()
+file_lock = threading.Lock()
 
 def ppg_green_handler(address, *args):
-    if "PPG:GRN" in address:
+    '''if "PPG:GRN" in address:
         for arg in args:
             data_queue.put(arg)  # Put the PPG values into the queue
+        #print(f"Received and queued PPG Green data: {args}")'''
+        
+    with file_lock:
+        with open("live_output.txt", "a") as file:
+            file.write(f"{address}: {args}\n")
+            if "PPG:GRN" in address:
+                for arg in args:
+                    data_queue.put(arg)  # Put the PPG values into the queue
         #print(f"Received and queued PPG Green data: {args}")
 
 #the data_processor function was originally implemented in this file but it is now implemented in a different file
