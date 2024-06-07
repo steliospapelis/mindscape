@@ -19,7 +19,6 @@ def detect_peaks(data, lowcut, highcut, fs, order, peak_distance):
     peaks, _ = find_peaks(filtered_signal, distance=peak_distance)
     return peaks, filtered_signal
 
-# Define a function to calculate RMSSD in milliseconds
 def calculate_rmssd(rr_intervals):
     if len(rr_intervals) > 1:
         rr_diff = np.diff(rr_intervals)

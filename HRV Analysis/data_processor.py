@@ -2,22 +2,25 @@ import warnings
 from neurokit2 import NeuroKitWarning
 warnings.filterwarnings('ignore', category=NeuroKitWarning)
 
-# pip install neurokit2
 import neurokit2 as nk
 import numpy as np
 import queue
 from peaks_hrv_functions import detect_peaks, calculate_rmssd
 from collections import deque
+import threading
+
+output_value_lock = threading.Lock()
+output_value = [0] 
+
+def set_output_value(value):
+    with output_value_lock:
+        output_value[0] = value
+
+def get_output_value():
+    with output_value_lock:
+        return output_value[0]
 
 def data_processor(data_queue, stop_event):
-    """
-    Continuously process data from the queue until the stop event is set.
-    
-    Parameters:
-        data_queue (queue.Queue): The queue from which data will be processed.
-        stop_event (threading.Event): Event to signal the stop of the data processing.
-    """
-    
     sampling_rate = 100
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
@@ -39,7 +42,7 @@ def data_processor(data_queue, stop_event):
             if step_counter >= step_size:
                 if len(buffer) >= window_size:
                     # Process the PPG signal in the buffer
-                    peaks, filtered_signal = detect_peaks(buffer, lowcut=1.0, highcut=1.8, fs=25, order=3, peak_distance=2.272)
+                    peaks, _ = detect_peaks(buffer, lowcut=1.0, highcut=1.8, fs=25, order=3, peak_distance=2.272)
                     rr_intervals = np.diff(peaks) / sampling_rate
                     current_hrv = calculate_rmssd(rr_intervals)
 
@@ -58,7 +61,7 @@ def data_processor(data_queue, stop_event):
                         print(f"    Current HRV: {current_hrv}\n")
                         if current_step == num_steps_for_baseline:
                             # Calculate average baseline HRV after collecting enough data
-                            baseline_hrv = np.mean(baseline_hrv) #* 0.9 #lower baseline
+                            baseline_hrv = np.mean(baseline_hrv)
                             print(f"Baseline HRV established: {baseline_hrv}\n\n\n")
                             
                     else:
@@ -79,7 +82,7 @@ def data_processor(data_queue, stop_event):
                             mean_last_three_hrv = np.mean(previous_hrv_array)
                             excluded_value = None
 
-                            # Detect and exclude outliers from the mean calculation if they differ more than 30%
+                            # Detect and exclude outliers from the mean calculation if they differ more than 20%
                             diffs = np.abs(np.diff(previous_hrv_array) / previous_hrv_array[:-1])
                             if np.any(diffs > 0.2):
                                 excluded_indices = np.where(diffs > 0.2)[0]
@@ -105,6 +108,16 @@ def data_processor(data_queue, stop_event):
                             print(f"  Excluded Value from Mean Calculation: {excluded_value}\n")
                         else:
                             print(f"  No Value Excluded from Mean Calculation\n")
+                            
+                                                    
+                        output_value_local = 0
+                        total_change_from_previous = 0.8 * change_from_mean_last_three + 0.2 * change_from_previous
+                        if change_from_baseline <= -6:
+                            output_value_local = 1
+                        elif change_from_baseline <= 5 and total_change_from_previous <= -5:
+                            output_value_local = 1
+                        print(f"Output value = {output_value_local}")
+                        set_output_value(output_value_local)
 
                 step_counter = 0  # Reset step counter after processing
 
