@@ -12,10 +12,12 @@ public class HRV : MonoBehaviour
     private string url = "http://localhost:5000/get_value";
     private float checkInterval = 1.0f;
 =======
+    private float checkInterval = 10.0f;  // Change value every 10 seconds
 >>>>>>> Stashed changes
     public Text HRValueDisplay;
     public int HRValue;
     public GaleneMovement playerMovement;
+    public Image overlayImage;  // Reference to the UI Image component
 
     void Start()
     {
@@ -106,6 +108,7 @@ public class HRV : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
         }
+    }
 
     IEnumerator ChangeLighting()
     {
