@@ -69,11 +69,11 @@ public class DeepBreathingTutorial : MonoBehaviour
     {
         dialogueIndex++; 
         
-        if (dialogueIndex < 3)
+        if (dialogueIndex < 8)
         {
             
             dialogueText.text = GetDialogueText(dialogueIndex);
-            if(dialogueIndex ==2){
+            if(dialogueIndex ==4){
                 chart.SetActive(true);
                 anim.SetBool("Breathing",true);
             }
@@ -104,13 +104,21 @@ public class DeepBreathingTutorial : MonoBehaviour
         switch (index)
         {
             case 0:
-                return "The tree whispers to you...";
+                return "As you approach the ancient tree, its leaves rustle softly, and a calm, soothing voice fills your mind.";
             case 1:
-                return "Deep Breathing blah blah blah ";
+                return "Tree: 'Welcome, weary traveler. I see you carry the weight of the world on your shoulders. Allow me to share a secret of the forest, a gift to help you find peace within.";
             case 2:
-                return "Deep Breathing is a useful CBT technique...";
+                return "Quiet your mind and listen closely. This is the art of deep breathing, a simple yet powerful technique to calm your mind and body.";
+            case 3:
+                return "Inhale slowly through your nose, filling your lungs completely. Feel the breath travel deep into your belly. Hold for a moment, then gently exhale through your mouth, letting go of all your tension.";
+            case 4:
+                return "Repeat this with me: Breathe in… hold… breathe out. Imagine the stress and anxiety leaving your body with each breath, like leaves falling in the autumn breeze.";
+            case 5:
+                return "Deep breathing slows your heart rate and lowers blood pressure, helping you feel more grounded and in control. It’s a way to anchor yourself in the present, no matter the storm around you.";
+            case 6:
+                return "Remember, in the midst of chaos, your breath is your refuge. Practice this, and you will find serenity within.'";
             default:
-                return "End of dialogue.";
+                return "The tree’s whisper fades, leaving you with a newfound sense of calm and a powerful tool to carry forward on your journey.";
         }
     }
 

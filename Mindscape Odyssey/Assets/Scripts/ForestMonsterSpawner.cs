@@ -7,6 +7,8 @@ public class ForestMonsterSpawner : MonoBehaviour
     public Transform spawner;
     public float spawnRadius = 5f; 
 
+    public Vector3[] spawnPoints;
+
     public HRV HRV;
 
     
@@ -36,18 +38,16 @@ public class ForestMonsterSpawner : MonoBehaviour
        
         for (int i = 0; i < numEnemies; i++)
         {
-            SpawnEnemy();
+            SpawnEnemy(i);
         }
       }
       triggered = true;
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(int index)
     {
         
-        Vector2 randomPos = Random.insideUnitCircle * spawnRadius;
-        
-        Vector3 spawnPos = spawner.position + new Vector3(randomPos.x, 0f, 0f);
+        Vector3 spawnPos = spawnPoints[index];
 
         
         Instantiate(monster, spawnPos, Quaternion.identity);

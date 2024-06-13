@@ -1,11 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-
     public float health;
     public float maxHealth;
 
@@ -15,91 +13,94 @@ public class HealthManager : MonoBehaviour
 
     private bool isRespawning = false;
 
-    public Image screenFadeImage; 
+    public Image screenFadeImage;
     public Color fadeColor = Color.black;
 
-    public float minYposition=-10;
+    private Animator anim;
 
+    public float minYposition = -10;
 
-    
     void Start()
     {
+        anim = GetComponent<Animator>();
         screenFadeImage.color = Color.clear;
-        maxHealth=100;
-        health=50;
-        healthbar.sharedMaterial.SetFloat("_Progress", health/100);
-
+        maxHealth = 85;
+        health = 50;
+        healthbar.sharedMaterial.SetFloat("_Progress", health / 100);
     }
 
-    
     void Update()
     {
-    if(health<=0){
-        
-        Respawn();
-    }
+        if (health <= 15)
+        {
+            anim.Play("knockdown");
+            Respawn();
+        }
 
-    if (!isRespawning && transform.position.y < minYposition)
+        if (!isRespawning && transform.position.y < minYposition)
         {
             Respawn();
         }
-        
     }
 
-     public void TakeDamage(float Damage){
-         health -=Damage;  
-         healthbar.sharedMaterial.SetFloat("_Progress", health/100);
+    public void TakeDamage(float Damage)
+    {
+        anim.Play("hit light");
+        health -= Damage;
+        healthbar.sharedMaterial.SetFloat("_Progress", health / 100);
     }
 
-    public void  Healing(float healPoints){
-
+    public void Healing(float healPoints)
+    {
         health += healPoints;
-        health = Mathf.Clamp(health,0,maxHealth);
-        healthbar.sharedMaterial.SetFloat("_Progress", health/100);
+        health = Mathf.Clamp(health, 0, maxHealth);
+        healthbar.sharedMaterial.SetFloat("_Progress", health / 100);
     }
 
-    public void Respawn(){
-        health=50;
-        healthbar.sharedMaterial.SetFloat("_Progress", health/100);
-        isRespawning = true;
-        StartCoroutine(FadeOutAndRespawn());
+    public void Respawn()
+    {
+        if (!isRespawning)
+        {
+            isRespawning = true;
+            StartCoroutine(FadeOutAndRespawn());
+        }
     }
 
-     IEnumerator FadeOutAndRespawn()
+    IEnumerator FadeOutAndRespawn()
     {
         
-        float startTime = Time.time;
-        while (Time.time - startTime < 1f)
-        {
-            float normalizedTime = (Time.time - startTime) / 1f;
-            fadeColor = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 1f);
 
+        // Fade out screen
+        float startTime = Time.time;
+        while (Time.time - startTime < 0.7f)
+        {
+            float normalizedTime = (Time.time - startTime) / 0.7f;
+            fadeColor = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 1f);
             Color currentColor = Color.Lerp(Color.clear, fadeColor, normalizedTime);
             screenFadeImage.color = currentColor;
             yield return null;
         }
 
-        
+        // Move player to respawn point
         transform.position = respawnPoint.position;
+        health = 50;
+        healthbar.sharedMaterial.SetFloat("_Progress", health / 100);
 
-        
-        yield return new WaitForSeconds(3.5f);
+        // Wait for a moment before fading in
+        yield return new WaitForSeconds(1f);
 
-        
+        anim.Play("recover");
+        // Fade in screen
         startTime = Time.time;
-        while (Time.time - startTime < 0.5f)
+        while (Time.time - startTime < 1f)
         {
-            float normalizedTime = (Time.time - startTime) / 0.5f;
-            
-
+            float normalizedTime = (Time.time - startTime) / 1f;
             Color currentColor = Color.Lerp(fadeColor, Color.clear, normalizedTime);
-            
             screenFadeImage.color = currentColor;
             yield return null;
         }
-
         
+
         isRespawning = false;
     }
-
 }
