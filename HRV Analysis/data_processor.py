@@ -10,15 +10,29 @@ from collections import deque
 import threading
 
 output_value_lock = threading.Lock()
-output_value = [0] 
+results = {}  # This will store all the results
 
-def set_output_value(value):
-    with output_value_lock:
-        output_value[0] = value
+log_file = "data_processor_output.txt"  # The log file name
 
-def get_output_value():
+def add_log_entry(entry):
+    # Write log entry to the file in real time
+    with open(log_file, 'a') as f:
+        f.write(entry)
+
+# Function to set all the output values in a dictionary
+def set_results(output_value_local, current_hrv, previous_hrv, previous_three_hrv, change_from_mean_last_three, excluded_value):
     with output_value_lock:
-        return output_value[0]
+        results['output_value'] = output_value_local
+        results['current_hrv'] = current_hrv
+        results['previous_hrv'] = previous_hrv
+        results['previous_three_hrv'] = previous_three_hrv
+        results['change_from_mean_last_three'] = change_from_mean_last_three
+        results['excluded_value'] = excluded_value
+
+# Function to get all the results
+def get_results():
+    with output_value_lock:
+        return results
 
 def data_processor(data_queue, stop_event):
     sampling_rate = 100
@@ -31,6 +45,10 @@ def data_processor(data_queue, stop_event):
     buffer = deque(maxlen=window_size)
     baseline_hrv = []
     previous_hrv_values = deque(maxlen=3)
+    
+    # Clear the log file at the start
+    with open(log_file, 'w') as f:
+        f.write("Starting data processor logging...\n")
     
     while not stop_event.is_set() or not data_queue.empty():
         try:
@@ -50,19 +68,26 @@ def data_processor(data_queue, stop_event):
                     current_timestamp += 5
 
                     if current_step < 6:
-                        print(f"Segment {current_step} skipped.")
-                        print(f"    Current HRV: {current_hrv}\n")
+                        # print(f"Segment {current_step} skipped.")
+                        # print(f"    Current HRV: {current_hrv}\n")
+                        log_msg = f"Segment {current_step} skipped. Current HRV: {current_hrv}\n"
+                        add_log_entry(log_msg)
                         if current_step == 5:
-                            print("\n")
+                            # print("\n")
+                            log_msg = "\n"
+                            add_log_entry(log_msg)
                     
                     elif current_step <= num_steps_for_baseline:
                         baseline_hrv.append(current_hrv)
-                        print(f"Segment {current_step} - Timestamp {current_timestamp//60}min {current_timestamp%60}sec:")
-                        print(f"    Current HRV: {current_hrv}\n")
+                        # print(f"Segment {current_step} - Timestamp {current_timestamp//60}min {current_timestamp%60}sec:")
+                        # print(f"    Current HRV: {current_hrv}\n")
+                        log_msg = f"Segment {current_step} - Timestamp {current_timestamp//60}min {current_timestamp%60}sec: Current HRV: {current_hrv}\n"
+                        add_log_entry(log_msg)
                         if current_step == num_steps_for_baseline:
                             # Calculate average baseline HRV after collecting enough data
                             baseline_hrv = np.mean(baseline_hrv)
-                            print(f"Baseline HRV established: {baseline_hrv}\n\n\n")
+                            # print(f"Baseline HRV established: {baseline_hrv}\n\n\n")
+                            add_log_entry(f"Baseline HRV established: {baseline_hrv}\n\n\n")
                             
                     else:
                         # Compare to baseline and previous HRV
@@ -96,19 +121,34 @@ def data_processor(data_queue, stop_event):
                             change_from_mean_last_three = 0
                             excluded_value = None
 
-                        print(f"Segment {current_step} - Timestamp {current_timestamp//60}min {current_timestamp%60}sec:")
-                        print(f"  Current HRV: {current_hrv}")
-                        print(f"  Change from Baseline: {change_from_baseline:.2f}%")
-                        print(f"  Change from Previous: {change_from_previous:.2f}%")
+                        # print(f"Segment {current_step} - Timestamp {current_timestamp//60}min {current_timestamp%60}sec:")
+                        # print(f"  Current HRV: {current_hrv}")
+                        # print(f"  Change from Baseline: {change_from_baseline:.2f}%")
+                        # print(f"  Change from Previous: {change_from_previous:.2f}%")
+                        log_msg = f"Segment {current_step} - Timestamp {current_timestamp//60}min {current_timestamp%60}sec: Current HRV: {current_hrv}, Change from Baseline: {change_from_baseline:.2f}%, Change from Previous: {change_from_previous:.2f}%\n"
+                        add_log_entry(log_msg)
+                        
                         if previous_hrv_for_change is not None:
-                            print(f"  Previous HRV for Change: {previous_hrv_for_change}")
-                        print(f"  Previous Three HRV Values: {list(previous_hrv_values)}")
-                        print(f"  Change from Mean of Last Three: {change_from_mean_last_three:.2f}%")
-                        if excluded_value is not None:
-                            print(f"  Excluded Value from Mean Calculation: {excluded_value}\n")
-                        else:
-                            print(f"  No Value Excluded from Mean Calculation\n")
+                            # print(f"  Previous HRV for Change: {previous_hrv_for_change}")
+                            log_msg = f"  Previous HRV for Change: {previous_hrv_for_change}\n"
+                            add_log_entry(log_msg)
                             
+                        # print(f"  Previous Three HRV Values: {list(previous_hrv_values)}")
+                        # print(f"  Change from Mean of Last Three: {change_from_mean_last_three:.2f}%")
+                        log_msg = f"  Previous Three HRV Values: {list(previous_hrv_values)}\n"
+                        add_log_entry(log_msg)
+                        log_msg = f"  Change from Mean of Last Three: {change_from_mean_last_three:.2f}%\n"
+                        add_log_entry(log_msg)
+
+                        if excluded_value is not None:
+                            # print(f"  Excluded Value from Mean Calculation: {excluded_value}\n")
+                            log_msg = f"  Excluded Value from Mean Calculation: {excluded_value}\n"
+                            add_log_entry(log_msg)
+                            
+                        else:
+                            # print(f"  No Value Excluded from Mean Calculation\n")
+                            log_msg = f"  No Value Excluded from Mean Calculation\n"
+                            add_log_entry(log_msg)                
                                                     
                         output_value_local = 0
                         total_change_from_previous = 0.8 * change_from_mean_last_three + 0.2 * change_from_previous
@@ -116,10 +156,23 @@ def data_processor(data_queue, stop_event):
                             output_value_local = 1
                         elif change_from_baseline <= 5 and total_change_from_previous <= -5:
                             output_value_local = 1
-                        print(f"Output value = {output_value_local}")
-                        set_output_value(output_value_local)
+                            
+                        # print(f"Output value = {output_value_local}")
+                        add_log_entry(f"Output value = {output_value_local}\n\n")
+
+                        # Set the full result with all required values
+                        set_results(
+                            output_value_local=output_value_local,
+                            current_hrv=current_hrv,
+                            previous_hrv=previous_hrv_for_change,
+                            previous_three_hrv=list(previous_hrv_values),
+                            change_from_mean_last_three=change_from_mean_last_three,
+                            excluded_value=excluded_value
+                        )
 
                 step_counter = 0  # Reset step counter after processing
 
         except queue.Empty:
-            continue  # Continue if no data is available
+            if stop_event.is_set():
+                print("Stopping data processor.")
+                break  # Exit the loop if stop_event is set
