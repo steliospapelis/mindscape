@@ -12,7 +12,7 @@ import threading
 output_value_lock = threading.Lock()
 results = {}  # This will store all the results
 
-log_file = "data_processor_output.txt"  # The log file name
+log_file = "data_processor_log.txt"  # The log file name
 
 def add_log_entry(entry):
     # Write log entry to the file in real time
@@ -20,14 +20,12 @@ def add_log_entry(entry):
         f.write(entry)
 
 # Function to set all the output values in a dictionary
-def set_results(output_value_local, current_hrv, previous_hrv, previous_three_hrv, change_from_mean_last_three, excluded_value):
+def set_results(binary_output, categorical_output, current_hrv):
     with output_value_lock:
-        results['output_value'] = output_value_local
         results['current_hrv'] = current_hrv
-        results['previous_hrv'] = previous_hrv
-        results['previous_three_hrv'] = previous_three_hrv
-        results['change_from_mean_last_three'] = change_from_mean_last_three
-        results['excluded_value'] = excluded_value
+        results['binary_output'] = binary_output
+        results['previous_hrv'] = categorical_output
+
 
 # Function to get all the results
 def get_results():
@@ -150,24 +148,42 @@ def data_processor(data_queue, stop_event):
                             log_msg = f"  No Value Excluded from Mean Calculation\n"
                             add_log_entry(log_msg)                
                                                     
-                        output_value_local = 0
+                        # Binary output (0: calm, 1: anxious)
+                        binary_output = 0
                         total_change_from_previous = 0.8 * change_from_mean_last_three + 0.2 * change_from_previous
-                        if change_from_baseline <= -6:
-                            output_value_local = 1
+                        if change_from_baseline <= -5:
+                            binary_output = 1
                         elif change_from_baseline <= 5 and total_change_from_previous <= -5:
-                            output_value_local = 1
-                            
-                        # print(f"Output value = {output_value_local}")
-                        add_log_entry(f"Output value = {output_value_local}\n\n")
+                            binary_output = 1
+
+                        # Categorical output (0: very calm, 1: calm, 2: anxious, 3: very anxious)
+                        categorical_output = 0  # default to very calm
+
+                        # Determine the value for the new categorical output based on the change from baseline
+                        if change_from_baseline <= -10:
+                            categorical_output = 3  # very anxious
+                        if -10 < change_from_baseline <= -5:
+                            categorical_output = 2  # anxious
+                        elif -5 < change_from_baseline < 0:
+                            categorical_output = 1  # calm
+
+                        # Further refine based on total change from previous
+                        elif change_from_baseline <= 5 and total_change_from_previous <= -7.5:
+                            categorical_output = 3  # very anxious
+                        elif change_from_baseline <= 5 and total_change_from_previous <= -5:
+                            categorical_output = 2  # anxious
+                        elif change_from_baseline <= 5 and total_change_from_previous <= -2.5:
+                            categorical_output = 1  # calm
+
+                        # Log both the binary and categorical output
+                        add_log_entry(f"  Binary Output (0: calm, 1: anxious) = {binary_output}\n")
+                        add_log_entry(f"  Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = {categorical_output}\n\n")
 
                         # Set the full result with all required values
                         set_results(
-                            output_value_local=output_value_local,
                             current_hrv=current_hrv,
-                            previous_hrv=previous_hrv_for_change,
-                            previous_three_hrv=list(previous_hrv_values),
-                            change_from_mean_last_three=change_from_mean_last_three,
-                            excluded_value=excluded_value
+                            binary_output=binary_output,
+                            categorical_output=categorical_output
                         )
 
                 step_counter = 0  # Reset step counter after processing
