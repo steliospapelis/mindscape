@@ -13,31 +13,28 @@ public class HealthManager : MonoBehaviour
 
     private bool isRespawning = false;
 
-    public Image screenFadeImage;
-    public Color fadeColor = Color.black;
+    public Image fadeImage;
 
     private Animator anim;
 
     public float minYposition = -10;
+    public float fadeSpeed = 0.5f;
+
+    private float lastDamageTime; // Track the time since last damage
+    public float damageCooldown = 1f; // Cooldown time in seconds
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        screenFadeImage.color = Color.clear;
         maxHealth = 85;
         health = 50;
         healthbar.sharedMaterial.SetFloat("_Progress", health / 100);
+        lastDamageTime = -damageCooldown; // Allow immediate damage at the start
     }
 
     void Update()
     {
-        if (health <= 15)
-        {
-            anim.Play("knockdown");
-            Respawn();
-        }
-
-        if (!isRespawning && transform.position.y < minYposition)
+        if (!isRespawning && (health <= 15 || transform.position.y < minYposition))
         {
             Respawn();
         }
@@ -45,9 +42,14 @@ public class HealthManager : MonoBehaviour
 
     public void TakeDamage(float Damage)
     {
-        anim.Play("hit light");
-        health -= Damage;
-        healthbar.sharedMaterial.SetFloat("_Progress", health / 100);
+        // Check if enough time has passed since the last damage
+        if (Time.time - lastDamageTime >= damageCooldown)
+        {
+            anim.Play("hit light");
+            health -= Damage;
+            healthbar.sharedMaterial.SetFloat("_Progress", health / 100);
+            lastDamageTime = Time.time; // Update the last damage time
+        }
     }
 
     public void Healing(float healPoints)
@@ -62,44 +64,39 @@ public class HealthManager : MonoBehaviour
         if (!isRespawning)
         {
             isRespawning = true;
+            anim.Play("knockdown");
             StartCoroutine(FadeOutAndRespawn());
         }
     }
 
     IEnumerator FadeOutAndRespawn()
     {
-        
+        Color fadeColor = fadeImage.color;
 
         // Fade out screen
-        float startTime = Time.time;
-        while (Time.time - startTime < 0.7f)
+        while (fadeImage.color.a < 1)
         {
-            float normalizedTime = (Time.time - startTime) / 0.7f;
-            fadeColor = new Color(fadeColor.r, fadeColor.g, fadeColor.b, 1f);
-            Color currentColor = Color.Lerp(Color.clear, fadeColor, normalizedTime);
-            screenFadeImage.color = currentColor;
+            fadeColor.a += fadeSpeed * Time.deltaTime;
+            fadeImage.color = fadeColor;
             yield return null;
         }
 
-        // Move player to respawn point
+        // Move player to the respawn point and reset health
         transform.position = respawnPoint.position;
         health = 50;
         healthbar.sharedMaterial.SetFloat("_Progress", health / 100);
 
-        // Wait for a moment before fading in
         yield return new WaitForSeconds(1f);
 
         anim.Play("recover");
+
         // Fade in screen
-        startTime = Time.time;
-        while (Time.time - startTime < 1f)
+        while (fadeImage.color.a > 0)
         {
-            float normalizedTime = (Time.time - startTime) / 1f;
-            Color currentColor = Color.Lerp(fadeColor, Color.clear, normalizedTime);
-            screenFadeImage.color = currentColor;
+            fadeColor.a -= fadeSpeed * Time.deltaTime;
+            fadeImage.color = fadeColor;
             yield return null;
         }
-        
 
         isRespawning = false;
     }
