@@ -8,12 +8,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class HRV : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    private string url = "http://localhost:5000/get_value";
-    private float checkInterval = 1.0f;
-=======
     private float checkInterval = 10.0f;  // Change value every 10 seconds
->>>>>>> Stashed changes
     public Text HRValueDisplay;
     public int HRValue;
     public GaleneMovement playerMovement;
@@ -21,7 +16,7 @@ public class HRV : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(FetchData());
+        //StartCoroutine(FetchData());
         StartCoroutine(ChangeText());
         StartCoroutine(ChangeLighting());  // Start the coroutine for lighting change
     }
@@ -44,7 +39,7 @@ public class HRV : MonoBehaviour
         }
     }
 
-   IEnumerator FetchData()
+  /* IEnumerator FetchData()
     {
         while (true)
         {
@@ -70,24 +65,13 @@ public class HRV : MonoBehaviour
         }
     }
 
+*/
     
 
     IEnumerator ChangeText()
     {
         while (true)
         {
-<<<<<<< Updated upstream
-
-            if (HRValue == 1)
-            {
-                HRValueDisplay.text = HRValue.ToString();
-                HRValueDisplay.color = Color.green;
-            }
-            else
-            {
-                HRValueDisplay.text = HRValue.ToString();
-                HRValueDisplay.color = Color.red;
-=======
             if (HRValue == 1)
             {
                 playerMovement.moveSpeed = 4f;
@@ -104,7 +88,6 @@ public class HRV : MonoBehaviour
                 playerMovement.jumpForce = 13f;
                 UpdateMonsterAttributes(new Vector3(0.4f, 0.4f, 1f), 3f);
             }
->>>>>>> Stashed changes
 
             yield return new WaitForSeconds(1f);
         }
@@ -132,20 +115,6 @@ public class HRV : MonoBehaviour
                 yield return null;
             }
 
-<<<<<<< Updated upstream
-            yield return new WaitForSeconds(1f);
-        }
-    }
-
-    
-  
-
-    [System.Serializable]
-    private class ValueResponse
-    {
-        public int value;
-    }
-=======
             Color finalColor = overlayImage.color;
             finalColor.a = targetAlpha;
             overlayImage.color = finalColor;
@@ -153,5 +122,5 @@ public class HRV : MonoBehaviour
             yield return new WaitForSeconds(checkInterval);  // Wait for the next value change
         }
     }
->>>>>>> Stashed changes
+}
 
