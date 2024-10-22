@@ -35,10 +35,11 @@ if __name__ == "__main__":
     filepath = 'real_time_data/live_output.txt'
     ip = '127.0.0.1' 
     port = 12345  
-    delay = 0.007  # Delay in seconds between messages
+    delay = 0.003  # Delay in seconds between messages
     
     #14 measurement between two ppg green messages
     #2.5 values of ppg per message on average
-    #we want a ppg value every 0.04sec so 2.5 x (0.04 / 14) = 0.00714
+    #we want a ppg value every 0.01sec so 2.5 x (0.01 / 14) = 0.0018
+    #at 100hz we get a ppg value every 0.01sec and at 25hz every 0.04sec
 
     send_data_from_file(filepath, ip, port, delay)

@@ -1,10 +1,11 @@
 from pythonosc import dispatcher 
 from pythonosc import osc_server
-from flask import Flask, jsonify, render_template_string
+from flask import Flask, jsonify, render_template_string, request, render_template
 import threading
 import queue
 import signal
 import sys
+import requests
 import socket  # For sending dummy data to unblock the listener
 from data_processor import data_processor, get_results
 
@@ -17,69 +18,49 @@ app = Flask(__name__)
 # Serve the HTML page at the root route
 @app.route('/')
 def index():
-    html_content = '''
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HRV Results</title>
-    </head>
-    <body>
-        <h1>Welcome to HRV Analysis</h1>
-        <p>Click the button below to view the HRV results in real time.</p>
-        <button onclick="window.location.href='/results'">View Results (Table)</button>
-        <button onclick="window.location.href='/results_json'">View Results (JSON)</button>
-    </body>
-    </html>
-    '''
-    return render_template_string(html_content)
+    return render_template('index.html')
 
 @app.route('/results', methods=['GET'])
 def results():
     results = get_results()
-    
-    # Define a simple HTML page to display the results
-    html_content = '''
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HRV Results</title>
-        <style>
-            table { width: 50%; margin: 50px auto; border-collapse: collapse; }
-            table, th, td { border: 1px solid black; }
-            th, td { padding: 10px; text-align: center; }
-        </style>
-    </head>
-    <body>
-        <h1 style="text-align: center;">HRV Analysis Results</h1>
-        <table>
-            <tr>
-                <th>Current HRV</th>
-                <td>{{ results['current_hrv'] }}</td>
-            </tr>
-            <tr>
-                <th>Binary Output (0: calm, 1: anxious)</th>
-                <td>{{ results['binary_output'] }}</td>
-            </tr>
-            <tr>
-                <th>Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious)</th>
-                <td>{{ results['previous_hrv'] }}</td>
-            </tr>
-        </table>
-    </body>
-    </html>
-    '''
-    
-    return render_template_string(html_content, results=results)
+    return render_template('results.html', results=results)
 
 # Route for returning the raw JSON data
 @app.route('/results_json')
 def get_json_results():
     results = get_results()
     return jsonify(results)
+
+# Global variable to store the current ability value
+ability_value = 0
+
+@app.route('/ability', methods=['POST'])
+def ability():
+    global ability_value
+    # Check if the request contains JSON data
+    if request.is_json:
+        data = request.get_json()
+        ability_value = data.get('value', 0)  # Update ability_value with the value from JSON, default to 0
+    else:
+        ability_value = 0  # Default to 0 if no JSON or value is provided
+    
+    # Return the current ability value as a JSON response
+    return jsonify(ability_value=ability_value), 200
+
+@app.route('/ability_value', methods=['GET'])
+def ability_value_route():
+    """Route to display the current ability value in a table format."""
+    return render_template('ability_value.html', ability_value=ability_value)
+
+@app.route('/ability_value_json', methods=['GET'])
+def get_current_ability_value():
+    """Route to return the current ability value stored in the global variable."""
+    return jsonify(ability_value=ability_value), 200
+
+# Function to provide the current ability_value
+def get_ability_value():
+    global ability_value
+    return ability_value
 
 def ppg_green_handler(address, *args):
     if "PPG:GRN" in address:
@@ -111,6 +92,18 @@ def send_dummy_packet(ip, port):
         print("Dummy packet sent to unblock OSC listener.")
     except Exception as e:
         print(f"Error sending dummy packet: {e}")
+        
+# Example processing function that uses the ability_value
+def process_data_based_on_ability(data):
+    global ability_value
+    if ability_value == 1:
+        # Perform some action if the ability is activated (value is 1)
+        print("Processing with the ability activated (value set to 1).")
+        # Data processing logic when ability is activated
+    else:
+        # Perform some action if the ability is not activated (value is 0)
+        print("Processing with the ability deactivated (value set to 0).")
+        # Data processing logic when ability is deactivated
 
 def run_flask():
     app.run(host='0.0.0.0', port=5000)

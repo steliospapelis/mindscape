@@ -2,14 +2,14 @@ import numpy as np
 import pandas as pd
 from scipy.signal import butter, filtfilt, find_peaks
 
-def butter_bandpass(lowcut, highcut, fs, order=5):
+def butter_bandpass(lowcut, highcut, fs, order=3):
     nyq = 0.5 * fs
     low = lowcut / nyq
     high = highcut / nyq
     b, a = butter(order, [low, high], btype='band')
     return b, a
 
-def butter_bandpass_filter(data, lowcut, highcut, fs, order=5):
+def butter_bandpass_filter(data, lowcut, highcut, fs, order=3):
     b, a = butter_bandpass(lowcut, highcut, fs, order)
     y = filtfilt(b, a, data)
     return y
