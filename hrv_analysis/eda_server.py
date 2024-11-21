@@ -7,10 +7,11 @@ import signal
 import sys
 import requests
 import socket  # For sending dummy data to unblock the listener
-from data_processor import data_processor, get_results
+from eda_data_processor import data_processor, get_results
 
-# Global queue for sharing data between threads
-data_queue = queue.Queue()
+# Global queues for sharing data between threads
+ppg_data_queue = queue.Queue()  # Queue for PPG green data
+eda_data_queue = queue.Queue()  # Queue for EDA data
 file_lock = threading.Lock()
 
 app = Flask(__name__)
@@ -62,15 +63,25 @@ def get_ability_value():
     global ability_value
     return ability_value
 
-def ppg_green_handler(address, *args):
+# Handler for PPG green values
+def measurements_handler(address, *args):
+    
     if "PPG:GRN" in address:
         for arg in args:
-            data_queue.put(arg)  # Put the PPG values into the queue
-
+            ppg_data_queue.put(arg)  # Put the PPG green values into the queue
+            
+    if "EDA" in address:
+        with open("dummy_ed.txt", 'a') as f:
+            # Write the address and all arguments to the file
+            f.write(f"Address: {address}, Values: {args}\n")
+        for arg in args:
+            eda_data_queue.put(arg)  # Put the EDA values into the queue
+            
+            
 def run_osc_listener(ip, port, stop_event):
     disp = dispatcher.Dispatcher()
-    disp.set_default_handler(ppg_green_handler)
-    
+    disp.set_default_handler(measurements_handler)
+
     # Create the OSC server
     server = osc_server.BlockingOSCUDPServer((ip, port), disp)
     print(f"Listening on {ip}:{port}")
@@ -118,8 +129,8 @@ def main():
     listener_thread = threading.Thread(target=run_osc_listener, args=(ip, port, stop_event))
     listener_thread.start()
 
-    # Run the data processor in a separate thread
-    data_thread = threading.Thread(target=data_processor, args=(data_queue, stop_event))
+    # Run the data processor in a separate thread, passing both queues
+    data_thread = threading.Thread(target=data_processor, args=(ppg_data_queue, eda_data_queue, stop_event))
     data_thread.start()
 
     # Run the Flask server in the main thread
