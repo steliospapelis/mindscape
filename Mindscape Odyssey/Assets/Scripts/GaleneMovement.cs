@@ -3,86 +3,213 @@ using UnityEngine;
 
 public class GaleneMovement : MonoBehaviour
 {
-    // Variables for movement
     public float moveSpeed = 5f;
-    public float jumpForce = 10f;
-    private bool isGrounded;
+    public float jumpForce = 15f;
+    public float wallSlideSpeed = 2f;
+    public float wallJumpXForce = 400f;
+    public float wallJumpYForce = 300f;
+    public bool isGrounded;
+    private bool isTouchingWall;
+    private bool isWallSliding;
     private Rigidbody2D rb;
     private Animator anim;
     private bool isFacingRight = true;
-    public bool canMove = false;       //changed to false so that she cant move while recovering at the start
+    public bool canMove = false;
     private bool isRecover = false;
 
     public Transform chart;
+    public Transform wallCheck;
+    public LayerMask wallLayer;
+    public LayerMask Ground;
 
+    public float initialGravityScale = 3.5f;
+    public float maxGravityScale = 6f;
+    public float gravityIncreaseSpeed = 2f;
+    private bool isJumping = false;
+    private bool isWallJumping = false;
+    private float wallJumpDuration = 0.2f;
+
+    private bool isBeingKnockedBack = false;
+    private float knockbackTimer = 0f;
+
+    private float wallTouchTime = 0f; // Timer to track time spent on wall
+    public float wallJumpCooldown = 0.5f; // Time required on the wall before wall jump is allowed
+
+     public bool isKnockedDown = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+        rb.gravityScale = initialGravityScale;
         anim.Play("recover", 0, 0);
         Time.timeScale = 1f;
+        canMove = false;
     }
 
     void Update()
     {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("recover"))
         {
-            canMove = false; 
             isRecover = true;
         }
 
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("recover") && isRecover)
         {
-            canMove = true;
             isRecover = false;
         }
 
+         if (knockbackTimer > 0)
+        {
+        knockbackTimer -= Time.deltaTime;
+        }
+        else if (isBeingKnockedBack)
+        {
+        isBeingKnockedBack = false;
+        }
 
-        if (canMove){
-       
-            // Check if the player is grounded
-            isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(0, -0.6f), 0.1f);
+        
 
-            // Horizontal movement
+        isGrounded = Physics2D.OverlapCircle((Vector2)transform.position + new Vector2(0, -0.6f), 0.25f, Ground);
+        isTouchingWall = Physics2D.OverlapCircle(wallCheck.position, 0.1f, wallLayer);
+
+        // Wall jumping logic with cooldown
+            if (isTouchingWall)
+            {
+                wallTouchTime += Time.deltaTime; // Increase the timer while touching the wall
+                if (wallTouchTime >= wallJumpCooldown && !isGrounded && Input.GetKeyDown(KeyCode.W) && rb.velocity.y<=0)
+                {
+                    StartCoroutine(PerformWallJump());
+                }
+            }
+            else
+            {
+                wallTouchTime = 0f; // Reset timer when not touching the wall
+            }
+
+            if (isTouchingWall && !isGrounded && rb.velocity.y < 0)
+            {
+                isWallSliding = true;
+                WallSlide();
+            }
+            else
+            {
+                isWallSliding = false;
+            }
+
+
+        if (canMove && !isBeingKnockedBack && !isKnockedDown)
+        {
             float horizontalInput = Input.GetAxisRaw("Horizontal");
-            Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
-            rb.velocity = movement;
+            if (!isWallJumping && (!isTouchingWall || isGrounded))
+            {
+                Vector2 movement = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+                rb.velocity = movement;
+            }
 
-            // Flip the character if moving in the opposite direction
-            if (horizontalInput > 0 && !isFacingRight)
+            if (horizontalInput > 0 && !isFacingRight && !isTouchingWall)
             {
                 Flip();
             }
-            else if (horizontalInput < 0 && isFacingRight)
+            else if (horizontalInput < 0 && isFacingRight && !isTouchingWall)
             {
                 Flip();
             }
 
-            // Jumping
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            if (Input.GetKeyDown(KeyCode.W) && isGrounded && rb.velocity.y==0)
             {
+                rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+                isJumping = true;
+                wallTouchTime = 0f;
+            }
+
             
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            ApplyCustomGravity();
 
+            anim.SetBool("Run", horizontalInput != 0);
+        }
 
-            }
+        if(!isKnockedDown){
 
-            //Animations
-            anim.SetBool("Run",horizontalInput!=0);
-            anim.SetBool("Grounded",isGrounded);
-
+        anim.SetBool("Grounded", isGrounded);
+        anim.SetBool("Climbing", isWallSliding);
         }
     }
 
-    // Flip character sprite
+    public void StartKnockback(float duration)
+    {
+    isBeingKnockedBack = true;
+    knockbackTimer = duration;
+    }
+
     private void Flip()
     {
         isFacingRight = !isFacingRight;
         transform.Rotate(0f, 180f, 0f);
-        chart.Rotate(0f, -180f, 0f);
+        
     }
 
+    private void WallSlide()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
+    }
+
+    private IEnumerator PerformWallJump()
+{
+    
+    rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
+    isWallJumping = true;
+    canMove = false;
+
+    float jumpDirection = isFacingRight ? -1 : 1;
+    float initialHorizontalForce = jumpDirection * wallJumpXForce;
+    float initialVerticalForce = wallJumpYForce;
+
+    // Apply initial impulse for a snappy wall jump
+    rb.velocity = new Vector2(initialHorizontalForce * 0.8f, initialVerticalForce * 0.6f);
+    Flip();
+
+    float duration = 0.15f; // Shortened duration for added responsiveness
+    float elapsed = 0f;
+
+    while (elapsed < duration)
+    {
+        // Apply a small, decreasing horizontal force to keep jump natural
+        rb.AddForce(new Vector2(initialHorizontalForce * 0.2f * (1 - (elapsed / duration)), 0), ForceMode2D.Force);
+
+        // Slight upward force to maintain jump height without floating
+        if (rb.velocity.y < initialVerticalForce * 0.6f)
+        {
+            rb.AddForce(new Vector2(0, 5f), ForceMode2D.Force);
+        }
+
+        elapsed += Time.fixedDeltaTime;
+        yield return new WaitForFixedUpdate();
+    }
+
+    // Cooldown to prevent immediate re-jumping
+    yield return new WaitForSeconds(wallJumpDuration);
+    isWallJumping = false;
+    yield return new WaitForSeconds(0.3f); // Cooldown before allowing horizontal input
+    canMove = true;
+    
 }
 
+    private void ApplyCustomGravity()
+    {
+        if (isGrounded)
+        {
+            rb.gravityScale = initialGravityScale;
+            isJumping = false;
+        }
+        else if (rb.velocity.y > 0 && isJumping)
+        {
+            rb.gravityScale = Mathf.Lerp(rb.gravityScale, maxGravityScale, gravityIncreaseSpeed * Time.deltaTime);
+        }
+        else if (rb.velocity.y < 0)
+        {
+            rb.gravityScale = maxGravityScale;
+        }
+    }
+}

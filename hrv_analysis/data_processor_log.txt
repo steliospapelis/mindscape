@@ -1,4 +1,3045 @@
 Starting data processor logging...
 Segment 1 skipped - Expected Timestamp 0min 30sec, Actual Timestamp 0min 30sec
-Current HRV: 422.16900249386697
+Current HRV: 51.672042731055235
+
+Segment 2 skipped - Expected Timestamp 0min 35sec, Actual Timestamp 0min 35sec
+Current HRV: 43.62597628078496
+
+Segment 3 skipped - Expected Timestamp 0min 40sec, Actual Timestamp 0min 40sec
+Current HRV: 35.69584777515581
+
+Segment 4 skipped - Expected Timestamp 0min 45sec, Actual Timestamp 0min 45sec
+Current HRV: 36.377648815355464
+
+Segment 5 skipped - Expected Timestamp 0min 50sec, Actual Timestamp 0min 50sec
+Current HRV: 39.67610802973366
+
+Segment 6 skipped - Expected Timestamp 0min 55sec, Actual Timestamp 0min 55sec
+Current HRV: 36.10021892525879
+
+Segment 7 skipped - Expected Timestamp 1min 0sec, Actual Timestamp 1min 0sec
+Current HRV: 42.13973867690182
+
+Segment 8 skipped - Expected Timestamp 1min 5sec, Actual Timestamp 1min 5sec
+Current HRV: 43.658454004472105
+
+Segment 9 skipped - Expected Timestamp 1min 10sec, Actual Timestamp 1min 10sec
+Current HRV: 42.03173404306165
+
+Segment 10 skipped - Expected Timestamp 1min 15sec, Actual Timestamp 1min 15sec
+Current HRV: 41.65686159142403
+
+
+Segment 11 - Expected Timestamp 1min 20sec, Actual Timestamp 1min 20sec
+Current HRV: 42.46321937865758
+
+Segment 12 - Expected Timestamp 1min 25sec, Actual Timestamp 1min 25sec
+Current HRV: 46.26688880830436
+
+Segment 13 - Expected Timestamp 1min 30sec, Actual Timestamp 1min 30sec
+Current HRV: 45.75530993334843
+
+Segment 14 - Expected Timestamp 1min 35sec, Actual Timestamp 1min 35sec
+Current HRV: 48.85792437459402
+
+Segment 15 - Expected Timestamp 1min 40sec, Actual Timestamp 1min 40sec
+Current HRV: 44.21355798482428
+
+Segment 16 - Expected Timestamp 1min 45sec, Actual Timestamp 1min 45sec
+Current HRV: 43.142674031411694
+
+Segment 17 - Expected Timestamp 1min 50sec, Actual Timestamp 1min 50sec
+Current HRV: 44.21355798482429
+
+Segment 18 - Expected Timestamp 1min 55sec, Actual Timestamp 1min 55sec
+Current HRV: 32.97115063496494
+
+Segment 19 - Expected Timestamp 2min 0sec, Actual Timestamp 2min 0sec
+Current HRV: 35.311117229563834
+
+Segment 20 - Expected Timestamp 2min 5sec, Actual Timestamp 2min 5sec
+Current HRV: 34.32382554436495
+
+Baseline HRV established: 41.75192259048583
+
+
+Segment 21 - Expected Timestamp 2min 10sec, Actual Timestamp 2min 10sec
+Current HRV: 38.40572873934304
+Change from Baseline: -8.01%
+Change from Previous: 0.00%
+Previous Three HRV Values: [38.40572873934304]
+Change from Mean of Last Three: 0.00%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 22 - Expected Timestamp 2min 15sec, Actual Timestamp 2min 15sec
+Current HRV: 39.1852506814457
+Change from Baseline: -6.15%
+Change from Previous: 2.03%
+Previous HRV for Change: 38.40572873934304
+Previous Three HRV Values: [38.40572873934304, 39.1852506814457]
+Change from Mean of Last Three: 0.00%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 23 - Expected Timestamp 2min 20sec, Actual Timestamp 2min 20sec
+Current HRV: 35.514649408105456
+Change from Baseline: -14.94%
+Change from Previous: -9.37%
+Previous HRV for Change: 39.1852506814457
+Previous Three HRV Values: [38.40572873934304, 39.1852506814457, 35.514649408105456]
+Change from Mean of Last Three: -5.80%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 24 - Expected Timestamp 2min 25sec, Actual Timestamp 2min 25sec
+Current HRV: 41.50398348545945
+Change from Baseline: -0.59%
+Change from Previous: 16.86%
+Previous HRV for Change: 35.514649408105456
+Previous Three HRV Values: [39.1852506814457, 35.514649408105456, 41.50398348545945]
+Change from Mean of Last Three: 7.15%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 25 - Expected Timestamp 2min 30sec, Actual Timestamp 2min 30sec
+Current HRV: 49.93935716385819
+Change from Baseline: 19.61%
+Change from Previous: 20.32%
+Previous HRV for Change: 41.50398348545945
+Previous Three HRV Values: [35.514649408105456, 41.50398348545945, 49.93935716385819]
+Change from Mean of Last Three: 29.68%
+Excluded Value from Mean Calculation: 49.93935716385819
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 26 - Expected Timestamp 2min 35sec, Actual Timestamp 2min 35sec
+Current HRV: 48.11602139777889
+Change from Baseline: 15.24%
+Change from Previous: -3.65%
+Previous HRV for Change: 49.93935716385819
+Previous Three HRV Values: [41.50398348545945, 49.93935716385819, 48.11602139777889]
+Change from Mean of Last Three: 5.24%
+Excluded Value from Mean Calculation: 49.93935716385819
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 27 - Expected Timestamp 2min 40sec, Actual Timestamp 2min 40sec
+Current HRV: 46.8414095332199
+Change from Baseline: 12.19%
+Change from Previous: -2.65%
+Previous HRV for Change: 48.11602139777889
+Previous Three HRV Values: [49.93935716385819, 48.11602139777889, 46.8414095332199]
+Change from Mean of Last Three: -3.02%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 28 - Expected Timestamp 2min 45sec, Actual Timestamp 2min 45sec
+Current HRV: 47.599519805501046
+Change from Baseline: 14.01%
+Change from Previous: 1.62%
+Previous HRV for Change: 46.8414095332199
+Previous Three HRV Values: [48.11602139777889, 46.8414095332199, 47.599519805501046]
+Change from Mean of Last Three: 0.17%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 29 - Expected Timestamp 2min 50sec, Actual Timestamp 2min 50sec
+Current HRV: 40.602603716651345
+Change from Baseline: -2.75%
+Change from Previous: -14.70%
+Previous HRV for Change: 47.599519805501046
+Previous Three HRV Values: [46.8414095332199, 47.599519805501046, 40.602603716651345]
+Change from Mean of Last Three: -9.80%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 30 - Expected Timestamp 2min 55sec, Actual Timestamp 2min 55sec
+Current HRV: 36.380343755449964
+Change from Baseline: -12.87%
+Change from Previous: -10.40%
+Previous HRV for Change: 40.602603716651345
+Previous Three HRV Values: [47.599519805501046, 40.602603716651345, 36.380343755449964]
+Change from Mean of Last Three: -12.39%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 31 - Expected Timestamp 3min 0sec, Actual Timestamp 3min 0sec
+Current HRV: 36.306773723119754
+Change from Baseline: -13.04%
+Change from Previous: -0.20%
+Previous HRV for Change: 36.380343755449964
+Previous Three HRV Values: [40.602603716651345, 36.380343755449964, 36.306773723119754]
+Change from Mean of Last Three: -3.86%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 32 - Expected Timestamp 3min 5sec, Actual Timestamp 3min 5sec
+Current HRV: 31.721443851123812
+Change from Baseline: -24.02%
+Change from Previous: -12.63%
+Previous HRV for Change: 36.306773723119754
+Previous Three HRV Values: [36.380343755449964, 36.306773723119754, 31.721443851123812]
+Change from Mean of Last Three: -8.85%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 33 - Expected Timestamp 3min 10sec, Actual Timestamp 3min 10sec
+Current HRV: 42.68342769740969
+Change from Baseline: 2.23%
+Change from Previous: 34.56%
+Previous HRV for Change: 31.721443851123812
+Previous Three HRV Values: [36.306773723119754, 31.721443851123812, 42.68342769740969]
+Change from Mean of Last Three: 17.56%
+Excluded Value from Mean Calculation: 42.68342769740969
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 34 - Expected Timestamp 3min 15sec, Actual Timestamp 3min 15sec
+Current HRV: 45.9279326771846
+Change from Baseline: 10.00%
+Change from Previous: 7.60%
+Previous HRV for Change: 42.68342769740969
+Previous Three HRV Values: [31.721443851123812, 42.68342769740969, 45.9279326771846]
+Change from Mean of Last Three: 7.60%
+Excluded Value from Mean Calculation: 42.68342769740969
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 35 - Expected Timestamp 3min 20sec, Actual Timestamp 3min 20sec
+Current HRV: 53.473124090518596
+Change from Baseline: 28.07%
+Change from Previous: 16.43%
+Previous HRV for Change: 45.9279326771846
+Previous Three HRV Values: [42.68342769740969, 45.9279326771846, 53.473124090518596]
+Change from Mean of Last Three: 12.90%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 36 - Expected Timestamp 3min 25sec, Actual Timestamp 3min 25sec
+Current HRV: 48.50901977983062
+Change from Baseline: 16.18%
+Change from Previous: -9.28%
+Previous HRV for Change: 53.473124090518596
+Previous Three HRV Values: [45.9279326771846, 53.473124090518596, 48.50901977983062]
+Change from Mean of Last Three: -1.61%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 37 - Expected Timestamp 3min 30sec, Actual Timestamp 3min 30sec
+Current HRV: 52.301853418093515
+Change from Baseline: 25.27%
+Change from Previous: 7.82%
+Previous HRV for Change: 48.50901977983062
+Previous Three HRV Values: [53.473124090518596, 48.50901977983062, 52.301853418093515]
+Change from Mean of Last Three: 1.70%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 38 - Expected Timestamp 3min 35sec, Actual Timestamp 3min 35sec
+Current HRV: 50.3736041990247
+Change from Baseline: 20.65%
+Change from Previous: -3.69%
+Previous HRV for Change: 52.301853418093515
+Previous Three HRV Values: [48.50901977983062, 52.301853418093515, 50.3736041990247]
+Change from Mean of Last Three: -0.04%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 39 - Expected Timestamp 3min 40sec, Actual Timestamp 3min 40sec
+Current HRV: 46.38548159958895
+Change from Baseline: 11.10%
+Change from Previous: -7.92%
+Previous HRV for Change: 50.3736041990247
+Previous Three HRV Values: [52.301853418093515, 50.3736041990247, 46.38548159958895]
+Change from Mean of Last Three: -6.64%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 40 - Expected Timestamp 3min 45sec, Actual Timestamp 3min 45sec
+Current HRV: 40.361271759751524
+Change from Baseline: -3.33%
+Change from Previous: -12.99%
+Previous HRV for Change: 46.38548159958895
+Previous Three HRV Values: [50.3736041990247, 46.38548159958895, 40.361271759751524]
+Change from Mean of Last Three: -11.70%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 41 - Expected Timestamp 3min 50sec, Actual Timestamp 3min 50sec
+Current HRV: 36.764288422677325
+Change from Baseline: -11.95%
+Change from Previous: -8.91%
+Previous HRV for Change: 40.361271759751524
+Previous Three HRV Values: [46.38548159958895, 40.361271759751524, 36.764288422677325]
+Change from Mean of Last Three: -10.70%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 42 - Expected Timestamp 3min 55sec, Actual Timestamp 3min 55sec
+Current HRV: 31.212073759798415
+Change from Baseline: -25.24%
+Change from Previous: -15.10%
+Previous HRV for Change: 36.764288422677325
+Previous Three HRV Values: [40.361271759751524, 36.764288422677325, 31.212073759798415]
+Change from Mean of Last Three: -13.57%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 43 - Expected Timestamp 4min 0sec, Actual Timestamp 4min 0sec
+Current HRV: 30.05203820042826
+Change from Baseline: -28.02%
+Change from Previous: -3.72%
+Previous HRV for Change: 31.212073759798415
+Previous Three HRV Values: [36.764288422677325, 31.212073759798415, 30.05203820042826]
+Change from Mean of Last Three: -8.03%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 44 - Expected Timestamp 4min 5sec, Actual Timestamp 4min 5sec
+Current HRV: 27.04163456597992
+Change from Baseline: -35.23%
+Change from Previous: -10.02%
+Previous HRV for Change: 30.05203820042826
+Previous Three HRV Values: [31.212073759798415, 30.05203820042826, 27.04163456597992]
+Change from Mean of Last Three: -8.13%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 45 - Expected Timestamp 4min 10sec, Actual Timestamp 4min 11sec
+Current HRV: 28.023099715182443
+Change from Baseline: -32.88%
+Change from Previous: 3.63%
+Previous HRV for Change: 27.04163456597992
+Previous Three HRV Values: [30.05203820042826, 27.04163456597992, 28.023099715182443]
+Change from Mean of Last Three: -1.23%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 46 - Expected Timestamp 4min 15sec, Actual Timestamp 4min 16sec
+Current HRV: 30.195441806377872
+Change from Baseline: -27.68%
+Change from Previous: 7.75%
+Previous HRV for Change: 28.023099715182443
+Previous Three HRV Values: [27.04163456597992, 28.023099715182443, 30.195441806377872]
+Change from Mean of Last Three: 6.25%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 47 - Expected Timestamp 4min 20sec, Actual Timestamp 4min 21sec
+Current HRV: 28.48558532711889
+Change from Baseline: -31.77%
+Change from Previous: -5.66%
+Previous HRV for Change: 30.195441806377872
+Previous Three HRV Values: [28.023099715182443, 30.195441806377872, 28.48558532711889]
+Change from Mean of Last Three: -1.44%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 48 - Expected Timestamp 4min 25sec, Actual Timestamp 4min 26sec
+Current HRV: 31.121880222303858
+Change from Baseline: -25.46%
+Change from Previous: 9.25%
+Previous HRV for Change: 28.48558532711889
+Previous Three HRV Values: [30.195441806377872, 28.48558532711889, 31.121880222303858]
+Change from Mean of Last Three: 3.97%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 49 - Expected Timestamp 4min 30sec, Actual Timestamp 4min 31sec
+Current HRV: 34.805582475065286
+Change from Baseline: -16.64%
+Change from Previous: 11.84%
+Previous HRV for Change: 31.121880222303858
+Previous Three HRV Values: [28.48558532711889, 31.121880222303858, 34.805582475065286]
+Change from Mean of Last Three: 10.60%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 50 - Expected Timestamp 4min 35sec, Actual Timestamp 4min 36sec
+Current HRV: 35.13240262614721
+Change from Baseline: -15.85%
+Change from Previous: 0.94%
+Previous HRV for Change: 34.805582475065286
+Previous Three HRV Values: [31.121880222303858, 34.805582475065286, 35.13240262614721]
+Change from Mean of Last Three: 4.29%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 51 - Expected Timestamp 4min 40sec, Actual Timestamp 4min 41sec
+Current HRV: 30.77432084594902
+Change from Baseline: -26.29%
+Change from Previous: -12.40%
+Previous HRV for Change: 35.13240262614721
+Previous Three HRV Values: [34.805582475065286, 35.13240262614721, 30.77432084594902]
+Change from Mean of Last Three: -8.33%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 52 - Expected Timestamp 4min 45sec, Actual Timestamp 4min 46sec
+Current HRV: 37.29847812697237
+Change from Baseline: -10.67%
+Change from Previous: 21.20%
+Previous HRV for Change: 30.77432084594902
+Previous Three HRV Values: [35.13240262614721, 30.77432084594902, 37.29847812697237]
+Change from Mean of Last Three: 13.19%
+Excluded Value from Mean Calculation: 37.29847812697237
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 53 - Expected Timestamp 4min 50sec, Actual Timestamp 4min 51sec
+Current HRV: 34.98917581542076
+Change from Baseline: -16.20%
+Change from Previous: -6.19%
+Previous HRV for Change: 37.29847812697237
+Previous Three HRV Values: [30.77432084594902, 37.29847812697237, 34.98917581542076]
+Change from Mean of Last Three: 2.80%
+Excluded Value from Mean Calculation: 37.29847812697237
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 54 - Expected Timestamp 4min 55sec, Actual Timestamp 4min 56sec
+Current HRV: 33.61997962972362
+Change from Baseline: -19.48%
+Change from Previous: -3.91%
+Previous HRV for Change: 34.98917581542076
+Previous Three HRV Values: [37.29847812697237, 34.98917581542076, 33.61997962972362]
+Change from Mean of Last Three: -4.77%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 55 - Expected Timestamp 5min 0sec, Actual Timestamp 5min 1sec
+Current HRV: 33.93398225253194
+Change from Baseline: -18.72%
+Change from Previous: 0.93%
+Previous HRV for Change: 33.61997962972362
+Previous Three HRV Values: [34.98917581542076, 33.61997962972362, 33.93398225253194]
+Change from Mean of Last Three: -0.72%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 56 - Expected Timestamp 5min 5sec, Actual Timestamp 5min 6sec
+Current HRV: 31.573327350787736
+Change from Baseline: -24.38%
+Change from Previous: -6.96%
+Previous HRV for Change: 33.93398225253194
+Previous Three HRV Values: [33.61997962972362, 33.93398225253194, 31.573327350787736]
+Change from Mean of Last Three: -4.45%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 57 - Expected Timestamp 5min 10sec, Actual Timestamp 5min 11sec
+Current HRV: 30.69892901102974
+Change from Baseline: -26.47%
+Change from Previous: -2.77%
+Previous HRV for Change: 31.573327350787736
+Previous Three HRV Values: [33.93398225253194, 31.573327350787736, 30.69892901102974]
+Change from Mean of Last Three: -4.27%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 58 - Expected Timestamp 5min 15sec, Actual Timestamp 5min 16sec
+Current HRV: 37.0503343132997
+Change from Baseline: -11.26%
+Change from Previous: 20.69%
+Previous HRV for Change: 30.69892901102974
+Previous Three HRV Values: [31.573327350787736, 30.69892901102974, 37.0503343132997]
+Change from Mean of Last Three: 18.99%
+Excluded Value from Mean Calculation: 37.0503343132997
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 59 - Expected Timestamp 5min 20sec, Actual Timestamp 5min 21sec
+Current HRV: 35.000000000000014
+Change from Baseline: -16.17%
+Change from Previous: -5.53%
+Previous HRV for Change: 37.0503343132997
+Previous Three HRV Values: [30.69892901102974, 37.0503343132997, 35.000000000000014]
+Change from Mean of Last Three: 3.32%
+Excluded Value from Mean Calculation: 37.0503343132997
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 60 - Expected Timestamp 5min 25sec, Actual Timestamp 5min 26sec
+Current HRV: 34.50543435460566
+Change from Baseline: -17.36%
+Change from Previous: -1.41%
+Previous HRV for Change: 35.000000000000014
+Previous Three HRV Values: [37.0503343132997, 35.000000000000014, 34.50543435460566]
+Change from Mean of Last Three: -2.85%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 61 - Expected Timestamp 5min 30sec, Actual Timestamp 5min 31sec
+Current HRV: 39.725621455176764
+Change from Baseline: -4.85%
+Change from Previous: 15.13%
+Previous HRV for Change: 34.50543435460566
+Previous Three HRV Values: [35.000000000000014, 34.50543435460566, 39.725621455176764]
+Change from Mean of Last Three: 9.11%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 62 - Expected Timestamp 5min 35sec, Actual Timestamp 5min 36sec
+Current HRV: 35.161962919661306
+Change from Baseline: -15.78%
+Change from Previous: -11.49%
+Previous HRV for Change: 39.725621455176764
+Previous Three HRV Values: [34.50543435460566, 39.725621455176764, 35.161962919661306]
+Change from Mean of Last Three: -3.57%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 63 - Expected Timestamp 5min 40sec, Actual Timestamp 5min 41sec
+Current HRV: 36.26501778782847
+Change from Baseline: -13.14%
+Change from Previous: 3.14%
+Previous HRV for Change: 35.161962919661306
+Previous Three HRV Values: [39.725621455176764, 35.161962919661306, 36.26501778782847]
+Change from Mean of Last Three: -2.12%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 64 - Expected Timestamp 5min 45sec, Actual Timestamp 5min 46sec
+Current HRV: 32.500000000000014
+Change from Baseline: -22.16%
+Change from Previous: -10.38%
+Previous HRV for Change: 36.26501778782847
+Previous Three HRV Values: [35.161962919661306, 36.26501778782847, 32.500000000000014]
+Change from Mean of Last Three: -6.18%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 65 - Expected Timestamp 5min 50sec, Actual Timestamp 5min 51sec
+Current HRV: 35.63280749108848
+Change from Baseline: -14.66%
+Change from Previous: 9.64%
+Previous HRV for Change: 32.500000000000014
+Previous Three HRV Values: [36.26501778782847, 32.500000000000014, 35.63280749108848]
+Change from Mean of Last Three: 2.40%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 66 - Expected Timestamp 5min 55sec, Actual Timestamp 5min 56sec
+Current HRV: 34.728383291777455
+Change from Baseline: -16.82%
+Change from Previous: -2.54%
+Previous HRV for Change: 35.63280749108848
+Previous Three HRV Values: [32.500000000000014, 35.63280749108848, 34.728383291777455]
+Change from Mean of Last Three: 1.29%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 67 - Expected Timestamp 6min 0sec, Actual Timestamp 6min 1sec
+Current HRV: 37.45704610657792
+Change from Baseline: -10.29%
+Change from Previous: 7.86%
+Previous HRV for Change: 34.728383291777455
+Previous Three HRV Values: [35.63280749108848, 34.728383291777455, 37.45704610657792]
+Change from Mean of Last Three: 4.22%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 68 - Expected Timestamp 6min 5sec, Actual Timestamp 6min 6sec
+Current HRV: 31.478708533055975
+Change from Baseline: -24.61%
+Change from Previous: -15.96%
+Previous HRV for Change: 37.45704610657792
+Previous Three HRV Values: [34.728383291777455, 37.45704610657792, 31.478708533055975]
+Change from Mean of Last Three: -8.90%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 69 - Expected Timestamp 6min 10sec, Actual Timestamp 6min 11sec
+Current HRV: 35.11884584284246
+Change from Baseline: -15.89%
+Change from Previous: 11.56%
+Previous HRV for Change: 31.478708533055975
+Previous Three HRV Values: [37.45704610657792, 31.478708533055975, 35.11884584284246]
+Change from Mean of Last Three: 1.25%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 70 - Expected Timestamp 6min 15sec, Actual Timestamp 6min 16sec
+Current HRV: 33.3809184158512
+Change from Baseline: -20.05%
+Change from Previous: -4.95%
+Previous HRV for Change: 35.11884584284246
+Previous Three HRV Values: [31.478708533055975, 35.11884584284246, 33.3809184158512]
+Change from Mean of Last Three: 0.16%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 71 - Expected Timestamp 6min 20sec, Actual Timestamp 6min 21sec
+Current HRV: 34.267852490135894
+Change from Baseline: -17.93%
+Change from Previous: 2.66%
+Previous HRV for Change: 33.3809184158512
+Previous Three HRV Values: [35.11884584284246, 33.3809184158512, 34.267852490135894]
+Change from Mean of Last Three: 0.03%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 72 - Expected Timestamp 6min 25sec, Actual Timestamp 6min 26sec
+Current HRV: 30.37856387088009
+Change from Baseline: -27.24%
+Change from Previous: -11.35%
+Previous HRV for Change: 34.267852490135894
+Previous Three HRV Values: [33.3809184158512, 34.267852490135894, 30.37856387088009]
+Change from Mean of Last Three: -7.03%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 73 - Expected Timestamp 6min 30sec, Actual Timestamp 6min 31sec
+Current HRV: 39.20641346951868
+Change from Baseline: -6.10%
+Change from Previous: 29.06%
+Previous HRV for Change: 30.37856387088009
+Previous Three HRV Values: [34.267852490135894, 30.37856387088009, 39.20641346951868]
+Change from Mean of Last Three: 21.29%
+Excluded Value from Mean Calculation: 39.20641346951868
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 74 - Expected Timestamp 6min 35sec, Actual Timestamp 6min 36sec
+Current HRV: 33.29521630161648
+Change from Baseline: -20.25%
+Change from Previous: -15.08%
+Previous HRV for Change: 39.20641346951868
+Previous Three HRV Values: [30.37856387088009, 39.20641346951868, 33.29521630161648]
+Change from Mean of Last Three: -4.30%
+Excluded Value from Mean Calculation: 39.20641346951868
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 75 - Expected Timestamp 6min 40sec, Actual Timestamp 6min 41sec
+Current HRV: 36.34848169060327
+Change from Baseline: -12.94%
+Change from Previous: 9.17%
+Previous HRV for Change: 33.29521630161648
+Previous Three HRV Values: [39.20641346951868, 33.29521630161648, 36.34848169060327]
+Change from Mean of Last Three: 0.18%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 76 - Expected Timestamp 6min 45sec, Actual Timestamp 6min 46sec
+Current HRV: 43.37992832887328
+Change from Baseline: 3.90%
+Change from Previous: 19.34%
+Previous HRV for Change: 36.34848169060327
+Previous Three HRV Values: [33.29521630161648, 36.34848169060327, 43.37992832887328]
+Change from Mean of Last Three: 15.14%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 77 - Expected Timestamp 6min 50sec, Actual Timestamp 6min 51sec
+Current HRV: 51.14318136369696
+Change from Baseline: 22.49%
+Change from Previous: 17.90%
+Previous HRV for Change: 43.37992832887328
+Previous Three HRV Values: [36.34848169060327, 43.37992832887328, 51.14318136369696]
+Change from Mean of Last Three: 17.24%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 78 - Expected Timestamp 6min 55sec, Actual Timestamp 6min 56sec
+Current HRV: 59.00211860602975
+Change from Baseline: 41.32%
+Change from Previous: 15.37%
+Previous HRV for Change: 51.14318136369696
+Previous Three HRV Values: [43.37992832887328, 51.14318136369696, 59.00211860602975]
+Change from Mean of Last Three: 15.29%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 79 - Expected Timestamp 7min 0sec, Actual Timestamp 7min 1sec
+Current HRV: 61.27673873238866
+Change from Baseline: 46.76%
+Change from Previous: 3.86%
+Previous HRV for Change: 59.00211860602975
+Previous Three HRV Values: [51.14318136369696, 59.00211860602975, 61.27673873238866]
+Change from Mean of Last Three: 7.24%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 80 - Expected Timestamp 7min 5sec, Actual Timestamp 7min 6sec
+Current HRV: 65.13014266736232
+Change from Baseline: 55.99%
+Change from Previous: 6.29%
+Previous HRV for Change: 61.27673873238866
+Previous Three HRV Values: [59.00211860602975, 61.27673873238866, 65.13014266736232]
+Change from Mean of Last Three: 5.38%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 81 - Expected Timestamp 7min 10sec, Actual Timestamp 7min 11sec
+Current HRV: 84.11301920630362
+Change from Baseline: 101.46%
+Change from Previous: 29.15%
+Previous HRV for Change: 65.13014266736232
+Previous Three HRV Values: [61.27673873238866, 65.13014266736232, 84.11301920630362]
+Change from Mean of Last Three: 33.08%
+Excluded Value from Mean Calculation: 84.11301920630362
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 82 - Expected Timestamp 7min 15sec, Actual Timestamp 7min 16sec
+Current HRV: 56.96631715604038
+Change from Baseline: 36.44%
+Change from Previous: -32.27%
+Previous HRV for Change: 84.11301920630362
+Previous Three HRV Values: [65.13014266736232, 84.11301920630362, 56.96631715604038]
+Change from Mean of Last Three: -12.53%
+Excluded Value from Mean Calculation: 84.11301920630362
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 83 - Expected Timestamp 7min 20sec, Actual Timestamp 7min 21sec
+Current HRV: 59.660497818908624
+Change from Baseline: 42.89%
+Change from Previous: 4.73%
+Previous HRV for Change: 56.96631715604038
+Previous Three HRV Values: [84.11301920630362, 56.96631715604038, 59.660497818908624]
+Change from Mean of Last Three: 4.73%
+Excluded Value from Mean Calculation: 56.96631715604038
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 84 - Expected Timestamp 7min 25sec, Actual Timestamp 7min 26sec
+Current HRV: 46.13160521811484
+Change from Baseline: 10.49%
+Change from Previous: -22.68%
+Previous HRV for Change: 59.660497818908624
+Previous Three HRV Values: [56.96631715604038, 59.660497818908624, 46.13160521811484]
+Change from Mean of Last Three: -20.89%
+Excluded Value from Mean Calculation: 46.13160521811484
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 85 - Expected Timestamp 7min 30sec, Actual Timestamp 7min 31sec
+Current HRV: 44.30011286667337
+Change from Baseline: 6.10%
+Change from Previous: -3.97%
+Previous HRV for Change: 46.13160521811484
+Previous Three HRV Values: [59.660497818908624, 46.13160521811484, 44.30011286667337]
+Change from Mean of Last Three: -16.25%
+Excluded Value from Mean Calculation: 46.13160521811484
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 86 - Expected Timestamp 7min 35sec, Actual Timestamp 7min 36sec
+Current HRV: 36.01215072721983
+Change from Baseline: -13.75%
+Change from Previous: -18.71%
+Previous HRV for Change: 44.30011286667337
+Previous Three HRV Values: [46.13160521811484, 44.30011286667337, 36.01215072721983]
+Change from Mean of Last Three: -14.56%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 87 - Expected Timestamp 7min 40sec, Actual Timestamp 7min 41sec
+Current HRV: 32.42858157899921
+Change from Baseline: -22.33%
+Change from Previous: -9.95%
+Previous HRV for Change: 36.01215072721983
+Previous Three HRV Values: [44.30011286667337, 36.01215072721983, 32.42858157899921]
+Change from Mean of Last Three: -13.71%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 88 - Expected Timestamp 7min 45sec, Actual Timestamp 7min 46sec
+Current HRV: 36.784847423905404
+Change from Baseline: -11.90%
+Change from Previous: 13.43%
+Previous HRV for Change: 32.42858157899921
+Previous Three HRV Values: [36.01215072721983, 32.42858157899921, 36.784847423905404]
+Change from Mean of Last Three: 4.87%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 89 - Expected Timestamp 7min 50sec, Actual Timestamp 7min 51sec
+Current HRV: 37.24916106437836
+Change from Baseline: -10.78%
+Change from Previous: 1.26%
+Previous HRV for Change: 36.784847423905404
+Previous Three HRV Values: [32.42858157899921, 36.784847423905404, 37.24916106437836]
+Change from Mean of Last Three: 4.96%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 90 - Expected Timestamp 7min 55sec, Actual Timestamp 7min 56sec
+Current HRV: 41.967729538070635
+Change from Baseline: 0.52%
+Change from Previous: 12.67%
+Previous HRV for Change: 37.24916106437836
+Previous Three HRV Values: [36.784847423905404, 37.24916106437836, 41.967729538070635]
+Change from Mean of Last Three: 8.54%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 91 - Expected Timestamp 8min 0sec, Actual Timestamp 8min 1sec
+Current HRV: 40.85033659592048
+Change from Baseline: -2.16%
+Change from Previous: -2.66%
+Previous HRV for Change: 41.967729538070635
+Previous Three HRV Values: [37.24916106437836, 41.967729538070635, 40.85033659592048]
+Change from Mean of Last Three: 2.07%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 92 - Expected Timestamp 8min 5sec, Actual Timestamp 8min 6sec
+Current HRV: 42.61015137264827
+Change from Baseline: 2.06%
+Change from Previous: 4.31%
+Previous HRV for Change: 40.85033659592048
+Previous Three HRV Values: [41.967729538070635, 40.85033659592048, 42.61015137264827]
+Change from Mean of Last Three: 1.92%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 93 - Expected Timestamp 8min 10sec, Actual Timestamp 8min 12sec
+Current HRV: 41.5239981726522
+Change from Baseline: -0.55%
+Change from Previous: -2.55%
+Previous HRV for Change: 42.61015137264827
+Previous Three HRV Values: [40.85033659592048, 42.61015137264827, 41.5239981726522]
+Change from Mean of Last Three: -0.33%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 94 - Expected Timestamp 8min 15sec, Actual Timestamp 8min 17sec
+Current HRV: 37.93934553196639
+Change from Baseline: -9.13%
+Change from Previous: -8.63%
+Previous HRV for Change: 41.5239981726522
+Previous Three HRV Values: [42.61015137264827, 41.5239981726522, 37.93934553196639]
+Change from Mean of Last Three: -6.76%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 95 - Expected Timestamp 8min 20sec, Actual Timestamp 8min 22sec
+Current HRV: 32.05109557055307
+Change from Baseline: -23.23%
+Change from Previous: -15.52%
+Previous HRV for Change: 37.93934553196639
+Previous Three HRV Values: [41.5239981726522, 37.93934553196639, 32.05109557055307]
+Change from Mean of Last Three: -13.78%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 96 - Expected Timestamp 8min 25sec, Actual Timestamp 8min 27sec
+Current HRV: 28.069178610689484
+Change from Baseline: -32.77%
+Change from Previous: -12.42%
+Previous HRV for Change: 32.05109557055307
+Previous Three HRV Values: [37.93934553196639, 32.05109557055307, 28.069178610689484]
+Change from Mean of Last Three: -14.13%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 97 - Expected Timestamp 8min 30sec, Actual Timestamp 8min 32sec
+Current HRV: 28.12310599683276
+Change from Baseline: -32.64%
+Change from Previous: 0.19%
+Previous HRV for Change: 28.069178610689484
+Previous Three HRV Values: [32.05109557055307, 28.069178610689484, 28.12310599683276]
+Change from Mean of Last Three: -4.39%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 98 - Expected Timestamp 8min 35sec, Actual Timestamp 8min 37sec
+Current HRV: 27.743413086658414
+Change from Baseline: -33.55%
+Change from Previous: -1.35%
+Previous HRV for Change: 28.12310599683276
+Previous Three HRV Values: [28.069178610689484, 28.12310599683276, 27.743413086658414]
+Change from Mean of Last Three: -0.84%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 99 - Expected Timestamp 8min 40sec, Actual Timestamp 8min 42sec
+Current HRV: 29.60524595802733
+Change from Baseline: -29.09%
+Change from Previous: 6.71%
+Previous HRV for Change: 27.743413086658414
+Previous Three HRV Values: [28.12310599683276, 27.743413086658414, 29.60524595802733]
+Change from Mean of Last Three: 3.91%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 100 - Expected Timestamp 8min 45sec, Actual Timestamp 8min 47sec
+Current HRV: 28.834503141697645
+Change from Baseline: -30.94%
+Change from Previous: -2.60%
+Previous HRV for Change: 29.60524595802733
+Previous Three HRV Values: [27.743413086658414, 29.60524595802733, 28.834503141697645]
+Change from Mean of Last Three: 0.37%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 101 - Expected Timestamp 8min 50sec, Actual Timestamp 8min 52sec
+Current HRV: 37.63863263545406
+Change from Baseline: -9.85%
+Change from Previous: 30.53%
+Previous HRV for Change: 28.834503141697645
+Previous Three HRV Values: [29.60524595802733, 28.834503141697645, 37.63863263545406]
+Change from Mean of Last Three: 27.14%
+Excluded Value from Mean Calculation: 37.63863263545406
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 102 - Expected Timestamp 8min 55sec, Actual Timestamp 8min 57sec
+Current HRV: 33.55166591563354
+Change from Baseline: -19.64%
+Change from Previous: -10.86%
+Previous HRV for Change: 37.63863263545406
+Previous Three HRV Values: [28.834503141697645, 37.63863263545406, 33.55166591563354]
+Change from Mean of Last Three: -10.86%
+Excluded Value from Mean Calculation: 37.63863263545406
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 103 - Expected Timestamp 9min 0sec, Actual Timestamp 9min 2sec
+Current HRV: 37.984959429452374
+Change from Baseline: -9.02%
+Change from Previous: 13.21%
+Previous HRV for Change: 33.55166591563354
+Previous Three HRV Values: [37.63863263545406, 33.55166591563354, 37.984959429452374]
+Change from Mean of Last Three: 4.38%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 104 - Expected Timestamp 9min 5sec, Actual Timestamp 9min 7sec
+Current HRV: 59.63121961641551
+Change from Baseline: 42.82%
+Change from Previous: 56.99%
+Previous HRV for Change: 37.984959429452374
+Previous Three HRV Values: [33.55166591563354, 37.984959429452374, 59.63121961641551]
+Change from Mean of Last Three: 77.73%
+Excluded Value from Mean Calculation: 59.63121961641551
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 105 - Expected Timestamp 9min 10sec, Actual Timestamp 9min 12sec
+Current HRV: 60.15132432608462
+Change from Baseline: 44.07%
+Change from Previous: 0.87%
+Previous HRV for Change: 59.63121961641551
+Previous Three HRV Values: [37.984959429452374, 59.63121961641551, 60.15132432608462]
+Change from Mean of Last Three: 0.87%
+Excluded Value from Mean Calculation: 59.63121961641551
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 106 - Expected Timestamp 9min 15sec, Actual Timestamp 9min 17sec
+Current HRV: 63.960214906683134
+Change from Baseline: 53.19%
+Change from Previous: 6.33%
+Previous HRV for Change: 60.15132432608462
+Previous Three HRV Values: [59.63121961641551, 60.15132432608462, 63.960214906683134]
+Change from Mean of Last Three: 4.43%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 107 - Expected Timestamp 9min 20sec, Actual Timestamp 9min 22sec
+Current HRV: 66.70832032063166
+Change from Baseline: 59.77%
+Change from Previous: 4.30%
+Previous HRV for Change: 63.960214906683134
+Previous Three HRV Values: [60.15132432608462, 63.960214906683134, 66.70832032063166]
+Change from Mean of Last Three: 4.88%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 108 - Expected Timestamp 9min 25sec, Actual Timestamp 9min 27sec
+Current HRV: 66.37816362374457
+Change from Baseline: 58.98%
+Change from Previous: -0.49%
+Previous HRV for Change: 66.70832032063166
+Previous Three HRV Values: [63.960214906683134, 66.70832032063166, 66.37816362374457]
+Change from Mean of Last Three: 1.06%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 109 - Expected Timestamp 9min 30sec, Actual Timestamp 9min 32sec
+Current HRV: 52.30185341809354
+Change from Baseline: 25.27%
+Change from Previous: -21.21%
+Previous HRV for Change: 66.37816362374457
+Previous Three HRV Values: [66.70832032063166, 66.37816362374457, 52.30185341809354]
+Change from Mean of Last Three: -21.40%
+Excluded Value from Mean Calculation: 52.30185341809354
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 110 - Expected Timestamp 9min 35sec, Actual Timestamp 9min 37sec
+Current HRV: 47.36823830374104
+Change from Baseline: 13.45%
+Change from Previous: -9.43%
+Previous HRV for Change: 52.30185341809354
+Previous Three HRV Values: [66.37816362374457, 52.30185341809354, 47.36823830374104]
+Change from Mean of Last Three: -20.17%
+Excluded Value from Mean Calculation: 52.30185341809354
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 111 - Expected Timestamp 9min 40sec, Actual Timestamp 9min 42sec
+Current HRV: 42.61015137264828
+Change from Baseline: 2.06%
+Change from Previous: -10.04%
+Previous HRV for Change: 47.36823830374104
+Previous Three HRV Values: [52.30185341809354, 47.36823830374104, 42.61015137264828]
+Change from Mean of Last Three: -10.16%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 112 - Expected Timestamp 9min 45sec, Actual Timestamp 9min 47sec
+Current HRV: 39.60744879438715
+Change from Baseline: -5.14%
+Change from Previous: -7.05%
+Previous HRV for Change: 42.61015137264828
+Previous Three HRV Values: [47.36823830374104, 42.61015137264828, 39.60744879438715]
+Change from Mean of Last Three: -8.31%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 113 - Expected Timestamp 9min 50sec, Actual Timestamp 9min 52sec
+Current HRV: 35.31111722956384
+Change from Baseline: -15.43%
+Change from Previous: -10.85%
+Previous HRV for Change: 39.60744879438715
+Previous Three HRV Values: [42.61015137264828, 39.60744879438715, 35.31111722956384]
+Change from Mean of Last Three: -9.87%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 114 - Expected Timestamp 9min 55sec, Actual Timestamp 9min 57sec
+Current HRV: 25.124689052802232
+Change from Baseline: -39.82%
+Change from Previous: -28.85%
+Previous HRV for Change: 35.31111722956384
+Previous Three HRV Values: [39.60744879438715, 35.31111722956384, 25.124689052802232]
+Change from Mean of Last Three: -32.93%
+Excluded Value from Mean Calculation: 25.124689052802232
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 115 - Expected Timestamp 10min 0sec, Actual Timestamp 10min 2sec
+Current HRV: 24.43296332763789
+Change from Baseline: -41.48%
+Change from Previous: -2.75%
+Previous HRV for Change: 25.124689052802232
+Previous Three HRV Values: [35.31111722956384, 25.124689052802232, 24.43296332763789]
+Change from Mean of Last Three: -19.14%
+Excluded Value from Mean Calculation: 25.124689052802232
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 116 - Expected Timestamp 10min 5sec, Actual Timestamp 10min 7sec
+Current HRV: 24.308621740219888
+Change from Baseline: -41.78%
+Change from Previous: -0.51%
+Previous HRV for Change: 24.43296332763789
+Previous Three HRV Values: [25.124689052802232, 24.43296332763789, 24.308621740219888]
+Change from Mean of Last Three: -1.27%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 117 - Expected Timestamp 10min 10sec, Actual Timestamp 10min 12sec
+Current HRV: 35.80995589464571
+Change from Baseline: -14.23%
+Change from Previous: 47.31%
+Previous HRV for Change: 24.308621740219888
+Previous Three HRV Values: [24.43296332763789, 24.308621740219888, 35.80995589464571]
+Change from Mean of Last Three: 46.56%
+Excluded Value from Mean Calculation: 35.80995589464571
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 118 - Expected Timestamp 10min 15sec, Actual Timestamp 10min 17sec
+Current HRV: 29.405881764588205
+Change from Baseline: -29.57%
+Change from Previous: -17.88%
+Previous HRV for Change: 35.80995589464571
+Previous Three HRV Values: [24.308621740219888, 35.80995589464571, 29.405881764588205]
+Change from Mean of Last Three: -17.88%
+Excluded Value from Mean Calculation: 35.80995589464571
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 119 - Expected Timestamp 10min 20sec, Actual Timestamp 10min 22sec
+Current HRV: 31.01233151316347
+Change from Baseline: -25.72%
+Change from Previous: 5.46%
+Previous HRV for Change: 29.405881764588205
+Previous Three HRV Values: [35.80995589464571, 29.405881764588205, 31.01233151316347]
+Change from Mean of Last Three: -3.32%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 120 - Expected Timestamp 10min 25sec, Actual Timestamp 10min 27sec
+Current HRV: 31.389394986954713
+Change from Baseline: -24.82%
+Change from Previous: 1.22%
+Previous HRV for Change: 31.01233151316347
+Previous Three HRV Values: [29.405881764588205, 31.01233151316347, 31.389394986954713]
+Change from Mean of Last Three: 2.57%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 121 - Expected Timestamp 10min 30sec, Actual Timestamp 10min 32sec
+Current HRV: 35.456210417116715
+Change from Baseline: -15.08%
+Change from Previous: 12.96%
+Previous HRV for Change: 31.389394986954713
+Previous Three HRV Values: [31.01233151316347, 31.389394986954713, 35.456210417116715]
+Change from Mean of Last Three: 8.70%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 122 - Expected Timestamp 10min 35sec, Actual Timestamp 10min 37sec
+Current HRV: 34.30951554806416
+Change from Baseline: -17.83%
+Change from Previous: -3.23%
+Previous HRV for Change: 35.456210417116715
+Previous Three HRV Values: [31.389394986954713, 35.456210417116715, 34.30951554806416]
+Change from Mean of Last Three: 1.75%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 123 - Expected Timestamp 10min 40sec, Actual Timestamp 10min 42sec
+Current HRV: 36.410359593311966
+Change from Baseline: -12.79%
+Change from Previous: 6.12%
+Previous HRV for Change: 34.30951554806416
+Previous Three HRV Values: [35.456210417116715, 34.30951554806416, 36.410359593311966]
+Change from Mean of Last Three: 2.88%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 124 - Expected Timestamp 10min 45sec, Actual Timestamp 10min 47sec
+Current HRV: 35.09171656429151
+Change from Baseline: -15.95%
+Change from Previous: -3.62%
+Previous HRV for Change: 36.410359593311966
+Previous Three HRV Values: [34.30951554806416, 36.410359593311966, 35.09171656429151]
+Change from Mean of Last Three: -0.51%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 125 - Expected Timestamp 10min 50sec, Actual Timestamp 10min 52sec
+Current HRV: 33.55166591563355
+Change from Baseline: -19.64%
+Change from Previous: -4.39%
+Previous HRV for Change: 35.09171656429151
+Previous Three HRV Values: [36.410359593311966, 35.09171656429151, 33.55166591563355]
+Change from Mean of Last Three: -4.19%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 126 - Expected Timestamp 10min 55sec, Actual Timestamp 10min 57sec
+Current HRV: 36.476781047065494
+Change from Baseline: -12.63%
+Change from Previous: 8.72%
+Previous HRV for Change: 33.55166591563355
+Previous Three HRV Values: [35.09171656429151, 33.55166591563355, 36.476781047065494]
+Change from Mean of Last Three: 4.10%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 127 - Expected Timestamp 11min 0sec, Actual Timestamp 11min 2sec
+Current HRV: 36.622076273584426
+Change from Baseline: -12.29%
+Change from Previous: 0.40%
+Previous HRV for Change: 36.476781047065494
+Previous Three HRV Values: [33.55166591563355, 36.476781047065494, 36.622076273584426]
+Change from Mean of Last Three: 3.02%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 128 - Expected Timestamp 11min 5sec, Actual Timestamp 11min 7sec
+Current HRV: 45.57568273918512
+Change from Baseline: 9.16%
+Change from Previous: 24.45%
+Previous HRV for Change: 36.622076273584426
+Previous Three HRV Values: [36.476781047065494, 36.622076273584426, 45.57568273918512]
+Change from Mean of Last Three: 24.70%
+Excluded Value from Mean Calculation: 45.57568273918512
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 129 - Expected Timestamp 11min 10sec, Actual Timestamp 11min 12sec
+Current HRV: 71.14608004579276
+Change from Baseline: 70.40%
+Change from Previous: 56.11%
+Previous HRV for Change: 45.57568273918512
+Previous Three HRV Values: [36.622076273584426, 45.57568273918512, 71.14608004579276]
+Change from Mean of Last Three: 94.27%
+Excluded Value from Mean Calculation: 45.57568273918512
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 130 - Expected Timestamp 11min 15sec, Actual Timestamp 11min 17sec
+Current HRV: 78.55309182517334
+Change from Baseline: 88.14%
+Change from Previous: 10.41%
+Previous HRV for Change: 71.14608004579276
+Previous Three HRV Values: [45.57568273918512, 71.14608004579276, 78.55309182517334]
+Change from Mean of Last Three: 10.41%
+Excluded Value from Mean Calculation: 71.14608004579276
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 131 - Expected Timestamp 11min 20sec, Actual Timestamp 11min 22sec
+Current HRV: 93.60822613424526
+Change from Baseline: 124.20%
+Change from Previous: 19.17%
+Previous HRV for Change: 78.55309182517334
+Previous Three HRV Values: [71.14608004579276, 78.55309182517334, 93.60822613424526]
+Change from Mean of Last Three: 15.42%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 132 - Expected Timestamp 11min 25sec, Actual Timestamp 11min 27sec
+Current HRV: 93.92483697084599
+Change from Baseline: 124.96%
+Change from Previous: 0.34%
+Previous HRV for Change: 93.60822613424526
+Previous Three HRV Values: [78.55309182517334, 93.60822613424526, 93.92483697084599]
+Change from Mean of Last Three: 5.90%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 133 - Expected Timestamp 11min 30sec, Actual Timestamp 11min 32sec
+Current HRV: 93.40770846134701
+Change from Baseline: 123.72%
+Change from Previous: -0.55%
+Previous HRV for Change: 93.92483697084599
+Previous Three HRV Values: [93.60822613424526, 93.92483697084599, 93.40770846134701]
+Change from Mean of Last Three: -0.26%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 134 - Expected Timestamp 11min 35sec, Actual Timestamp 11min 37sec
+Current HRV: 74.91662031885849
+Change from Baseline: 79.43%
+Change from Previous: -19.80%
+Previous HRV for Change: 93.40770846134701
+Previous Three HRV Values: [93.92483697084599, 93.40770846134701, 74.91662031885849]
+Change from Mean of Last Three: -14.30%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 135 - Expected Timestamp 11min 40sec, Actual Timestamp 11min 42sec
+Current HRV: 68.33518105410249
+Change from Baseline: 63.67%
+Change from Previous: -8.79%
+Previous HRV for Change: 74.91662031885849
+Previous Three HRV Values: [93.40770846134701, 74.91662031885849, 68.33518105410249]
+Change from Mean of Last Three: -13.38%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 136 - Expected Timestamp 11min 45sec, Actual Timestamp 11min 47sec
+Current HRV: 41.41438777950866
+Change from Baseline: -0.81%
+Change from Previous: -39.40%
+Previous HRV for Change: 68.33518105410249
+Previous Three HRV Values: [74.91662031885849, 68.33518105410249, 41.41438777950866]
+Change from Mean of Last Three: -44.72%
+Excluded Value from Mean Calculation: 41.41438777950866
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 137 - Expected Timestamp 11min 50sec, Actual Timestamp 11min 52sec
+Current HRV: 37.132033054868934
+Change from Baseline: -11.07%
+Change from Previous: -10.34%
+Previous HRV for Change: 41.41438777950866
+Previous Three HRV Values: [68.33518105410249, 41.41438777950866, 37.132033054868934]
+Change from Mean of Last Three: -10.34%
+Excluded Value from Mean Calculation: 41.41438777950866
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 138 - Expected Timestamp 11min 55sec, Actual Timestamp 11min 57sec
+Current HRV: 28.497740473960597
+Change from Baseline: -31.75%
+Change from Previous: -23.25%
+Previous HRV for Change: 37.132033054868934
+Previous Three HRV Values: [41.41438777950866, 37.132033054868934, 28.497740473960597]
+Change from Mean of Last Three: -27.44%
+Excluded Value from Mean Calculation: 28.497740473960597
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 139 - Expected Timestamp 12min 0sec, Actual Timestamp 12min 2sec
+Current HRV: 23.072774891123757
+Change from Baseline: -44.74%
+Change from Previous: -19.04%
+Previous HRV for Change: 28.497740473960597
+Previous Three HRV Values: [37.132033054868934, 28.497740473960597, 23.072774891123757]
+Change from Mean of Last Three: -29.69%
+Excluded Value from Mean Calculation: 28.497740473960597
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 140 - Expected Timestamp 12min 5sec, Actual Timestamp 12min 8sec
+Current HRV: 24.183640851792443
+Change from Baseline: -42.08%
+Change from Previous: 4.81%
+Previous HRV for Change: 23.072774891123757
+Previous Three HRV Values: [28.497740473960597, 23.072774891123757, 24.183640851792443]
+Change from Mean of Last Three: -4.23%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 141 - Expected Timestamp 12min 10sec, Actual Timestamp 12min 13sec
+Current HRV: 23.51470128389022
+Change from Baseline: -43.68%
+Change from Previous: -2.77%
+Previous HRV for Change: 24.183640851792443
+Previous Three HRV Values: [23.072774891123757, 24.183640851792443, 23.51470128389022]
+Change from Mean of Last Three: -0.32%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 142 - Expected Timestamp 12min 15sec, Actual Timestamp 12min 18sec
+Current HRV: 32.67486891823025
+Change from Baseline: -21.74%
+Change from Previous: 38.96%
+Previous HRV for Change: 23.51470128389022
+Previous Three HRV Values: [24.183640851792443, 23.51470128389022, 32.67486891823025]
+Change from Mean of Last Three: 35.11%
+Excluded Value from Mean Calculation: 32.67486891823025
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 143 - Expected Timestamp 12min 20sec, Actual Timestamp 12min 23sec
+Current HRV: 42.46006527146588
+Change from Baseline: 1.70%
+Change from Previous: 29.95%
+Previous HRV for Change: 32.67486891823025
+Previous Three HRV Values: [23.51470128389022, 32.67486891823025, 42.46006527146588]
+Change from Mean of Last Three: 29.95%
+Excluded Value from Mean Calculation: 32.67486891823025
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 144 - Expected Timestamp 12min 25sec, Actual Timestamp 12min 28sec
+Current HRV: 44.221663871405326
+Change from Baseline: 5.92%
+Change from Previous: 4.15%
+Previous HRV for Change: 42.46006527146588
+Previous Three HRV Values: [32.67486891823025, 42.46006527146588, 44.221663871405326]
+Change from Mean of Last Three: 17.71%
+Excluded Value from Mean Calculation: 42.46006527146588
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 145 - Expected Timestamp 12min 30sec, Actual Timestamp 12min 33sec
+Current HRV: 56.593790674040754
+Change from Baseline: 35.55%
+Change from Previous: 27.98%
+Previous HRV for Change: 44.221663871405326
+Previous Three HRV Values: [42.46006527146588, 44.221663871405326, 56.593790674040754]
+Change from Mean of Last Three: 30.58%
+Excluded Value from Mean Calculation: 56.593790674040754
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 146 - Expected Timestamp 12min 35sec, Actual Timestamp 12min 38sec
+Current HRV: 57.02129927867806
+Change from Baseline: 36.57%
+Change from Previous: 0.76%
+Previous HRV for Change: 56.593790674040754
+Previous Three HRV Values: [44.221663871405326, 56.593790674040754, 57.02129927867806]
+Change from Mean of Last Three: 13.12%
+Excluded Value from Mean Calculation: 56.593790674040754
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 147 - Expected Timestamp 12min 40sec, Actual Timestamp 12min 43sec
+Current HRV: 68.9720440261332
+Change from Baseline: 65.19%
+Change from Previous: 20.96%
+Previous HRV for Change: 57.02129927867806
+Previous Three HRV Values: [56.593790674040754, 57.02129927867806, 68.9720440261332]
+Change from Mean of Last Three: 21.41%
+Excluded Value from Mean Calculation: 68.9720440261332
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 148 - Expected Timestamp 12min 45sec, Actual Timestamp 12min 48sec
+Current HRV: 59.43360111230406
+Change from Baseline: 42.35%
+Change from Previous: -13.83%
+Previous HRV for Change: 68.9720440261332
+Previous Three HRV Values: [57.02129927867806, 68.9720440261332, 59.43360111230406]
+Change from Mean of Last Three: -5.66%
+Excluded Value from Mean Calculation: 68.9720440261332
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 149 - Expected Timestamp 12min 50sec, Actual Timestamp 12min 53sec
+Current HRV: 62.197841028217596
+Change from Baseline: 48.97%
+Change from Previous: 4.65%
+Previous HRV for Change: 59.43360111230406
+Previous Three HRV Values: [68.9720440261332, 59.43360111230406, 62.197841028217596]
+Change from Mean of Last Three: -2.10%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 150 - Expected Timestamp 12min 55sec, Actual Timestamp 12min 58sec
+Current HRV: 57.787489471285554
+Change from Baseline: 38.41%
+Change from Previous: -7.09%
+Previous HRV for Change: 62.197841028217596
+Previous Three HRV Values: [59.43360111230406, 62.197841028217596, 57.787489471285554]
+Change from Mean of Last Three: -3.38%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 151 - Expected Timestamp 13min 0sec, Actual Timestamp 13min 3sec
+Current HRV: 56.90549441062477
+Change from Baseline: 36.29%
+Change from Previous: -1.53%
+Previous HRV for Change: 57.787489471285554
+Previous Three HRV Values: [62.197841028217596, 57.787489471285554, 56.90549441062477]
+Change from Mean of Last Three: -3.49%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 152 - Expected Timestamp 13min 5sec, Actual Timestamp 13min 8sec
+Current HRV: 56.030294835864815
+Change from Baseline: 34.20%
+Change from Previous: -1.54%
+Previous HRV for Change: 56.90549441062477
+Previous Three HRV Values: [57.787489471285554, 56.90549441062477, 56.030294835864815]
+Change from Mean of Last Three: -1.54%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 153 - Expected Timestamp 13min 10sec, Actual Timestamp 13min 13sec
+Current HRV: 47.64133677487409
+Change from Baseline: 14.11%
+Change from Previous: -14.97%
+Previous HRV for Change: 56.030294835864815
+Previous Three HRV Values: [56.90549441062477, 56.030294835864815, 47.64133677487409]
+Change from Mean of Last Three: -10.99%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 154 - Expected Timestamp 13min 15sec, Actual Timestamp 13min 18sec
+Current HRV: 43.72373160976031
+Change from Baseline: 4.72%
+Change from Previous: -8.22%
+Previous HRV for Change: 47.64133677487409
+Previous Three HRV Values: [56.030294835864815, 47.64133677487409, 43.72373160976031]
+Change from Mean of Last Three: -11.01%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 155 - Expected Timestamp 13min 20sec, Actual Timestamp 13min 23sec
+Current HRV: 30.748244591432293
+Change from Baseline: -26.35%
+Change from Previous: -29.68%
+Previous HRV for Change: 43.72373160976031
+Previous Three HRV Values: [47.64133677487409, 43.72373160976031, 30.748244591432293]
+Change from Mean of Last Three: -32.69%
+Excluded Value from Mean Calculation: 30.748244591432293
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 156 - Expected Timestamp 13min 25sec, Actual Timestamp 13min 28sec
+Current HRV: 32.513733362117264
+Change from Baseline: -22.13%
+Change from Previous: 5.74%
+Previous HRV for Change: 30.748244591432293
+Previous Three HRV Values: [43.72373160976031, 30.748244591432293, 32.513733362117264]
+Change from Mean of Last Three: -12.68%
+Excluded Value from Mean Calculation: 30.748244591432293
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 157 - Expected Timestamp 13min 30sec, Actual Timestamp 13min 33sec
+Current HRV: 22.866069685390677
+Change from Baseline: -45.23%
+Change from Previous: -29.67%
+Previous HRV for Change: 32.513733362117264
+Previous Three HRV Values: [30.748244591432293, 32.513733362117264, 22.866069685390677]
+Change from Mean of Last Three: -27.71%
+Excluded Value from Mean Calculation: 22.866069685390677
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 158 - Expected Timestamp 13min 35sec, Actual Timestamp 13min 38sec
+Current HRV: 23.97915761656359
+Change from Baseline: -42.57%
+Change from Previous: 4.87%
+Previous HRV for Change: 22.866069685390677
+Previous Three HRV Values: [32.513733362117264, 22.866069685390677, 23.97915761656359]
+Change from Mean of Last Three: -13.40%
+Excluded Value from Mean Calculation: 22.866069685390677
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 159 - Expected Timestamp 13min 40sec, Actual Timestamp 13min 43sec
+Current HRV: 41.49966532662911
+Change from Baseline: -0.60%
+Change from Previous: 73.07%
+Previous HRV for Change: 23.97915761656359
+Previous Three HRV Values: [22.866069685390677, 23.97915761656359, 41.49966532662911]
+Change from Mean of Last Three: 81.49%
+Excluded Value from Mean Calculation: 41.49966532662911
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 160 - Expected Timestamp 13min 45sec, Actual Timestamp 13min 48sec
+Current HRV: 37.11842908553348
+Change from Baseline: -11.10%
+Change from Previous: -10.56%
+Previous HRV for Change: 41.49966532662911
+Previous Three HRV Values: [23.97915761656359, 41.49966532662911, 37.11842908553348]
+Change from Mean of Last Three: -10.56%
+Excluded Value from Mean Calculation: 41.49966532662911
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 161 - Expected Timestamp 13min 50sec, Actual Timestamp 13min 53sec
+Current HRV: 43.55711448457326
+Change from Baseline: 4.32%
+Change from Previous: 17.35%
+Previous HRV for Change: 37.11842908553348
+Previous Three HRV Values: [41.49966532662911, 37.11842908553348, 43.55711448457326]
+Change from Mean of Last Three: 6.95%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 162 - Expected Timestamp 13min 55sec, Actual Timestamp 13min 58sec
+Current HRV: 46.557996722620366
+Change from Baseline: 11.51%
+Change from Previous: 6.89%
+Previous HRV for Change: 43.55711448457326
+Previous Three HRV Values: [37.11842908553348, 43.55711448457326, 46.557996722620366]
+Change from Mean of Last Three: 9.78%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 163 - Expected Timestamp 14min 0sec, Actual Timestamp 14min 3sec
+Current HRV: 58.23380865603961
+Change from Baseline: 39.48%
+Change from Previous: 25.08%
+Previous HRV for Change: 46.557996722620366
+Previous Three HRV Values: [43.55711448457326, 46.557996722620366, 58.23380865603961]
+Change from Mean of Last Three: 29.24%
+Excluded Value from Mean Calculation: 58.23380865603961
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 164 - Expected Timestamp 14min 5sec, Actual Timestamp 14min 8sec
+Current HRV: 91.34412953222555
+Change from Baseline: 118.78%
+Change from Previous: 56.86%
+Previous HRV for Change: 58.23380865603961
+Previous Three HRV Values: [46.557996722620366, 58.23380865603961, 91.34412953222555]
+Change from Mean of Last Three: 96.19%
+Excluded Value from Mean Calculation: 58.23380865603961
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 165 - Expected Timestamp 14min 10sec, Actual Timestamp 14min 13sec
+Current HRV: 91.51916507353843
+Change from Baseline: 119.20%
+Change from Previous: 0.19%
+Previous HRV for Change: 91.34412953222555
+Previous Three HRV Values: [58.23380865603961, 91.34412953222555, 91.51916507353843]
+Change from Mean of Last Three: 0.19%
+Excluded Value from Mean Calculation: 91.34412953222555
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 166 - Expected Timestamp 14min 15sec, Actual Timestamp 14min 18sec
+Current HRV: 95.44304584410537
+Change from Baseline: 128.60%
+Change from Previous: 4.29%
+Previous HRV for Change: 91.51916507353843
+Previous Three HRV Values: [91.34412953222555, 91.51916507353843, 95.44304584410537]
+Change from Mean of Last Three: 2.88%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 167 - Expected Timestamp 14min 20sec, Actual Timestamp 14min 23sec
+Current HRV: 94.11729127067477
+Change from Baseline: 125.42%
+Change from Previous: -1.39%
+Previous HRV for Change: 95.44304584410537
+Previous Three HRV Values: [91.51916507353843, 95.44304584410537, 94.11729127067477]
+Change from Mean of Last Three: 0.45%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 168 - Expected Timestamp 14min 25sec, Actual Timestamp 14min 28sec
+Current HRV: 104.73180032826707
+Change from Baseline: 150.84%
+Change from Previous: 11.28%
+Previous HRV for Change: 94.11729127067477
+Previous Three HRV Values: [95.44304584410537, 94.11729127067477, 104.73180032826707]
+Change from Mean of Last Three: 6.76%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 169 - Expected Timestamp 14min 30sec, Actual Timestamp 14min 33sec
+Current HRV: 71.5075753562749
+Change from Baseline: 71.27%
+Change from Previous: -31.72%
+Previous HRV for Change: 104.73180032826707
+Previous Three HRV Values: [94.11729127067477, 104.73180032826707, 71.5075753562749]
+Change from Mean of Last Three: -24.02%
+Excluded Value from Mean Calculation: 71.5075753562749
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 170 - Expected Timestamp 14min 35sec, Actual Timestamp 14min 38sec
+Current HRV: 67.554691647852
+Change from Baseline: 61.80%
+Change from Previous: -5.53%
+Previous HRV for Change: 71.5075753562749
+Previous Three HRV Values: [104.73180032826707, 71.5075753562749, 67.554691647852]
+Change from Mean of Last Three: -5.53%
+Excluded Value from Mean Calculation: 71.5075753562749
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 171 - Expected Timestamp 14min 40sec, Actual Timestamp 14min 43sec
+Current HRV: 60.90463857539917
+Change from Baseline: 45.87%
+Change from Previous: -9.84%
+Previous HRV for Change: 67.554691647852
+Previous Three HRV Values: [71.5075753562749, 67.554691647852, 60.90463857539917]
+Change from Mean of Last Three: -8.63%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 172 - Expected Timestamp 14min 45sec, Actual Timestamp 14min 48sec
+Current HRV: 62.799283435402366
+Change from Baseline: 50.41%
+Change from Previous: 3.11%
+Previous HRV for Change: 60.90463857539917
+Previous Three HRV Values: [67.554691647852, 60.90463857539917, 62.799283435402366]
+Change from Mean of Last Three: -1.50%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 173 - Expected Timestamp 14min 50sec, Actual Timestamp 14min 53sec
+Current HRV: 57.71698190307599
+Change from Baseline: 38.24%
+Change from Previous: -8.09%
+Previous HRV for Change: 62.799283435402366
+Previous Three HRV Values: [60.90463857539917, 62.799283435402366, 57.71698190307599]
+Change from Mean of Last Three: -4.56%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 174 - Expected Timestamp 14min 55sec, Actual Timestamp 14min 58sec
+Current HRV: 25.643239997624285
+Change from Baseline: -38.58%
+Change from Previous: -55.57%
+Previous HRV for Change: 57.71698190307599
+Previous Three HRV Values: [62.799283435402366, 57.71698190307599, 25.643239997624285]
+Change from Mean of Last Three: -59.17%
+Excluded Value from Mean Calculation: 25.643239997624285
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 175 - Expected Timestamp 15min 0sec, Actual Timestamp 15min 3sec
+Current HRV: 19.326909006996075
+Change from Baseline: -53.71%
+Change from Previous: -24.63%
+Previous HRV for Change: 25.643239997624285
+Previous Three HRV Values: [57.71698190307599, 25.643239997624285, 19.326909006996075]
+Change from Mean of Last Three: -24.63%
+Excluded Value from Mean Calculation: 25.643239997624285
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 176 - Expected Timestamp 15min 5sec, Actual Timestamp 15min 8sec
+Current HRV: 21.602468994692867
+Change from Baseline: -48.26%
+Change from Previous: 11.77%
+Previous HRV for Change: 19.326909006996075
+Previous Three HRV Values: [25.643239997624285, 19.326909006996075, 21.602468994692867]
+Change from Mean of Last Three: -3.93%
+Excluded Value from Mean Calculation: 19.326909006996075
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 177 - Expected Timestamp 15min 10sec, Actual Timestamp 15min 13sec
+Current HRV: 21.811867773246192
+Change from Baseline: -47.76%
+Change from Previous: 0.97%
+Previous HRV for Change: 21.602468994692867
+Previous Three HRV Values: [19.326909006996075, 21.602468994692867, 21.811867773246192]
+Change from Mean of Last Three: 4.29%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 178 - Expected Timestamp 15min 15sec, Actual Timestamp 15min 18sec
+Current HRV: 22.614786566062744
+Change from Baseline: -45.84%
+Change from Previous: 3.68%
+Previous HRV for Change: 21.811867773246192
+Previous Three HRV Values: [21.602468994692867, 21.811867773246192, 22.614786566062744]
+Change from Mean of Last Three: 2.75%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 179 - Expected Timestamp 15min 20sec, Actual Timestamp 15min 23sec
+Current HRV: 24.08318915758459
+Change from Baseline: -42.32%
+Change from Previous: 6.49%
+Previous HRV for Change: 22.614786566062744
+Previous Three HRV Values: [21.811867773246192, 22.614786566062744, 24.08318915758459]
+Change from Mean of Last Three: 5.46%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 180 - Expected Timestamp 15min 25sec, Actual Timestamp 15min 28sec
+Current HRV: 23.237900077244497
+Change from Baseline: -44.34%
+Change from Previous: -3.51%
+Previous HRV for Change: 24.08318915758459
+Previous Three HRV Values: [22.614786566062744, 24.08318915758459, 23.237900077244497]
+Change from Mean of Last Three: -0.32%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 181 - Expected Timestamp 15min 30sec, Actual Timestamp 15min 33sec
+Current HRV: 25.658007197234408
+Change from Baseline: -38.55%
+Change from Previous: 10.41%
+Previous HRV for Change: 23.237900077244497
+Previous Three HRV Values: [24.08318915758459, 23.237900077244497, 25.658007197234408]
+Change from Mean of Last Three: 5.47%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 182 - Expected Timestamp 15min 35sec, Actual Timestamp 15min 38sec
+Current HRV: 26.71869923646899
+Change from Baseline: -36.01%
+Change from Previous: 4.13%
+Previous HRV for Change: 25.658007197234408
+Previous Three HRV Values: [23.237900077244497, 25.658007197234408, 26.71869923646899]
+Change from Mean of Last Three: 6.01%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 183 - Expected Timestamp 15min 40sec, Actual Timestamp 15min 43sec
+Current HRV: 33.040379335998345
+Change from Baseline: -20.87%
+Change from Previous: 23.66%
+Previous HRV for Change: 26.71869923646899
+Previous Three HRV Values: [25.658007197234408, 26.71869923646899, 33.040379335998345]
+Change from Mean of Last Three: 26.16%
+Excluded Value from Mean Calculation: 33.040379335998345
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 184 - Expected Timestamp 15min 45sec, Actual Timestamp 15min 48sec
+Current HRV: 24.83277404291889
+Change from Baseline: -40.52%
+Change from Previous: -24.84%
+Previous HRV for Change: 33.040379335998345
+Previous Three HRV Values: [26.71869923646899, 33.040379335998345, 24.83277404291889]
+Change from Mean of Last Three: -16.89%
+Excluded Value from Mean Calculation: 33.040379335998345
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 185 - Expected Timestamp 15min 50sec, Actual Timestamp 15min 53sec
+Current HRV: 34.31876713662333
+Change from Baseline: -17.80%
+Change from Previous: 38.20%
+Previous HRV for Change: 24.83277404291889
+Previous Three HRV Values: [33.040379335998345, 24.83277404291889, 34.31876713662333]
+Change from Mean of Last Three: 3.87%
+Excluded Value from Mean Calculation: 24.83277404291889
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 186 - Expected Timestamp 15min 55sec, Actual Timestamp 15min 59sec
+Current HRV: 29.860788111948203
+Change from Baseline: -28.48%
+Change from Previous: -12.99%
+Previous HRV for Change: 34.31876713662333
+Previous Three HRV Values: [24.83277404291889, 34.31876713662333, 29.860788111948203]
+Change from Mean of Last Three: -12.99%
+Excluded Value from Mean Calculation: 34.31876713662333
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 187 - Expected Timestamp 16min 0sec, Actual Timestamp 16min 3sec
+Current HRV: 76.23272638065998
+Change from Baseline: 82.58%
+Change from Previous: 155.29%
+Previous HRV for Change: 29.860788111948203
+Previous Three HRV Values: [34.31876713662333, 29.860788111948203, 76.23272638065998]
+Change from Mean of Last Three: 122.13%
+Excluded Value from Mean Calculation: 76.23272638065998
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 188 - Expected Timestamp 16min 5sec, Actual Timestamp 16min 8sec
+Current HRV: 73.06322805705787
+Change from Baseline: 74.99%
+Change from Previous: -4.16%
+Previous HRV for Change: 76.23272638065998
+Previous Three HRV Values: [29.860788111948203, 76.23272638065998, 73.06322805705787]
+Change from Mean of Last Three: -4.16%
+Excluded Value from Mean Calculation: 76.23272638065998
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 189 - Expected Timestamp 16min 10sec, Actual Timestamp 16min 14sec
+Current HRV: 82.4274572838791
+Change from Baseline: 97.42%
+Change from Previous: 12.82%
+Previous HRV for Change: 73.06322805705787
+Previous Three HRV Values: [76.23272638065998, 73.06322805705787, 82.4274572838791]
+Change from Mean of Last Three: 6.71%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 190 - Expected Timestamp 16min 15sec, Actual Timestamp 16min 19sec
+Current HRV: 80.18917028067462
+Change from Baseline: 92.06%
+Change from Previous: -2.72%
+Previous HRV for Change: 82.4274572838791
+Previous Three HRV Values: [73.06322805705787, 82.4274572838791, 80.18917028067462]
+Change from Mean of Last Three: 2.07%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 191 - Expected Timestamp 16min 20sec, Actual Timestamp 16min 24sec
+Current HRV: 87.6490327452418
+Change from Baseline: 109.93%
+Change from Previous: 9.30%
+Previous HRV for Change: 80.18917028067462
+Previous Three HRV Values: [82.4274572838791, 80.18917028067462, 87.6490327452418]
+Change from Mean of Last Three: 5.07%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 192 - Expected Timestamp 16min 25sec, Actual Timestamp 16min 29sec
+Current HRV: 59.266347955648484
+Change from Baseline: 41.95%
+Change from Previous: -32.38%
+Previous HRV for Change: 87.6490327452418
+Previous Three HRV Values: [80.18917028067462, 87.6490327452418, 59.266347955648484]
+Change from Mean of Last Three: -26.09%
+Excluded Value from Mean Calculation: 59.266347955648484
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 193 - Expected Timestamp 16min 30sec, Actual Timestamp 16min 34sec
+Current HRV: 64.69384914848595
+Change from Baseline: 54.95%
+Change from Previous: 9.16%
+Previous HRV for Change: 59.266347955648484
+Previous Three HRV Values: [87.6490327452418, 59.266347955648484, 64.69384914848595]
+Change from Mean of Last Three: 9.16%
+Excluded Value from Mean Calculation: 59.266347955648484
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 194 - Expected Timestamp 16min 35sec, Actual Timestamp 16min 39sec
+Current HRV: 58.38742081211423
+Change from Baseline: 39.84%
+Change from Previous: -9.75%
+Previous HRV for Change: 64.69384914848595
+Previous Three HRV Values: [59.266347955648484, 64.69384914848595, 58.38742081211423]
+Change from Mean of Last Three: -3.94%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 195 - Expected Timestamp 16min 40sec, Actual Timestamp 16min 44sec
+Current HRV: 53.330269519840456
+Change from Baseline: 27.73%
+Change from Previous: -8.66%
+Previous HRV for Change: 58.38742081211423
+Previous Three HRV Values: [64.69384914848595, 58.38742081211423, 53.330269519840456]
+Change from Mean of Last Three: -9.31%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 196 - Expected Timestamp 16min 45sec, Actual Timestamp 16min 49sec
+Current HRV: 49.85693819032899
+Change from Baseline: 19.41%
+Change from Previous: -6.51%
+Previous HRV for Change: 53.330269519840456
+Previous Three HRV Values: [58.38742081211423, 53.330269519840456, 49.85693819032899]
+Change from Mean of Last Three: -7.43%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 197 - Expected Timestamp 16min 50sec, Actual Timestamp 16min 54sec
+Current HRV: 40.60260371665134
+Change from Baseline: -2.75%
+Change from Previous: -18.56%
+Previous HRV for Change: 49.85693819032899
+Previous Three HRV Values: [53.330269519840456, 49.85693819032899, 40.60260371665134]
+Change from Mean of Last Three: -15.29%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 198 - Expected Timestamp 16min 55sec, Actual Timestamp 16min 59sec
+Current HRV: 37.416573867739416
+Change from Baseline: -10.38%
+Change from Previous: -7.85%
+Previous HRV for Change: 40.60260371665134
+Previous Three HRV Values: [49.85693819032899, 40.60260371665134, 37.416573867739416]
+Change from Mean of Last Three: -12.22%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 199 - Expected Timestamp 17min 0sec, Actual Timestamp 17min 4sec
+Current HRV: 20.615528128088307
+Change from Baseline: -50.62%
+Change from Previous: -44.90%
+Previous HRV for Change: 37.416573867739416
+Previous Three HRV Values: [40.60260371665134, 37.416573867739416, 20.615528128088307]
+Change from Mean of Last Three: -49.23%
+Excluded Value from Mean Calculation: 20.615528128088307
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 200 - Expected Timestamp 17min 5sec, Actual Timestamp 17min 9sec
+Current HRV: 17.475852065218614
+Change from Baseline: -58.14%
+Change from Previous: -15.23%
+Previous HRV for Change: 20.615528128088307
+Previous Three HRV Values: [37.416573867739416, 20.615528128088307, 17.475852065218614]
+Change from Mean of Last Three: -15.23%
+Excluded Value from Mean Calculation: 20.615528128088307
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 201 - Expected Timestamp 17min 10sec, Actual Timestamp 17min 14sec
+Current HRV: 99.6480292315394
+Change from Baseline: 138.67%
+Change from Previous: 470.20%
+Previous HRV for Change: 17.475852065218614
+Previous Three HRV Values: [20.615528128088307, 17.475852065218614, 99.6480292315394]
+Change from Mean of Last Three: 383.36%
+Excluded Value from Mean Calculation: 99.6480292315394
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 202 - Expected Timestamp 17min 15sec, Actual Timestamp 17min 19sec
+Current HRV: 128.59565352399417
+Change from Baseline: 208.00%
+Change from Previous: 29.05%
+Previous HRV for Change: 99.6480292315394
+Previous Three HRV Values: [17.475852065218614, 99.6480292315394, 128.59565352399417]
+Change from Mean of Last Three: 29.05%
+Excluded Value from Mean Calculation: 99.6480292315394
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 203 - Expected Timestamp 17min 20sec, Actual Timestamp 17min 24sec
+Current HRV: 195.22778718432704
+Change from Baseline: 367.59%
+Change from Previous: 51.82%
+Previous HRV for Change: 128.59565352399417
+Previous Three HRV Values: [99.6480292315394, 128.59565352399417, 195.22778718432704]
+Change from Mean of Last Three: 95.92%
+Excluded Value from Mean Calculation: 128.59565352399417
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 204 - Expected Timestamp 17min 25sec, Actual Timestamp 17min 29sec
+Current HRV: 328.6639621254512
+Change from Baseline: 687.18%
+Change from Previous: 68.35%
+Previous HRV for Change: 195.22778718432704
+Previous Three HRV Values: [128.59565352399417, 195.22778718432704, 328.6639621254512]
+Change from Mean of Last Three: nan%
+Excluded Value from Mean Calculation: 195.22778718432704
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 205 - Expected Timestamp 17min 30sec, Actual Timestamp 17min 34sec
+Current HRV: 415.05822884666844
+Change from Baseline: 894.11%
+Change from Previous: 26.29%
+Previous HRV for Change: 328.6639621254512
+Previous Three HRV Values: [195.22778718432704, 328.6639621254512, 415.05822884666844]
+Change from Mean of Last Three: 26.29%
+Excluded Value from Mean Calculation: 328.6639621254512
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 206 - Expected Timestamp 17min 35sec, Actual Timestamp 17min 39sec
+Current HRV: 518.5401343847378
+Change from Baseline: 1141.96%
+Change from Previous: 24.93%
+Previous HRV for Change: 415.05822884666844
+Previous Three HRV Values: [328.6639621254512, 415.05822884666844, 518.5401343847378]
+Change from Mean of Last Three: 39.44%
+Excluded Value from Mean Calculation: 415.05822884666844
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 207 - Expected Timestamp 17min 40sec, Actual Timestamp 17min 44sec
+Current HRV: 534.6260375252969
+Change from Baseline: 1180.48%
+Change from Previous: 3.10%
+Previous HRV for Change: 518.5401343847378
+Previous Three HRV Values: [415.05822884666844, 518.5401343847378, 534.6260375252969]
+Change from Mean of Last Three: 14.53%
+Excluded Value from Mean Calculation: 518.5401343847378
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 208 - Expected Timestamp 17min 45sec, Actual Timestamp 17min 49sec
+Current HRV: 564.1283016661554
+Change from Baseline: 1251.14%
+Change from Previous: 5.52%
+Previous HRV for Change: 534.6260375252969
+Previous Three HRV Values: [518.5401343847378, 534.6260375252969, 564.1283016661554]
+Change from Mean of Last Three: 4.64%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 209 - Expected Timestamp 17min 50sec, Actual Timestamp 17min 54sec
+Current HRV: 532.7218717047317
+Change from Baseline: 1175.92%
+Change from Previous: -5.57%
+Previous HRV for Change: 564.1283016661554
+Previous Three HRV Values: [534.6260375252969, 564.1283016661554, 532.7218717047317]
+Change from Mean of Last Three: -2.04%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 210 - Expected Timestamp 17min 55sec, Actual Timestamp 17min 59sec
+Current HRV: 414.5943337027914
+Change from Baseline: 892.99%
+Change from Previous: -22.17%
+Previous HRV for Change: 532.7218717047317
+Previous Three HRV Values: [564.1283016661554, 532.7218717047317, 414.5943337027914]
+Change from Mean of Last Three: -24.40%
+Excluded Value from Mean Calculation: 414.5943337027914
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 211 - Expected Timestamp 18min 0sec, Actual Timestamp 18min 4sec
+Current HRV: 449.50639595004657
+Change from Baseline: 976.61%
+Change from Previous: 8.42%
+Previous HRV for Change: 414.5943337027914
+Previous Three HRV Values: [532.7218717047317, 414.5943337027914, 449.50639595004657]
+Change from Mean of Last Three: -5.10%
+Excluded Value from Mean Calculation: 414.5943337027914
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 212 - Expected Timestamp 18min 5sec, Actual Timestamp 18min 9sec
+Current HRV: 437.64190245291724
+Change from Baseline: 948.20%
+Change from Previous: -2.64%
+Previous HRV for Change: 449.50639595004657
+Previous Three HRV Values: [414.5943337027914, 449.50639595004657, 437.64190245291724]
+Change from Mean of Last Three: 0.86%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 213 - Expected Timestamp 18min 10sec, Actual Timestamp 18min 14sec
+Current HRV: 482.7918806276676
+Change from Baseline: 1056.33%
+Change from Previous: 10.32%
+Previous HRV for Change: 437.64190245291724
+Previous Three HRV Values: [449.50639595004657, 437.64190245291724, 482.7918806276676]
+Change from Mean of Last Three: 5.73%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 214 - Expected Timestamp 18min 15sec, Actual Timestamp 18min 19sec
+Current HRV: 456.2261584919344
+Change from Baseline: 992.71%
+Change from Previous: -5.50%
+Previous HRV for Change: 482.7918806276676
+Previous Three HRV Values: [437.64190245291724, 482.7918806276676, 456.2261584919344]
+Change from Mean of Last Three: -0.58%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 215 - Expected Timestamp 18min 20sec, Actual Timestamp 18min 24sec
+Current HRV: 405.6828458643173
+Change from Baseline: 871.65%
+Change from Previous: -11.08%
+Previous HRV for Change: 456.2261584919344
+Previous Three HRV Values: [482.7918806276676, 456.2261584919344, 405.6828458643173]
+Change from Mean of Last Three: -9.49%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 216 - Expected Timestamp 18min 25sec, Actual Timestamp 18min 29sec
+Current HRV: 309.4912736812598
+Change from Baseline: 641.26%
+Change from Previous: -23.71%
+Previous HRV for Change: 405.6828458643173
+Previous Three HRV Values: [456.2261584919344, 405.6828458643173, 309.4912736812598]
+Change from Mean of Last Three: -28.18%
+Excluded Value from Mean Calculation: 309.4912736812598
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 217 - Expected Timestamp 18min 30sec, Actual Timestamp 18min 34sec
+Current HRV: 314.96527586386406
+Change from Baseline: 654.37%
+Change from Previous: 1.77%
+Previous HRV for Change: 309.4912736812598
+Previous Three HRV Values: [405.6828458643173, 309.4912736812598, 314.96527586386406]
+Change from Mean of Last Three: -11.92%
+Excluded Value from Mean Calculation: 309.4912736812598
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 218 - Expected Timestamp 18min 35sec, Actual Timestamp 18min 39sec
+Current HRV: 277.1971054937581
+Change from Baseline: 563.91%
+Change from Previous: -11.99%
+Previous HRV for Change: 314.96527586386406
+Previous Three HRV Values: [309.4912736812598, 314.96527586386406, 277.1971054937581]
+Change from Mean of Last Three: -7.77%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 219 - Expected Timestamp 18min 40sec, Actual Timestamp 18min 44sec
+Current HRV: 294.36372059070055
+Change from Baseline: 605.03%
+Change from Previous: 6.19%
+Previous HRV for Change: 277.1971054937581
+Previous Three HRV Values: [314.96527586386406, 277.1971054937581, 294.36372059070055]
+Change from Mean of Last Three: -0.39%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 220 - Expected Timestamp 18min 45sec, Actual Timestamp 18min 49sec
+Current HRV: 300.1666203960727
+Change from Baseline: 618.93%
+Change from Previous: 1.97%
+Previous HRV for Change: 294.36372059070055
+Previous Three HRV Values: [277.1971054937581, 294.36372059070055, 300.1666203960727]
+Change from Mean of Last Three: 3.30%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 221 - Expected Timestamp 18min 50sec, Actual Timestamp 18min 54sec
+Current HRV: 299.8231802145047
+Change from Baseline: 618.11%
+Change from Previous: -0.11%
+Previous HRV for Change: 300.1666203960727
+Previous Three HRV Values: [294.36372059070055, 300.1666203960727, 299.8231802145047]
+Change from Mean of Last Three: 0.57%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 222 - Expected Timestamp 18min 55sec, Actual Timestamp 18min 59sec
+Current HRV: 310.6042498099471
+Change from Baseline: 643.93%
+Change from Previous: 3.60%
+Previous HRV for Change: 299.8231802145047
+Previous Three HRV Values: [300.1666203960727, 299.8231802145047, 310.6042498099471]
+Change from Mean of Last Three: 2.33%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 223 - Expected Timestamp 19min 0sec, Actual Timestamp 19min 4sec
+Current HRV: 328.6658061332394
+Change from Baseline: 687.19%
+Change from Previous: 5.81%
+Previous HRV for Change: 310.6042498099471
+Previous Three HRV Values: [299.8231802145047, 310.6042498099471, 328.6658061332394]
+Change from Mean of Last Three: 4.99%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 224 - Expected Timestamp 19min 5sec, Actual Timestamp 19min 9sec
+Current HRV: 308.25854948943964
+Change from Baseline: 638.31%
+Change from Previous: -6.21%
+Previous HRV for Change: 328.6658061332394
+Previous Three HRV Values: [310.6042498099471, 328.6658061332394, 308.25854948943964]
+Change from Mean of Last Three: -2.40%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 225 - Expected Timestamp 19min 10sec, Actual Timestamp 19min 14sec
+Current HRV: 337.1943060017473
+Change from Baseline: 707.61%
+Change from Previous: 9.39%
+Previous HRV for Change: 308.25854948943964
+Previous Three HRV Values: [328.6658061332394, 308.25854948943964, 337.1943060017473]
+Change from Mean of Last Three: 3.85%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 226 - Expected Timestamp 19min 15sec, Actual Timestamp 19min 19sec
+Current HRV: 311.7691453623979
+Change from Baseline: 646.72%
+Change from Previous: -7.54%
+Previous HRV for Change: 337.1943060017473
+Previous Three HRV Values: [308.25854948943964, 337.1943060017473, 311.7691453623979]
+Change from Mean of Last Three: -2.29%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 227 - Expected Timestamp 19min 20sec, Actual Timestamp 19min 24sec
+Current HRV: 294.7258613242708
+Change from Baseline: 605.90%
+Change from Previous: -5.47%
+Previous HRV for Change: 311.7691453623979
+Previous Three HRV Values: [337.1943060017473, 311.7691453623979, 294.7258613242708]
+Change from Mean of Last Three: -6.31%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 228 - Expected Timestamp 19min 25sec, Actual Timestamp 19min 29sec
+Current HRV: 344.7414490116712
+Change from Baseline: 725.69%
+Change from Previous: 16.97%
+Previous HRV for Change: 294.7258613242708
+Previous Three HRV Values: [311.7691453623979, 294.7258613242708, 344.7414490116712]
+Change from Mean of Last Three: 8.72%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 229 - Expected Timestamp 19min 30sec, Actual Timestamp 19min 34sec
+Current HRV: 338.4976294766188
+Change from Baseline: 710.74%
+Change from Previous: -1.81%
+Previous HRV for Change: 344.7414490116712
+Previous Three HRV Values: [294.7258613242708, 344.7414490116712, 338.4976294766188]
+Change from Mean of Last Three: 3.84%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 230 - Expected Timestamp 19min 35sec, Actual Timestamp 19min 39sec
+Current HRV: 311.0587979105811
+Change from Baseline: 645.02%
+Change from Previous: -8.11%
+Previous HRV for Change: 338.4976294766188
+Previous Three HRV Values: [344.7414490116712, 338.4976294766188, 311.0587979105811]
+Change from Mean of Last Three: -6.15%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 231 - Expected Timestamp 19min 40sec, Actual Timestamp 19min 44sec
+Current HRV: 371.3271750999944
+Change from Baseline: 789.37%
+Change from Previous: 19.38%
+Previous HRV for Change: 311.0587979105811
+Previous Three HRV Values: [338.4976294766188, 311.0587979105811, 371.3271750999944]
+Change from Mean of Last Three: 9.12%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 232 - Expected Timestamp 19min 45sec, Actual Timestamp 19min 49sec
+Current HRV: 394.46165846632044
+Change from Baseline: 844.77%
+Change from Previous: 6.23%
+Previous HRV for Change: 371.3271750999944
+Previous Three HRV Values: [311.0587979105811, 371.3271750999944, 394.46165846632044]
+Change from Mean of Last Three: 9.89%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 233 - Expected Timestamp 19min 50sec, Actual Timestamp 19min 54sec
+Current HRV: 411.8292526440216
+Change from Baseline: 886.37%
+Change from Previous: 4.40%
+Previous HRV for Change: 394.46165846632044
+Previous Three HRV Values: [371.3271750999944, 394.46165846632044, 411.8292526440216]
+Change from Mean of Last Three: 4.91%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 234 - Expected Timestamp 19min 55sec, Actual Timestamp 19min 59sec
+Current HRV: 399.6167518849739
+Change from Baseline: 857.12%
+Change from Previous: -2.97%
+Previous HRV for Change: 411.8292526440216
+Previous Three HRV Values: [394.46165846632044, 411.8292526440216, 399.6167518849739]
+Change from Mean of Last Three: -0.59%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 235 - Expected Timestamp 20min 0sec, Actual Timestamp 20min 5sec
+Current HRV: 363.79080527138126
+Change from Baseline: 771.32%
+Change from Previous: -8.97%
+Previous HRV for Change: 399.6167518849739
+Previous Three HRV Values: [411.8292526440216, 399.6167518849739, 363.79080527138126]
+Change from Mean of Last Three: -7.14%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 236 - Expected Timestamp 20min 5sec, Actual Timestamp 20min 9sec
+Current HRV: 359.6926297254197
+Change from Baseline: 761.50%
+Change from Previous: -1.13%
+Previous HRV for Change: 363.79080527138126
+Previous Three HRV Values: [399.6167518849739, 363.79080527138126, 359.6926297254197]
+Change from Mean of Last Three: -3.92%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 237 - Expected Timestamp 20min 10sec, Actual Timestamp 20min 15sec
+Current HRV: 295.1121421944347
+Change from Baseline: 606.82%
+Change from Previous: -17.95%
+Previous HRV for Change: 359.6926297254197
+Previous Three HRV Values: [363.79080527138126, 359.6926297254197, 295.1121421944347]
+Change from Mean of Last Three: -13.08%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 238 - Expected Timestamp 20min 15sec, Actual Timestamp 20min 20sec
+Current HRV: 317.64297382994226
+Change from Baseline: 660.79%
+Change from Previous: 7.63%
+Previous HRV for Change: 295.1121421944347
+Previous Three HRV Values: [359.6926297254197, 295.1121421944347, 317.64297382994226]
+Change from Mean of Last Three: -2.01%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 239 - Expected Timestamp 20min 20sec, Actual Timestamp 20min 25sec
+Current HRV: 306.40387290850833
+Change from Baseline: 633.87%
+Change from Previous: -3.54%
+Previous HRV for Change: 317.64297382994226
+Previous Three HRV Values: [295.1121421944347, 317.64297382994226, 306.40387290850833]
+Change from Mean of Last Three: 0.01%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 240 - Expected Timestamp 20min 25sec, Actual Timestamp 20min 30sec
+Current HRV: 316.57733987323246
+Change from Baseline: 658.23%
+Change from Previous: 3.32%
+Previous HRV for Change: 306.40387290850833
+Previous Three HRV Values: [317.64297382994226, 306.40387290850833, 316.57733987323246]
+Change from Mean of Last Three: 0.97%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 241 - Expected Timestamp 20min 30sec, Actual Timestamp 20min 35sec
+Current HRV: 370.6750598570127
+Change from Baseline: 787.80%
+Change from Previous: 17.09%
+Previous HRV for Change: 316.57733987323246
+Previous Three HRV Values: [306.40387290850833, 316.57733987323246, 370.6750598570127]
+Change from Mean of Last Three: 11.91%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 242 - Expected Timestamp 20min 35sec, Actual Timestamp 20min 40sec
+Current HRV: 414.5694840950756
+Change from Baseline: 892.94%
+Change from Previous: 11.84%
+Previous HRV for Change: 370.6750598570127
+Previous Three HRV Values: [316.57733987323246, 370.6750598570127, 414.5694840950756]
+Change from Mean of Last Three: 12.88%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 243 - Expected Timestamp 20min 40sec, Actual Timestamp 20min 45sec
+Current HRV: 422.2922793880671
+Change from Baseline: 911.43%
+Change from Previous: 1.86%
+Previous HRV for Change: 414.5694840950756
+Previous Three HRV Values: [370.6750598570127, 414.5694840950756, 422.2922793880671]
+Change from Mean of Last Three: 4.91%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 244 - Expected Timestamp 20min 45sec, Actual Timestamp 20min 50sec
+Current HRV: 424.87338267341227
+Change from Baseline: 917.61%
+Change from Previous: 0.61%
+Previous HRV for Change: 422.2922793880671
+Previous Three HRV Values: [414.5694840950756, 422.2922793880671, 424.87338267341227]
+Change from Mean of Last Three: 1.02%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 245 - Expected Timestamp 20min 50sec, Actual Timestamp 20min 55sec
+Current HRV: 432.89721643826726
+Change from Baseline: 936.83%
+Change from Previous: 1.89%
+Previous HRV for Change: 424.87338267341227
+Previous Three HRV Values: [422.2922793880671, 424.87338267341227, 432.89721643826726]
+Change from Mean of Last Three: 1.46%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 246 - Expected Timestamp 20min 55sec, Actual Timestamp 21min 0sec
+Current HRV: 389.6877233620922
+Change from Baseline: 833.34%
+Change from Previous: -9.98%
+Previous HRV for Change: 432.89721643826726
+Previous Three HRV Values: [424.87338267341227, 432.89721643826726, 389.6877233620922]
+Change from Mean of Last Three: -6.28%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 247 - Expected Timestamp 21min 0sec, Actual Timestamp 21min 5sec
+Current HRV: 315.0991907320614
+Change from Baseline: 654.69%
+Change from Previous: -19.14%
+Previous HRV for Change: 389.6877233620922
+Previous Three HRV Values: [432.89721643826726, 389.6877233620922, 315.0991907320614]
+Change from Mean of Last Three: -16.91%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 248 - Expected Timestamp 21min 5sec, Actual Timestamp 21min 10sec
+Current HRV: 245.65860080230883
+Change from Baseline: 488.38%
+Change from Previous: -22.04%
+Previous HRV for Change: 315.0991907320614
+Previous Three HRV Values: [389.6877233620922, 315.0991907320614, 245.65860080230883]
+Change from Mean of Last Three: -30.29%
+Excluded Value from Mean Calculation: 245.65860080230883
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 249 - Expected Timestamp 21min 10sec, Actual Timestamp 21min 15sec
+Current HRV: 261.2305099147969
+Change from Baseline: 525.67%
+Change from Previous: 6.34%
+Previous HRV for Change: 245.65860080230883
+Previous Three HRV Values: [315.0991907320614, 245.65860080230883, 261.2305099147969]
+Change from Mean of Last Three: -6.83%
+Excluded Value from Mean Calculation: 245.65860080230883
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 250 - Expected Timestamp 21min 15sec, Actual Timestamp 21min 20sec
+Current HRV: 301.65201705597696
+Change from Baseline: 622.49%
+Change from Previous: 15.47%
+Previous HRV for Change: 261.2305099147969
+Previous Three HRV Values: [245.65860080230883, 261.2305099147969, 301.65201705597696]
+Change from Mean of Last Three: 11.92%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 251 - Expected Timestamp 21min 20sec, Actual Timestamp 21min 25sec
+Current HRV: 305.7132742630029
+Change from Baseline: 632.21%
+Change from Previous: 1.35%
+Previous HRV for Change: 301.65201705597696
+Previous Three HRV Values: [261.2305099147969, 301.65201705597696, 305.7132742630029]
+Change from Mean of Last Three: 5.59%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 252 - Expected Timestamp 21min 25sec, Actual Timestamp 21min 30sec
+Current HRV: 316.16730492870755
+Change from Baseline: 657.25%
+Change from Previous: 3.42%
+Previous HRV for Change: 305.7132742630029
+Previous Three HRV Values: [301.65201705597696, 305.7132742630029, 316.16730492870755]
+Change from Mean of Last Three: 2.70%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 253 - Expected Timestamp 21min 30sec, Actual Timestamp 21min 35sec
+Current HRV: 437.01759117911945
+Change from Baseline: 946.70%
+Change from Previous: 38.22%
+Previous HRV for Change: 316.16730492870755
+Previous Three HRV Values: [305.7132742630029, 316.16730492870755, 437.01759117911945]
+Change from Mean of Last Three: 42.95%
+Excluded Value from Mean Calculation: 437.01759117911945
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 254 - Expected Timestamp 21min 35sec, Actual Timestamp 21min 40sec
+Current HRV: 408.09238407423624
+Change from Baseline: 877.42%
+Change from Previous: -6.62%
+Previous HRV for Change: 437.01759117911945
+Previous Three HRV Values: [316.16730492870755, 437.01759117911945, 408.09238407423624]
+Change from Mean of Last Three: -6.62%
+Excluded Value from Mean Calculation: 437.01759117911945
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 255 - Expected Timestamp 21min 40sec, Actual Timestamp 21min 45sec
+Current HRV: 418.53165949543177
+Change from Baseline: 902.42%
+Change from Previous: 2.56%
+Previous HRV for Change: 408.09238407423624
+Previous Three HRV Values: [437.01759117911945, 408.09238407423624, 418.53165949543177]
+Change from Mean of Last Three: -0.64%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 256 - Expected Timestamp 21min 45sec, Actual Timestamp 21min 50sec
+Current HRV: 447.5593536057536
+Change from Baseline: 971.95%
+Change from Previous: 6.94%
+Previous HRV for Change: 418.53165949543177
+Previous Three HRV Values: [408.09238407423624, 418.53165949543177, 447.5593536057536]
+Change from Mean of Last Three: 5.38%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 257 - Expected Timestamp 21min 50sec, Actual Timestamp 21min 55sec
+Current HRV: 425.2628420735638
+Change from Baseline: 918.55%
+Change from Previous: -4.98%
+Previous HRV for Change: 447.5593536057536
+Previous Three HRV Values: [418.53165949543177, 447.5593536057536, 425.2628420735638]
+Change from Mean of Last Three: -1.21%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 258 - Expected Timestamp 21min 55sec, Actual Timestamp 22min 0sec
+Current HRV: 438.4429929472201
+Change from Baseline: 950.11%
+Change from Previous: 3.10%
+Previous HRV for Change: 425.2628420735638
+Previous Three HRV Values: [447.5593536057536, 425.2628420735638, 438.4429929472201]
+Change from Mean of Last Three: 0.31%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 259 - Expected Timestamp 22min 0sec, Actual Timestamp 22min 5sec
+Current HRV: 420.33013139059955
+Change from Baseline: 906.73%
+Change from Previous: -4.13%
+Previous HRV for Change: 438.4429929472201
+Previous Three HRV Values: [425.2628420735638, 438.4429929472201, 420.33013139059955]
+Change from Mean of Last Three: -1.79%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 260 - Expected Timestamp 22min 5sec, Actual Timestamp 22min 10sec
+Current HRV: 419.3526757595171
+Change from Baseline: 904.39%
+Change from Previous: -0.23%
+Previous HRV for Change: 420.33013139059955
+Previous Three HRV Values: [438.4429929472201, 420.33013139059955, 419.3526757595171]
+Change from Mean of Last Three: -1.57%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 261 - Expected Timestamp 22min 10sec, Actual Timestamp 22min 15sec
+Current HRV: 388.56499922238197
+Change from Baseline: 830.65%
+Change from Previous: -7.34%
+Previous HRV for Change: 419.3526757595171
+Previous Three HRV Values: [420.33013139059955, 419.3526757595171, 388.56499922238197]
+Change from Mean of Last Three: -5.09%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 262 - Expected Timestamp 22min 15sec, Actual Timestamp 22min 20sec
+Current HRV: 392.2042043770496
+Change from Baseline: 839.37%
+Change from Previous: 0.94%
+Previous HRV for Change: 388.56499922238197
+Previous Three HRV Values: [419.3526757595171, 388.56499922238197, 392.2042043770496]
+Change from Mean of Last Three: -1.96%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 263 - Expected Timestamp 22min 20sec, Actual Timestamp 22min 25sec
+Current HRV: 355.9026084010437
+Change from Baseline: 752.42%
+Change from Previous: -9.26%
+Previous HRV for Change: 392.2042043770496
+Previous Three HRV Values: [388.56499922238197, 392.2042043770496, 355.9026084010437]
+Change from Mean of Last Three: -6.07%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 264 - Expected Timestamp 22min 25sec, Actual Timestamp 22min 30sec
+Current HRV: 259.62223268376636
+Change from Baseline: 521.82%
+Change from Previous: -27.05%
+Previous HRV for Change: 355.9026084010437
+Previous Three HRV Values: [392.2042043770496, 355.9026084010437, 259.62223268376636]
+Change from Mean of Last Three: -30.59%
+Excluded Value from Mean Calculation: 259.62223268376636
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 265 - Expected Timestamp 22min 30sec, Actual Timestamp 22min 35sec
+Current HRV: 258.65700894401084
+Change from Baseline: 519.51%
+Change from Previous: -0.37%
+Previous HRV for Change: 259.62223268376636
+Previous Three HRV Values: [355.9026084010437, 259.62223268376636, 258.65700894401084]
+Change from Mean of Last Three: -15.96%
+Excluded Value from Mean Calculation: 259.62223268376636
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 266 - Expected Timestamp 22min 35sec, Actual Timestamp 22min 40sec
+Current HRV: 224.29818862254513
+Change from Baseline: 437.22%
+Change from Previous: -13.28%
+Previous HRV for Change: 258.65700894401084
+Previous Three HRV Values: [259.62223268376636, 258.65700894401084, 224.29818862254513]
+Change from Mean of Last Three: -9.38%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 267 - Expected Timestamp 22min 40sec, Actual Timestamp 22min 45sec
+Current HRV: 296.5202226227453
+Change from Baseline: 610.20%
+Change from Previous: 32.20%
+Previous HRV for Change: 224.29818862254513
+Previous Three HRV Values: [258.65700894401084, 224.29818862254513, 296.5202226227453]
+Change from Mean of Last Three: 14.64%
+Excluded Value from Mean Calculation: 296.5202226227453
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 268 - Expected Timestamp 22min 45sec, Actual Timestamp 22min 50sec
+Current HRV: 276.28676225979416
+Change from Baseline: 561.73%
+Change from Previous: -6.82%
+Previous HRV for Change: 296.5202226227453
+Previous Three HRV Values: [224.29818862254513, 296.5202226227453, 276.28676225979416]
+Change from Mean of Last Three: -6.82%
+Excluded Value from Mean Calculation: 296.5202226227453
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 269 - Expected Timestamp 22min 50sec, Actual Timestamp 22min 55sec
+Current HRV: 309.11638775139465
+Change from Baseline: 640.36%
+Change from Previous: 11.88%
+Previous HRV for Change: 276.28676225979416
+Previous Three HRV Values: [296.5202226227453, 276.28676225979416, 309.11638775139465]
+Change from Mean of Last Three: 5.15%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 270 - Expected Timestamp 22min 55sec, Actual Timestamp 23min 0sec
+Current HRV: 253.43920093669126
+Change from Baseline: 507.01%
+Change from Previous: -18.01%
+Previous HRV for Change: 309.11638775139465
+Previous Three HRV Values: [276.28676225979416, 309.11638775139465, 253.43920093669126]
+Change from Mean of Last Three: -9.36%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 271 - Expected Timestamp 23min 0sec, Actual Timestamp 23min 5sec
+Current HRV: 287.2861523522032
+Change from Baseline: 588.08%
+Change from Previous: 13.36%
+Previous HRV for Change: 253.43920093669126
+Previous Three HRV Values: [309.11638775139465, 253.43920093669126, 287.2861523522032]
+Change from Mean of Last Three: 1.41%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 272 - Expected Timestamp 23min 5sec, Actual Timestamp 23min 10sec
+Current HRV: 323.4754451830365
+Change from Baseline: 674.76%
+Change from Previous: 12.60%
+Previous HRV for Change: 287.2861523522032
+Previous Three HRV Values: [253.43920093669126, 287.2861523522032, 323.4754451830365]
+Change from Mean of Last Three: 12.29%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 273 - Expected Timestamp 23min 10sec, Actual Timestamp 23min 15sec
+Current HRV: 463.4955501404517
+Change from Baseline: 1010.12%
+Change from Previous: 43.29%
+Previous HRV for Change: 323.4754451830365
+Previous Three HRV Values: [287.2861523522032, 323.4754451830365, 463.4955501404517]
+Change from Mean of Last Three: 61.34%
+Excluded Value from Mean Calculation: 463.4955501404517
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 274 - Expected Timestamp 23min 15sec, Actual Timestamp 23min 20sec
+Current HRV: 325.8786200412663
+Change from Baseline: 680.51%
+Change from Previous: -29.69%
+Previous HRV for Change: 463.4955501404517
+Previous Three HRV Values: [323.4754451830365, 463.4955501404517, 325.8786200412663]
+Change from Mean of Last Three: -29.69%
+Excluded Value from Mean Calculation: 463.4955501404517
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 275 - Expected Timestamp 23min 20sec, Actual Timestamp 23min 25sec
+Current HRV: 276.9038778633437
+Change from Baseline: 563.21%
+Change from Previous: -15.03%
+Previous HRV for Change: 325.8786200412663
+Previous Three HRV Values: [463.4955501404517, 325.8786200412663, 276.9038778633437]
+Change from Mean of Last Three: -29.84%
+Excluded Value from Mean Calculation: 325.8786200412663
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 276 - Expected Timestamp 23min 25sec, Actual Timestamp 23min 30sec
+Current HRV: 255.38573765972134
+Change from Baseline: 511.67%
+Change from Previous: -7.77%
+Previous HRV for Change: 276.9038778633437
+Previous Three HRV Values: [325.8786200412663, 276.9038778633437, 255.38573765972134]
+Change from Mean of Last Three: -10.72%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 277 - Expected Timestamp 23min 30sec, Actual Timestamp 23min 35sec
+Current HRV: 307.68123429205735
+Change from Baseline: 636.93%
+Change from Previous: 20.48%
+Previous HRV for Change: 255.38573765972134
+Previous Three HRV Values: [276.9038778633437, 255.38573765972134, 307.68123429205735]
+Change from Mean of Last Three: 15.61%
+Excluded Value from Mean Calculation: 307.68123429205735
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 278 - Expected Timestamp 23min 35sec, Actual Timestamp 23min 40sec
+Current HRV: 238.27664085209358
+Change from Baseline: 470.70%
+Change from Previous: -22.56%
+Previous HRV for Change: 307.68123429205735
+Previous Three HRV Values: [255.38573765972134, 307.68123429205735, 238.27664085209358]
+Change from Mean of Last Three: -15.36%
+Excluded Value from Mean Calculation: 307.68123429205735
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 279 - Expected Timestamp 23min 40sec, Actual Timestamp 23min 45sec
+Current HRV: 182.49093450489696
+Change from Baseline: 337.08%
+Change from Previous: -23.41%
+Previous HRV for Change: 238.27664085209358
+Previous Three HRV Values: [307.68123429205735, 238.27664085209358, 182.49093450489696]
+Change from Mean of Last Three: -33.15%
+Excluded Value from Mean Calculation: 238.27664085209358
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 280 - Expected Timestamp 23min 45sec, Actual Timestamp 23min 50sec
+Current HRV: 248.1690528407577
+Change from Baseline: 494.39%
+Change from Previous: 35.99%
+Previous HRV for Change: 182.49093450489696
+Previous Three HRV Values: [238.27664085209358, 182.49093450489696, 248.1690528407577]
+Change from Mean of Last Three: 4.15%
+Excluded Value from Mean Calculation: 182.49093450489696
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 281 - Expected Timestamp 23min 50sec, Actual Timestamp 23min 55sec
+Current HRV: 230.08562306105512
+Change from Baseline: 451.08%
+Change from Previous: -7.29%
+Previous HRV for Change: 248.1690528407577
+Previous Three HRV Values: [182.49093450489696, 248.1690528407577, 230.08562306105512]
+Change from Mean of Last Three: -7.29%
+Excluded Value from Mean Calculation: 248.1690528407577
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 282 - Expected Timestamp 23min 55sec, Actual Timestamp 24min 1sec
+Current HRV: 266.5465415711286
+Change from Baseline: 538.41%
+Change from Previous: 15.85%
+Previous HRV for Change: 230.08562306105512
+Previous Three HRV Values: [248.1690528407577, 230.08562306105512, 266.5465415711286]
+Change from Mean of Last Three: 7.36%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 283 - Expected Timestamp 24min 0sec, Actual Timestamp 24min 5sec
+Current HRV: 274.36427897187633
+Change from Baseline: 557.13%
+Change from Previous: 2.93%
+Previous HRV for Change: 266.5465415711286
+Previous Three HRV Values: [230.08562306105512, 266.5465415711286, 274.36427897187633]
+Change from Mean of Last Three: 6.76%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 284 - Expected Timestamp 24min 5sec, Actual Timestamp 24min 11sec
+Current HRV: 270.75091986189193
+Change from Baseline: 548.48%
+Change from Previous: -1.32%
+Previous HRV for Change: 274.36427897187633
+Previous Three HRV Values: [266.5465415711286, 274.36427897187633, 270.75091986189193]
+Change from Mean of Last Three: 0.07%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 285 - Expected Timestamp 24min 10sec, Actual Timestamp 24min 16sec
+Current HRV: 331.7237178737751
+Change from Baseline: 694.51%
+Change from Previous: 22.52%
+Previous HRV for Change: 270.75091986189193
+Previous Three HRV Values: [274.36427897187633, 270.75091986189193, 331.7237178737751]
+Change from Mean of Last Three: 21.71%
+Excluded Value from Mean Calculation: 331.7237178737751
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 286 - Expected Timestamp 24min 15sec, Actual Timestamp 24min 21sec
+Current HRV: 309.5632597139168
+Change from Baseline: 641.43%
+Change from Previous: -6.68%
+Previous HRV for Change: 331.7237178737751
+Previous Three HRV Values: [270.75091986189193, 331.7237178737751, 309.5632597139168]
+Change from Mean of Last Three: 2.76%
+Excluded Value from Mean Calculation: 331.7237178737751
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 287 - Expected Timestamp 24min 20sec, Actual Timestamp 24min 26sec
+Current HRV: 301.00352987963447
+Change from Baseline: 620.93%
+Change from Previous: -2.77%
+Previous HRV for Change: 309.5632597139168
+Previous Three HRV Values: [331.7237178737751, 309.5632597139168, 301.00352987963447]
+Change from Mean of Last Three: -4.17%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 288 - Expected Timestamp 24min 25sec, Actual Timestamp 24min 31sec
+Current HRV: 295.665658841506
+Change from Baseline: 608.15%
+Change from Previous: -1.77%
+Previous HRV for Change: 301.00352987963447
+Previous Three HRV Values: [309.5632597139168, 301.00352987963447, 295.665658841506]
+Change from Mean of Last Three: -2.12%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 289 - Expected Timestamp 24min 30sec, Actual Timestamp 24min 36sec
+Current HRV: 302.94013810112267
+Change from Baseline: 625.57%
+Change from Previous: 2.46%
+Previous HRV for Change: 295.665658841506
+Previous Three HRV Values: [301.00352987963447, 295.665658841506, 302.94013810112267]
+Change from Mean of Last Three: 1.02%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 290 - Expected Timestamp 24min 35sec, Actual Timestamp 24min 41sec
+Current HRV: 444.70964310060407
+Change from Baseline: 965.12%
+Change from Previous: 46.80%
+Previous HRV for Change: 302.94013810112267
+Previous Three HRV Values: [295.665658841506, 302.94013810112267, 444.70964310060407]
+Change from Mean of Last Three: 50.41%
+Excluded Value from Mean Calculation: 444.70964310060407
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 291 - Expected Timestamp 24min 40sec, Actual Timestamp 24min 46sec
+Current HRV: 441.8456588073448
+Change from Baseline: 958.26%
+Change from Previous: -0.64%
+Previous HRV for Change: 444.70964310060407
+Previous Three HRV Values: [302.94013810112267, 444.70964310060407, 441.8456588073448]
+Change from Mean of Last Three: -0.64%
+Excluded Value from Mean Calculation: 444.70964310060407
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
 

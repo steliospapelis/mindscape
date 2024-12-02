@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WizardScript : MonoBehaviour
 {
     public float moveSpeed = 2f; 
     public GameObject galene; 
     public GameObject dialogueBox;
-    public Text dialogueText;
+    public TextMeshProUGUI dialogueText;
     public float stopXPosition = -12f; 
     private Animator anim; 
     private Animator galeneAnim; 
@@ -21,6 +22,8 @@ public class WizardScript : MonoBehaviour
     private bool dialogueStarted = false;
     private int dialogueIndex = 0; 
 
+    public ParticleSystem disappearEffect;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -29,6 +32,7 @@ public class WizardScript : MonoBehaviour
         anim.SetBool("idle", true);
         startPosition = transform.position;
         dialogueBox.SetActive(false);
+        dialogueIndex = 0;
     }
 
     void Update()
@@ -49,7 +53,7 @@ public class WizardScript : MonoBehaviour
             MoveWizard(Vector3.left, moveDistance);
         }
 
-        if (dialogueStarted && Input.GetKeyDown(KeyCode.Return))
+        if (dialogueStarted && Input.GetKeyDown(KeyCode.Space))
         {
             NextDialogue();
         }
@@ -65,6 +69,10 @@ public class WizardScript : MonoBehaviour
         anim.SetBool("idle", false);
         anim.SetBool("isRun", true);
 
+        if(dialogueIndex==0){
+        StartDialogue();
+        }
+
         if (Vector3.Distance(transform.position, startPosition) < distance)
         {
             transform.position += direction * moveSpeed * Time.deltaTime;
@@ -74,11 +82,12 @@ public class WizardScript : MonoBehaviour
             hasMoved = true;
             anim.SetBool("isRun", false);
             anim.SetBool("idle", true);
-            StartDialogue();
+            
         }
         else if (isMovingBack)
         {
             gameObject.SetActive(false);
+            disappearEffect.Play();
             galeneMovement.canMove = true;
         }
     }
@@ -91,9 +100,12 @@ public class WizardScript : MonoBehaviour
     }
 
     private void NextDialogue()
+{
+    // Only allow advancing the dialogue if the wizard has stopped moving
+    if (hasMoved || dialogueIndex == 0) 
     {
         dialogueIndex++;
-        if (dialogueIndex < 3)
+        if (dialogueIndex < 5)
         {
             dialogueText.text = GetDialogueText(dialogueIndex);
         }
@@ -102,15 +114,21 @@ public class WizardScript : MonoBehaviour
             EndDialogue();
         }
     }
+    else
+    {
+        
+        Debug.Log("Wizard is still moving. Please wait.");
+    }
+}
 
     private void EndDialogue()
     {
         dialogueBox.SetActive(false);
         dialogueStarted = false;
-        dialogueIndex = 0;
         startPosition = transform.position;
-        Flip();
         isMovingBack = true;
+        Flip();
+        
     }
 
     private string GetDialogueText(int index)
@@ -118,13 +136,17 @@ public class WizardScript : MonoBehaviour
         switch (index)
         {
             case 0:
-                return "The wizard speaks...";
+                return "As you step into the clearing, you spot a figure in a long, tattered robe standing before you. The wizard walks towards you slowly.";
             case 1:
-                return "Another piece of wisdom...";
+                return "'Welcome Galene!', he exclaims, 'we have been expecting you!'. Before you have time to answer, he continues";
             case 2:
-                return "End of the wizard's tales.";
+                return "'Do you sense the darkness? It spreads like a plague upon our realm. Only you can bring back the light. But remember...";
+            case 3:
+                return "'This isn’t a battle of strength, but of the mind. The shadows you face come from fear, from doubt. To find peace out there, you must first find it within.'";
+            case 4:
+                return "The wizard begins to walk away, ignoring your questions. The answers you seek, will have to wait.";
             default:
-                return "End of dialogue.";
+                return "End of dialogue";
         }
     }
 
