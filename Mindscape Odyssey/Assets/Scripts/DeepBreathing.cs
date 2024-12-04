@@ -232,7 +232,7 @@ public class DeepBreathing : MonoBehaviour
 
 private IEnumerator HealingSequence()
 {
-    float healingDelay = 2.5f; // Total duration for healing
+    float healingDelay = 1.8f; // Total duration for healing
     yield return new WaitForSeconds(healingDelay); // Wait for the next healing tick
     galene.canMove = true;
     health.Healing(HealthAmount);

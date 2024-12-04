@@ -123,13 +123,13 @@ public class NewMonster : MonoBehaviour
 
     private IEnumerator AttackPlayer()
     {
-        yield return new WaitForSeconds(0.1f); // Delay before dealing damage, adjust as needed
-        playerMovement.StartKnockback(1f);
+       
+        playerMovement.StartKnockback(0.7f);
         health.TakeDamage(Damage); // Deal damage to player
         // Determine the horizontal direction of the knockback
         Vector2 currentVelocity = playerRB.velocity;
         playerRB.velocity = new Vector2(0f, 0f);
-        Vector2 knockbackDirection = !facingRight ? Vector2.right : Vector2.left;
+         Vector2 knockbackDirection = (player.position.x > transform.position.x) ? Vector2.right : Vector2.left;
 
         // Combine the horizontal and vertical components into a single knockback vector
         Vector2 combinedKnockback = (knockbackDirection * horizontalKnockbackForce) + (Vector2.up * verticalKnockbackForce);

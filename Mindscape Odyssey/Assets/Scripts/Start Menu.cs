@@ -9,7 +9,7 @@ public class StartMenu : MonoBehaviour
 
     public Button newGameButton;
     public Button quitButton;
-    public Button optionsButton;
+    public Button callibrationButton;
     public Button startGameButton;
     public Button backButton;
     public TMP_Dropdown hrvModeSelection;
@@ -32,7 +32,7 @@ public class StartMenu : MonoBehaviour
 
         
         newGameButton.onClick.AddListener(OnNewGameClicked);
-        optionsButton.onClick.AddListener(OnOptionsClicked);
+        callibrationButton.onClick.AddListener(OnCallibrationClicked);
         quitButton.onClick.AddListener(OnQuitClicked);
         startGameButton.onClick.AddListener(OnStartGameClicked);
         backButton.onClick.AddListener(OnBackButtonClicked);
@@ -44,7 +44,7 @@ public class StartMenu : MonoBehaviour
     {
         
         newGameButton.gameObject.SetActive(false);
-        optionsButton.gameObject.SetActive(false);
+        callibrationButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
 
         
@@ -57,7 +57,7 @@ public class StartMenu : MonoBehaviour
     {
         
         newGameButton.gameObject.SetActive(true);
-        optionsButton.gameObject.SetActive(true);
+        callibrationButton.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
 
         
@@ -112,10 +112,10 @@ public class StartMenu : MonoBehaviour
     }
 
     // Function for "Options" button click
-    void OnOptionsClicked()
+    void OnCallibrationClicked()
     {
         // Restart the current scene or open the options menu
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Callibration");
     }
 
     // Function for "Quit" button click

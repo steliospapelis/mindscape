@@ -21,16 +21,23 @@ public class HealthManager : MonoBehaviour
 
     public DeepBreathing deepBr;
 
+    private GameObject boss;
+    public FallingBridge bridge1;
+    public FallingBridge bridge2;
+
 
     // New variables for TextMeshPro and Light2D
     public TextMeshProUGUI healthWarningText;
     public Light2D globalLight;
+
+    public int bossOffset;
    
 
     public bool breathingUnlocked=false;
 
     void Start()
     {
+        bossOffset=30;
         anim = GetComponent<Animator>();
         maxHealth = 100;
         health = 85;
@@ -69,7 +76,7 @@ public class HealthManager : MonoBehaviour
         // Check if enough time has passed since the last damage
         if (Time.time - lastDamageTime >= damageCooldown && !deepBr.isBreathing )
         {
-            anim.Play("hit light");
+            anim.Play("hit light",0,0f);
             health -= Damage;
             health = Mathf.Clamp(health, 0, maxHealth); // Ensure health stays within bounds
             healthbar.sharedMaterial.SetFloat("_Progress", health / 100);
@@ -109,8 +116,11 @@ public class HealthManager : MonoBehaviour
         {
             isRespawning = true;
             galene.canMove = false;
-            anim.Play("knockdown");
+            
             galene.isKnockedDown = true;
+            anim.SetBool("Grounded",true);
+            anim.Play("knockdown", 0, 0f);  
+            anim.SetBool("Down",true);
             StartCoroutine(FadeOutAndRespawn());
         }
     }
@@ -129,6 +139,7 @@ public class HealthManager : MonoBehaviour
 
         // Move player to the respawn point and reset health
         transform.position = respawnPoint.position;
+        anim.SetBool("Down",false);
         anim.Play("idle", 0, 0);
         
 
@@ -139,6 +150,15 @@ public class HealthManager : MonoBehaviour
 
         galene.canMove = true;
 
+        boss = GameObject.FindGameObjectWithTag("Boss");
+        if (boss != null)
+        {
+            Vector3 newPos = boss.transform.position; 
+            newPos.x = transform.position.x - bossOffset;     
+            boss.transform.position = newPos;
+        }
+        if (bridge1 != null) bridge1.ResetBridge();
+        if (bridge2 != null) bridge2.ResetBridge();
         // Fade in screen
         while (fadeImage.color.a > 0)
         {

@@ -106,7 +106,7 @@ public class DeepBreathingTutorial : MonoBehaviour
         waitingForBreathingSession = true;
 
         // Wait for the duration of the breathing session
-        yield return new WaitForSeconds(deepBreathing.totalTime+2.6f);
+        yield return new WaitForSeconds(deepBreathing.totalTime+1.9f);
 
         // Advance the dialogue index and update the text
         dialogueIndex++;

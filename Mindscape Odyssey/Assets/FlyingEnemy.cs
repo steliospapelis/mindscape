@@ -32,6 +32,7 @@ public class FlyingEnemy : MonoBehaviour
     private Vector3 returningPosition;
 
     public float horizontalKnockbackForce = 5f; // Adjust for horizontal knockback
+    public float verticalKnockbackForce = 5f; // Adjust for horizontal knockback
     
 
     public int Damage = 20;
@@ -57,7 +58,7 @@ public class FlyingEnemy : MonoBehaviour
     }
     else
     {
-        if (Vector3.Distance(transform.position, player.position) <= chargeRange && attackCooldown <= 0f && !isPausing)
+        if (Vector3.Distance(transform.position, player.position) <= chargeRange && attackCooldown <= 0f && !isPausing && playerMovement.isGrounded)
         {
             // Lock positions and patrol state
             chargeStartingPosition = transform.position;
@@ -111,7 +112,7 @@ void HandleMovement()
             Flip();  // Flip if moving left
         }
 
-        if (Vector3.Distance(transform.position, chargeTargetPosition) < 1f)
+        if (Vector3.Distance(transform.position, chargeTargetPosition) < 1.5f)
         {
             StartCoroutine(PauseAtTarget());
         }
@@ -169,7 +170,7 @@ void Flip()
         {
             
             // Check if player collided from the top
-            if (collision.contacts[0].normal.y < -0.8f )
+            if (collision.contacts[0].normal.y < -0.8f && !isReturning &&!isCharging)
             {
                 
               
@@ -185,29 +186,33 @@ void Flip()
             {
                 
                     StartCoroutine(AttackPlayer()); 
+                    GetComponent<Collider2D>().enabled = true;
                 }
             }
         }
     
 
+    
+
     private IEnumerator AttackPlayer()
 {
-    yield return new WaitForSeconds(0.1f); // Delay before dealing damage
-
-    playerMovement.StartKnockback(1f);
+    playerMovement.StartKnockback(0.7f);
     health.TakeDamage(Damage); // Deal damage to player
 
     // Stop player's current movement
     playerRB.velocity = Vector2.zero;
+    GetComponent<Collider2D>().enabled = false;
 
-    // Get the direction of the knockback based on the enemy's velocity
-    Vector2 knockbackDirection = (playerRB.position - (Vector2)transform.position).normalized;
+    // Determine the horizontal knockback direction based on player's position relative to the enemy
+    Vector2 knockbackDirection = (player.position.x > transform.position.x) ? Vector2.right : Vector2.left;
 
-    // Scale the knockback by combining enemy velocity and knockback forces
-    Vector2 combinedKnockback = knockbackDirection * horizontalKnockbackForce;
+    // Combine horizontal knockback with vertical force for upward effect
+    Vector2 combinedKnockback = (knockbackDirection * horizontalKnockbackForce) + (Vector2.up * verticalKnockbackForce);
 
     // Apply the knockback force
     playerRB.AddForce(combinedKnockback, ForceMode2D.Impulse);
+
+    yield return new WaitForSeconds(0.7f); 
 }
 
 

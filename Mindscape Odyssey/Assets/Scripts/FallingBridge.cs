@@ -10,6 +10,7 @@ public class FallingBridge : MonoBehaviour
     public float disableDelay = 0.5f;      // Time before disabling the bridge after falling
 
     public bool disablePlayerMovement = false;
+    public bool reset = false;
 
     
     public Animator playerAnimator;
@@ -28,6 +29,7 @@ public class FallingBridge : MonoBehaviour
     {
         if (!isFalling && other.CompareTag("Player") && player.isGrounded) // Trigger only for the player
         {
+            reset=false;
             StartCoroutine(HandleBridgeFall());
         }
     }
@@ -36,6 +38,7 @@ public class FallingBridge : MonoBehaviour
     {
         if (!isFalling && other.CompareTag("Player") && player.isGrounded) // Trigger only for the player
         {
+            reset=false;
             StartCoroutine(HandleBridgeFall());
         }
     }
@@ -71,7 +74,7 @@ public class FallingBridge : MonoBehaviour
 
         // Move the bridge down
         Vector3 targetPosition = initialPosition + new Vector3(0, -fallDistance, 0);
-        while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
+        while (Vector3.Distance(transform.position, targetPosition) > 0.01f && !reset)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, fallSpeed * Time.deltaTime);
             yield return null;
@@ -80,15 +83,19 @@ public class FallingBridge : MonoBehaviour
         // Delay before disabling
         yield return new WaitForSeconds(disableDelay);
 
+        if(!reset){
         // Disable the bridge (make it disappear)
         gameObject.SetActive(false);
+        }
     }
 
     public void ResetBridge()
     {
+        reset = true;
         // Optional: Reset the bridge to its original state for reuse
         transform.position = initialPosition;
         gameObject.SetActive(true);
         isFalling = false;
+        
     }
 }

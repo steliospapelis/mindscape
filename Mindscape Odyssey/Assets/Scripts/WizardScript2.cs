@@ -8,6 +8,7 @@ public class WizardScript2 : MonoBehaviour
 {
     public float moveSpeed = 2f; 
     public GameObject galene; 
+    public GameObject boss; 
     public GameObject dialogueBox;
     public TextMeshProUGUI dialogueText;
     private Animator anim; 
@@ -20,6 +21,7 @@ public class WizardScript2 : MonoBehaviour
     private bool isMovingBack = false;
     private bool dialogueStarted = false;
     private int dialogueIndex = 0; 
+    public CameraMovement cameraShake;
 
     public Transform skeletal;
 
@@ -112,6 +114,11 @@ public class WizardScript2 : MonoBehaviour
         if (hasMoved || dialogueIndex == 0) 
         {
             dialogueIndex++;
+        if (dialogueIndex == 4)
+        {
+            cameraShake.ShakeCamera(2f, 0.8f); 
+        }
+        
             if (dialogueIndex < 5)
             {
                 dialogueText.text = GetDialogueText(dialogueIndex);
@@ -134,6 +141,7 @@ public class WizardScript2 : MonoBehaviour
         startPosition = transform.position;
         isMovingBack = true;
         Flip();
+        boss.SetActive(true);
     }
 
     private string GetDialogueText(int index)
@@ -141,15 +149,15 @@ public class WizardScript2 : MonoBehaviour
         switch (index)
         {
             case 0:
-                return "As you step into the clearing, you spot a figure in a long, tattered robe standing before you. The wizard walks towards you slowly.";
+                return "The wizard stands before you once more, his expression a mix of pride and urgency.";
             case 1:
-                return "'Welcome Galene!', he exclaims, 'we have been expecting you!'. Before you have time to answer, he continues";
+                return "'Well done making it this far, Galene,' he says, his voice calm yet firm. 'You’ve shown great resilience.'";
             case 2:
-                return "'Do you sense the darkness? It spreads like a plague upon our realm. Only you can bring back the light. But remember...";
+                return "'But remember, your breathing is your anchor. Use the exercise, it will help you steady your mind as the trials grow more intense.'";
             case 3:
-                return "'This isn’t a battle of strength, but of the mind. The shadows you face come from fear, from doubt. To find peace out there, you must first find it within.'";
+                return "'You’re almost there. The light is within reach.'";
             case 4:
-                return "The wizard begins to walk away, ignoring your questions. The answers you seek, will have to wait.";
+                return "'Oh no,' he whispers, 'he’s coming!' His voice rises, 'Run, Galene! RUN!'";
             default:
                 return "End of dialogue";
         }
