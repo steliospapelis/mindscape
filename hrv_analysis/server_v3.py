@@ -1,13 +1,12 @@
-from pythonosc import dispatcher 
+from pythonosc import dispatcher
 from pythonosc import osc_server
-from flask import Flask, jsonify, render_template_string, request, render_template
+from flask import Flask, jsonify, request, render_template
 import threading
 import queue
 import signal
 import sys
-import requests
 import socket  # For sending dummy data to unblock the listener
-from eda_data_processor import data_processor, get_results
+from data_processor_v3 import data_processor, get_results
 
 # Global queues for sharing data between threads
 ppg_data_queue = queue.Queue()  # Queue for PPG green data
@@ -63,9 +62,52 @@ def get_ability_value():
     global ability_value
     return ability_value
 
+# Global variable for the anxious calibration signal
+anxious_calibration_value = 0
+calm_calibration_value = 0
+
+@app.route('/anxious_calibration', methods=['POST'])
+def anxious_calibration():
+    global anxious_calibration_value
+    # Check if the request contains JSON data
+    if request.is_json:
+        data = request.get_json()
+        anxious_calibration_value = data.get('value', 0)  # Update anxious calibration value, default to 0
+    else:
+        anxious_calibration_value = 0  # Default to 0 if no JSON or value is provided
+
+    # Return the current anxious calibration value as a JSON response
+    return jsonify(anxious_calibration_value=anxious_calibration_value), 200
+
+@app.route('/gameFlags', methods=['POST'])
+def gameFlags():
+    global ability_value
+    global anxious_calibration_value
+    global calm_calibration_value
+    if request.is_json:
+        data = request.get_json()
+        anxious_calibration_value = data.get('isStressing', 0)
+        calm_calibration_value = data.get('isCalming', 0)
+        ability_value = data.get('isBreathing', 0)
+    else:
+        anxious_calibration_value = 0
+        calm_calibration_value = 0
+        ability_value = 0
+        
+    return jsonify(anxious_calibration_value=anxious_calibration_value, calm_calibration_value=calm_calibration_value, ability_value=ability_value), 200
+
+@app.route('/anxious_calibration_value', methods=['GET'])
+def get_anxious_calibration_value_route():
+    """Route to return the current anxious calibration value stored in the global variable."""
+    return jsonify(anxious_calibration_value=anxious_calibration_value), 200
+
+# Function to retrieve the anxious calibration value
+def get_anxious_calibration_value():
+    global anxious_calibration_value
+    return anxious_calibration_value
+
 # Handler for PPG green values
 def measurements_handler(address, *args):
-    
     if "PPG:GRN" in address:
         for arg in args:
             ppg_data_queue.put(arg)  # Put the PPG green values into the queue
@@ -76,8 +118,7 @@ def measurements_handler(address, *args):
             f.write(f"Address: {address}, Values: {args}\n")
         for arg in args:
             eda_data_queue.put(arg)  # Put the EDA values into the queue
-            
-            
+
 def run_osc_listener(ip, port, stop_event):
     disp = dispatcher.Dispatcher()
     disp.set_default_handler(measurements_handler)

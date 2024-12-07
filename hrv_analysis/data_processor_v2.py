@@ -1,3 +1,5 @@
+# Addition of EDA values extraction
+
 import warnings
 from neurokit2 import NeuroKitWarning
 warnings.filterwarnings('ignore', category=NeuroKitWarning)
@@ -21,11 +23,16 @@ log_file = "data_processor_log.txt"  # The log file name
 
 # CSV file name
 buffer_csv_file = "buffer_values.csv"
+eda_csv_file = "eda_values.csv"
 
 # Write headers only once at the beginning
 with open(buffer_csv_file, 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(["Segment", "Buffer Values"])
+
+with open(eda_csv_file, 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(["Segment", "EDA Values"])
 
 # Function to add log entries to both files (data_processor_log.txt and ability_log.txt)
 def add_log_entry(entry, ability_measurement=False):
@@ -68,13 +75,13 @@ def fetch_ability_value():
         print(f"Error fetching ability value: {e}")
         return 0  # Return 0 if there's an error
     
-def data_processor(data_queue, stop_event):
+def data_processor(ppg_data_queue, eda_data_queue, stop_event):
     sampling_rate = 100
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
     step_counter = 0
     num_steps_for_baseline = 10 #10
-    num_steps_skipped = 10  #10
+    num_steps_skipped = 10 #10
     current_step = 0
     buffer = deque(maxlen=window_size)
     baseline_hrv = []
@@ -95,10 +102,10 @@ def data_processor(data_queue, stop_event):
     with open("ability_log.txt", 'w') as f:
         f.write("Starting ability logging...\n")
     
-    while not stop_event.is_set() or not data_queue.empty():
+    while not stop_event.is_set() or not ppg_data_queue.empty():
         
         try:
-            data_point = data_queue.get(timeout=0.01)
+            data_point = ppg_data_queue.get(timeout=0.01)
             buffer.append(data_point)  # Add data to the buffer
 
             # Increment step counter and check if it's time to analyze the data
@@ -127,6 +134,16 @@ def data_processor(data_queue, stop_event):
                     with open(buffer_csv_file, 'a', newline='') as csvfile:
                         writer = csv.writer(csvfile)
                         writer.writerow([current_step, list(buffer)])  # Segment number and buffer values
+                        
+                    # Empty the eda_data_queue into a list
+                    eda_values = []
+                    while not eda_data_queue.empty():
+                        eda_values.append(eda_data_queue.get())
+
+                    # Write the segment number and EDA values to the EDA CSV file
+                    with open(eda_csv_file, 'a', newline='') as csvfile:
+                        writer = csv.writer(csvfile)
+                        writer.writerow([current_step, eda_values])  # Segment number and EDA values list
 
                     if current_step <= num_steps_skipped:
                         log_msg = (f"Segment {current_step} skipped - "
