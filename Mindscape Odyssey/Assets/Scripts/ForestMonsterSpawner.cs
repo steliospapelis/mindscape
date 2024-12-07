@@ -5,11 +5,11 @@ public class ForestMonsterSpawner : MonoBehaviour
     private bool triggered = false;
     public GameObject monster;
     public Transform spawner;
-    public float spawnRadius = 5f; 
-
+    
     public Vector3[] spawnPoints;
 
-    public HRV HRV;
+
+    public int numEnemies;
 
     
    
@@ -18,22 +18,7 @@ public class ForestMonsterSpawner : MonoBehaviour
     {
 
         if (triggered==false){
-        int HRValue = HRV.HRValue;
-
-        
-        int numEnemies = 0;
-        if (HRValue > 670)
-        {
-            numEnemies = 1;
-        }
-        else if (HRValue >= 630 && HRValue <= 670)
-        {
-            numEnemies = 2;
-        }
-        else if (HRValue < 630)
-        {
-            numEnemies = 3;
-        }
+       
 
        
         for (int i = 0; i < numEnemies; i++)

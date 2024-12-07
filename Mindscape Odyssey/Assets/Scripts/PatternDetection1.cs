@@ -1,13 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI; 
+using TMPro;
 
 public class PatternDetection1 : MonoBehaviour
 {
     float holdTimer;
     float timer;
 
-    public Text help;
+    public TextMeshProUGUI help;
 
     public HealthManager health;
 

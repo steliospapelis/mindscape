@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2740798426716381285}
   - component: {fileID: 4069829057206236114}
   - component: {fileID: 2242621572854914558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Smooth Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
