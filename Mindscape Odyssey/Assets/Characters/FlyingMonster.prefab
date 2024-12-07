@@ -129,6 +129,7 @@ MonoBehaviour:
   attackDelay: 7
   playerRB: {fileID: 0}
   horizontalKnockbackForce: 15
+  verticalKnockbackForce: 5
   Damage: 20
   bounceForce: 18
 --- !u!61 &8304741032071022960

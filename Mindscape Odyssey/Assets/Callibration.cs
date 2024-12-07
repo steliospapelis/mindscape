@@ -30,6 +30,7 @@ public class CalibrationScreen : MonoBehaviour
     private List<float> reactionTimes = new List<float>();  
     private int correctAnswers = 0;
 
+
     void Start()
     {
         feedbackText.gameObject.SetActive(false);
@@ -150,6 +151,7 @@ public class CalibrationScreen : MonoBehaviour
 {
     for (int block = 1; block <= 3; block++)
     {
+        
         GenerateTrialCongruency(8);
         for (trialCount = 0; trialCount < 8; trialCount++)
         {

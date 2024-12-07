@@ -86,9 +86,11 @@ def gameFlags():
     global calm_calibration_value
     if request.is_json:
         data = request.get_json()
-        anxious_calibration_value = data.get('isStressing', 0)
-        calm_calibration_value = data.get('isCalming', 0)
-        ability_value = data.get('isBreathing', 0)
+        with open("dummy_data.txt", 'a') as f:
+            f.write(f"Data: {data}")
+        anxious_calibration_value = data.get('StressedCalib', 0)
+        calm_calibration_value = data.get('CalmCalib', 0)
+        ability_value = data.get('Breathing', 0)
     else:
         anxious_calibration_value = 0
         calm_calibration_value = 0

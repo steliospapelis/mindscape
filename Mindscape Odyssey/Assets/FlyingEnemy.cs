@@ -29,6 +29,10 @@ public class FlyingEnemy : MonoBehaviour
     private float patrolOffset; // Track patrol offset when charge starts
     private float chargeStartTime; // Track when the charge started
 
+    private bool attacking = false;
+
+    private DeepBreathing deepBr;
+
     private Vector3 returningPosition;
 
     public float horizontalKnockbackForce = 5f; // Adjust for horizontal knockback
@@ -48,10 +52,21 @@ public class FlyingEnemy : MonoBehaviour
         playerRB = player.GetComponent<Rigidbody2D>();
         playerMovement = player.GetComponent<GaleneMovement>();
         health = player.GetComponent<HealthManager>();
+        deepBr = player.GetComponent<DeepBreathing>();
     }
 
     void Update()
+
 {
+    if(deepBr.isBreathing){
+        attackCooldown = attackDelay;
+        GetComponent<Collider2D>().enabled = false;
+        
+    }
+    else if (!attacking){
+        GetComponent<Collider2D>().enabled = true;
+    }
+
     if (isCharging || isReturning)
     {
         HandleMovement();
@@ -140,6 +155,7 @@ void HandleMovement()
         if (Vector3.Distance(transform.position, returningPosition) < 0.2f)
         {
             isReturning = false;
+            
             attackCooldown = attackDelay;
         }
     }
@@ -166,11 +182,15 @@ void Flip()
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !deepBr.isBreathing)
         {
+            attacking = true;
+            GetComponent<Collider2D>().enabled = false;
+
+            
             
             // Check if player collided from the top
-            if (collision.contacts[0].normal.y < -0.8f && !isReturning &&!isCharging)
+            if (collision.contacts[0].normal.y < -0.8f &&!isCharging)
             {
                 
               
@@ -186,7 +206,7 @@ void Flip()
             {
                 
                     StartCoroutine(AttackPlayer()); 
-                    GetComponent<Collider2D>().enabled = true;
+                    
                 }
             }
         }
@@ -201,7 +221,7 @@ void Flip()
 
     // Stop player's current movement
     playerRB.velocity = Vector2.zero;
-    GetComponent<Collider2D>().enabled = false;
+    
 
     // Determine the horizontal knockback direction based on player's position relative to the enemy
     Vector2 knockbackDirection = (player.position.x > transform.position.x) ? Vector2.right : Vector2.left;
@@ -213,6 +233,8 @@ void Flip()
     playerRB.AddForce(combinedKnockback, ForceMode2D.Impulse);
 
     yield return new WaitForSeconds(0.7f); 
+    attacking = false;
+    GetComponent<Collider2D>().enabled = true;
 }
 
 

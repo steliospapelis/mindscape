@@ -59,10 +59,18 @@ public class DeepBreathing : MonoBehaviour
 
     public TextMeshProUGUI[] textsToDeactivate;
 
+    private GameObject boss;
+    private Boss bossScript;
+
+    float bossSpeed;
+
+    public CombinedHRV hrv;
+
     
 
     void Start()
     {
+        
         hasHealed = true;
         Text.text = "Hold";
         Circle.SetActive(true);
@@ -195,6 +203,7 @@ public class DeepBreathing : MonoBehaviour
     endParticles1.Play();
     endParticles2.Play();
     
+    
 
     foreach (var light in targetLights)
     {
@@ -237,6 +246,9 @@ private IEnumerator HealingSequence()
     galene.canMove = true;
     health.Healing(HealthAmount);
     hasHealed=true;
+    if(boss!=null){
+    bossScript.speed=bossSpeed;
+    }
 
     foreach (var monster in newMonsterSpeeds.Keys)
     {
@@ -311,6 +323,16 @@ private IEnumerator HealingSequence()
             mover.speed = 0f;
         }
 
+
+
+        boss = GameObject.FindWithTag("Boss");
+        if(boss!=null){
+        bossScript = boss.GetComponent<Boss>();
+        bossSpeed = bossScript.speed;
+        bossScript.speed=0;
+        }
+
+
         foreach (var monster in FindObjectsOfType<NewMonster>())
         {
             newMonsterSpeeds[monster] = monster.speed;
@@ -324,6 +346,8 @@ private IEnumerator HealingSequence()
             flying.patrolSpeed = 0f;
             flying.chargeSpeed = 0f;
         }
+
+        StartCoroutine(hrv.NotifyServer(true, false, false)); // Example usage
 
         hasHealed = false;
         Circle.SetActive(true);

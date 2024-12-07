@@ -25,6 +25,8 @@ public class NewMonster : MonoBehaviour
     private bool isWalled;
     private bool isAttacking = false; // Flag to check if attack is ongoing
 
+    private DeepBreathing deepBr;
+
     private GaleneMovement playerMovement;
     private HealthManager health;
     public float Damage = 5f;
@@ -45,12 +47,18 @@ public class NewMonster : MonoBehaviour
         playerMovement = playerObject.GetComponent<GaleneMovement>();
         playerRB = playerObject.GetComponent<Rigidbody2D>();
         health = playerObject.GetComponent<HealthManager>();
+        deepBr = playerObject.GetComponent<DeepBreathing>();
+        
     }
 
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.transform.position, circleRadius, ground);
         isWalled = Physics2D.OverlapCircle(wallCheck.transform.position, circleRadius, ground);
+
+        if(!facingRight && speed<0){
+            speed=-speed;
+        }
 
         if ((!isGrounded || isWalled) && !isAttacking)
         {
@@ -88,7 +96,7 @@ public class NewMonster : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") &&!deepBr.isBreathing)
         {
             
             // Check if player collided from the top

@@ -1,1 +1,41 @@
 Starting ability logging...
+
+Ability activated in step 403. 
+Expect ability measurements in segments 408, 409, and 410.
+
+Segment 408 - Expected Timestamp 34min 25sec, Actual Timestamp 14min 32sec
+ABILITY MEASUREMENT 1 for segment 408.
+Current HRV: 301.0155225691629
+Change from Baseline: -2.27%
+Change from Previous: 11.27%
+Previous HRV for Change: 270.5241825296462
+Previous Three HRV Values: [305.8002503325468, 270.5241825296462, 301.0155225691629]
+Change from Mean of Last Three: 2.93%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 409 - Expected Timestamp 34min 30sec, Actual Timestamp 14min 34sec
+ABILITY MEASUREMENT 2 for segment 409.
+Current HRV: 305.1285766293647
+Change from Baseline: -0.94%
+Change from Previous: 1.37%
+Previous HRV for Change: 301.0155225691629
+Previous Three HRV Values: [270.5241825296462, 301.0155225691629, 305.1285766293647]
+Change from Mean of Last Three: 4.42%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 410 - Expected Timestamp 34min 35sec, Actual Timestamp 14min 36sec
+ABILITY MEASUREMENT 3 for segment 410.
+Current HRV: 276.39343938185897
+Change from Baseline: -10.27%
+Change from Previous: -9.42%
+Previous HRV for Change: 305.1285766293647
+Previous Three HRV Values: [301.0155225691629, 305.1285766293647, 276.39343938185897]
+Change from Mean of Last Three: -6.05%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+

@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - PixelSnap: 0
     - _EnableExternalAlpha: 0
-    - _Progress: 0
+    - _Progress: 0.13219886
     - _WaterAngle: 0
     - _WaterTransparency: 0
     - _WaveFrequency: 0

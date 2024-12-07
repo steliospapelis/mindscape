@@ -6,31 +6,34 @@ using UnityEngine.Rendering.Universal;
 
 public class CombinedHRV : MonoBehaviour
 {
-    private float checkInterval = 10.0f;  // Change value every 10 seconds
+    private float checkInterval = 10.0f;
     public TextMeshProUGUI HRValueDisplay;
     public int HRValue;
-    public int HRnumber;  // Added for the HRV number display
+    public int HRnumber;
     public GaleneMovement playerMovement;
 
     public Light2D globalLight;
     public Light2D cameraLight;
+    public TextMeshProUGUI anxiousWarningText; // Text to display when anxious
 
     private string url = "http://localhost:5000/results_json";
-    private bool manualMode = false;  // Fallback to manual mode if server is unreachable
+    private bool manualMode = false;
 
     void Start()
     {
+        anxiousWarningText.gameObject.SetActive(false); // Hide text initially
         StartCoroutine(FetchData());
         StartCoroutine(ChangeText());
     }
 
     void Update()
     {
-        // Toggle state manually if in manual mode and 'H' is pressed
         if (manualMode && Input.GetKeyDown(KeyCode.H))
         {
-            HRValue = (HRValue == 0) ? 1 : 0;  
+            HRValue = (HRValue == 0) ? 1 : 0;
         }
+
+        AdjustBehavior();
     }
 
     IEnumerator FetchData()
@@ -39,7 +42,6 @@ public class CombinedHRV : MonoBehaviour
         {
             yield return webRequest.SendWebRequest();
 
-            // If there's an error, enable manual mode and exit the coroutine
             if (webRequest.isNetworkError || webRequest.isHttpError)
             {
                 Debug.LogError("Error fetching data: " + webRequest.error);
@@ -47,18 +49,10 @@ public class CombinedHRV : MonoBehaviour
             }
             else
             {
-                // Successfully connected; continue fetching data at intervals
                 manualMode = false;
-
-                // Parse the JSON response
                 var result = JsonUtility.FromJson<ValueResponse>(webRequest.downloadHandler.text);
-                Debug.Log("Computed Value: " + result.binary_output);
-
-                // Use the binary_output value in your game logic
                 HRValue = result.binary_output;
                 HRnumber = result.current_hrv;
-
-                // Continue fetching at intervals
                 StartCoroutine(FetchDataLoop());
             }
         }
@@ -92,22 +86,24 @@ public class CombinedHRV : MonoBehaviour
     {
         while (true)
         {
-            if (HRValue == 0)  // Calm state
+            if (HRValue == 0) 
             {
                 HRValueDisplay.text = "Calm " + HRnumber.ToString();
                 HRValueDisplay.color = Color.green;
+                anxiousWarningText.gameObject.SetActive(false); 
 
-                ColorUtility.TryParseHtmlString("#18203C", out Color calmColor); 
+                ColorUtility.TryParseHtmlString("#18203C", out Color calmColor);
                 globalLight.color = calmColor;
-                ColorUtility.TryParseHtmlString("#8F9EB2", out Color cameraColor); 
+                ColorUtility.TryParseHtmlString("#8F9EB2", out Color cameraColor);
                 cameraLight.color = cameraColor;
             }
-            else  // Anxious state
+            else 
             {
                 HRValueDisplay.text = "Anxious " + HRnumber.ToString();
                 HRValueDisplay.color = Color.red;
+                anxiousWarningText.gameObject.SetActive(true); 
 
-                ColorUtility.TryParseHtmlString("#B50F10", out Color anxiousColor); 
+                ColorUtility.TryParseHtmlString("#B50F10", out Color anxiousColor);
                 globalLight.color = anxiousColor;
                 cameraLight.color = anxiousColor;
             }
@@ -116,10 +112,100 @@ public class CombinedHRV : MonoBehaviour
         }
     }
 
+    private void AdjustBehavior()
+{
+    FlyingEnemy[] flyingEnemies = FindObjectsOfType<FlyingEnemy>();
+    NewMonster[] NewMonsters = FindObjectsOfType<NewMonster>();
+
+    if (HRValue == 1)  // Anxious state
+    {
+        foreach (FlyingEnemy enemy in flyingEnemies)
+        {
+            enemy.Damage = 25;
+            enemy.chargeSpeed = 9f;  
+            enemy.pauseTime = 1f;
+        }
+
+        foreach (NewMonster monster in NewMonsters)
+        {
+            monster.Damage = 15;
+             if(Mathf.Abs(monster.speed)<=3.05f){
+            monster.speed = monster.speed*1.2f;
+            }
+        }
+
+        playerMovement.moveSpeed = 5f;  // Anxious state
+    }
+    else  // Calm state
+    {
+        foreach (FlyingEnemy enemy in flyingEnemies)
+        {
+            enemy.Damage = 20;
+            enemy.chargeSpeed = 8f;
+            enemy.pauseTime = 1.2f;
+        }
+       
+
+        foreach (NewMonster monster in NewMonsters)
+        {
+            monster.Damage = 10;
+            if(Mathf.Abs(monster.speed)>3.6f){
+            monster.speed = monster.speed/1.2f;
+            }
+        }
+
+        playerMovement.moveSpeed = 5.8f;  // Calm state
+    }
+}
+
+
     [System.Serializable]
     public class ValueResponse
     {
         public int binary_output;
         public int current_hrv;
     }
+
+    public IEnumerator NotifyServer(bool isBreathing, bool isCalming, bool isStressing)
+{
+    CalibrationData data = new CalibrationData
+    {
+        Breathing = isBreathing,
+        CalmCalib = isCalming,
+        StressedCalib = isStressing
+    };
+    Debug.Log("data:"+data);
+    
+    string jsonData = JsonUtility.ToJson(data);
+    byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
+
+    using (UnityWebRequest webRequest = new UnityWebRequest("http://localhost:5000/gameFlags", "POST"))
+    {
+        webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        webRequest.downloadHandler = new DownloadHandlerBuffer();
+        webRequest.SetRequestHeader("Content-Type", "application/json");
+        Debug.Log("JSON data: " + jsonData);
+
+
+        yield return webRequest.SendWebRequest();
+
+        if (webRequest.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log("Flags sent successfully!");
+        }
+        else
+        {
+            Debug.LogError("Error sending flags: " + webRequest.error);
+        }
+    }
+}
+
+[System.Serializable]
+public class CalibrationData
+{
+    public bool Breathing;
+    public bool CalmCalib;
+    public bool StressedCalib;
+}
+//StartCoroutine(NotifyPlayerState(true, false, false)); // Example usage
 }
