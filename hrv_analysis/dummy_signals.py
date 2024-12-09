@@ -10,7 +10,7 @@ value_lock = threading.Lock()
 # Function to send calm calibration signal
 def send_calm_calibration_signal(value):
     try:
-        response = requests.post('http://127.0.0.1:5000/calm_calibration', json={"value": value})
+        response = requests.post('http://127.0.0.1:5000/game_flags', json={"CalmCalib": value})
         if response.status_code == 200:
             print(f"Calm calibration signal sent with value: {value}")
         else:
@@ -21,7 +21,7 @@ def send_calm_calibration_signal(value):
 # Function to send anxious calibration signal
 def send_anxious_calibration_signal(value):
     try:
-        response = requests.post('http://127.0.0.1:5000/anxious_calibration', json={"value": value})
+        response = requests.post('http://127.0.0.1:5000/game_flags', json={"StressedCalib": value})
         if response.status_code == 200:
             print(f"Anxious calibration signal sent with value: {value}")
         else:
@@ -32,7 +32,7 @@ def send_anxious_calibration_signal(value):
 # Function to send ability signal
 def send_ability_value(value):
     try:
-        response = requests.post('http://127.0.0.1:5000/ability', json={"value": value})
+        response = requests.post('http://127.0.0.1:5000/game_flags', json={"Breathing": value})
         if response.status_code == 200:
             print(f"Sent ability value: {value}")
         else:
