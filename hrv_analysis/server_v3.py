@@ -31,8 +31,8 @@ def get_json_results():
     results = get_results()
     return jsonify(results)
 
-# Global variable to store the current ability value
-ability_value = 0
+
+# Implementation for the dummy ability (different route)
 
 @app.route('/ability', methods=['POST'])
 def ability():
@@ -46,6 +46,14 @@ def ability():
     
     # Return the current ability value as a JSON response
     return jsonify(ability_value=ability_value), 200
+
+
+# Global variable for the calm and anxious calibration signal
+calm_calibration_value = 0
+anxious_calibration_value = 0
+
+# Global variable to store the current ability value
+ability_value = 0
 
 @app.route('/ability_value', methods=['GET'])
 def ability_value_route():
@@ -62,10 +70,8 @@ def get_ability_value():
     global ability_value
     return ability_value
 
-# Global variable for the anxious calibration signal
-anxious_calibration_value = 0
-calm_calibration_value = 0
 
+# Implementation for the dummy anxious calibration (different route)
 @app.route('/anxious_calibration', methods=['POST'])
 def anxious_calibration():
     global anxious_calibration_value
@@ -79,6 +85,20 @@ def anxious_calibration():
     # Return the current anxious calibration value as a JSON response
     return jsonify(anxious_calibration_value=anxious_calibration_value), 200
 
+# Implementation for the dummy calm calibration (different route)
+@app.route('/calm_calibration', methods=['POST'])
+def calm_calibration():
+    global calm_calibration_value
+    # Check if the request contains JSON data
+    if request.is_json:
+        data = request.get_json()
+        calm_calibration_value = data.get('value', 0)  # Update calm calibration value, default to 0
+    else:
+        calm_calibration_value = 0  # Default to 0 if no JSON or value is provided
+
+    # Return the current calm calibration value as a JSON response
+    return jsonify(calm_calibration_value=calm_calibration_value), 200
+
 @app.route('/gameFlags', methods=['POST'])
 def gameFlags():
     global ability_value
@@ -86,8 +106,8 @@ def gameFlags():
     global calm_calibration_value
     if request.is_json:
         data = request.get_json()
-        with open("dummy_data.txt", 'a') as f:
-            f.write(f"Data: {data}")
+        # with open("dummy_data.txt", 'a') as f:
+        #     f.write(f"Data: {data}")
         anxious_calibration_value = data.get('StressedCalib', 0)
         calm_calibration_value = data.get('CalmCalib', 0)
         ability_value = data.get('Breathing', 0)
@@ -98,26 +118,36 @@ def gameFlags():
         
     return jsonify(anxious_calibration_value=anxious_calibration_value, calm_calibration_value=calm_calibration_value, ability_value=ability_value), 200
 
+
+@app.route('/calm_calibration_value', methods=['GET'])
+def get_calm_calibration_value_route():
+    """Route to return the current calm calibration value stored in the global variable."""
+    return jsonify(calm_calibration_value=calm_calibration_value), 200
+
 @app.route('/anxious_calibration_value', methods=['GET'])
 def get_anxious_calibration_value_route():
     """Route to return the current anxious calibration value stored in the global variable."""
     return jsonify(anxious_calibration_value=anxious_calibration_value), 200
 
-# Function to retrieve the anxious calibration value
+# Functions to retrieve the calm and anxious calibration value
+def get_calm_calibration_value():
+    global calm_calibration_value
+    return calm_calibration_value
+
 def get_anxious_calibration_value():
     global anxious_calibration_value
     return anxious_calibration_value
 
-# Handler for PPG green values
+# Handler for PPG green and EDA values
 def measurements_handler(address, *args):
     if "PPG:GRN" in address:
         for arg in args:
             ppg_data_queue.put(arg)  # Put the PPG green values into the queue
             
     if "EDA" in address:
-        with open("dummy_ed.txt", 'a') as f:
-            # Write the address and all arguments to the file
-            f.write(f"Address: {address}, Values: {args}\n")
+        # with open("dummy_ed.txt", 'a') as f:
+        #     # Write the address and all arguments to the file
+        #     f.write(f"Address: {address}, Values: {args}\n")
         for arg in args:
             eda_data_queue.put(arg)  # Put the EDA values into the queue
 
@@ -167,7 +197,7 @@ def main():
 
     # Handle Ctrl+C signal to stop the server
     signal.signal(signal.SIGINT, lambda signal, frame: handle_shutdown(signal, frame, stop_event, ip, port))
-
+ 
     # Run the OSC server in a separate thread
     listener_thread = threading.Thread(target=run_osc_listener, args=(ip, port, stop_event))
     listener_thread.start()

@@ -1,1049 +1,99 @@
 Starting data processor logging...
+Waiting to recieve the calm calibration signal.
 
 Calm Calibration Starting...
-The next 2 will be skipped
+The next 10 will be skipped
 
-Segment 1 skipped - Expected Timestamp 0min 30sec, Actual Timestamp 0min 31sec
-Current HRV: 309.4043220169341
+Segment 1 skipped - Expected Timestamp 0min 30sec, Actual Timestamp 0min 0sec
+Current HRV: 282.09336515888964
 
-Segment 2 skipped - Expected Timestamp 0min 35sec, Actual Timestamp 0min 34sec
-Current HRV: 308.9749459768208
+Segment 2 skipped - Expected Timestamp 0min 35sec, Actual Timestamp 0min 0sec
+Current HRV: 310.45572731178544
+
+Segment 3 skipped - Expected Timestamp 0min 40sec, Actual Timestamp 0min 3sec
+Current HRV: 308.2318876296289
+
+Segment 4 skipped - Expected Timestamp 0min 45sec, Actual Timestamp 0min 9sec
+Current HRV: 293.9387691339814
+
+Segment 5 skipped - Expected Timestamp 0min 50sec, Actual Timestamp 0min 13sec
+Current HRV: 308.6176073820269
+
+Segment 6 skipped - Expected Timestamp 0min 55sec, Actual Timestamp 0min 16sec
+Current HRV: 309.2315280352805
+
+Segment 7 skipped - Expected Timestamp 1min 0sec, Actual Timestamp 0min 22sec
+Current HRV: 287.1178619777367
+
+Segment 8 skipped - Expected Timestamp 1min 5sec, Actual Timestamp 0min 27sec
+Current HRV: 326.55463713517037
+
+Segment 9 skipped - Expected Timestamp 1min 10sec, Actual Timestamp 0min 30sec
+Current HRV: 308.74607354755864
+
+Segment 10 skipped - Expected Timestamp 1min 15sec, Actual Timestamp 0min 37sec
+Current HRV: 269.4246743941872
 
 The next 2 will be used to calculate the calm baseline.
 
-Segment 3 - Expected Timestamp 0min 40sec, Actual Timestamp 0min 40sec
-Current HRV: 308.5617358448487
+Segment 11 - Expected Timestamp 1min 20sec, Actual Timestamp 0min 41sec
+Current HRV: 301.3132177193921
 
-Segment 4 - Expected Timestamp 0min 45sec, Actual Timestamp 0min 46sec
-Current HRV: 307.47581906606064
+Segment 12 - Expected Timestamp 1min 25sec, Actual Timestamp 0min 43sec
+Current HRV: 301.99337741083
 
-Calm Baseline HRV established: 308.0187774554547
+Calm Baseline HRV established: 301.6532975651111
 
 
-Segment 5 - Expected Timestamp 0min 50sec, Actual Timestamp 0min 49sec
+Segment 13 - Expected Timestamp 1min 30sec, Actual Timestamp 0min 50sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 6 - Expected Timestamp 0min 55sec, Actual Timestamp 0min 52sec
+Segment 14 - Expected Timestamp 1min 35sec, Actual Timestamp 0min 53sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 7 - Expected Timestamp 1min 0sec, Actual Timestamp 0min 54sec
+Segment 15 - Expected Timestamp 1min 40sec, Actual Timestamp 0min 55sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 8 - Expected Timestamp 1min 5sec, Actual Timestamp 0min 56sec
+Segment 16 - Expected Timestamp 1min 45sec, Actual Timestamp 0min 57sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 9 - Expected Timestamp 1min 10sec, Actual Timestamp 0min 58sec
+Segment 17 - Expected Timestamp 1min 50sec, Actual Timestamp 0min 59sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 10 - Expected Timestamp 1min 15sec, Actual Timestamp 1min 0sec
+Segment 18 - Expected Timestamp 1min 55sec, Actual Timestamp 1min 1sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 11 - Expected Timestamp 1min 20sec, Actual Timestamp 1min 2sec
+Segment 19 - Expected Timestamp 2min 0sec, Actual Timestamp 1min 3sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 12 - Expected Timestamp 1min 25sec, Actual Timestamp 1min 4sec
+Segment 20 - Expected Timestamp 2min 5sec, Actual Timestamp 1min 5sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 13 - Expected Timestamp 1min 30sec, Actual Timestamp 1min 6sec
+Segment 21 - Expected Timestamp 2min 10sec, Actual Timestamp 1min 7sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 14 - Expected Timestamp 1min 35sec, Actual Timestamp 1min 8sec
+Segment 22 - Expected Timestamp 2min 15sec, Actual Timestamp 1min 9sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 15 - Expected Timestamp 1min 40sec, Actual Timestamp 1min 10sec
+Segment 23 - Expected Timestamp 2min 20sec, Actual Timestamp 1min 11sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 16 - Expected Timestamp 1min 45sec, Actual Timestamp 1min 13sec
+Segment 24 - Expected Timestamp 2min 25sec, Actual Timestamp 1min 13sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 17 - Expected Timestamp 1min 50sec, Actual Timestamp 1min 15sec
+Segment 25 - Expected Timestamp 2min 30sec, Actual Timestamp 1min 15sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 18 - Expected Timestamp 1min 55sec, Actual Timestamp 1min 17sec
+Segment 26 - Expected Timestamp 2min 35sec, Actual Timestamp 1min 17sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 19 - Expected Timestamp 2min 0sec, Actual Timestamp 1min 19sec
+Segment 27 - Expected Timestamp 2min 40sec, Actual Timestamp 1min 19sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 20 - Expected Timestamp 2min 5sec, Actual Timestamp 1min 21sec
+Segment 28 - Expected Timestamp 2min 45sec, Actual Timestamp 1min 21sec
 Segment skipped while waiting for anxious calibration signal.
 
-Segment 21 - Expected Timestamp 2min 10sec, Actual Timestamp 1min 23sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 22 - Expected Timestamp 2min 15sec, Actual Timestamp 1min 25sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 23 - Expected Timestamp 2min 20sec, Actual Timestamp 1min 27sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 24 - Expected Timestamp 2min 25sec, Actual Timestamp 1min 29sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 25 - Expected Timestamp 2min 30sec, Actual Timestamp 1min 31sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 26 - Expected Timestamp 2min 35sec, Actual Timestamp 1min 33sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 27 - Expected Timestamp 2min 40sec, Actual Timestamp 1min 35sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 28 - Expected Timestamp 2min 45sec, Actual Timestamp 1min 37sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 29 - Expected Timestamp 2min 50sec, Actual Timestamp 1min 39sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 30 - Expected Timestamp 2min 55sec, Actual Timestamp 1min 42sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 31 - Expected Timestamp 3min 0sec, Actual Timestamp 1min 44sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 32 - Expected Timestamp 3min 5sec, Actual Timestamp 1min 46sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 33 - Expected Timestamp 3min 10sec, Actual Timestamp 1min 48sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 34 - Expected Timestamp 3min 15sec, Actual Timestamp 1min 50sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 35 - Expected Timestamp 3min 20sec, Actual Timestamp 1min 52sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 36 - Expected Timestamp 3min 25sec, Actual Timestamp 1min 54sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 37 - Expected Timestamp 3min 30sec, Actual Timestamp 1min 56sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 38 - Expected Timestamp 3min 35sec, Actual Timestamp 1min 58sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 39 - Expected Timestamp 3min 40sec, Actual Timestamp 2min 0sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 40 - Expected Timestamp 3min 45sec, Actual Timestamp 2min 2sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 41 - Expected Timestamp 3min 50sec, Actual Timestamp 2min 4sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 42 - Expected Timestamp 3min 55sec, Actual Timestamp 2min 6sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 43 - Expected Timestamp 4min 0sec, Actual Timestamp 2min 8sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 44 - Expected Timestamp 4min 5sec, Actual Timestamp 2min 10sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 45 - Expected Timestamp 4min 10sec, Actual Timestamp 2min 13sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 46 - Expected Timestamp 4min 15sec, Actual Timestamp 2min 15sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 47 - Expected Timestamp 4min 20sec, Actual Timestamp 2min 17sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 48 - Expected Timestamp 4min 25sec, Actual Timestamp 2min 19sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 49 - Expected Timestamp 4min 30sec, Actual Timestamp 2min 21sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 50 - Expected Timestamp 4min 35sec, Actual Timestamp 2min 23sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 51 - Expected Timestamp 4min 40sec, Actual Timestamp 2min 25sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 52 - Expected Timestamp 4min 45sec, Actual Timestamp 2min 27sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 53 - Expected Timestamp 4min 50sec, Actual Timestamp 2min 29sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 54 - Expected Timestamp 4min 55sec, Actual Timestamp 2min 31sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 55 - Expected Timestamp 5min 0sec, Actual Timestamp 2min 33sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 56 - Expected Timestamp 5min 5sec, Actual Timestamp 2min 35sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 57 - Expected Timestamp 5min 10sec, Actual Timestamp 2min 37sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 58 - Expected Timestamp 5min 15sec, Actual Timestamp 2min 39sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 59 - Expected Timestamp 5min 20sec, Actual Timestamp 2min 42sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 60 - Expected Timestamp 5min 25sec, Actual Timestamp 2min 44sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 61 - Expected Timestamp 5min 30sec, Actual Timestamp 2min 46sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 62 - Expected Timestamp 5min 35sec, Actual Timestamp 2min 48sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 63 - Expected Timestamp 5min 40sec, Actual Timestamp 2min 50sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 64 - Expected Timestamp 5min 45sec, Actual Timestamp 2min 52sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 65 - Expected Timestamp 5min 50sec, Actual Timestamp 2min 54sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 66 - Expected Timestamp 5min 55sec, Actual Timestamp 2min 56sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 67 - Expected Timestamp 6min 0sec, Actual Timestamp 2min 58sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 68 - Expected Timestamp 6min 5sec, Actual Timestamp 3min 0sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 69 - Expected Timestamp 6min 10sec, Actual Timestamp 3min 2sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 70 - Expected Timestamp 6min 15sec, Actual Timestamp 3min 4sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 71 - Expected Timestamp 6min 20sec, Actual Timestamp 3min 6sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 72 - Expected Timestamp 6min 25sec, Actual Timestamp 3min 8sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 73 - Expected Timestamp 6min 30sec, Actual Timestamp 3min 10sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 74 - Expected Timestamp 6min 35sec, Actual Timestamp 3min 13sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 75 - Expected Timestamp 6min 40sec, Actual Timestamp 3min 15sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 76 - Expected Timestamp 6min 45sec, Actual Timestamp 3min 17sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 77 - Expected Timestamp 6min 50sec, Actual Timestamp 3min 19sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 78 - Expected Timestamp 6min 55sec, Actual Timestamp 3min 21sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 79 - Expected Timestamp 7min 0sec, Actual Timestamp 3min 23sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 80 - Expected Timestamp 7min 5sec, Actual Timestamp 3min 25sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 81 - Expected Timestamp 7min 10sec, Actual Timestamp 3min 27sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 82 - Expected Timestamp 7min 15sec, Actual Timestamp 3min 29sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 83 - Expected Timestamp 7min 20sec, Actual Timestamp 3min 31sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 84 - Expected Timestamp 7min 25sec, Actual Timestamp 3min 33sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 85 - Expected Timestamp 7min 30sec, Actual Timestamp 3min 35sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 86 - Expected Timestamp 7min 35sec, Actual Timestamp 3min 37sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 87 - Expected Timestamp 7min 40sec, Actual Timestamp 3min 39sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 88 - Expected Timestamp 7min 45sec, Actual Timestamp 3min 41sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 89 - Expected Timestamp 7min 50sec, Actual Timestamp 3min 44sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 90 - Expected Timestamp 7min 55sec, Actual Timestamp 3min 46sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 91 - Expected Timestamp 8min 0sec, Actual Timestamp 3min 48sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 92 - Expected Timestamp 8min 5sec, Actual Timestamp 3min 50sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 93 - Expected Timestamp 8min 10sec, Actual Timestamp 3min 52sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 94 - Expected Timestamp 8min 15sec, Actual Timestamp 3min 54sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 95 - Expected Timestamp 8min 20sec, Actual Timestamp 3min 56sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 96 - Expected Timestamp 8min 25sec, Actual Timestamp 3min 58sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 97 - Expected Timestamp 8min 30sec, Actual Timestamp 4min 0sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 98 - Expected Timestamp 8min 35sec, Actual Timestamp 4min 2sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 99 - Expected Timestamp 8min 40sec, Actual Timestamp 4min 4sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 100 - Expected Timestamp 8min 45sec, Actual Timestamp 4min 6sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 101 - Expected Timestamp 8min 50sec, Actual Timestamp 4min 8sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 102 - Expected Timestamp 8min 55sec, Actual Timestamp 4min 11sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 103 - Expected Timestamp 9min 0sec, Actual Timestamp 4min 13sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 104 - Expected Timestamp 9min 5sec, Actual Timestamp 4min 15sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 105 - Expected Timestamp 9min 10sec, Actual Timestamp 4min 17sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 106 - Expected Timestamp 9min 15sec, Actual Timestamp 4min 19sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 107 - Expected Timestamp 9min 20sec, Actual Timestamp 4min 21sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 108 - Expected Timestamp 9min 25sec, Actual Timestamp 4min 23sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 109 - Expected Timestamp 9min 30sec, Actual Timestamp 4min 25sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 110 - Expected Timestamp 9min 35sec, Actual Timestamp 4min 27sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 111 - Expected Timestamp 9min 40sec, Actual Timestamp 4min 29sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 112 - Expected Timestamp 9min 45sec, Actual Timestamp 4min 31sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 113 - Expected Timestamp 9min 50sec, Actual Timestamp 4min 33sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 114 - Expected Timestamp 9min 55sec, Actual Timestamp 4min 35sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 115 - Expected Timestamp 10min 0sec, Actual Timestamp 4min 37sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 116 - Expected Timestamp 10min 5sec, Actual Timestamp 4min 39sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 117 - Expected Timestamp 10min 10sec, Actual Timestamp 4min 42sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 118 - Expected Timestamp 10min 15sec, Actual Timestamp 4min 44sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 119 - Expected Timestamp 10min 20sec, Actual Timestamp 4min 46sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 120 - Expected Timestamp 10min 25sec, Actual Timestamp 4min 48sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 121 - Expected Timestamp 10min 30sec, Actual Timestamp 4min 50sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 122 - Expected Timestamp 10min 35sec, Actual Timestamp 4min 52sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 123 - Expected Timestamp 10min 40sec, Actual Timestamp 4min 54sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 124 - Expected Timestamp 10min 45sec, Actual Timestamp 4min 56sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 125 - Expected Timestamp 10min 50sec, Actual Timestamp 4min 58sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 126 - Expected Timestamp 10min 55sec, Actual Timestamp 5min 0sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 127 - Expected Timestamp 11min 0sec, Actual Timestamp 5min 2sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 128 - Expected Timestamp 11min 5sec, Actual Timestamp 5min 4sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 129 - Expected Timestamp 11min 10sec, Actual Timestamp 5min 6sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 130 - Expected Timestamp 11min 15sec, Actual Timestamp 5min 8sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 131 - Expected Timestamp 11min 20sec, Actual Timestamp 5min 10sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 132 - Expected Timestamp 11min 25sec, Actual Timestamp 5min 13sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 133 - Expected Timestamp 11min 30sec, Actual Timestamp 5min 15sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 134 - Expected Timestamp 11min 35sec, Actual Timestamp 5min 17sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 135 - Expected Timestamp 11min 40sec, Actual Timestamp 5min 19sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 136 - Expected Timestamp 11min 45sec, Actual Timestamp 5min 21sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 137 - Expected Timestamp 11min 50sec, Actual Timestamp 5min 23sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 138 - Expected Timestamp 11min 55sec, Actual Timestamp 5min 25sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 139 - Expected Timestamp 12min 0sec, Actual Timestamp 5min 27sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 140 - Expected Timestamp 12min 5sec, Actual Timestamp 5min 29sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 141 - Expected Timestamp 12min 10sec, Actual Timestamp 5min 31sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 142 - Expected Timestamp 12min 15sec, Actual Timestamp 5min 33sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 143 - Expected Timestamp 12min 20sec, Actual Timestamp 5min 35sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 144 - Expected Timestamp 12min 25sec, Actual Timestamp 5min 37sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 145 - Expected Timestamp 12min 30sec, Actual Timestamp 5min 40sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 146 - Expected Timestamp 12min 35sec, Actual Timestamp 5min 42sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 147 - Expected Timestamp 12min 40sec, Actual Timestamp 5min 44sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 148 - Expected Timestamp 12min 45sec, Actual Timestamp 5min 46sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 149 - Expected Timestamp 12min 50sec, Actual Timestamp 5min 48sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 150 - Expected Timestamp 12min 55sec, Actual Timestamp 5min 50sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 151 - Expected Timestamp 13min 0sec, Actual Timestamp 5min 52sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 152 - Expected Timestamp 13min 5sec, Actual Timestamp 5min 54sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 153 - Expected Timestamp 13min 10sec, Actual Timestamp 5min 56sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 154 - Expected Timestamp 13min 15sec, Actual Timestamp 5min 58sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 155 - Expected Timestamp 13min 20sec, Actual Timestamp 6min 0sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 156 - Expected Timestamp 13min 25sec, Actual Timestamp 6min 2sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 157 - Expected Timestamp 13min 30sec, Actual Timestamp 6min 4sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 158 - Expected Timestamp 13min 35sec, Actual Timestamp 6min 6sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 159 - Expected Timestamp 13min 40sec, Actual Timestamp 6min 8sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 160 - Expected Timestamp 13min 45sec, Actual Timestamp 6min 10sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 161 - Expected Timestamp 13min 50sec, Actual Timestamp 6min 13sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 162 - Expected Timestamp 13min 55sec, Actual Timestamp 6min 15sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 163 - Expected Timestamp 14min 0sec, Actual Timestamp 6min 17sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 164 - Expected Timestamp 14min 5sec, Actual Timestamp 6min 19sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 165 - Expected Timestamp 14min 10sec, Actual Timestamp 6min 21sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 166 - Expected Timestamp 14min 15sec, Actual Timestamp 6min 23sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 167 - Expected Timestamp 14min 20sec, Actual Timestamp 6min 25sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 168 - Expected Timestamp 14min 25sec, Actual Timestamp 6min 27sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 169 - Expected Timestamp 14min 30sec, Actual Timestamp 6min 30sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 170 - Expected Timestamp 14min 35sec, Actual Timestamp 6min 32sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 171 - Expected Timestamp 14min 40sec, Actual Timestamp 6min 34sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 172 - Expected Timestamp 14min 45sec, Actual Timestamp 6min 36sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 173 - Expected Timestamp 14min 50sec, Actual Timestamp 6min 38sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 174 - Expected Timestamp 14min 55sec, Actual Timestamp 6min 40sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 175 - Expected Timestamp 15min 0sec, Actual Timestamp 6min 42sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 176 - Expected Timestamp 15min 5sec, Actual Timestamp 6min 44sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 177 - Expected Timestamp 15min 10sec, Actual Timestamp 6min 46sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 178 - Expected Timestamp 15min 15sec, Actual Timestamp 6min 48sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 179 - Expected Timestamp 15min 20sec, Actual Timestamp 6min 50sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 180 - Expected Timestamp 15min 25sec, Actual Timestamp 6min 52sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 181 - Expected Timestamp 15min 30sec, Actual Timestamp 6min 54sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 182 - Expected Timestamp 15min 35sec, Actual Timestamp 6min 57sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 183 - Expected Timestamp 15min 40sec, Actual Timestamp 6min 59sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 184 - Expected Timestamp 15min 45sec, Actual Timestamp 7min 1sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 185 - Expected Timestamp 15min 50sec, Actual Timestamp 7min 3sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 186 - Expected Timestamp 15min 55sec, Actual Timestamp 7min 5sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 187 - Expected Timestamp 16min 0sec, Actual Timestamp 7min 7sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 188 - Expected Timestamp 16min 5sec, Actual Timestamp 7min 9sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 189 - Expected Timestamp 16min 10sec, Actual Timestamp 7min 11sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 190 - Expected Timestamp 16min 15sec, Actual Timestamp 7min 13sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 191 - Expected Timestamp 16min 20sec, Actual Timestamp 7min 15sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 192 - Expected Timestamp 16min 25sec, Actual Timestamp 7min 17sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 193 - Expected Timestamp 16min 30sec, Actual Timestamp 7min 19sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 194 - Expected Timestamp 16min 35sec, Actual Timestamp 7min 21sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 195 - Expected Timestamp 16min 40sec, Actual Timestamp 7min 23sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 196 - Expected Timestamp 16min 45sec, Actual Timestamp 7min 25sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 197 - Expected Timestamp 16min 50sec, Actual Timestamp 7min 27sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 198 - Expected Timestamp 16min 55sec, Actual Timestamp 7min 30sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 199 - Expected Timestamp 17min 0sec, Actual Timestamp 7min 32sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 200 - Expected Timestamp 17min 5sec, Actual Timestamp 7min 34sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 201 - Expected Timestamp 17min 10sec, Actual Timestamp 7min 36sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 202 - Expected Timestamp 17min 15sec, Actual Timestamp 7min 38sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 203 - Expected Timestamp 17min 20sec, Actual Timestamp 7min 40sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 204 - Expected Timestamp 17min 25sec, Actual Timestamp 7min 42sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 205 - Expected Timestamp 17min 30sec, Actual Timestamp 7min 44sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 206 - Expected Timestamp 17min 35sec, Actual Timestamp 7min 46sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 207 - Expected Timestamp 17min 40sec, Actual Timestamp 7min 48sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 208 - Expected Timestamp 17min 45sec, Actual Timestamp 7min 50sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 209 - Expected Timestamp 17min 50sec, Actual Timestamp 7min 52sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 210 - Expected Timestamp 17min 55sec, Actual Timestamp 7min 54sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 211 - Expected Timestamp 18min 0sec, Actual Timestamp 7min 56sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 212 - Expected Timestamp 18min 5sec, Actual Timestamp 7min 58sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 213 - Expected Timestamp 18min 10sec, Actual Timestamp 8min 0sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 214 - Expected Timestamp 18min 15sec, Actual Timestamp 8min 2sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 215 - Expected Timestamp 18min 20sec, Actual Timestamp 8min 4sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 216 - Expected Timestamp 18min 25sec, Actual Timestamp 8min 6sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 217 - Expected Timestamp 18min 30sec, Actual Timestamp 8min 8sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 218 - Expected Timestamp 18min 35sec, Actual Timestamp 8min 10sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 219 - Expected Timestamp 18min 40sec, Actual Timestamp 8min 12sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 220 - Expected Timestamp 18min 45sec, Actual Timestamp 8min 15sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 221 - Expected Timestamp 18min 50sec, Actual Timestamp 8min 17sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 222 - Expected Timestamp 18min 55sec, Actual Timestamp 8min 19sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 223 - Expected Timestamp 19min 0sec, Actual Timestamp 8min 21sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 224 - Expected Timestamp 19min 5sec, Actual Timestamp 8min 23sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 225 - Expected Timestamp 19min 10sec, Actual Timestamp 8min 25sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 226 - Expected Timestamp 19min 15sec, Actual Timestamp 8min 27sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 227 - Expected Timestamp 19min 20sec, Actual Timestamp 8min 29sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 228 - Expected Timestamp 19min 25sec, Actual Timestamp 8min 31sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 229 - Expected Timestamp 19min 30sec, Actual Timestamp 8min 33sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 230 - Expected Timestamp 19min 35sec, Actual Timestamp 8min 35sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 231 - Expected Timestamp 19min 40sec, Actual Timestamp 8min 37sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 232 - Expected Timestamp 19min 45sec, Actual Timestamp 8min 39sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 233 - Expected Timestamp 19min 50sec, Actual Timestamp 8min 41sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 234 - Expected Timestamp 19min 55sec, Actual Timestamp 8min 43sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 235 - Expected Timestamp 20min 0sec, Actual Timestamp 8min 45sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 236 - Expected Timestamp 20min 5sec, Actual Timestamp 8min 47sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 237 - Expected Timestamp 20min 10sec, Actual Timestamp 8min 49sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 238 - Expected Timestamp 20min 15sec, Actual Timestamp 8min 51sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 239 - Expected Timestamp 20min 20sec, Actual Timestamp 8min 53sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 240 - Expected Timestamp 20min 25sec, Actual Timestamp 8min 55sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 241 - Expected Timestamp 20min 30sec, Actual Timestamp 8min 57sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 242 - Expected Timestamp 20min 35sec, Actual Timestamp 8min 59sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 243 - Expected Timestamp 20min 40sec, Actual Timestamp 9min 1sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 244 - Expected Timestamp 20min 45sec, Actual Timestamp 9min 4sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 245 - Expected Timestamp 20min 50sec, Actual Timestamp 9min 6sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 246 - Expected Timestamp 20min 55sec, Actual Timestamp 9min 8sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 247 - Expected Timestamp 21min 0sec, Actual Timestamp 9min 10sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 248 - Expected Timestamp 21min 5sec, Actual Timestamp 9min 12sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 249 - Expected Timestamp 21min 10sec, Actual Timestamp 9min 14sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 250 - Expected Timestamp 21min 15sec, Actual Timestamp 9min 16sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 251 - Expected Timestamp 21min 20sec, Actual Timestamp 9min 18sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 252 - Expected Timestamp 21min 25sec, Actual Timestamp 9min 20sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 253 - Expected Timestamp 21min 30sec, Actual Timestamp 9min 22sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 254 - Expected Timestamp 21min 35sec, Actual Timestamp 9min 24sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 255 - Expected Timestamp 21min 40sec, Actual Timestamp 9min 26sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 256 - Expected Timestamp 21min 45sec, Actual Timestamp 9min 28sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 257 - Expected Timestamp 21min 50sec, Actual Timestamp 9min 30sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 258 - Expected Timestamp 21min 55sec, Actual Timestamp 9min 32sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 259 - Expected Timestamp 22min 0sec, Actual Timestamp 9min 34sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 260 - Expected Timestamp 22min 5sec, Actual Timestamp 9min 36sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 261 - Expected Timestamp 22min 10sec, Actual Timestamp 9min 38sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 262 - Expected Timestamp 22min 15sec, Actual Timestamp 9min 40sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 263 - Expected Timestamp 22min 20sec, Actual Timestamp 9min 42sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 264 - Expected Timestamp 22min 25sec, Actual Timestamp 9min 44sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 265 - Expected Timestamp 22min 30sec, Actual Timestamp 9min 46sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 266 - Expected Timestamp 22min 35sec, Actual Timestamp 9min 49sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 267 - Expected Timestamp 22min 40sec, Actual Timestamp 9min 51sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 268 - Expected Timestamp 22min 45sec, Actual Timestamp 9min 53sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 269 - Expected Timestamp 22min 50sec, Actual Timestamp 9min 55sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 270 - Expected Timestamp 22min 55sec, Actual Timestamp 9min 57sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 271 - Expected Timestamp 23min 0sec, Actual Timestamp 9min 59sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 272 - Expected Timestamp 23min 5sec, Actual Timestamp 10min 1sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 273 - Expected Timestamp 23min 10sec, Actual Timestamp 10min 3sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 274 - Expected Timestamp 23min 15sec, Actual Timestamp 10min 5sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 275 - Expected Timestamp 23min 20sec, Actual Timestamp 10min 7sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 276 - Expected Timestamp 23min 25sec, Actual Timestamp 10min 9sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 277 - Expected Timestamp 23min 30sec, Actual Timestamp 10min 11sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 278 - Expected Timestamp 23min 35sec, Actual Timestamp 10min 13sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 279 - Expected Timestamp 23min 40sec, Actual Timestamp 10min 15sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 280 - Expected Timestamp 23min 45sec, Actual Timestamp 10min 17sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 281 - Expected Timestamp 23min 50sec, Actual Timestamp 10min 19sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 282 - Expected Timestamp 23min 55sec, Actual Timestamp 10min 21sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 283 - Expected Timestamp 24min 0sec, Actual Timestamp 10min 24sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 284 - Expected Timestamp 24min 5sec, Actual Timestamp 10min 26sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 285 - Expected Timestamp 24min 10sec, Actual Timestamp 10min 28sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 286 - Expected Timestamp 24min 15sec, Actual Timestamp 10min 30sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 287 - Expected Timestamp 24min 20sec, Actual Timestamp 10min 32sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 288 - Expected Timestamp 24min 25sec, Actual Timestamp 10min 34sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 289 - Expected Timestamp 24min 30sec, Actual Timestamp 10min 36sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 290 - Expected Timestamp 24min 35sec, Actual Timestamp 10min 38sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 291 - Expected Timestamp 24min 40sec, Actual Timestamp 10min 40sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 292 - Expected Timestamp 24min 45sec, Actual Timestamp 10min 42sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 293 - Expected Timestamp 24min 50sec, Actual Timestamp 10min 44sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 294 - Expected Timestamp 24min 55sec, Actual Timestamp 10min 46sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 295 - Expected Timestamp 25min 0sec, Actual Timestamp 10min 48sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 296 - Expected Timestamp 25min 5sec, Actual Timestamp 10min 50sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 297 - Expected Timestamp 25min 10sec, Actual Timestamp 10min 52sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 298 - Expected Timestamp 25min 15sec, Actual Timestamp 10min 54sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 299 - Expected Timestamp 25min 20sec, Actual Timestamp 10min 56sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 300 - Expected Timestamp 25min 25sec, Actual Timestamp 10min 58sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 301 - Expected Timestamp 25min 30sec, Actual Timestamp 11min 0sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 302 - Expected Timestamp 25min 35sec, Actual Timestamp 11min 3sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 303 - Expected Timestamp 25min 40sec, Actual Timestamp 11min 5sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 304 - Expected Timestamp 25min 45sec, Actual Timestamp 11min 7sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 305 - Expected Timestamp 25min 50sec, Actual Timestamp 11min 9sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 306 - Expected Timestamp 25min 55sec, Actual Timestamp 11min 11sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 307 - Expected Timestamp 26min 0sec, Actual Timestamp 11min 13sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 308 - Expected Timestamp 26min 5sec, Actual Timestamp 11min 15sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 309 - Expected Timestamp 26min 10sec, Actual Timestamp 11min 17sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 310 - Expected Timestamp 26min 15sec, Actual Timestamp 11min 19sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 311 - Expected Timestamp 26min 20sec, Actual Timestamp 11min 21sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 312 - Expected Timestamp 26min 25sec, Actual Timestamp 11min 23sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 313 - Expected Timestamp 26min 30sec, Actual Timestamp 11min 25sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 314 - Expected Timestamp 26min 35sec, Actual Timestamp 11min 27sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 315 - Expected Timestamp 26min 40sec, Actual Timestamp 11min 29sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 316 - Expected Timestamp 26min 45sec, Actual Timestamp 11min 31sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 317 - Expected Timestamp 26min 50sec, Actual Timestamp 11min 33sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 318 - Expected Timestamp 26min 55sec, Actual Timestamp 11min 35sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 319 - Expected Timestamp 27min 0sec, Actual Timestamp 11min 37sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 320 - Expected Timestamp 27min 5sec, Actual Timestamp 11min 39sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 321 - Expected Timestamp 27min 10sec, Actual Timestamp 11min 41sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 322 - Expected Timestamp 27min 15sec, Actual Timestamp 11min 44sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 323 - Expected Timestamp 27min 20sec, Actual Timestamp 11min 46sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 324 - Expected Timestamp 27min 25sec, Actual Timestamp 11min 48sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 325 - Expected Timestamp 27min 30sec, Actual Timestamp 11min 50sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 326 - Expected Timestamp 27min 35sec, Actual Timestamp 11min 52sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 327 - Expected Timestamp 27min 40sec, Actual Timestamp 11min 54sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 328 - Expected Timestamp 27min 45sec, Actual Timestamp 11min 56sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 329 - Expected Timestamp 27min 50sec, Actual Timestamp 11min 58sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 330 - Expected Timestamp 27min 55sec, Actual Timestamp 12min 0sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 331 - Expected Timestamp 28min 0sec, Actual Timestamp 12min 2sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 332 - Expected Timestamp 28min 5sec, Actual Timestamp 12min 4sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 333 - Expected Timestamp 28min 10sec, Actual Timestamp 12min 6sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 334 - Expected Timestamp 28min 15sec, Actual Timestamp 12min 8sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 335 - Expected Timestamp 28min 20sec, Actual Timestamp 12min 10sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 336 - Expected Timestamp 28min 25sec, Actual Timestamp 12min 12sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 337 - Expected Timestamp 28min 30sec, Actual Timestamp 12min 14sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 338 - Expected Timestamp 28min 35sec, Actual Timestamp 12min 16sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 339 - Expected Timestamp 28min 40sec, Actual Timestamp 12min 18sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 340 - Expected Timestamp 28min 45sec, Actual Timestamp 12min 20sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 341 - Expected Timestamp 28min 50sec, Actual Timestamp 12min 23sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 342 - Expected Timestamp 28min 55sec, Actual Timestamp 12min 25sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 343 - Expected Timestamp 29min 0sec, Actual Timestamp 12min 27sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 344 - Expected Timestamp 29min 5sec, Actual Timestamp 12min 29sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 345 - Expected Timestamp 29min 10sec, Actual Timestamp 12min 31sec
-Segment skipped while waiting for anxious calibration signal.
-
-Segment 346 - Expected Timestamp 29min 15sec, Actual Timestamp 12min 33sec
+Segment 29 - Expected Timestamp 2min 50sec, Actual Timestamp 1min 23sec
 Anxious calibration signal received. Starting anxious calibration in the next step.
 
 
@@ -1051,722 +101,355 @@ Anxious Calibration Starting...
 
 The next 2 will be skipped
 
-Segment 347 skipped during anxious calibration.
-Segment 347 skipped - Expected Timestamp 29min 20sec, Actual Timestamp 12min 35sec
-Current HRV: 309.62881002904106
+Segment 30 skipped during anxious calibration.
+Segment 30 skipped - Expected Timestamp 2min 55sec, Actual Timestamp 1min 25sec
+Current HRV: 307.87928668946506
 
-Segment 348 skipped during anxious calibration.
-Segment 348 skipped - Expected Timestamp 29min 25sec, Actual Timestamp 12min 35sec
-Current HRV: 303.8036646695801
+Segment 31 skipped during anxious calibration.
+Segment 31 skipped - Expected Timestamp 3min 0sec, Actual Timestamp 1min 25sec
+Current HRV: 300.49958402633445
 
 The next 2 will be used to calculate the anxious baseline.
 
-Segment 349: HRV during anxious calibration = 287.07722538253245
-Segment 349 - Expected Timestamp 29min 30sec, Actual Timestamp 12min 35sec
-Current HRV: 287.07722538253245
+Segment 32: HRV during anxious calibration = 306.648550189518
+Segment 32 - Expected Timestamp 3min 5sec, Actual Timestamp 1min 25sec
+Current HRV: 306.648550189518
 
-Segment 350: HRV during anxious calibration = 310.04449068947605
-Segment 350 - Expected Timestamp 29min 35sec, Actual Timestamp 12min 35sec
-Current HRV: 310.04449068947605
+Segment 33: HRV during anxious calibration = 301.45757025934296
+Segment 33 - Expected Timestamp 3min 10sec, Actual Timestamp 1min 25sec
+Current HRV: 301.45757025934296
 
-Anxious Baseline HRV established: 298.5608580360042
+Anxious Baseline HRV established: 304.0530602244305
 
 
-Segment 351 - Expected Timestamp 29min 40sec, Actual Timestamp 12min 35sec
-Current HRV: 308.4555520430892
-Change from Baseline: 0.14%
+Segment 34 - Expected Timestamp 3min 15sec, Actual Timestamp 1min 25sec
+Current HRV: 294.77636175289877
+Change from Baseline: -2.28%
 Change from Previous: 0.00%
-Previous Three HRV Values: [308.4555520430892]
+Previous Three HRV Values: [294.77636175289877]
+Change from Mean of Last Three: 0.00%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 35 - Expected Timestamp 3min 20sec, Actual Timestamp 1min 27sec
+Current HRV: 303.4002704974586
+Change from Baseline: 0.58%
+Change from Previous: 2.93%
+Previous HRV for Change: 294.77636175289877
+Previous Three HRV Values: [294.77636175289877, 303.4002704974586]
 Change from Mean of Last Three: 0.00%
 No Value Excluded from Mean Calculation
 Binary Output (0: calm, 1: anxious) = 0
 Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
 
-Segment 352 - Expected Timestamp 29min 45sec, Actual Timestamp 12min 37sec
-Current HRV: 275.35556950091353
-Change from Baseline: -10.60%
-Change from Previous: -10.73%
-Previous HRV for Change: 308.4555520430892
-Previous Three HRV Values: [308.4555520430892, 275.35556950091353]
-Change from Mean of Last Three: 0.00%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
-
-Segment 353 - Expected Timestamp 29min 50sec, Actual Timestamp 12min 39sec
-Current HRV: 308.4834986924215
-Change from Baseline: 0.15%
-Change from Previous: 12.03%
-Previous HRV for Change: 275.35556950091353
-Previous Three HRV Values: [308.4555520430892, 275.35556950091353, 308.4834986924215]
-Change from Mean of Last Three: 3.72%
+Segment 36 - Expected Timestamp 3min 25sec, Actual Timestamp 1min 30sec
+Current HRV: 311.28764832546767
+Change from Baseline: 3.19%
+Change from Previous: 2.60%
+Previous HRV for Change: 303.4002704974586
+Previous Three HRV Values: [294.77636175289877, 303.4002704974586, 311.28764832546767]
+Change from Mean of Last Three: 2.68%
 No Value Excluded from Mean Calculation
 Binary Output (0: calm, 1: anxious) = 0
 Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
 
-Segment 354 - Expected Timestamp 29min 55sec, Actual Timestamp 12min 41sec
-Current HRV: 309.34859256854224
-Change from Baseline: 0.43%
-Change from Previous: 0.28%
-Previous HRV for Change: 308.4834986924215
-Previous Three HRV Values: [275.35556950091353, 308.4834986924215, 309.34859256854224]
-Change from Mean of Last Three: 3.90%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 355 - Expected Timestamp 30min 0sec, Actual Timestamp 12min 43sec
-Current HRV: 283.7957011654687
-Change from Baseline: -7.86%
-Change from Previous: -8.26%
-Previous HRV for Change: 309.34859256854224
-Previous Three HRV Values: [308.4834986924215, 309.34859256854224, 283.7957011654687]
-Change from Mean of Last Three: -5.57%
+Segment 37 - Expected Timestamp 3min 30sec, Actual Timestamp 1min 32sec
+Current HRV: 283.72521918222213
+Change from Baseline: -5.94%
+Change from Previous: -8.85%
+Previous HRV for Change: 311.28764832546767
+Previous Three HRV Values: [303.4002704974586, 311.28764832546767, 283.72521918222213]
+Change from Mean of Last Three: -5.26%
 No Value Excluded from Mean Calculation
 Binary Output (0: calm, 1: anxious) = 1
 Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
 
-Segment 356 - Expected Timestamp 30min 5sec, Actual Timestamp 12min 45sec
-Current HRV: 319.6495926306892
-Change from Baseline: 3.78%
-Change from Previous: 12.63%
-Previous HRV for Change: 283.7957011654687
-Previous Three HRV Values: [309.34859256854224, 283.7957011654687, 319.6495926306892]
-Change from Mean of Last Three: 5.06%
+Segment 38 - Expected Timestamp 3min 35sec, Actual Timestamp 1min 34sec
+Current HRV: 307.9296829718961
+Change from Baseline: 2.08%
+Change from Previous: 8.53%
+Previous HRV for Change: 283.72521918222213
+Previous Three HRV Values: [311.28764832546767, 283.72521918222213, 307.9296829718961]
+Change from Mean of Last Three: 2.31%
 No Value Excluded from Mean Calculation
 Binary Output (0: calm, 1: anxious) = 0
 Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
 
-Segment 357 - Expected Timestamp 30min 10sec, Actual Timestamp 12min 47sec
-Current HRV: 308.8074949956967
-Change from Baseline: 0.26%
-Change from Previous: -3.39%
-Previous HRV for Change: 319.6495926306892
-Previous Three HRV Values: [283.7957011654687, 319.6495926306892, 308.8074949956967]
-Change from Mean of Last Three: 1.55%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 358 - Expected Timestamp 30min 15sec, Actual Timestamp 12min 49sec
-Current HRV: 289.74701609047395
-Change from Baseline: -5.93%
-Change from Previous: -6.17%
-Previous HRV for Change: 308.8074949956967
-Previous Three HRV Values: [319.6495926306892, 308.8074949956967, 289.74701609047395]
-Change from Mean of Last Three: -5.33%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
-
-Segment 359 - Expected Timestamp 30min 20sec, Actual Timestamp 12min 51sec
-Current HRV: 295.9954954612204
-Change from Baseline: -3.90%
-Change from Previous: 2.16%
-Previous HRV for Change: 289.74701609047395
-Previous Three HRV Values: [308.8074949956967, 289.74701609047395, 295.9954954612204]
-Change from Mean of Last Three: -0.73%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 360 - Expected Timestamp 30min 25sec, Actual Timestamp 12min 53sec
-Current HRV: 300.616034169836
-Change from Baseline: -2.40%
-Change from Previous: 1.56%
-Previous HRV for Change: 295.9954954612204
-Previous Three HRV Values: [289.74701609047395, 295.9954954612204, 300.616034169836]
-Change from Mean of Last Three: 1.75%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 361 - Expected Timestamp 30min 30sec, Actual Timestamp 12min 55sec
-Current HRV: 270.77050553312984
-Change from Baseline: -12.09%
-Change from Previous: -9.93%
-Previous HRV for Change: 300.616034169836
-Previous Three HRV Values: [295.9954954612204, 300.616034169836, 270.77050553312984]
-Change from Mean of Last Three: -6.35%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
-
-Segment 362 - Expected Timestamp 30min 35sec, Actual Timestamp 12min 58sec
-Current HRV: 304.05043441288933
-Change from Baseline: -1.29%
-Change from Previous: 12.29%
-Previous HRV for Change: 270.77050553312984
-Previous Three HRV Values: [300.616034169836, 270.77050553312984, 304.05043441288933]
-Change from Mean of Last Three: 4.19%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 363 - Expected Timestamp 30min 40sec, Actual Timestamp 13min 0sec
-Current HRV: 311.11035851031033
-Change from Baseline: 1.00%
-Change from Previous: 2.32%
-Previous HRV for Change: 304.05043441288933
-Previous Three HRV Values: [270.77050553312984, 304.05043441288933, 311.11035851031033]
-Change from Mean of Last Three: 5.35%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 364 - Expected Timestamp 30min 45sec, Actual Timestamp 13min 2sec
-Current HRV: 311.3762553789115
-Change from Baseline: 1.09%
-Change from Previous: 0.09%
-Previous HRV for Change: 311.11035851031033
-Previous Three HRV Values: [304.05043441288933, 311.11035851031033, 311.3762553789115]
-Change from Mean of Last Three: 0.82%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 365 - Expected Timestamp 30min 50sec, Actual Timestamp 13min 4sec
-Current HRV: 307.1223501001425
-Change from Baseline: -0.29%
-Change from Previous: -1.37%
-Previous HRV for Change: 311.3762553789115
-Previous Three HRV Values: [311.11035851031033, 311.3762553789115, 307.1223501001425]
-Change from Mean of Last Three: -0.89%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 366 - Expected Timestamp 30min 55sec, Actual Timestamp 13min 6sec
-Current HRV: 296.6479394838266
-Change from Baseline: -3.69%
-Change from Previous: -3.41%
-Previous HRV for Change: 307.1223501001425
-Previous Three HRV Values: [311.3762553789115, 307.1223501001425, 296.6479394838266]
-Change from Mean of Last Three: -2.75%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 367 - Expected Timestamp 31min 0sec, Actual Timestamp 13min 8sec
-Current HRV: 309.8442322778691
-Change from Baseline: 0.59%
-Change from Previous: 4.45%
-Previous HRV for Change: 296.6479394838266
-Previous Three HRV Values: [307.1223501001425, 296.6479394838266, 309.8442322778691]
-Change from Mean of Last Three: 1.74%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 368 - Expected Timestamp 31min 5sec, Actual Timestamp 13min 10sec
-Current HRV: 309.82753823421814
-Change from Baseline: 0.59%
-Change from Previous: -0.01%
-Previous HRV for Change: 309.8442322778691
-Previous Three HRV Values: [296.6479394838266, 309.8442322778691, 309.82753823421814]
-Change from Mean of Last Three: 1.44%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 369 - Expected Timestamp 31min 10sec, Actual Timestamp 13min 12sec
-Current HRV: 289.3440858217082
-Change from Baseline: -6.06%
-Change from Previous: -6.61%
-Previous HRV for Change: 309.82753823421814
-Previous Three HRV Values: [309.8442322778691, 309.82753823421814, 289.3440858217082]
-Change from Mean of Last Three: -4.51%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
-
-Segment 370 - Expected Timestamp 31min 15sec, Actual Timestamp 13min 14sec
-Current HRV: 310.17736861350795
-Change from Baseline: 0.70%
-Change from Previous: 7.20%
-Previous HRV for Change: 289.3440858217082
-Previous Three HRV Values: [309.82753823421814, 289.3440858217082, 310.17736861350795]
-Change from Mean of Last Three: 2.33%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 371 - Expected Timestamp 31min 20sec, Actual Timestamp 13min 16sec
-Current HRV: 306.7735321047108
-Change from Baseline: -0.40%
-Change from Previous: -1.10%
-Previous HRV for Change: 310.17736861350795
-Previous Three HRV Values: [289.3440858217082, 310.17736861350795, 306.7735321047108]
-Change from Mean of Last Three: 1.55%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 372 - Expected Timestamp 31min 25sec, Actual Timestamp 13min 18sec
-Current HRV: 282.44763526478084
-Change from Baseline: -8.30%
-Change from Previous: -7.93%
-Previous HRV for Change: 306.7735321047108
-Previous Three HRV Values: [310.17736861350795, 306.7735321047108, 282.44763526478084]
-Change from Mean of Last Three: -5.79%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
-
-Segment 373 - Expected Timestamp 31min 30sec, Actual Timestamp 13min 20sec
-Current HRV: 309.6716837622355
-Change from Baseline: 0.54%
-Change from Previous: 9.64%
-Previous HRV for Change: 282.44763526478084
-Previous Three HRV Values: [306.7735321047108, 282.44763526478084, 309.6716837622355]
-Change from Mean of Last Three: 3.35%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 374 - Expected Timestamp 31min 35sec, Actual Timestamp 13min 22sec
-Current HRV: 308.41083213679497
-Change from Baseline: 0.13%
-Change from Previous: -0.41%
-Previous HRV for Change: 309.6716837622355
-Previous Three HRV Values: [282.44763526478084, 309.6716837622355, 308.41083213679497]
-Change from Mean of Last Three: 2.74%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 375 - Expected Timestamp 31min 40sec, Actual Timestamp 13min 24sec
-Current HRV: 264.8421781181102
-Change from Baseline: -14.02%
-Change from Previous: -14.13%
-Previous HRV for Change: 308.41083213679497
-Previous Three HRV Values: [309.6716837622355, 308.41083213679497, 264.8421781181102]
-Change from Mean of Last Three: -10.01%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
-
-Segment 376 - Expected Timestamp 31min 45sec, Actual Timestamp 13min 26sec
-Current HRV: 309.38760423645357
-Change from Baseline: 0.44%
-Change from Previous: 16.82%
-Previous HRV for Change: 264.8421781181102
-Previous Three HRV Values: [308.41083213679497, 264.8421781181102, 309.38760423645357]
-Change from Mean of Last Three: 5.16%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 377 - Expected Timestamp 31min 50sec, Actual Timestamp 13min 28sec
-Current HRV: 308.9916860838905
-Change from Baseline: 0.32%
-Change from Previous: -0.13%
-Previous HRV for Change: 309.38760423645357
-Previous Three HRV Values: [264.8421781181102, 309.38760423645357, 308.9916860838905]
-Change from Mean of Last Three: 4.95%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 378 - Expected Timestamp 31min 55sec, Actual Timestamp 13min 30sec
-Current HRV: 281.2412961616175
-Change from Baseline: -8.69%
-Change from Previous: -8.98%
-Previous HRV for Change: 308.9916860838905
-Previous Three HRV Values: [309.38760423645357, 308.9916860838905, 281.2412961616175]
-Change from Mean of Last Three: -6.21%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
-
-Segment 379 - Expected Timestamp 32min 0sec, Actual Timestamp 13min 32sec
-Current HRV: 309.1367290397233
-Change from Baseline: 0.36%
-Change from Previous: 9.92%
-Previous HRV for Change: 281.2412961616175
-Previous Three HRV Values: [308.9916860838905, 281.2412961616175, 309.1367290397233]
-Change from Mean of Last Three: 3.12%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 380 - Expected Timestamp 32min 5sec, Actual Timestamp 13min 35sec
-Current HRV: 302.6659324513855
-Change from Baseline: -1.74%
-Change from Previous: -2.09%
-Previous HRV for Change: 309.1367290397233
-Previous Three HRV Values: [281.2412961616175, 309.1367290397233, 302.6659324513855]
-Change from Mean of Last Three: 1.67%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 381 - Expected Timestamp 32min 10sec, Actual Timestamp 13min 37sec
-Current HRV: 294.00680264238787
-Change from Baseline: -4.55%
-Change from Previous: -2.86%
-Previous HRV for Change: 302.6659324513855
-Previous Three HRV Values: [309.1367290397233, 302.6659324513855, 294.00680264238787]
-Change from Mean of Last Three: -2.63%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 382 - Expected Timestamp 32min 15sec, Actual Timestamp 13min 39sec
-Current HRV: 296.3331458567086
-Change from Baseline: -3.79%
-Change from Previous: 0.79%
-Previous HRV for Change: 294.00680264238787
-Previous Three HRV Values: [302.6659324513855, 294.00680264238787, 296.3331458567086]
-Change from Mean of Last Three: -0.45%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 383 - Expected Timestamp 32min 20sec, Actual Timestamp 13min 41sec
-Current HRV: 304.0757618842996
-Change from Baseline: -1.28%
-Change from Previous: 2.61%
-Previous HRV for Change: 296.3331458567086
-Previous Three HRV Values: [294.00680264238787, 296.3331458567086, 304.0757618842996]
-Change from Mean of Last Three: 1.99%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 384 - Expected Timestamp 32min 25sec, Actual Timestamp 13min 43sec
-Current HRV: 269.92591576208457
-Change from Baseline: -12.37%
-Change from Previous: -11.23%
-Previous HRV for Change: 304.0757618842996
-Previous Three HRV Values: [296.3331458567086, 304.0757618842996, 269.92591576208457]
-Change from Mean of Last Three: -6.96%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
-
-Segment 385 - Expected Timestamp 32min 30sec, Actual Timestamp 13min 45sec
-Current HRV: 301.08997395096554
-Change from Baseline: -2.25%
-Change from Previous: 11.55%
-Previous HRV for Change: 269.92591576208457
-Previous Three HRV Values: [304.0757618842996, 269.92591576208457, 301.08997395096554]
-Change from Mean of Last Three: 3.22%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 386 - Expected Timestamp 32min 35sec, Actual Timestamp 13min 47sec
-Current HRV: 304.63658394201786
-Change from Baseline: -1.10%
-Change from Previous: 1.18%
-Previous HRV for Change: 301.08997395096554
-Previous Three HRV Values: [269.92591576208457, 301.08997395096554, 304.63658394201786]
-Change from Mean of Last Three: 4.37%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 387 - Expected Timestamp 32min 40sec, Actual Timestamp 13min 49sec
-Current HRV: 314.16007340866526
-Change from Baseline: 1.99%
-Change from Previous: 3.13%
-Previous HRV for Change: 304.63658394201786
-Previous Three HRV Values: [301.08997395096554, 304.63658394201786, 314.16007340866526]
-Change from Mean of Last Three: 2.46%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 388 - Expected Timestamp 32min 45sec, Actual Timestamp 13min 51sec
-Current HRV: 308.72373544576425
-Change from Baseline: 0.23%
-Change from Previous: -1.73%
-Previous HRV for Change: 314.16007340866526
-Previous Three HRV Values: [304.63658394201786, 314.16007340866526, 308.72373544576425]
-Change from Mean of Last Three: -0.15%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 389 - Expected Timestamp 32min 50sec, Actual Timestamp 13min 53sec
-Current HRV: 294.5891352726533
-Change from Baseline: -4.36%
-Change from Previous: -4.58%
-Previous HRV for Change: 308.72373544576425
-Previous Three HRV Values: [314.16007340866526, 308.72373544576425, 294.5891352726533]
-Change from Mean of Last Three: -3.67%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 390 - Expected Timestamp 32min 55sec, Actual Timestamp 13min 55sec
-Current HRV: 310.550123668217
-Change from Baseline: 0.82%
-Change from Previous: 5.42%
-Previous HRV for Change: 294.5891352726533
-Previous Three HRV Values: [308.72373544576425, 294.5891352726533, 310.550123668217]
-Change from Mean of Last Three: 1.95%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 391 - Expected Timestamp 33min 0sec, Actual Timestamp 13min 57sec
-Current HRV: 305.34679737417696
-Change from Baseline: -0.87%
-Change from Previous: -1.68%
-Previous HRV for Change: 310.550123668217
-Previous Three HRV Values: [294.5891352726533, 310.550123668217, 305.34679737417696]
-Change from Mean of Last Three: 0.61%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 392 - Expected Timestamp 33min 5sec, Actual Timestamp 13min 59sec
-Current HRV: 292.7220642461919
-Change from Baseline: -4.97%
-Change from Previous: -4.13%
-Previous HRV for Change: 305.34679737417696
-Previous Three HRV Values: [310.550123668217, 305.34679737417696, 292.7220642461919]
-Change from Mean of Last Three: -3.35%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 393 - Expected Timestamp 33min 10sec, Actual Timestamp 14min 1sec
-Current HRV: 304.2911491454786
-Change from Baseline: -1.21%
-Change from Previous: 3.95%
-Previous HRV for Change: 292.7220642461919
-Previous Three HRV Values: [305.34679737417696, 292.7220642461919, 304.2911491454786]
-Change from Mean of Last Three: 1.17%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 394 - Expected Timestamp 33min 15sec, Actual Timestamp 14min 3sec
-Current HRV: 311.5865961439159
-Change from Baseline: 1.16%
-Change from Previous: 2.40%
-Previous HRV for Change: 304.2911491454786
-Previous Three HRV Values: [292.7220642461919, 304.2911491454786, 311.5865961439159]
-Change from Mean of Last Three: 2.88%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 395 - Expected Timestamp 33min 20sec, Actual Timestamp 14min 5sec
-Current HRV: 281.3834868407645
-Change from Baseline: -8.65%
-Change from Previous: -9.69%
-Previous HRV for Change: 311.5865961439159
-Previous Three HRV Values: [304.2911491454786, 311.5865961439159, 281.3834868407645]
-Change from Mean of Last Three: -5.92%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
-
-Segment 396 - Expected Timestamp 33min 25sec, Actual Timestamp 14min 7sec
-Current HRV: 309.4043220169341
-Change from Baseline: 0.45%
-Change from Previous: 9.96%
-Previous HRV for Change: 281.3834868407645
-Previous Three HRV Values: [311.5865961439159, 281.3834868407645, 309.4043220169341]
-Change from Mean of Last Three: 2.86%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 397 - Expected Timestamp 33min 30sec, Actual Timestamp 14min 10sec
-Current HRV: 308.9749459768208
-Change from Baseline: 0.31%
-Change from Previous: -0.14%
-Previous HRV for Change: 309.4043220169341
-Previous Three HRV Values: [281.3834868407645, 309.4043220169341, 308.9749459768208]
-Change from Mean of Last Three: 3.02%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 398 - Expected Timestamp 33min 35sec, Actual Timestamp 14min 12sec
-Current HRV: 308.5617358448487
-Change from Baseline: 0.18%
-Change from Previous: -0.13%
-Previous HRV for Change: 308.9749459768208
-Previous Three HRV Values: [309.4043220169341, 308.9749459768208, 308.5617358448487]
-Change from Mean of Last Three: -0.14%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 399 - Expected Timestamp 33min 40sec, Actual Timestamp 14min 14sec
-Current HRV: 307.47581906606064
-Change from Baseline: -0.18%
-Change from Previous: -0.35%
-Previous HRV for Change: 308.5617358448487
-Previous Three HRV Values: [308.9749459768208, 308.5617358448487, 307.47581906606064]
-Change from Mean of Last Three: -0.28%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 400 - Expected Timestamp 33min 45sec, Actual Timestamp 14min 16sec
-Current HRV: 309.12557430541915
-Change from Baseline: 0.36%
-Change from Previous: 0.54%
-Previous HRV for Change: 307.47581906606064
-Previous Three HRV Values: [308.5617358448487, 307.47581906606064, 309.12557430541915]
-Change from Mean of Last Three: 0.24%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-Segment 401 - Expected Timestamp 33min 50sec, Actual Timestamp 14min 18sec
-Current HRV: 287.8078062411326
-Change from Baseline: -6.56%
-Change from Previous: -6.90%
-Previous HRV for Change: 309.12557430541915
-Previous Three HRV Values: [307.47581906606064, 309.12557430541915, 287.8078062411326]
-Change from Mean of Last Three: -4.53%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
-
-Segment 402 - Expected Timestamp 33min 55sec, Actual Timestamp 14min 20sec
-Current HRV: 308.9582049627314
-Change from Baseline: 0.30%
-Change from Previous: 7.35%
-Previous HRV for Change: 287.8078062411326
-Previous Three HRV Values: [309.12557430541915, 287.8078062411326, 308.9582049627314]
-Change from Mean of Last Three: 2.32%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
-
-
-Ability activated in step 403. 
-Expect ability measurements in segments 408, 409, and 410.
-
-Segment 403 - Expected Timestamp 34min 0sec, Actual Timestamp 14min 22sec
-Current HRV: 305.58141304732527
-Change from Baseline: -0.79%
-Change from Previous: -1.09%
-Previous HRV for Change: 308.9582049627314
-Previous Three HRV Values: [287.8078062411326, 308.9582049627314, 305.58141304732527]
-Change from Mean of Last Three: 1.60%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 404 - Expected Timestamp 34min 5sec, Actual Timestamp 14min 24sec
-Current HRV: 260.92783165721
-Change from Baseline: -15.29%
-Change from Previous: -14.61%
-Previous HRV for Change: 305.58141304732527
-Previous Three HRV Values: [308.9582049627314, 305.58141304732527, 260.92783165721]
-Change from Mean of Last Three: -10.59%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
-
-Segment 405 - Expected Timestamp 34min 10sec, Actual Timestamp 14min 26sec
-Current HRV: 296.92872320923533
-Change from Baseline: -3.60%
-Change from Previous: 13.80%
-Previous HRV for Change: 260.92783165721
-Previous Three HRV Values: [305.58141304732527, 260.92783165721, 296.92872320923533]
-Change from Mean of Last Three: 3.17%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 406 - Expected Timestamp 34min 15sec, Actual Timestamp 14min 28sec
-Current HRV: 305.8002503325468
-Change from Baseline: -0.72%
-Change from Previous: 2.99%
-Previous HRV for Change: 296.92872320923533
-Previous Three HRV Values: [260.92783165721, 296.92872320923533, 305.8002503325468]
-Change from Mean of Last Three: 6.22%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 407 - Expected Timestamp 34min 20sec, Actual Timestamp 14min 30sec
-Current HRV: 270.5241825296462
-Change from Baseline: -12.17%
-Change from Previous: -11.54%
-Previous HRV for Change: 305.8002503325468
-Previous Three HRV Values: [296.92872320923533, 305.8002503325468, 270.5241825296462]
-Change from Mean of Last Three: -7.06%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 1
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
-
-Segment 408 - Expected Timestamp 34min 25sec, Actual Timestamp 14min 32sec
-ABILITY MEASUREMENT 1 for segment 408.
-Current HRV: 301.0155225691629
-Change from Baseline: -2.27%
-Change from Previous: 11.27%
-Previous HRV for Change: 270.5241825296462
-Previous Three HRV Values: [305.8002503325468, 270.5241825296462, 301.0155225691629]
+Segment 39 - Expected Timestamp 3min 40sec, Actual Timestamp 1min 36sec
+Current HRV: 309.04190096445524
+Change from Baseline: 2.45%
+Change from Previous: 0.36%
+Previous HRV for Change: 307.9296829718961
+Previous Three HRV Values: [283.72521918222213, 307.9296829718961, 309.04190096445524]
 Change from Mean of Last Three: 2.93%
 No Value Excluded from Mean Calculation
 Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
 
-Segment 409 - Expected Timestamp 34min 30sec, Actual Timestamp 14min 34sec
-ABILITY MEASUREMENT 2 for segment 409.
-Current HRV: 305.1285766293647
-Change from Baseline: -0.94%
-Change from Previous: 1.37%
-Previous HRV for Change: 301.0155225691629
-Previous Three HRV Values: [270.5241825296462, 301.0155225691629, 305.1285766293647]
-Change from Mean of Last Three: 4.42%
-No Value Excluded from Mean Calculation
-Binary Output (0: calm, 1: anxious) = 0
-Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
-
-Segment 410 - Expected Timestamp 34min 35sec, Actual Timestamp 14min 36sec
-ABILITY MEASUREMENT 3 for segment 410.
-Current HRV: 276.39343938185897
-Change from Baseline: -10.27%
-Change from Previous: -9.42%
-Previous HRV for Change: 305.1285766293647
-Previous Three HRV Values: [301.0155225691629, 305.1285766293647, 276.39343938185897]
-Change from Mean of Last Three: -6.05%
+Segment 40 - Expected Timestamp 3min 45sec, Actual Timestamp 1min 41sec
+Current HRV: 279.21071019868697
+Change from Baseline: -7.44%
+Change from Previous: -9.65%
+Previous HRV for Change: 309.04190096445524
+Previous Three HRV Values: [307.9296829718961, 309.04190096445524, 279.21071019868697]
+Change from Mean of Last Three: -6.53%
 No Value Excluded from Mean Calculation
 Binary Output (0: calm, 1: anxious) = 1
 Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
 
-Segment 411 - Expected Timestamp 34min 40sec, Actual Timestamp 14min 38sec
-Current HRV: 307.4926407866228
-Change from Baseline: -0.17%
-Change from Previous: 11.25%
-Previous HRV for Change: 276.39343938185897
-Previous Three HRV Values: [305.1285766293647, 276.39343938185897, 307.4926407866228]
-Change from Mean of Last Three: 3.76%
+Segment 41 - Expected Timestamp 3min 50sec, Actual Timestamp 1min 46sec
+Current HRV: 309.922125925096
+Change from Baseline: 2.74%
+Change from Previous: 11.00%
+Previous HRV for Change: 279.21071019868697
+Previous Three HRV Values: [309.04190096445524, 279.21071019868697, 309.922125925096]
+Change from Mean of Last Three: 3.52%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 42 - Expected Timestamp 3min 55sec, Actual Timestamp 1min 49sec
+Current HRV: 304.373673850636
+Change from Baseline: 0.90%
+Change from Previous: -1.79%
+Previous HRV for Change: 309.922125925096
+Previous Three HRV Values: [279.21071019868697, 309.922125925096, 304.373673850636]
+Change from Mean of Last Three: 2.20%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+
+Ability activated in step 43. 
+Expect ability measurements in segments 48, 49, and 50.
+
+Segment 43 - Expected Timestamp 4min 0sec, Actual Timestamp 1min 56sec
+Current HRV: 258.370223543258
+Change from Baseline: -14.35%
+Change from Previous: -15.11%
+Previous HRV for Change: 304.373673850636
+Previous Three HRV Values: [309.922125925096, 304.373673850636, 258.370223543258]
+Change from Mean of Last Three: -11.18%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 3
+
+Segment 44 - Expected Timestamp 4min 5sec, Actual Timestamp 2min 0sec
+Current HRV: 308.00806079913133
+Change from Baseline: 2.11%
+Change from Previous: 19.21%
+Previous HRV for Change: 258.370223543258
+Previous Three HRV Values: [304.373673850636, 258.370223543258, 308.00806079913133]
+Change from Mean of Last Three: 6.12%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 45 - Expected Timestamp 4min 10sec, Actual Timestamp 2min 3sec
+Current HRV: 310.46683425514846
+Change from Baseline: 2.92%
+Change from Previous: 0.80%
+Previous HRV for Change: 308.00806079913133
+Previous Three HRV Values: [258.370223543258, 308.00806079913133, 310.46683425514846]
+Change from Mean of Last Three: 6.22%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 46 - Expected Timestamp 4min 15sec, Actual Timestamp 2min 9sec
+Current HRV: 289.3440858217081
+Change from Baseline: -4.08%
+Change from Previous: -6.80%
+Previous HRV for Change: 310.46683425514846
+Previous Three HRV Values: [308.00806079913133, 310.46683425514846, 289.3440858217081]
+Change from Mean of Last Three: -4.38%
 No Value Excluded from Mean Calculation
 Binary Output (0: calm, 1: anxious) = 0
 Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
 
-Segment 412 - Expected Timestamp 34min 45sec, Actual Timestamp 14min 40sec
-Current HRV: 301.56259715024345
-Change from Baseline: -2.10%
-Change from Previous: -1.93%
-Previous HRV for Change: 307.4926407866228
-Previous Three HRV Values: [276.39343938185897, 307.4926407866228, 301.56259715024345]
-Change from Mean of Last Three: 2.17%
+Segment 47 - Expected Timestamp 4min 20sec, Actual Timestamp 2min 14sec
+Current HRV: 301.05561406261916
+Change from Baseline: -0.20%
+Change from Previous: 4.05%
+Previous HRV for Change: 289.3440858217081
+Previous Three HRV Values: [310.46683425514846, 289.3440858217081, 301.05561406261916]
+Change from Mean of Last Three: 0.26%
 No Value Excluded from Mean Calculation
 Binary Output (0: calm, 1: anxious) = 0
 Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
 
-Segment 413 - Expected Timestamp 34min 50sec, Actual Timestamp 14min 42sec
-Current HRV: 311.23225610688127
-Change from Baseline: 1.04%
-Change from Previous: 3.21%
-Previous HRV for Change: 301.56259715024345
-Previous Three HRV Values: [307.4926407866228, 301.56259715024345, 311.23225610688127]
-Change from Mean of Last Three: 1.46%
+Segment 48 - Expected Timestamp 4min 25sec, Actual Timestamp 2min 17sec
+ABILITY MEASUREMENT 1 for segment 48.
+Current HRV: 308.40524169256315
+Change from Baseline: 2.24%
+Change from Previous: 2.44%
+Previous HRV for Change: 301.05561406261916
+Previous Three HRV Values: [289.3440858217081, 301.05561406261916, 308.40524169256315]
+Change from Mean of Last Three: 2.94%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 49 - Expected Timestamp 4min 30sec, Actual Timestamp 2min 23sec
+ABILITY MEASUREMENT 2 for segment 49.
+Current HRV: 278.2581287346276
+Change from Baseline: -7.76%
+Change from Previous: -9.78%
+Previous HRV for Change: 308.40524169256315
+Previous Three HRV Values: [301.05561406261916, 308.40524169256315, 278.2581287346276]
+Change from Mean of Last Three: -5.96%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 50 - Expected Timestamp 4min 35sec, Actual Timestamp 2min 27sec
+ABILITY MEASUREMENT 3 for segment 50.
+Current HRV: 301.17585652194
+Change from Baseline: -0.16%
+Change from Previous: 8.24%
+Previous HRV for Change: 278.2581287346276
+Previous Three HRV Values: [308.40524169256315, 278.2581287346276, 301.17585652194]
+Change from Mean of Last Three: 1.77%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 51 - Expected Timestamp 4min 40sec, Actual Timestamp 2min 30sec
+Current HRV: 302.2526536966494
+Change from Baseline: 0.20%
+Change from Previous: 0.36%
+Previous HRV for Change: 301.17585652194
+Previous Three HRV Values: [278.2581287346276, 301.17585652194, 302.2526536966494]
+Change from Mean of Last Three: 2.84%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 52 - Expected Timestamp 4min 45sec, Actual Timestamp 2min 37sec
+Current HRV: 273.83693444578785
+Change from Baseline: -9.22%
+Change from Previous: -9.40%
+Previous HRV for Change: 302.2526536966494
+Previous Three HRV Values: [301.17585652194, 302.2526536966494, 273.83693444578785]
+Change from Mean of Last Three: -6.36%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 53 - Expected Timestamp 4min 50sec, Actual Timestamp 2min 40sec
+Current HRV: 302.04304329019067
+Change from Baseline: 0.13%
+Change from Previous: 10.30%
+Previous HRV for Change: 273.83693444578785
+Previous Three HRV Values: [302.2526536966494, 273.83693444578785, 302.04304329019067]
+Change from Mean of Last Three: 3.19%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+
+Ability activated in step 54. 
+Expect ability measurements in segments 59, 60, and 61.
+
+Segment 54 - Expected Timestamp 4min 55sec, Actual Timestamp 2min 43sec
+Current HRV: 308.9079764768701
+Change from Baseline: 2.40%
+Change from Previous: 2.27%
+Previous HRV for Change: 302.04304329019067
+Previous Three HRV Values: [273.83693444578785, 302.04304329019067, 308.9079764768701]
+Change from Mean of Last Three: 4.74%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 55 - Expected Timestamp 5min 0sec, Actual Timestamp 2min 51sec
+Current HRV: 284.171309834989
+Change from Baseline: -5.80%
+Change from Previous: -8.01%
+Previous HRV for Change: 308.9079764768701
+Previous Three HRV Values: [302.04304329019067, 308.9079764768701, 284.171309834989]
+Change from Mean of Last Three: -4.76%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 1
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 2
+
+Segment 56 - Expected Timestamp 5min 5sec, Actual Timestamp 2min 54sec
+Current HRV: 306.55482718261925
+Change from Baseline: 1.62%
+Change from Previous: 7.88%
+Previous HRV for Change: 284.171309834989
+Previous Three HRV Values: [308.9079764768701, 284.171309834989, 306.55482718261925]
+Change from Mean of Last Three: 2.23%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 57 - Expected Timestamp 5min 10sec, Actual Timestamp 2min 57sec
+Current HRV: 294.20260436269615
+Change from Baseline: -2.47%
+Change from Previous: -4.03%
+Previous HRV for Change: 306.55482718261925
+Previous Three HRV Values: [284.171309834989, 306.55482718261925, 294.20260436269615]
+Change from Mean of Last Three: -0.26%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 58 - Expected Timestamp 5min 15sec, Actual Timestamp 3min 5sec
+Current HRV: 305.8058883986873
+Change from Baseline: 1.38%
+Change from Previous: 3.94%
+Previous HRV for Change: 294.20260436269615
+Previous Three HRV Values: [306.55482718261925, 294.20260436269615, 305.8058883986873]
+Change from Mean of Last Three: 1.20%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 59 - Expected Timestamp 5min 20sec, Actual Timestamp 3min 8sec
+ABILITY MEASUREMENT 1 for segment 59.
+Current HRV: 311.50358386159974
+Change from Baseline: 3.27%
+Change from Previous: 1.86%
+Previous HRV for Change: 305.8058883986873
+Previous Three HRV Values: [294.20260436269615, 305.8058883986873, 311.50358386159974]
+Change from Mean of Last Three: 2.52%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 60 - Expected Timestamp 5min 25sec, Actual Timestamp 3min 11sec
+ABILITY MEASUREMENT 2 for segment 60.
+Current HRV: 294.9293700758427
+Change from Baseline: -2.23%
+Change from Previous: -5.32%
+Previous HRV for Change: 311.50358386159974
+Previous Three HRV Values: [305.8058883986873, 311.50358386159974, 294.9293700758427]
+Change from Mean of Last Three: -3.01%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 1
+
+Segment 61 - Expected Timestamp 5min 30sec, Actual Timestamp 3min 18sec
+ABILITY MEASUREMENT 3 for segment 61.
+Current HRV: 308.7447705360098
+Change from Baseline: 2.35%
+Change from Previous: 4.68%
+Previous HRV for Change: 294.9293700758427
+Previous Three HRV Values: [311.50358386159974, 294.9293700758427, 308.7447705360098]
+Change from Mean of Last Three: 1.21%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: anxious) = 0
+Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0
+
+Segment 62 - Expected Timestamp 5min 35sec, Actual Timestamp 3min 21sec
+Current HRV: 303.7542866638538
+Change from Baseline: 0.70%
+Change from Previous: -1.62%
+Previous HRV for Change: 308.7447705360098
+Previous Three HRV Values: [294.9293700758427, 308.7447705360098, 303.7542866638538]
+Change from Mean of Last Three: 0.42%
 No Value Excluded from Mean Calculation
 Binary Output (0: calm, 1: anxious) = 0
 Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = 0

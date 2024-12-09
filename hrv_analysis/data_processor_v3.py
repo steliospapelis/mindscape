@@ -58,39 +58,77 @@ def get_results():
     with output_value_lock:
         return results
 
-def fetch_ability_value():
+def fetch_ability_value(stop_flag):
     """
     This function retrieves the ability value from the server running at localhost:5000.
     It expects a response in the form of {ability_value: value}.
     """
     try:
-        # Send a GET request to the ability_value_json route
-        response = requests.get("http://localhost:5000/ability_value_json")
-        response.raise_for_status()  # Raise an error if the request failed
+        if not stop_flag.is_set():
+            # Send a GET request to the ability_value_json route
+            response = requests.get("http://localhost:5000/ability_value_json")
+            response.raise_for_status()  # Raise an error if the request failed
 
-        # Parse the JSON response
-        data = response.json()
-        return data.get("ability_value", 0)  # Default to 0 if ability_value is not found
+            # Parse the JSON response
+            data = response.json()
+            return data.get("ability_value", 0)  # Default to 0 if ability_value is not found
+        else:
+            add_log_entry("\n\nServer was stopped. The data below are invalid.\n\n")
+            return 1
+        
     except requests.exceptions.RequestException as e:
-        print(f"Error fetching ability value: {e}")
-        return 0  # Return 0 if there's an error
+        if not stop_flag.is_set(): 
+            print(f"Error fetching ability value: {e}")
+            return 0  # Return 0 if there's an error
+        else:
+            add_log_entry("\n\nServer was stopped. The data below are invalid.\n\n")
+            return 1
 
+def fetch_calm_calibration_value(stop_flag):
+    """
+    This function retrieves the calm calibration value from the server running at localhost:5000.
+    It expects a response in the form of {calm_calibration_value: value}.
+    """
+    try:
+        if not stop_flag.is_set():
+            response = requests.get("http://localhost:5000/calm_calibration_value")
+            response.raise_for_status()  # Raise an error if the request failed
 
-def fetch_anxious_calibration_value():
+            data = response.json()
+            return data.get("calm_calibration_value", 0)  # Default to 0 if value is not found
+        else:
+            add_log_entry("\n\nServer was stopped. The data below are invalid.\n\n")
+            return 1
+    except requests.exceptions.RequestException as e:
+        if not stop_flag.is_set():
+            print(f"Error fetching calm calibration value: {e}")
+            return 0
+        else:
+            add_log_entry("\n\nServer was stopped. The data below are invalid.\n\n")
+            return 1 
+
+def fetch_anxious_calibration_value(stop_flag):
     """
     This function retrieves the anxious calibration value from the server running at localhost:5000.
     It expects a response in the form of {anxious_calibration_value: value}.
     """
     try:
-        response = requests.get("http://localhost:5000/anxious_calibration_value")
-        response.raise_for_status()  # Raise an error if the request failed
+        if not stop_flag.is_set():
+            response = requests.get("http://localhost:5000/anxious_calibration_value")
+            response.raise_for_status()  # Raise an error if the request failed
 
-        data = response.json()
-        return data.get("anxious_calibration_value", 0)  # Default to 0 if value is not found
+            data = response.json()
+            return data.get("anxious_calibration_value", 0)  # Default to 0 if value is not found
+        else:
+            add_log_entry("\n\nServer was stopped. The data below are invalid.\n\n")
+            return 1
     except requests.exceptions.RequestException as e:
-        print(f"Error fetching anxious calibration value: {e}")
-        return 0  # Return 0 if there's an error
-
+        if not stop_flag.is_set():
+            print(f"Error fetching anxious calibration value: {e}")
+            return 0
+        else:
+            add_log_entry("\n\nServer was stopped. The data below are invalid.\n\n")
+            return 1
 
 def data_processor(ppg_data_queue, eda_data_queue, stop_event):
     sampling_rate = 100
@@ -98,7 +136,7 @@ def data_processor(ppg_data_queue, eda_data_queue, stop_event):
     step_size = int(5 * sampling_rate)
     step_counter = 0
     num_steps_for_baseline = 2 #10
-    num_steps_skipped = 2 #10
+    num_steps_skipped = 10 #10   #about 4 extra steps should be skipped because of the delay
     current_step = 0
     buffer = deque(maxlen=window_size)
     calm_baseline_hrv = []
@@ -113,20 +151,31 @@ def data_processor(ppg_data_queue, eda_data_queue, stop_event):
     anxious_baseline_hrv = []
     anxious_num_steps_skipped = 2  #16 # Number of steps to skip for anxious calibration
     anxious_num_steps_for_baseline = 2  #10 # Steps for anxious baseline
+    calm_calibration_signal_recieved = False
 
-    
     # Start the time counter when the function is called
     start_time = time.time()
+    #reset_time = time.time()
     
     # Clear the log file at the start
     with open(log_file, 'w') as f:
         f.write("Starting data processor logging...\n")
+        f.write("Waiting to recieve the calm calibration signal.\n")
         
     # Create or clear the ability_log.txt file at the start
     with open("ability_log.txt", 'w') as f:
         f.write("Starting ability logging...\n")
     
-    while not stop_event.is_set() or not ppg_data_queue.empty():
+        
+    while not stop_event.is_set():
+        calm_calibration_signal = fetch_calm_calibration_value(stop_event)
+        if calm_calibration_signal:
+            break
+        time.sleep(0.5)  # Wait for the specified delay before checking again
+    
+    start_time = time.time()
+    
+    while not stop_event.is_set() or not ppg_data_queue.empty():   #or
         
         try:
             data_point = ppg_data_queue.get(timeout=0.01)
@@ -137,12 +186,13 @@ def data_processor(ppg_data_queue, eda_data_queue, stop_event):
             if step_counter >= step_size:
                 if len(buffer) >= window_size:
                     
+                    current_step += 1
+
                     # Process the PPG signal in the buffer
                     peaks, _ = detect_peaks(buffer, lowcut=0.5, highcut=1.5, fs=100, order=3, peak_distance=20)
                     rr_intervals = np.diff(peaks) / sampling_rate
                     current_hrv = calculate_rmssd(rr_intervals)
 
-                    current_step += 1  
                     
                     # Calculate the actual timestamp by getting the elapsed time since the function was called
                     elapsed_time = time.time() - start_time
@@ -169,7 +219,7 @@ def data_processor(ppg_data_queue, eda_data_queue, stop_event):
                     # Write the segment number and EDA values to the EDA CSV file
                     with open(eda_csv_file, 'a', newline='') as csvfile:
                         writer = csv.writer(csvfile)
-                        writer.writerow([current_step, eda_values])  # Segment number and EDA values list
+                        writer.writerow([current_step, eda_values])  # Segment number and EDA values 
                         
                     if current_step == 1:
                         log_msg = f"\nCalm Calibration Starting...\n"
@@ -177,7 +227,7 @@ def data_processor(ppg_data_queue, eda_data_queue, stop_event):
                         log_msg = f"The next {num_steps_skipped} will be skipped\n\n"
                         add_log_entry(log_msg)
 
-                    if current_step <= num_steps_skipped:
+                    if current_step <= num_steps_skipped and current_step >= 1:
                         log_msg = (f"Segment {current_step} skipped - "
                         f"Expected Timestamp {expected_timestamp_minutes}min {expected_timestamp_seconds}sec, "
                         f"Actual Timestamp {actual_timestamp_minutes}min {actual_timestamp_seconds}sec\n")
@@ -208,7 +258,7 @@ def data_processor(ppg_data_queue, eda_data_queue, stop_event):
                             
                     # Check for anxious calibration signal
                     elif anxious_calibration_state == 0:
-                        anxious_calibration_signal = fetch_anxious_calibration_value()
+                        anxious_calibration_signal = fetch_anxious_calibration_value(stop_event)
                         if anxious_calibration_signal == 1:
                             anxious_calibration_state = 1  # Signal received, proceed with anxious calibration
                             anxious_calibration_start_step = current_step  # Mark the initiation step for the second calibration
@@ -273,7 +323,7 @@ def data_processor(ppg_data_queue, eda_data_queue, stop_event):
                     else:
                         
                         # Fetch the ability_value from localhost at /ability_value_json
-                        ability_value = fetch_ability_value()
+                        ability_value = fetch_ability_value(stop_event)
 
                         # Detect when ability_value turns to 1 and start tracking the ability measurement
                         if ability_value == 1 and not in_analysis and current_step > num_steps_for_baseline + num_steps_skipped:
