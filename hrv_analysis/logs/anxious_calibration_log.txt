@@ -1,0 +1,31 @@
+Starting anxious calibration logging...
+Waiting for the first window to fill (about 30 seconds)
+
+
+Anxious Calibration Starting...
+
+
+The next 2 segments will be skipped
+
+Segment 1 skipped - General Timestamp 1min 29sec
+(Anxious Calibration Timestamp 0min 35sec)
+Current HRV: 308.8354097975613
+
+Segment 2 skipped - General Timestamp 1min 36sec
+(Anxious Calibration Timestamp 0min 42sec)
+Current HRV: 282.09336515888964
+
+
+The next 2 segments will be used to calculate the anxious baseline.
+
+Segment 3 - General Timestamp 1min 43sec
+(Anxious Calibration Timestamp 0min 50sec)
+Current HRV: 310.45572731178544
+
+Segment 4 - General Timestamp 1min 46sec
+(Anxious Calibration Timestamp 0min 53sec)
+Current HRV: 308.2318876296289
+
+Anxious Baseline HRV established: 309.34380747070713
+
+

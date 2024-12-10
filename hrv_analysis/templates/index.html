@@ -3,25 +3,165 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HRV Analysis</title>
+    <title>Overview</title>
+    {% comment %}
+    <meta http-equiv="refresh" content="1" />
+    {% endcomment %}
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        color: #4caf50;
+      }
+
+      table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+    </style>
   </head>
   <body>
-    <h1>Welcome to HRV Analysis</h1>
-    <p>
-      Click the buttons below to view the HRV results or the ability state in
-      real time.
-    </p>
-    <button onclick="window.location.href='/results'">
-      View Results (Table)
-    </button>
-    <button onclick="window.location.href='/results_json'">
-      View Results (JSON)
-    </button>
-    <button onclick="window.location.href='/ability_value'">
-      View Ability (Table)
-    </button>
-    <button onclick="window.location.href='/ability_value_json'">
-      View Ability (JSON)
-    </button>
+    <h1>Game Flags Dashboard</h1>
+
+    <!-- Game Flags Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Game Flag</th>
+          <th>Value</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Calm Calibration -->
+        <tr>
+          <td>Calm Calibration</td>
+          <td>{{ game_flags_values[0] }}</td>
+          <td>
+            {% if not calibration_done[0] and state == "WAITING" %} Waiting {%
+            elif not calibration_done[0] and state == "CALM_CALIBRATION" %}
+            Running {% else %} Done {% endif %}
+          </td>
+        </tr>
+
+        <!-- Anxious Calibration -->
+        <tr>
+          <td>Anxious Calibration</td>
+          <td>{{ game_flags_values[1] }}</td>
+          <td>
+            {% if not calibration_done[0] %} - {% elif not calibration_done[1]
+            and state == "CALM_CALIBRATION" %} Waiting {% elif not
+            calibration_done[1] and state == "ANXIOUS_CALIBRATION" %} Running {%
+            else %} Done {% endif %}
+          </td>
+        </tr>
+
+        <!-- Data Analysis -->
+        <tr>
+          <td>Data Analysis</td>
+          <td>{{ game_flags_values[2] }}</td>
+          <td>
+            {% if not calibration_done[1] %} - {% elif state ==
+            "ANXIOUS_CALIBRATION" %} Waiting {% else %} Running {% endif %}
+          </td>
+        </tr>
+
+        <!-- Ability -->
+        <tr>
+          <td>Ability</td>
+          <td>{{ game_flags_values[3] }}</td>
+          <td>
+            {% if state != "DATA_ANALYSIS" %} - {% elif game_flags_values[3] ==
+            1 %} Activated {% else %} Deactivated {% endif %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h1>Analysis Results Dashboard</h1>
+    <!-- Analysis Results Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Analysis Metric</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Current HRV -->
+        <tr>
+          <td>Current HRV</td>
+          <td>
+            {% if state == "DATA_ANALYSIS" and results.current_hrv is not none
+            %} {{ results.current_hrv | round(3) }} {% else %} - {% endif %}
+          </td>
+        </tr>
+
+        <!-- Binary Value -->
+        <tr>
+          <td>Binary Value</td>
+          <td>
+            {% if state == "DATA_ANALYSIS" and results.binary_output is not none
+            %} {{ results.binary_output }} {% else %} - {% endif %}
+          </td>
+        </tr>
+
+        <!-- Categorical Value -->
+        <tr>
+          <td>Categorical Value</td>
+          <td>
+            {% if state == "DATA_ANALYSIS" and results.categorical_output is not
+            none %} {{ results.categorical_output }} {% else %} - {% endif %}
+          </td>
+        </tr>
+
+        <!-- Calm Baseline -->
+        <tr>
+          <td>Calm Baseline</td>
+          <td>
+            {% if state == "DATA_ANALYSIS" and baselines[0] is not none %} {{
+            baselines[0] | round(3) }} {% else %} - {% endif %}
+          </td>
+        </tr>
+
+        <!-- Anxious Baseline -->
+        <tr>
+          <td>Anxious Baseline</td>
+          <td>
+            {% if state == "DATA_ANALYSIS" and baselines[1] is not none %} {{
+            baselines[1] | round(3) }} {% else %} - {% endif %}
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

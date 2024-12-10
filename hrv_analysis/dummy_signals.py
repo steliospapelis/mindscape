@@ -28,6 +28,17 @@ def send_anxious_calibration_signal(value):
             print(f"Failed to send anxious calibration signal: {response.status_code}")
     except requests.ConnectionError:
         print("Connection error. Is the server running?")
+        
+# Function to send data analysis signal
+def send_data_analysis_signal(value):
+    try:
+        response = requests.post('http://127.0.0.1:5000/game_flags', json={"DataAnalysis": value})
+        if response.status_code == 200:
+            print(f"Data analysis signal sent with value: {value}")
+        else:
+            print(f"Failed to send data analysis signal: {response.status_code}")
+    except requests.ConnectionError:
+        print("Connection error. Is the server running?")
 
 # Function to send ability signal
 def send_ability_value(value):
@@ -64,9 +75,15 @@ def check_for_keypress():
             print("Anxious calibration signal triggered.")
             send_anxious_calibration_signal(1)
             time.sleep(0.5)
-
-        # Ability: Press '^'
+            
+        # Data analysis: Press '^'
         elif keyboard.is_pressed('^'):
+            print("Data analysis signal triggered.")
+            send_data_analysis_signal(1)
+            time.sleep(0.5)
+
+        # Ability: Press '&'
+        elif keyboard.is_pressed('&'):
             with value_lock:
                 if binary_value == 0:
                     binary_value = 1
@@ -76,5 +93,5 @@ def check_for_keypress():
             time.sleep(0.5)
 
 if __name__ == "__main__":
-    print("Press '$' for calm calibration, '%' for anxious calibration, and '^' for ability signal.")
+    print("Press '$' for calm calibration, '%' for anxious calibration, '^' for data analysis, and '&' for ability signal.")
     check_for_keypress()
