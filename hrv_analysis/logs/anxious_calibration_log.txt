@@ -7,25 +7,25 @@ Anxious Calibration Starting...
 
 The next 2 segments will be skipped
 
-Segment 1 skipped - General Timestamp 1min 29sec
-(Anxious Calibration Timestamp 0min 35sec)
-Current HRV: 308.8354097975613
+Segment 1 skipped - General Timestamp 1min 14sec
+(Anxious Calibration Timestamp 0min 29sec)
+Current HRV: 313.2972588673465
 
-Segment 2 skipped - General Timestamp 1min 36sec
-(Anxious Calibration Timestamp 0min 42sec)
-Current HRV: 282.09336515888964
+Segment 2 skipped - General Timestamp 1min 18sec
+(Anxious Calibration Timestamp 0min 33sec)
+Current HRV: 308.6846398779047
 
 
 The next 2 segments will be used to calculate the anxious baseline.
 
-Segment 3 - General Timestamp 1min 43sec
-(Anxious Calibration Timestamp 0min 50sec)
-Current HRV: 310.45572731178544
+Segment 3 - General Timestamp 1min 21sec
+(Anxious Calibration Timestamp 0min 35sec)
+Current HRV: 294.5891352726533
 
-Segment 4 - General Timestamp 1min 46sec
-(Anxious Calibration Timestamp 0min 53sec)
-Current HRV: 308.2318876296289
+Segment 4 - General Timestamp 1min 29sec
+(Anxious Calibration Timestamp 0min 44sec)
+Current HRV: 309.86092542211304
 
-Anxious Baseline HRV established: 309.34380747070713
+Anxious Baseline HRV established: 302.22503034738315
 
 

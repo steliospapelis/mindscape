@@ -4,9 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Overview</title>
-    {% comment %}
-    <meta http-equiv="refresh" content="1" />
-    {% endcomment %}
+    <meta http-equiv="refresh" content="5" />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -121,8 +119,9 @@
         <tr>
           <td>Current HRV</td>
           <td>
-            {% if state == "DATA_ANALYSIS" and results.current_hrv is not none
-            %} {{ results.current_hrv | round(3) }} {% else %} - {% endif %}
+            {% if state == "DATA_ANALYSIS" and results.current_hrv is defined
+            and results.current_hrv is not none %} {{ results.current_hrv |
+            round(3) }} {% else %} - {% endif %}
           </td>
         </tr>
 
@@ -130,8 +129,9 @@
         <tr>
           <td>Binary Value</td>
           <td>
-            {% if state == "DATA_ANALYSIS" and results.binary_output is not none
-            %} {{ results.binary_output }} {% else %} - {% endif %}
+            {% if state == "DATA_ANALYSIS" and results.binary_output is defined
+            and results.binary_output is not none %} {{ results.binary_output }}
+            {% else %} - {% endif %}
           </td>
         </tr>
 
@@ -139,8 +139,9 @@
         <tr>
           <td>Categorical Value</td>
           <td>
-            {% if state == "DATA_ANALYSIS" and results.categorical_output is not
-            none %} {{ results.categorical_output }} {% else %} - {% endif %}
+            {% if state == "DATA_ANALYSIS" and results.categorical_output is
+            defined and results.categorical_output is not none %} {{
+            results.categorical_output }} {% else %} - {% endif %}
           </td>
         </tr>
 
@@ -148,8 +149,9 @@
         <tr>
           <td>Calm Baseline</td>
           <td>
-            {% if state == "DATA_ANALYSIS" and baselines[0] is not none %} {{
-            baselines[0] | round(3) }} {% else %} - {% endif %}
+            {% if state == "DATA_ANALYSIS" and baselines[0] is defined and
+            baselines[0] is not none %} {{ baselines[0] | round(3) }} {% else %}
+            - {% endif %}
           </td>
         </tr>
 
@@ -157,8 +159,9 @@
         <tr>
           <td>Anxious Baseline</td>
           <td>
-            {% if state == "DATA_ANALYSIS" and baselines[1] is not none %} {{
-            baselines[1] | round(3) }} {% else %} - {% endif %}
+            {% if state == "DATA_ANALYSIS" and baselines[1] is defined and
+            baselines[1] is not none %} {{ baselines[1] | round(3) }} {% else %}
+            - {% endif %}
           </td>
         </tr>
       </tbody>

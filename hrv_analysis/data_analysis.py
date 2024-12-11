@@ -118,6 +118,10 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
         f.write("Starting data analysis logging...\n")
         f.write("Waiting for the first window to fill (about 30 seconds)\n\n")
         
+    # Create or clear the general_log_file at the start
+    with open(ability_log_file, 'w') as f:
+        f.write("Starting ability logging...\n\n")
+        
     try:
         while not stop_event.is_set() or not ppg_data_queue.empty():   
             
@@ -165,7 +169,7 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                             writer = csv.writer(csvfile)
                             writer.writerow([current_step, eda_values])  # Segment number and EDA values 
                             
-                        # Fetch the ability_value from localhost at /ability_value_json
+                        # Fetch the ability_value from localhost
                         ability_value = fetch_ability_value(stop_event)
 
                         # Detect when ability_value turns to 1 and start tracking the ability measurement
