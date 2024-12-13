@@ -149,9 +149,8 @@
         <tr>
           <td>Calm Baseline</td>
           <td>
-            {% if state == "DATA_ANALYSIS" and baselines[0] is defined and
-            baselines[0] is not none %} {{ baselines[0] | round(3) }} {% else %}
-            - {% endif %}
+            {% if baselines[0] is defined and baselines[0] is not none %} {{
+            baselines[0] | round(3) }} {% else %} - {% endif %}
           </td>
         </tr>
 
@@ -159,9 +158,8 @@
         <tr>
           <td>Anxious Baseline</td>
           <td>
-            {% if state == "DATA_ANALYSIS" and baselines[1] is defined and
-            baselines[1] is not none %} {{ baselines[1] | round(3) }} {% else %}
-            - {% endif %}
+            {% if baselines[1] is defined and baselines[1] is not none %} {{
+            baselines[1] | round(3) }} {% else %} - {% endif %}
           </td>
         </tr>
       </tbody>

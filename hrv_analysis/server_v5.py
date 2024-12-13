@@ -217,8 +217,8 @@ def run_data_analysis():
             if general_start_time == None or calm_baseline_hrv == None or anxious_baseline_hrv == None:
                 print("Error fetching general logging starting time or baselines. Press Ctrl+C to shut down the server.")
                 break
-            data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv, anxious_baseline_hrv)
             print("Data analysis running...")
+            data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv, anxious_baseline_hrv)
         threading.Event().wait(0.1)
     
 
