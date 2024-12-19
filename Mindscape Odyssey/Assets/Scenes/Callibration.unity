@@ -680,6 +680,7 @@ MonoBehaviour:
   nextButton: {fileID: 2126873891}
   readyButton: {fileID: 994459031}
   fixationCross: {fileID: 1202304079}
+  server: {fileID: 1578222171}
 --- !u!4 &983003652
 Transform:
   m_ObjectHideFlags: 0
@@ -1303,6 +1304,7 @@ GameObject:
   - component: {fileID: 1578222168}
   - component: {fileID: 1578222167}
   - component: {fileID: 1578222170}
+  - component: {fileID: 1578222171}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1428,6 +1430,18 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1578222171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578222166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e71bfdd4036601479c6f3787deafe63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2058158830
 GameObject:
   m_ObjectHideFlags: 0

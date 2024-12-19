@@ -46,8 +46,8 @@ def calm_calibration(ppg_data_queue, eda_data_queue, stop_event):
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
     step_counter = 0
-    num_steps_for_baseline = 2 #10
-    num_steps_skipped = 2 #10  
+    num_steps_for_baseline = 30 #30 for 5 minutes session
+    num_steps_skipped = 23 #23 for 5 minutes session
     current_step = 0
     buffer = deque(maxlen=window_size)
     calm_baseline_hrv = []

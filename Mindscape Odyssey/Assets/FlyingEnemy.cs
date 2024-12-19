@@ -58,7 +58,7 @@ public class FlyingEnemy : MonoBehaviour
     void Update()
 
 {
-    if(deepBr.isBreathing){
+    if(deepBr.isBreathing || health.isRespawning){
         attackCooldown = attackDelay;
         GetComponent<Collider2D>().enabled = false;
         

@@ -16,7 +16,7 @@ public class CombinedHRV : MonoBehaviour
     public Light2D cameraLight;
     public TextMeshProUGUI anxiousWarningText; // Text to display when anxious
 
-    private string url = "http://localhost:5000/results_json";
+    private string url = "http://localhost:5000/analysis_results";
     private bool manualMode = false;
 
     void Start()
@@ -166,46 +166,6 @@ public class CombinedHRV : MonoBehaviour
         public int current_hrv;
     }
 
-    public IEnumerator NotifyServer(bool isBreathing, bool isCalming, bool isStressing)
-{
-    CalibrationData data = new CalibrationData
-    {
-        Breathing = isBreathing,
-        CalmCalib = isCalming,
-        StressedCalib = isStressing
-    };
-    Debug.Log("data:"+data);
     
-    string jsonData = JsonUtility.ToJson(data);
-    byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonData);
-
-    using (UnityWebRequest webRequest = new UnityWebRequest("http://localhost:5000/gameFlags", "POST"))
-    {
-        webRequest.uploadHandler = new UploadHandlerRaw(bodyRaw);
-        webRequest.downloadHandler = new DownloadHandlerBuffer();
-        webRequest.SetRequestHeader("Content-Type", "application/json");
-        Debug.Log("JSON data: " + jsonData);
-
-
-        yield return webRequest.SendWebRequest();
-
-        if (webRequest.result == UnityWebRequest.Result.Success)
-        {
-            Debug.Log("Flags sent successfully!");
-        }
-        else
-        {
-            Debug.LogError("Error sending flags: " + webRequest.error);
-        }
-    }
-}
-
-[System.Serializable]
-public class CalibrationData
-{
-    public bool Breathing;
-    public bool CalmCalib;
-    public bool StressedCalib;
-}
 //StartCoroutine(NotifyPlayerState(true, false, false)); // Example usage
 }

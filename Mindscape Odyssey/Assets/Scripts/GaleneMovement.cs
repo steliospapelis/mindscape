@@ -37,6 +37,11 @@ public class GaleneMovement : MonoBehaviour
 
      public bool isKnockedDown = false;
 
+     private bool SlowMoHappened=false;
+
+     private Vector2 targetVelocity;
+     
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,6 +58,11 @@ public class GaleneMovement : MonoBehaviour
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("recover"))
         {
             isRecover = true;
+        }
+
+        if(transform.position.x>320f && transform.position.y<140f && !SlowMoHappened){
+            StartCoroutine(OverrideGravity(0.4f, 1.2f, 1f));
+            SlowMoHappened = true;
         }
 
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName("recover") && isRecover)
@@ -212,4 +222,52 @@ public class GaleneMovement : MonoBehaviour
             rb.gravityScale = maxGravityScale;
         }
     }
+
+    private bool isGravityOverridden = false; // To prevent multiple coroutine calls
+
+private IEnumerator OverrideGravity(float velocityDampingDuration, float gravityHoldTime, float gravityRestoreDuration)
+{
+    if (isGravityOverridden) yield break; // Avoid multiple triggers
+    isGravityOverridden = true;
+
+    float initialGravity = rb.gravityScale;
+    Vector2 initialVelocity = rb.velocity;
+
+    // Step 1: Set gravity to 0
+    rb.gravityScale = 0;
+
+    // Step 2: Gradually bring velocity to 0
+    float elapsedDampingTime = 0f;
+
+    targetVelocity = new Vector2(0f,-2f);
+
+    while (elapsedDampingTime < velocityDampingDuration)
+    {
+        rb.velocity = Vector2.Lerp(initialVelocity, targetVelocity, elapsedDampingTime / velocityDampingDuration);
+        elapsedDampingTime += Time.deltaTime;
+        yield return null;
+    }
+
+    // Ensure velocity is precisely zero at the end of damping
+    rb.velocity = targetVelocity;
+
+    // Step 3: Hold at zero gravity
+    yield return new WaitForSeconds(gravityHoldTime);
+
+    // Step 4: Gradually restore gravity
+    float elapsedGravityTime = 0f;
+
+    while (elapsedGravityTime < gravityRestoreDuration)
+    {
+        rb.gravityScale = Mathf.Lerp(0f, initialGravity, elapsedGravityTime / gravityRestoreDuration);
+        elapsedGravityTime += Time.deltaTime;
+        yield return null;
+    }
+
+    // Ensure gravity is fully restored
+    rb.gravityScale = initialGravity;
+    isGravityOverridden = false; // Allow future overrides
+}
+
+
 }

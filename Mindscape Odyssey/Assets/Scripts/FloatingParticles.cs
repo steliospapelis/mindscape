@@ -25,11 +25,11 @@ public class FloatingParticles : MonoBehaviour
         emissionModule.enabled = true;
         if (hrvScript.HRValue == 0){
             up = true;
-            SetParticleSystem(Vector2.up, Color.green, transform.position + new Vector3(0, -5, 0));
+            SetParticleSystem(Vector2.up, Color.green, transform.position + new Vector3(0.9f, -5, 0));
         }
         else{
             up = false;
-            SetParticleSystem(Vector2.down, Color.red, transform.position + new Vector3(0, 15, 0));
+            SetParticleSystem(Vector2.down, Color.red, transform.position + new Vector3(0.9f, 15, 0));
         }
 
         
@@ -40,12 +40,12 @@ public class FloatingParticles : MonoBehaviour
         // Update particle properties based on the HRV state every frame
         if (hrvScript.HRValue == 0 && !up)
         {
-            SetParticleSystem(Vector2.up, Color.green, transform.position + new Vector3(0, -5, 0));
+            SetParticleSystem(Vector2.up, Color.green, transform.position + new Vector3(0.9f, -5, 0));
             up=true;
         }
         else if(hrvScript.HRValue == 1 && up)
         {
-            SetParticleSystem(Vector2.down, Color.red, transform.position + new Vector3(0, 15, 0));
+            SetParticleSystem(Vector2.down, Color.red, transform.position + new Vector3(0.9f, 15, 0));
             up=false;
         }
     }

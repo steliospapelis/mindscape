@@ -59,12 +59,14 @@ public class DeepBreathing : MonoBehaviour
 
     public TextMeshProUGUI[] textsToDeactivate;
 
+    public GameObject BreathingIcon;
+
     private GameObject boss;
     private Boss bossScript;
 
     float bossSpeed;
 
-    public CombinedHRV hrv;
+    public ServerNotifications server;
 
     
 
@@ -197,6 +199,7 @@ public class DeepBreathing : MonoBehaviour
 {
     galeneLight.intensity = 0f;
     Circle.SetActive(false);
+    BreathingIcon.SetActive(true);
     
     StartCoroutine(HealingSequence()); // Start the healing sequence coroutine
     Text.text = "";
@@ -232,7 +235,7 @@ public class DeepBreathing : MonoBehaviour
     tileMapMoverSpeeds.Clear();
 
     
-
+    StartCoroutine(server.NotifyServer(false, false, false,false,false, false)); 
     isBreathing = false;
     
     anim.SetBool("Breathing", false);
@@ -347,10 +350,11 @@ private IEnumerator HealingSequence()
             flying.chargeSpeed = 0f;
         }
 
-        StartCoroutine(hrv.NotifyServer(true, false, false)); // Example usage
+        StartCoroutine(server.NotifyServer(true, false, false,false,false, false)); 
 
         hasHealed = false;
         Circle.SetActive(true);
+        BreathingIcon.SetActive(false);
         frequency = newFrequency;
         CalculateBreathingDurations();
         ResetVisualization();

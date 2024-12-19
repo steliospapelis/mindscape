@@ -46,8 +46,8 @@ def anxious_calibration(ppg_data_queue, eda_data_queue, stop_event, general_star
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
     step_counter = 0
-    num_steps_for_baseline = 2 #10
-    num_steps_skipped = 2 #10  
+    num_steps_for_baseline = 16 #10
+    num_steps_skipped = 8 #10  
     current_step = 0
     buffer = deque(maxlen=window_size)
     anxious_baseline_hrv = []

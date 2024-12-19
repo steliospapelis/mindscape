@@ -30,6 +30,8 @@ public class CalibrationScreen : MonoBehaviour
     private List<float> reactionTimes = new List<float>();  
     private int correctAnswers = 0;
 
+    public ServerNotifications server;
+
 
     void Start()
     {
@@ -42,13 +44,14 @@ public class CalibrationScreen : MonoBehaviour
         nextButton.onClick.AddListener(OnNextButtonClicked);
         readyButton.onClick.AddListener(ReadyForTesting);
         readyButton.gameObject.SetActive(true);
-        instructionText.text = "This callibration consists of three phases :\n\n Relaxation \n Practise \n Test \n\n Firstly, you will have to relax for 5 minutes. Stay calm and try not to move. \n\n Press Ready to begin relaxation.";
+        instructionText.text = "This calibration consists of three phases :\n\n Relaxation \n Practise \n Test \n\n Firstly, you will have to relax for 5 minutes. Stay calm and try not to move. \n\n Press Ready to begin relaxation.";
     }
 
     private IEnumerator RelaxationPhase()
     {
+        StartCoroutine(server.NotifyServer(false, true, false,false,false,false)); 
         readyButton.gameObject.SetActive(false);
-        float countdownTime = 15f;  // Change to 300f for full duration
+        float countdownTime = 300f;  // Change to 300f for full duration
         while (countdownTime > 0f)
         {
             int minutes = Mathf.FloorToInt(countdownTime / 60);
@@ -111,7 +114,7 @@ public class CalibrationScreen : MonoBehaviour
         readyButton.gameObject.SetActive(false);
         nextButton.gameObject.SetActive(false);
         instructionText.gameObject.SetActive(false);
-        GenerateTrialCongruency(6);
+        GenerateTrialCongruency(10);
         isPracticePhase = true;
         reactionTimes.Clear();  
         correctAnswers = 0;
@@ -122,7 +125,8 @@ public class CalibrationScreen : MonoBehaviour
 
     private IEnumerator PracticePhase()
     {
-        for (trialCount = 0; trialCount < 6; trialCount++)
+        
+        for (trialCount = 0; trialCount < 10; trialCount++)
         {
             yield return StartCoroutine(RunTrial(trialCongruency[trialCount]));
             feedbackText.gameObject.SetActive(false);
@@ -132,13 +136,14 @@ public class CalibrationScreen : MonoBehaviour
         instructionText.gameObject.SetActive(true);
         isPracticePhase = false;
         float averageTime = CalculateAverageTime();
-        float accuracy = (correctAnswers / 6f) * 100;
+        float accuracy = (correctAnswers / 10f) * 100;
         instructionText.text = $"Practice complete.\n\nAverage Reaction Time: {averageTime:F2} s\n\nAccuracy: {accuracy:F2}%\n\n\n Click 'Next' to receive instructions for the Test Phase.";
         nextButton.gameObject.SetActive(true);
     }
 
     private void StartTestBlock()
     {
+        StartCoroutine(server.NotifyServer(false, false, true,false,false,false)); 
         readyButton.gameObject.SetActive(false);
         nextButton.gameObject.SetActive(false);
         instructionText.gameObject.SetActive(false);
@@ -151,9 +156,21 @@ public class CalibrationScreen : MonoBehaviour
 {
     for (int block = 1; block <= 3; block++)
     {
+
+         yield return new WaitForSeconds(2f);
         
-        GenerateTrialCongruency(8);
-        for (trialCount = 0; trialCount < 8; trialCount++)
+        if(block==1){
+        GenerateTrialCongruencyAllCongruent(120);
+        }
+        else if(block==2){
+        StartCoroutine(server.NotifyServer(false, false, false,true,false,false)); 
+        GenerateTrialCongruency(120);        
+        }
+        else if(block==3){
+        StartCoroutine(server.NotifyServer(false, false, false,false,true,false)); 
+        GenerateTrialCongruencyAllInCongruent(120); 
+        }
+        for (trialCount = 0; trialCount < 120; trialCount++)
         {
             instructionText.gameObject.SetActive(false);
             yield return StartCoroutine(RunTrial(trialCongruency[trialCount]));
@@ -174,9 +191,10 @@ public class CalibrationScreen : MonoBehaviour
 
     instructionText.gameObject.SetActive(true);
     float averageTime = CalculateAverageTime();
-    float accuracy = (correctAnswers / 24f) * 100;
+    float accuracy = (correctAnswers / 120f) * 100;
     instructionText.text = $"Test complete.\n\nAverage Reaction Time: {averageTime:F2} s\n\nAccuracy: {accuracy:F2}%\n\n\n Click 'Finish' to return to the main menu.";
     buttonText.text = "Finish";
+    StartCoroutine(server.NotifyServer(false, false, false,false,false,true)); 
     nextButton.gameObject.SetActive(true);
 }
 
@@ -187,6 +205,36 @@ public class CalibrationScreen : MonoBehaviour
         for (int i = 0; i < trialCount / 2; i++)
         {
             trialCongruency.Add(true);
+            trialCongruency.Add(false);
+        }
+        for (int i = trialCongruency.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (trialCongruency[i], trialCongruency[j]) = (trialCongruency[j], trialCongruency[i]);
+        }
+    }
+
+    private void GenerateTrialCongruencyAllCongruent(int trialCount)
+    {
+        trialCongruency.Clear();
+        for (int i = 0; i < trialCount; i++)
+        {
+            trialCongruency.Add(true);
+            
+        }
+        for (int i = trialCongruency.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (trialCongruency[i], trialCongruency[j]) = (trialCongruency[j], trialCongruency[i]);
+        }
+    }
+
+    private void GenerateTrialCongruencyAllInCongruent(int trialCount)
+    {
+        trialCongruency.Clear();
+        for (int i = 0; i < trialCount; i++)
+        {
+            
             trialCongruency.Add(false);
         }
         for (int i = trialCongruency.Count - 1; i > 0; i--)

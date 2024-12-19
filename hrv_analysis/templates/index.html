@@ -83,22 +83,46 @@
           </td>
         </tr>
 
+        <!-- Anxious Calibration 2 -->
+          <tr>
+            <td>Anxious Calibration 2</td>
+            <td>{{ game_flags_values[2] }}</td>
+            <td>
+              {% if not calibration_done[1] %} - {% elif not calibration_done[2]
+              and state == "ANXIOUS_CALIBRATION" %} Waiting {% elif not
+              calibration_done[2] and state == "ANXIOUS_CALIBRATION_2" %} Running {%
+              else %} Done {% endif %}
+            </td>
+          </tr>
+
+        <!-- Anxious Calibration 3-->
+        <tr>
+          <td>Anxious Calibration 3</td>
+          <td>{{ game_flags_values[3] }}</td>
+          <td>
+            {% if not calibration_done[2] %} - {% elif not calibration_done[3]
+            and state == "ANXIOUS_CALIBRATION_2" %} Waiting {% elif not
+            calibration_done[3] and state == "ANXIOUS_CALIBRATION_3" %} Running {%
+            else %} Done {% endif %}
+          </td>
+        </tr>
+
         <!-- Data Analysis -->
         <tr>
           <td>Data Analysis</td>
-          <td>{{ game_flags_values[2] }}</td>
+          <td>{{ game_flags_values[4] }}</td>
           <td>
-            {% if not calibration_done[1] %} - {% elif state ==
-            "ANXIOUS_CALIBRATION" %} Waiting {% else %} Running {% endif %}
+            {% if not calibration_done[3] %} - {% elif state ==
+            "ANXIOUS_CALIBRATION_3" %} Waiting {% else %} Running {% endif %}
           </td>
         </tr>
 
         <!-- Ability -->
         <tr>
           <td>Ability</td>
-          <td>{{ game_flags_values[3] }}</td>
+          <td>{{ game_flags_values[5] }}</td>
           <td>
-            {% if state != "DATA_ANALYSIS" %} - {% elif game_flags_values[3] ==
+            {% if state != "DATA_ANALYSIS" %} - {% elif game_flags_values[5] ==
             1 %} Activated {% else %} Deactivated {% endif %}
           </td>
         </tr>
@@ -160,6 +184,24 @@
           <td>
             {% if baselines[1] is defined and baselines[1] is not none %} {{
             baselines[1] | round(3) }} {% else %} - {% endif %}
+          </td>
+        </tr>
+
+        <!-- Anxious Baseline 2-->
+        <tr>
+          <td>Anxious Baseline 2</td>
+          <td>
+            {% if baselines[2] is defined and baselines[2] is not none %} {{
+            baselines[2] | round(3) }} {% else %} - {% endif %}
+          </td>
+        </tr>
+
+        <!-- Anxious Baseline 3-->
+        <tr>
+          <td>Anxious Baseline 3</td>
+          <td>
+            {% if baselines[3] is defined and baselines[3] is not none %} {{
+            baselines[3] | round(3) }} {% else %} - {% endif %}
           </td>
         </tr>
       </tbody>

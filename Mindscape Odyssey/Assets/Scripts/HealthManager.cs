@@ -10,7 +10,7 @@ public class HealthManager : MonoBehaviour
     public float maxHealth;
     public Transform respawnPoint;
     public Renderer healthbar;
-    private bool isRespawning = false;
+    public bool isRespawning = false;
     public Image fadeImage;
     private Animator anim;
     public float minYposition = -10;
@@ -34,6 +34,8 @@ public class HealthManager : MonoBehaviour
    
 
     public bool breathingUnlocked=false;
+
+    public Boss BossScript;
 
     void Start()
     {
@@ -151,7 +153,7 @@ public class HealthManager : MonoBehaviour
         galene.canMove = true;
 
         boss = GameObject.FindGameObjectWithTag("Boss");
-        if (boss != null)
+        if (boss != null && !BossScript.reachedTarget)
         {
             Vector3 newPos = boss.transform.position; 
             newPos.x = transform.position.x - bossOffset;     

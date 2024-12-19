@@ -37,7 +37,7 @@ public class FallingRock : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        if (other.CompareTag("Player") &&!deepBr.isBreathing)
+        if (other.CompareTag("Player") &&!deepBr.isBreathing && playerMovement.canMove)
         {
         playerMovement.StartKnockback(0.4f);
         health.TakeDamage(Damage); 

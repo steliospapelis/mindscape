@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 
 
@@ -14,13 +15,33 @@ public class Boss : MonoBehaviour
     public Animator anim; 
     public HealthManager health;
     private float lastAttackTime = 0f;
-    private bool reachedTarget = false;
+    public bool reachedTarget = false;
 
     public DeepBreathing deepBr;
 
     public Transform player;
 
-     public GameObject rock;
+    public GameObject rock;
+
+    public float slowMotionFactor = 0.5f;
+    public float slowMotionDuration = 2f;
+
+    private float originalTimeScale;
+
+    private bool hasFallen = false;
+
+    
+
+    public void ActivateSlowMotion()
+    {
+        originalTimeScale = Time.timeScale;
+        Time.timeScale = slowMotionFactor;
+    }
+
+    public void DeactivateSlowMotion()
+    {
+        Time.timeScale = originalTimeScale;
+    }
 
     private void Start()
     {
@@ -36,7 +57,7 @@ public class Boss : MonoBehaviour
             anim.SetBool("walk", true);
         }
         if(transform.position.x>225){
-            health.bossOffset = 75;
+            health.bossOffset = 95;
         }
         else if(player.position.x-transform.position.x>55f){
             float newX = player.position.x - 50f;
@@ -48,6 +69,24 @@ public class Boss : MonoBehaviour
             float newY = 86f;
             float currentX = transform.position.x;
             transform.position = new Vector3(currentX, newY, transform.position.z);
+        }
+
+        
+
+        if(player.position.x>317 && player.position.y>155 &&!reachedTarget){
+            reachedTarget=true;
+            transform.position = new Vector3(342f, 108f, transform.position.z);
+            Vector3 Scale = transform.localScale;
+                    Scale.x = -Scale.x;
+                    transform.localScale = Scale;
+           SpriteRenderer[] spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+
+        
+        foreach (SpriteRenderer renderer in spriteRenderers)
+        {
+            renderer.sortingLayerName = "Enemies";
+        }
+            
         }
         
         if (!reachedTarget)
@@ -82,7 +121,7 @@ public class Boss : MonoBehaviour
         if (Vector3.Distance(transform.position, targetPosition.position) < 0.1f)
         {
             anim.SetBool("walk", false); // Stop walking animation
-            reachedTarget = true;
+            
         }
     }
 
@@ -113,6 +152,8 @@ public class Boss : MonoBehaviour
             
         }
     }
+
+
 }
 
     

@@ -13303,8 +13303,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -1.6922498, y: 1.3474002, z: 0}
-    m_Extent: {x: 11.53915, y: 11.9893, z: 0}
+    m_Center: {x: -1.7033, y: 1.3452497, z: 0}
+    m_Extent: {x: 11.536501, y: 11.98955, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -33252,8 +33252,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 2.6616998, y: -9.143, z: 0}
-    m_Extent: {x: 15.369101, y: 22.5765, z: 0}
+    m_Center: {x: 2.6680999, y: -9.14485, z: 0}
+    m_Extent: {x: 15.372, y: 22.57725, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -33499,6 +33499,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  BreathingIcon: {fileID: 0}
+  server: {fileID: 0}
 --- !u!114 &1503271981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33515,15 +33517,20 @@ MonoBehaviour:
   maxHealth: 100
   respawnPoint: {fileID: 323363217}
   healthbar: {fileID: 1109072665}
+  isRespawning: 0
   fadeImage: {fileID: 1492877552}
   minYposition: -20
   fadeSpeed: 1
   damageCooldown: 1
   galene: {fileID: 1503271979}
   deepBr: {fileID: 1503271980}
+  bridge1: {fileID: 0}
+  bridge2: {fileID: 0}
   healthWarningText: {fileID: 124695709}
   globalLight: {fileID: 0}
+  bossOffset: 0
   breathingUnlocked: 0
+  BossScript: {fileID: 0}
 --- !u!95 &1503271984 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4822398208353430945, guid: ee14459f600f6ec4783a1f1bae436bcc, type: 3}
@@ -71422,6 +71429,7 @@ MonoBehaviour:
   fallSpeed: 30
   disableDelay: 3
   disablePlayerMovement: 1
+  reset: 0
   playerAnimator: {fileID: 1503271984}
   player: {fileID: 1503271979}
 --- !u!61 &1843211843
