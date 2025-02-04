@@ -6,7 +6,6 @@ using System.Collections;
 
 public class StartMenu : MonoBehaviour
 {
-
     public Button newGameButton;
     public Button quitButton;
     public Button callibrationButton;
@@ -20,34 +19,40 @@ public class StartMenu : MonoBehaviour
     public float zoomSpeed = 2.5f;
     public float fadeSpeed = 0.5f;
 
+    public AudioClip buttonClickSound;   // Sound clip for button clicks
+    private AudioSource audioSource;    // AudioSource to play the sound
+
+    public AudioController music;
 
     void Start()
     {
-
+        // Initialize the fade image and other UI elements
         fadeImage.gameObject.SetActive(false);
-        
         startGameButton.gameObject.SetActive(false);
         hrvModeSelection.gameObject.SetActive(false);
         backButton.gameObject.SetActive(false);
 
-        
-        newGameButton.onClick.AddListener(OnNewGameClicked);
-        callibrationButton.onClick.AddListener(OnCallibrationClicked);
-        quitButton.onClick.AddListener(OnQuitClicked);
-        startGameButton.onClick.AddListener(OnStartGameClicked);
-        backButton.onClick.AddListener(OnBackButtonClicked);
-        
+        // Get or add an AudioSource component
+        audioSource = gameObject.GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // Add listeners to buttons and include sound playback
+        newGameButton.onClick.AddListener(() => { PlayButtonClickSound(); OnNewGameClicked(); });
+        callibrationButton.onClick.AddListener(() => { PlayButtonClickSound(); OnCallibrationClicked(); });
+        quitButton.onClick.AddListener(() => { PlayButtonClickSound(); OnQuitClicked(); });
+        startGameButton.onClick.AddListener(() => { PlayButtonClickSound(); OnStartGameClicked(); });
+        backButton.onClick.AddListener(() => { PlayButtonClickSound(); OnBackButtonClicked(); });
     }
 
-    
     void OnNewGameClicked()
     {
-        
+        // Update UI to show new game options
         newGameButton.gameObject.SetActive(false);
         callibrationButton.gameObject.SetActive(false);
         quitButton.gameObject.SetActive(false);
-
-        
         startGameButton.gameObject.SetActive(true);
         hrvModeSelection.gameObject.SetActive(true);
         backButton.gameObject.SetActive(true);
@@ -55,22 +60,20 @@ public class StartMenu : MonoBehaviour
 
     void OnBackButtonClicked()
     {
-        
+        // Reset UI to main menu state
         newGameButton.gameObject.SetActive(true);
         callibrationButton.gameObject.SetActive(true);
         quitButton.gameObject.SetActive(true);
-
-        
         startGameButton.gameObject.SetActive(false);
         hrvModeSelection.gameObject.SetActive(false);
         backButton.gameObject.SetActive(false);
     }
 
-    
-   void OnStartGameClicked()
+    void OnStartGameClicked()
     {
         // Start the transition effects
         StartCoroutine(StartGameTransition());
+        music.FadeOut(2f);
     }
 
     IEnumerator StartGameTransition()
@@ -88,9 +91,9 @@ public class StartMenu : MonoBehaviour
 
     IEnumerator CameraZoomIn()
     {
-        
+        // Zoom in the camera to a target size
         float initialSize = mainCamera.orthographicSize;
-        float targetSize = 2f;  // Zoom in value (smaller means more zoom, adjust as needed)
+        float targetSize = 2f; // Adjust as needed
 
         while (mainCamera.orthographicSize > targetSize)
         {
@@ -101,6 +104,7 @@ public class StartMenu : MonoBehaviour
 
     IEnumerator FadeIn()
     {
+        // Fade in the fadeImage to full opacity
         Color fadeColor = fadeImage.color;
 
         while (fadeImage.color.a < 1)
@@ -111,17 +115,23 @@ public class StartMenu : MonoBehaviour
         }
     }
 
-    // Function for "Options" button click
     void OnCallibrationClicked()
     {
-        // Restart the current scene or open the options menu
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Callibration");
+        // Load the calibration scene
+        SceneManager.LoadScene("Callibration");
     }
 
-    // Function for "Quit" button click
     void OnQuitClicked()
     {
         // Quit the application
         Application.Quit();
+    }
+
+    void PlayButtonClickSound()
+    {
+        if (buttonClickSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(buttonClickSound);
+        }
     }
 }

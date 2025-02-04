@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ForestMonster
   - Boss
+  - Particles
+  - FlyingMonster
   layers:
   - Default
   - TransparentFX

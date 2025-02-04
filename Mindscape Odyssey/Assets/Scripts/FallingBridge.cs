@@ -20,6 +20,8 @@ public class FallingBridge : MonoBehaviour
     private Vector3 initialPosition;       // The bridge's starting position
     private bool isFalling = false;        // Prevents re-triggering
 
+    public AudioSource bridgeAudio;
+
     void Start()
     {
         initialPosition = transform.position; // Save the starting position
@@ -59,6 +61,8 @@ public class FallingBridge : MonoBehaviour
     }
 
 
+
+        bridgeAudio.Play();
 
         // Tremble phase
         float elapsedTime = 0f;

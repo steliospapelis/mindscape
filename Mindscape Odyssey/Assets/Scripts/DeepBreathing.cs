@@ -68,6 +68,12 @@ public class DeepBreathing : MonoBehaviour
 
     public ServerNotifications server;
 
+    public AudioSource breathingAudioSource;
+    public AudioSource healingAudioSource;
+
+    public GameObject runePrompt;
+    private bool runePromptActive=false;
+    private bool hasHealedSound;
     
 
     void Start()
@@ -86,7 +92,7 @@ public class DeepBreathing : MonoBehaviour
     void Update()
     {
         // Start the breathing exercise when "B" is pressed
-        if (Input.GetKeyDown(KeyCode.B) && !isBreathing)
+        if (Input.GetKeyDown(KeyCode.B) && !isBreathing&& galene.isGrounded)
         {
             
             StartBreathing(frequency);
@@ -111,6 +117,11 @@ public class DeepBreathing : MonoBehaviour
             if (elapsedTime >= totalTime)
             {
                 EndExercise();
+            }
+
+             if (elapsedTime >=( totalTime-1f) &&!hasHealedSound)
+            {
+               StartCoroutine(HealingSound());
             }
         }
     }
@@ -206,6 +217,8 @@ public class DeepBreathing : MonoBehaviour
     endParticles1.Play();
     endParticles2.Play();
     
+
+   
     
 
     foreach (var light in targetLights)
@@ -222,6 +235,10 @@ public class DeepBreathing : MonoBehaviour
         {
             text.gameObject.SetActive(true); 
         }
+    }
+
+    if(!runePromptActive){
+        runePrompt.SetActive(false);
     }
 
 
@@ -242,8 +259,16 @@ public class DeepBreathing : MonoBehaviour
     UpdateMaterialProgress(0f); // Reset material progress
 }
 
+private IEnumerator HealingSound()
+{
+    healingAudioSource.Play();
+    hasHealedSound=true;
+    yield return null;
+}
+
 private IEnumerator HealingSequence()
 {
+    
     float healingDelay = 1.8f; // Total duration for healing
     yield return new WaitForSeconds(healingDelay); // Wait for the next healing tick
     galene.canMove = true;
@@ -302,6 +327,13 @@ private IEnumerator HealingSequence()
 
     public void StartBreathing(float newFrequency)
     {
+        hasHealedSound=false;
+
+        if (runePrompt.activeSelf)
+        {
+            // Deactivate the text object
+            runePromptActive=true;
+        }
         
         foreach (var text in textsToDeactivate)
     {
@@ -350,7 +382,13 @@ private IEnumerator HealingSequence()
             flying.chargeSpeed = 0f;
         }
 
+        
+        
+        breathingAudioSource.Play();
+        isBreathing = true;
+
         StartCoroutine(server.NotifyServer(true, false, false,false,false, false)); 
+        StartCoroutine(StopSounds());
 
         hasHealed = false;
         Circle.SetActive(true);
@@ -358,8 +396,23 @@ private IEnumerator HealingSequence()
         frequency = newFrequency;
         CalculateBreathingDurations();
         ResetVisualization();
-        isBreathing = true;
-        galene.canMove = false;
         anim.SetBool("Breathing", true);
+        
+        galene.canMove = false;
+        
     }
+
+    private IEnumerator StopSounds()
+{
+    // Wait for 1 second
+    yield return new WaitForSeconds(0.5f);
+
+    foreach (var audioSource in FindObjectsOfType<AudioSource>())
+    {
+        if (audioSource != breathingAudioSource)
+        {
+            audioSource.Stop(); 
+        }
+    }
+}
 }

@@ -16,16 +16,32 @@ public class Menu0PointFive: MonoBehaviour
     public float zoomSpeed = 2.5f;
     public float fadeSpeed = 0.5f;
 
+    public AudioClip buttonClickSound;   
+    private AudioSource audioSource;    
+    public AudioController music;
 
     void Start()
     {
+        audioSource = gameObject.GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
 
         
 
         
-        StartGameButton.onClick.AddListener(OnStartGameClicked);
+        StartGameButton.onClick.AddListener(() => {PlayButtonClickSound(); OnStartGameClicked();});
         
         
+    }
+
+    void PlayButtonClickSound()
+    {
+        if (buttonClickSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(buttonClickSound);
+        }
     }
 
     
@@ -41,6 +57,8 @@ public class Menu0PointFive: MonoBehaviour
 
     IEnumerator StartGameTransition()
     {
+        music.FadeOut(2f);
+
         // Start the fade effect
         fadeImage.gameObject.SetActive(true);
         StartCoroutine(FadeIn());

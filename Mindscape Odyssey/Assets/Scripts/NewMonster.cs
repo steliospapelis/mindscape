@@ -34,7 +34,10 @@ public class NewMonster : MonoBehaviour
     public float horizontalKnockbackForce = 5f; // Adjust for horizontal knockback
     public float verticalKnockbackForce = 3f;   // Adjust for vertical knockback
 
-     public float bounceForce = 10f;
+    public float bounceForce = 10f;
+
+    public AudioSource deathAudioSource;
+    public AudioSource hitAudioSource;
 
     void Start()
     {
@@ -103,6 +106,7 @@ public class NewMonster : MonoBehaviour
             if (collision.contacts[0].normal.y < -0.8f )
             {
                 anim.Play("demage");
+                deathAudioSource.Play();
                 isAttacking = true;
                 speed=0;
                 enemyRB.velocity = Vector2.zero;
@@ -122,6 +126,7 @@ public class NewMonster : MonoBehaviour
                 {
                     isAttacking = true;
                     anim.Play("attack");
+                    hitAudioSource.Play();
                     enemyRB.velocity = Vector2.zero; // Stop enemy movement
                     StartCoroutine(AttackPlayer()); // Deal damage after a delay
                 }

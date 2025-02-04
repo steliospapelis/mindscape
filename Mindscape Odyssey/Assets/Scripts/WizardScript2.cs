@@ -27,6 +27,11 @@ public class WizardScript2 : MonoBehaviour
 
     public ParticleSystem disappearEffect;
 
+    public CombinedHRV hrv;
+
+    public AudioSource footsteps;
+    public AudioSource entrance;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -118,6 +123,10 @@ public class WizardScript2 : MonoBehaviour
         {
             cameraShake.ShakeCamera(2f, 0.8f); 
         }
+        if (dialogueIndex == 2)
+        {
+            footsteps.Play();
+        }
         
             if (dialogueIndex < 5)
             {
@@ -142,6 +151,9 @@ public class WizardScript2 : MonoBehaviour
         isMovingBack = true;
         Flip();
         boss.SetActive(true);
+        footsteps.Stop();
+        entrance.Play();
+        hrv.chaseSequence = true;
     }
 
     private string GetDialogueText(int index)

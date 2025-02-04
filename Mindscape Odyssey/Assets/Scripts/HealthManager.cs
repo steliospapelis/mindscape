@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;  // Add this to access TextMeshPro
-using UnityEngine.Rendering.Universal; // Add this to access Light2D
+using TMPro;  
+using UnityEngine.Rendering.Universal; 
 
 public class HealthManager : MonoBehaviour
 {
@@ -25,21 +25,23 @@ public class HealthManager : MonoBehaviour
     public FallingBridge bridge1;
     public FallingBridge bridge2;
 
-
-    // New variables for TextMeshPro and Light2D
     public TextMeshProUGUI healthWarningText;
     public Light2D globalLight;
 
     public int bossOffset;
-   
-
-    public bool breathingUnlocked=false;
+    public bool breathingUnlocked = false;
 
     public Boss BossScript;
 
+    // New variables for audio
+    public AudioSource damageAudioSource; // Assign an AudioSource with a damage clip in the inspector
+
+    private DataLogging dataLogger;
+    private DataLoggingTutorial dataLoggerTutorial;
+
     void Start()
     {
-        bossOffset=30;
+        bossOffset = 30;
         anim = GetComponent<Animator>();
         maxHealth = 100;
         health = 85;
@@ -49,25 +51,33 @@ public class HealthManager : MonoBehaviour
         // Set initial states
         healthWarningText.gameObject.SetActive(false);
         UpdateLightIntensity();
+
+        dataLogger = FindObjectOfType<DataLogging>();
+        dataLoggerTutorial = FindObjectOfType<DataLoggingTutorial>();
     }
 
     void Update()
     {
         if (!isRespawning && (health <= 5 || transform.position.y < minYposition))
         {
+            if (dataLogger != null)
+        {
+            dataLogger.LogDeath();
+        }
+        else if (dataLoggerTutorial != null)
+        {
+            dataLoggerTutorial.LogDeath();
+        }
             Respawn();
         }
 
-        // Check health to activate TextMeshPro warning and update light intensity
-        if (health < maxHealth / 2.5  && breathingUnlocked && !deepBr.isBreathing && deepBr.hasHealed)
+        if (health < maxHealth / 2.5 && breathingUnlocked && !deepBr.isBreathing && deepBr.hasHealed)
         {
             healthWarningText.gameObject.SetActive(true);
-            
         }
         else if (health >= maxHealth / 2.5 || !deepBr.hasHealed)
         {
             healthWarningText.gameObject.SetActive(false);
-            
         }
 
         UpdateLightIntensity();
@@ -75,14 +85,19 @@ public class HealthManager : MonoBehaviour
 
     public void TakeDamage(float Damage)
     {
-        // Check if enough time has passed since the last damage
-        if (Time.time - lastDamageTime >= damageCooldown && !deepBr.isBreathing )
+        if (Time.time - lastDamageTime >= damageCooldown && !deepBr.isBreathing)
         {
-            anim.Play("hit light",0,0f);
+            anim.Play("hit light", 0, 0f);
             health -= Damage;
             health = Mathf.Clamp(health, 0, maxHealth); // Ensure health stays within bounds
             healthbar.sharedMaterial.SetFloat("_Progress", health / 100);
-            lastDamageTime = Time.time; // Update the last damage time
+            lastDamageTime = Time.time;
+
+            // Play damage sound
+            if (damageAudioSource != null && !damageAudioSource.isPlaying)
+            {
+                damageAudioSource.Play();
+            }
         }
     }
 
@@ -118,11 +133,10 @@ public class HealthManager : MonoBehaviour
         {
             isRespawning = true;
             galene.canMove = false;
-            
             galene.isKnockedDown = true;
-            anim.SetBool("Grounded",true);
+            anim.SetBool("Grounded", true);
             anim.Play("knockdown", 0, 0f);  
-            anim.SetBool("Down",true);
+            anim.SetBool("Down", true);
             StartCoroutine(FadeOutAndRespawn());
         }
     }
@@ -131,7 +145,6 @@ public class HealthManager : MonoBehaviour
     {
         Color fadeColor = fadeImage.color;
 
-        // Fade out screen
         while (fadeImage.color.a < 1)
         {
             fadeColor.a += fadeSpeed * Time.deltaTime;
@@ -139,17 +152,14 @@ public class HealthManager : MonoBehaviour
             yield return null;
         }
 
-        // Move player to the respawn point and reset health
         transform.position = respawnPoint.position;
-        anim.SetBool("Down",false);
+        anim.SetBool("Down", false);
         anim.Play("idle", 0, 0);
-        
 
         yield return new WaitForSeconds(1f);
-        health = maxHealth/4;
+        health = maxHealth / 4;
         healthbar.sharedMaterial.SetFloat("_Progress", health / 100);
         galene.isKnockedDown = false;
-
         galene.canMove = true;
 
         boss = GameObject.FindGameObjectWithTag("Boss");
@@ -161,7 +171,7 @@ public class HealthManager : MonoBehaviour
         }
         if (bridge1 != null) bridge1.ResetBridge();
         if (bridge2 != null) bridge2.ResetBridge();
-        // Fade in screen
+
         while (fadeImage.color.a > 0)
         {
             fadeColor.a -= fadeSpeed * Time.deltaTime;

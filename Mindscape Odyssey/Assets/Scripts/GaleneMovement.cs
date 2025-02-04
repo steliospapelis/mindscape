@@ -40,6 +40,17 @@ public class GaleneMovement : MonoBehaviour
      private bool SlowMoHappened=false;
 
      private Vector2 targetVelocity;
+      private bool wasGrounded = false;
+
+
+    public AudioSource movementAudioSource; // Audio for movement
+    public AudioSource landingAudioSource;  // Audio for landing
+    private float movementAudioTime = 0f;
+    private float fallThreshold = -18f;
+    private float maxFallVelocity = -35f;
+
+    public AudioClip[] jumpSounds; // Array to store the jumping sounds
+    public AudioSource audioSource;
      
 
     void Start()
@@ -132,6 +143,7 @@ public class GaleneMovement : MonoBehaviour
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isJumping = true;
                 wallTouchTime = 0f;
+                PlayRandomJumpSound();
             }
 
             
@@ -145,7 +157,54 @@ public class GaleneMovement : MonoBehaviour
         anim.SetBool("Grounded", isGrounded);
         anim.SetBool("Climbing", isWallSliding);
         }
+
+        bool isMoving = Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0;
+
+        if (isMoving && isGrounded && canMove)
+        {
+            if (!movementAudioSource.isPlaying)
+            {
+                movementAudioSource.time = movementAudioTime; // Resume from the last position
+                movementAudioSource.Play();
+            }
+        }
+        else
+        {
+            if (movementAudioSource.isPlaying)
+            {
+                movementAudioTime = movementAudioSource.time; // Save the current playback position
+                movementAudioSource.Pause();
+            }
+        }
+
+        // Check if the player has landed
+        if (!wasGrounded && isGrounded && rb.velocity.y <= fallThreshold)
+        {
+            float fallVelocity = Mathf.Abs(rb.velocity.y); // Get absolute fall velocity
+            float normalizedVolume = Mathf.InverseLerp(Mathf.Abs(fallThreshold), Mathf.Abs(maxFallVelocity), fallVelocity);
+            Debug.Log(fallVelocity);
+            Debug.Log(normalizedVolume);
+            landingAudioSource.volume = Mathf.Clamp(normalizedVolume, 0.1f, 1f);
+            landingAudioSource.Play(); // Play landing sound once
+        }
+
+        wasGrounded = isGrounded; // Update grounded state for the next frame
     }
+
+    private void PlayRandomJumpSound()
+    {
+        // 70% chance to skip playing sound
+       
+            // Only play a sound if the random value is <= 0.3 (30% chance)
+            if (jumpSounds.Length > 0)
+            {
+                int randomIndex = Random.Range(0, jumpSounds.Length); // Select a random index
+                audioSource.clip = jumpSounds[randomIndex]; // Set the random clip
+                audioSource.Play(); // Play the sound
+            }
+        
+    }
+
 
     public void StartKnockback(float duration)
     {
@@ -171,6 +230,7 @@ public class GaleneMovement : MonoBehaviour
     rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
     isWallJumping = true;
     canMove = false;
+     PlayRandomJumpSound();
 
     float jumpDirection = isFacingRight ? -1 : 1;
     float initialHorizontalForce = jumpDirection * wallJumpXForce;

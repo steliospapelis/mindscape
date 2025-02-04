@@ -8,6 +8,15 @@ public class TutorialEnding: MonoBehaviour
     public Image blackScreen;  // Assign the black screen image from the Canvas in the inspector
     public float fadeDuration = 1f;  // Time for the fade effect
 
+    private DataLoggingTutorial dataLogger;
+
+    public AudioController music;
+
+     private void Start()
+    {
+        dataLogger = FindObjectOfType<DataLoggingTutorial>();
+    }
+
     // OnTriggerEnter2D will detect when the player enters the trigger collider
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -20,6 +29,7 @@ public class TutorialEnding: MonoBehaviour
     // Coroutine to fade out the screen and load a new scene
     IEnumerator FadeOutAndLoadScene()
     {
+        music.FadeOut(2f);
         // Fade to black
         float elapsedTime = 0f;
         Color color = blackScreen.color;
@@ -33,6 +43,10 @@ public class TutorialEnding: MonoBehaviour
             yield return null;  // Wait for the next frame
         }
         
+        if (dataLogger != null)
+        {
+            dataLogger.SaveLogToFile();
+        }
         
         // Load the new scene once the fade is complete
         SceneManager.LoadScene("Menu 0.5");

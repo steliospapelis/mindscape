@@ -26,6 +26,7 @@ public class WizardScript3 : MonoBehaviour
     public ParticleSystem disappearEffect;
 
      public TextMeshProUGUI runePrompt;
+     
 
     void Start()
     {

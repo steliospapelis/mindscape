@@ -26,6 +26,7 @@ public class ForestMonster : MonoBehaviour
     private Rigidbody2D rbPlayer;
     private bool dying = false;
     public GaleneMovement galene;
+    
 
     private void Start()
     {
