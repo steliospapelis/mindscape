@@ -90,7 +90,7 @@ def get_analysis_results():
         return results
 
 
-def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calm_baseline_hrv, anxious_baseline_hrv):
+def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calm_baseline_hrv):   # Include stressed baseline later
     sampling_rate = 100
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
@@ -257,7 +257,7 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                             log_msg = f"No Value Excluded from Mean Calculation\n"
                             add_log_entry(log_msg, ability_log=ability_logging_active)
                         
-                        # Binary output (0: calm, 1: anxious)
+                        # Binary output (0: calm, 1: stressed)
                         binary_output = 0
                         total_change_from_previous = 0.8 * change_from_mean_last_three + 0.2 * change_from_previous
                         if change_from_baseline <= -5:
@@ -265,28 +265,28 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         elif change_from_baseline <= 5 and total_change_from_previous <= -5:
                             binary_output = 1
 
-                        # Categorical output (0: very calm, 1: calm, 2: anxious, 3: very anxious)
+                        # Categorical output (0: very calm, 1: calm, 2: stressed, 3: very stressed)
                         categorical_output = 0  # default to very calm
 
                         # Determine the value for the new categorical output based on the change from baseline
                         if change_from_baseline <= -10:
-                            categorical_output = 3  # very anxious
+                            categorical_output = 3  # very stressed
                         if -10 < change_from_baseline <= -5:
-                            categorical_output = 2  # anxious
+                            categorical_output = 2  # stressed
                         elif -5 < change_from_baseline < 0:
                             categorical_output = 1  # calm
 
                         # Further refine based on total change from previous
                         elif change_from_baseline <= 5 and total_change_from_previous <= -7.5:
-                            categorical_output = 3  # very anxious
+                            categorical_output = 3  # very stressed
                         elif change_from_baseline <= 5 and total_change_from_previous <= -5:
-                            categorical_output = 2  # anxious
+                            categorical_output = 2  # stressed
                         elif change_from_baseline <= 5 and total_change_from_previous <= -2.5:
                             categorical_output = 1  # calm
 
                         # Log both the binary and categorical output
-                        add_log_entry(f"Binary Output (0: calm, 1: anxious) = {binary_output}\n", ability_log=ability_logging_active)
-                        add_log_entry(f"Categorical Output (0: very calm, 1: calm, 2: anxious, 3: very anxious) = {categorical_output}\n\n", ability_log=ability_logging_active)
+                        add_log_entry(f"Binary Output (0: calm, 1: stressed) = {binary_output}\n", ability_log=ability_logging_active)
+                        add_log_entry(f"Categorical Output (0: very calm, 1: calm, 2: stressed, 3: very stressed) = {categorical_output}\n\n", ability_log=ability_logging_active)
                         
                         if ability_detected and current_step == (ability_measurement_step + 2):
                             ability_logging_active = False
@@ -306,7 +306,7 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                     break  # Exit the loop if stop_event is set
                 
     except Exception as e:
-        error_msg = f"An error occurred during anxious calibration: {e}\n"
+        error_msg = f"An error occurred during data analysis: {e}\n"
         add_log_entry(error_msg)
         return 0  # Return 0 in case of an error
          

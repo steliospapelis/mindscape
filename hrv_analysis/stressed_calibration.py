@@ -15,42 +15,40 @@ import csv
 
 output_value_lock = threading.Lock()
 
-general_log_file = "./logs/general_log.txt"
-current_log_file = "./logs/anxious_calibration_log.txt"
-ppg_csv_file = "./logs/measurements/anxious_ppg_values.csv"
-eda_csv_file = "./logs/measurements/anxious_eda_values.csv"
 
-# Write headers only once at the beginning
-with open(ppg_csv_file, 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerow(["Segment", "PPG Values"])
+def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calib_number):
+    general_log_file = "./logs/general_log.txt"
+    current_log_file = f"./logs/stressed_calibration_{calib_number}_log.txt"
+    ppg_csv_file = f"./logs/measurements/stressed_ppg_values_{calib_number}.csv"
+    eda_csv_file = f"./logs/measurements/stressed_eda_values_{calib_number}.csv"
+    
+    # Write headers only once at the beginning
+    with open(ppg_csv_file, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["Segment", "PPG Values"])
 
-with open(eda_csv_file, 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerow(["Segment", "EDA Values"])
-
-
-# Function to add log entries to current_log_file and general_log_file
-def add_log_entry(entry, only_general_log=False):
+    with open(eda_csv_file, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["Segment", "EDA Values"])
         
-    with open(general_log_file, 'a') as f:
-        f.write(entry)
-        
-    if not only_general_log:
-        with open(current_log_file, 'a') as f:
+    # Function to add log entries to current_log_file and general_log_file
+    def add_log_entry(entry, only_general_log=False):
+        with open(general_log_file, 'a') as f:
             f.write(entry)
-
-
-def anxious_calibration(ppg_data_queue, eda_data_queue, stop_event, general_start_time):
+            
+        if not only_general_log:
+            with open(current_log_file, 'a') as f:
+                f.write(entry)
+    
     sampling_rate = 100
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
     step_counter = 0
-    num_steps_for_baseline = 16 #10
-    num_steps_skipped = 8 #10  
+    num_steps_for_baseline = 3 #16 for 2min
+    num_steps_skipped = 3 #8 for 2min
     current_step = 0
     buffer = deque(maxlen=window_size)
-    anxious_baseline_hrv = []
+    stressed_baseline_hrv = []
 
     # Start the time counter when the function is called
     start_time = time.time()
@@ -58,12 +56,12 @@ def anxious_calibration(ppg_data_queue, eda_data_queue, stop_event, general_star
     
     # Clear the current_log_file at the start
     with open(current_log_file, 'w') as f:
-        f.write("Starting anxious calibration logging...\n")
+        f.write(f"Starting stressed calibration {calib_number} logging...\n")
         f.write("Waiting for the first window to fill (about 30 seconds)\n\n")
         
     # Create or clear the general_log_file at the start
     with open(general_log_file, 'a') as f:
-        f.write("Starting anxious calibration logging...\n")
+        f.write(f"Starting stressed calibration {calib_number} logging...\n")
         f.write("Waiting for the first window to fill (about 30 seconds)\n\n")
         
     try:
@@ -114,7 +112,7 @@ def anxious_calibration(ppg_data_queue, eda_data_queue, stop_event, general_star
                             writer.writerow([current_step, eda_values])  # Segment number and EDA values 
                             
                         if current_step == 1:
-                            log_msg = f"\nAnxious Calibration Starting...\n\n"
+                            log_msg = f"\nStressed Calibration {calib_number} Starting...\n\n"
                             add_log_entry(log_msg)
                             log_msg = f"\nThe next {num_steps_skipped} segments will be skipped\n\n"
                             add_log_entry(log_msg)
@@ -122,22 +120,22 @@ def anxious_calibration(ppg_data_queue, eda_data_queue, stop_event, general_star
                         if current_step <= num_steps_skipped and current_step >= 1:
                             log_msg = (f"Segment {current_step} skipped - "
                             f"General Timestamp {general_timestamp_minutes}min {general_timestamp_seconds}sec\n"
-                            f"(Anxious Calibration Timestamp {timestamp_minutes}min {timestamp_seconds}sec)\n")
+                            f"(Stressed Calibration {calib_number} Timestamp {timestamp_minutes}min {timestamp_seconds}sec)\n")
                             add_log_entry(log_msg)
                             
                             log_msg = f"Current HRV: {current_hrv}\n\n"
                             add_log_entry(log_msg)
                             
                             if current_step == num_steps_skipped:
-                                log_msg = f"\nThe next {num_steps_for_baseline} segments will be used to calculate the anxious baseline.\n\n"
+                                log_msg = f"\nThe next {num_steps_for_baseline} segments will be used to calculate the stressed baseline.\n\n"
                                 add_log_entry(log_msg)
                         
                         elif current_step <= num_steps_skipped + num_steps_for_baseline:
-                            anxious_baseline_hrv.append(current_hrv)
+                            stressed_baseline_hrv.append(current_hrv)
 
                             log_msg = (f"Segment {current_step} - "
                             f"General Timestamp {general_timestamp_minutes}min {general_timestamp_seconds}sec\n"
-                            f"(Anxious Calibration Timestamp {timestamp_minutes}min {timestamp_seconds}sec)\n")
+                            f"(Stressed Calibration {calib_number} Timestamp {timestamp_minutes}min {timestamp_seconds}sec)\n")
                             add_log_entry(log_msg)
                             
                             log_msg = f"Current HRV: {current_hrv}\n\n"
@@ -145,11 +143,17 @@ def anxious_calibration(ppg_data_queue, eda_data_queue, stop_event, general_star
                             
                             if current_step == num_steps_skipped + num_steps_for_baseline:
                                 # Calculate average baseline HRV after collecting enough data
-                                anxious_baseline_hrv = np.mean(anxious_baseline_hrv)
-                                add_log_entry(f"Anxious Baseline HRV established: {anxious_baseline_hrv}\n\n\n")
+                                stressed_baseline_hrv = np.mean(stressed_baseline_hrv)
+                                add_log_entry(f"Stressed Baseline {calib_number} HRV established: {stressed_baseline_hrv}\n\n\n")
                                 add_log_entry("-------------------------------------------------------------\n\n\n", only_general_log=True)
-                                add_log_entry("Waiting to recieve the data analysis flag...\n\n\n", only_general_log=True)
-                                return anxious_baseline_hrv
+                                if calib_number == 1:
+                                    add_log_entry("Waiting to recieve the stressed calibration 2 flag...\n\n\n", only_general_log=True)
+                                if calib_number == 2:
+                                    add_log_entry("Waiting to recieve the stressed calibration 3 flag...\n\n\n", only_general_log=True)
+                                if calib_number == 3:
+                                    add_log_entry("Waiting to recieve the data analysis flag...\n\n\n", only_general_log=True)
+                                
+                                return stressed_baseline_hrv
   
                     step_counter = 0  # Reset step counter after processing
 
@@ -159,7 +163,7 @@ def anxious_calibration(ppg_data_queue, eda_data_queue, stop_event, general_star
                     break  # Exit the loop if stop_event is set
                 
     except Exception as e:
-        error_msg = f"An error occurred during anxious calibration: {e}\n"
+        error_msg = f"An error occurred during stressed calibration {calib_number}: {e}\n"
         add_log_entry(error_msg)
         return 0  # Return 0 in case of an error
          

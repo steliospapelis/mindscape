@@ -15,39 +15,38 @@ import csv
 
 output_value_lock = threading.Lock()
 
-general_log_file = "./logs/general_log.txt"
-current_log_file = "./logs/calm_calibration_log.txt"
-ppg_csv_file = "./logs/measurements/calm_ppg_values.csv"
-eda_csv_file = "./logs/measurements/calm_eda_values.csv"
-
-# Write headers only once at the beginning
-with open(ppg_csv_file, 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerow(["Segment", "PPG Values"])
-
-with open(eda_csv_file, 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerow(["Segment", "EDA Values"])
-
-
-# Function to add log entries to current_log_file and general_log_file
-def add_log_entry(entry, only_general_log=False):
-        
-    with open(general_log_file, 'a') as f:
-        f.write(entry)
-        
-    if not only_general_log:
-        with open(current_log_file, 'a') as f:
-            f.write(entry)
-
-
 def calm_calibration(ppg_data_queue, eda_data_queue, stop_event):
+    general_log_file = "./logs/general_log.txt"
+    current_log_file = "./logs/calm_calibration_log.txt"
+    ppg_csv_file = "./logs/measurements/calm_ppg_values.csv"
+    eda_csv_file = "./logs/measurements/calm_eda_values.csv"
+
+    # Write headers only once at the beginning
+    with open(ppg_csv_file, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["Segment", "PPG Values"])
+
+    with open(eda_csv_file, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["Segment", "EDA Values"])
+
+
+    # Function to add log entries to current_log_file and general_log_file
+    def add_log_entry(entry, only_general_log=False):
+            
+        with open(general_log_file, 'a') as f:
+            f.write(entry)
+            
+        if not only_general_log:
+            with open(current_log_file, 'a') as f:
+                f.write(entry)
+    
     sampling_rate = 100
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
     step_counter = 0
-    num_steps_for_baseline = 30 #30 for 5 minutes session
-    num_steps_skipped = 23 #23 for 5 minutes session
+    num_steps_for_baseline = 3 #30 for 5 minutes session
+    num_steps_skipped = 3 #23 for 5 minutes session
     current_step = 0
     buffer = deque(maxlen=window_size)
     calm_baseline_hrv = []
@@ -141,7 +140,7 @@ def calm_calibration(ppg_data_queue, eda_data_queue, stop_event):
                                 calm_baseline_hrv = np.mean(calm_baseline_hrv)
                                 add_log_entry(f"Calm Baseline HRV established: {calm_baseline_hrv}\n\n\n")
                                 add_log_entry("-------------------------------------------------------------\n\n\n", only_general_log=True)
-                                add_log_entry("Waiting to recieve the anxious calibration flag...\n\n\n", only_general_log=True)
+                                add_log_entry("Waiting to recieve the stressed calibration 1 flag...\n\n\n", only_general_log=True)
                                 return calm_baseline_hrv, start_time
   
                     step_counter = 0  # Reset step counter after processing

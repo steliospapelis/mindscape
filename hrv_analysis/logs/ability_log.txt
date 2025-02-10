@@ -1,2 +1,45 @@
 Starting ability logging...
 
+
+Ability activated in segment 3. 
+Expect ability measurements in segments 8, 9, and 10.
+
+Segment 8 - General Timestamp 8min 23sec
+(Data Timestamp 2min 7sec)
+ABILITY MEASUREMENT 1 for segment 8.
+Current HRV: 301.1415064326931
+Change from Baseline: 1.77%
+Change from Previous: 11.56%
+Previous HRV for Change: 269.92591576208457
+Previous Three HRV Values: [306.16650867539835, 269.92591576208457, 301.1415064326931]
+Change from Mean of Last Three: 2.99%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: stressed) = 0
+Categorical Output (0: very calm, 1: calm, 2: stressed, 3: very stressed) = 0
+
+Segment 9 - General Timestamp 8min 26sec
+(Data Timestamp 2min 10sec)
+ABILITY MEASUREMENT 2 for segment 9.
+Current HRV: 304.63092423455635
+Change from Baseline: 2.95%
+Change from Previous: 1.16%
+Previous HRV for Change: 301.1415064326931
+Previous Three HRV Values: [269.92591576208457, 301.1415064326931, 304.63092423455635]
+Change from Mean of Last Three: 4.36%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: stressed) = 0
+Categorical Output (0: very calm, 1: calm, 2: stressed, 3: very stressed) = 0
+
+Segment 10 - General Timestamp 8min 34sec
+(Data Timestamp 2min 18sec)
+ABILITY MEASUREMENT 3 for segment 10.
+Current HRV: 313.7921561183124
+Change from Baseline: 6.04%
+Change from Previous: 3.01%
+Previous HRV for Change: 304.63092423455635
+Previous Three HRV Values: [301.1415064326931, 304.63092423455635, 313.7921561183124]
+Change from Mean of Last Three: 2.37%
+No Value Excluded from Mean Calculation
+Binary Output (0: calm, 1: stressed) = 0
+Categorical Output (0: very calm, 1: calm, 2: stressed, 3: very stressed) = 0
+

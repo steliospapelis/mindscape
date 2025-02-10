@@ -18,14 +18,36 @@ def send_calm_calibration_signal(value):
     except requests.ConnectionError:
         print("Connection error. Is the server running?")
 
-# Function to send anxious calibration signal
-def send_anxious_calibration_signal(value):
+# Function to send stressed calibration 1 signal
+def send_stressed_calibration_signal_1(value):
     try:
-        response = requests.post('http://127.0.0.1:5000/game_flags', json={"StressedCalib": value})
+        response = requests.post('http://127.0.0.1:5000/game_flags', json={"StressedCalib1": value})
         if response.status_code == 200:
-            print(f"Anxious calibration signal sent with value: {value}")
+            print(f"Stressed calibration signal sent with value: {value}")
         else:
-            print(f"Failed to send anxious calibration signal: {response.status_code}")
+            print(f"Failed to send stressed calibration 1 signal: {response.status_code}")
+    except requests.ConnectionError:
+        print("Connection error. Is the server running?")
+        
+# Function to send stressed calibration 2 signal
+def send_stressed_calibration_signal_2(value):
+    try:
+        response = requests.post('http://127.0.0.1:5000/game_flags', json={"StressedCalib2": value})
+        if response.status_code == 200:
+            print(f"Stressed calibration 2 signal sent with value: {value}")
+        else:
+            print(f"Failed to send stressed calibration 2 signal: {response.status_code}")
+    except requests.ConnectionError:
+        print("Connection error. Is the server running?")
+
+# Function to send stressed calibration 3 signal
+def send_stressed_calibration_signal_3(value):
+    try:
+        response = requests.post('http://127.0.0.1:5000/game_flags', json={"StressedCalib3": value})
+        if response.status_code == 200:
+            print(f"stressed calibration 3 signal sent with value: {value}")
+        else:
+            print(f"Failed to send stressed calibration 3 signal: {response.status_code}")
     except requests.ConnectionError:
         print("Connection error. Is the server running?")
         
@@ -64,16 +86,28 @@ def reset_ability_value_after_delay():
 def check_for_keypress():
     global binary_value
     while True:
-        # Calm calibration: Press '$'
-        if keyboard.is_pressed('$'):
+        # Calm calibration: Press '@'
+        if keyboard.is_pressed('@'):
             print("Calm calibration signal triggered.")
             send_calm_calibration_signal(1)
             time.sleep(0.5)
 
-        # Anxious calibration: Press '%'
+        # Stressed calibration 1: Press '#'
+        elif keyboard.is_pressed('#'):
+            print("Stressed calibration 1 signal triggered.")
+            send_stressed_calibration_signal_1(1)
+            time.sleep(0.5)
+            
+        # Stressed calibration 2: Press '$'
+        elif keyboard.is_pressed('$'):
+            print("Stressed calibration 2 signal triggered.")
+            send_stressed_calibration_signal_2(1)
+            time.sleep(0.5)
+            
+        # Stressed calibration 3: Press '%'
         elif keyboard.is_pressed('%'):
-            print("Anxious calibration signal triggered.")
-            send_anxious_calibration_signal(1)
+            print("Stressed calibration 3 signal triggered.")
+            send_stressed_calibration_signal_3(1)
             time.sleep(0.5)
             
         # Data analysis: Press '^'
@@ -93,5 +127,6 @@ def check_for_keypress():
             time.sleep(0.5)
 
 if __name__ == "__main__":
-    print("Press '$' for calm calibration, '%' for anxious calibration, '^' for data analysis, and '&' for ability signal.")
+    print("Press '@' for calm calibration, '#' for stressed calibration 1, '$' for stressed calibration 2,") 
+    print("'%' for stressed calibration 3, '^' for data analysis, and '&' for ability signal.")
     check_for_keypress()

@@ -71,39 +71,39 @@
           </td>
         </tr>
 
-        <!-- Anxious Calibration -->
+        <!-- Stressed Calibration -->
         <tr>
-          <td>Anxious Calibration</td>
+          <td>Stressed Calibration 1</td>
           <td>{{ game_flags_values[1] }}</td>
           <td>
             {% if not calibration_done[0] %} - {% elif not calibration_done[1]
             and state == "CALM_CALIBRATION" %} Waiting {% elif not
-            calibration_done[1] and state == "ANXIOUS_CALIBRATION" %} Running {%
-            else %} Done {% endif %}
+            calibration_done[1] and state == "STRESSED_CALIBRATION_1" %} Running
+            {% else %} Done {% endif %}
           </td>
         </tr>
 
-        <!-- Anxious Calibration 2 -->
-          <tr>
-            <td>Anxious Calibration 2</td>
-            <td>{{ game_flags_values[2] }}</td>
-            <td>
-              {% if not calibration_done[1] %} - {% elif not calibration_done[2]
-              and state == "ANXIOUS_CALIBRATION" %} Waiting {% elif not
-              calibration_done[2] and state == "ANXIOUS_CALIBRATION_2" %} Running {%
-              else %} Done {% endif %}
-            </td>
-          </tr>
-
-        <!-- Anxious Calibration 3-->
+        <!-- Stressed Calibration 2 -->
         <tr>
-          <td>Anxious Calibration 3</td>
+          <td>Stressed Calibration 2</td>
+          <td>{{ game_flags_values[2] }}</td>
+          <td>
+            {% if not calibration_done[1] %} - {% elif not calibration_done[2]
+            and state == "STRESSED_CALIBRATION_1" %} Waiting {% elif not
+            calibration_done[2] and state == "STRESSED_CALIBRATION_2" %} Running
+            {% else %} Done {% endif %}
+          </td>
+        </tr>
+
+        <!-- Stressed Calibration 3-->
+        <tr>
+          <td>Stressed Calibration 3</td>
           <td>{{ game_flags_values[3] }}</td>
           <td>
             {% if not calibration_done[2] %} - {% elif not calibration_done[3]
-            and state == "ANXIOUS_CALIBRATION_2" %} Waiting {% elif not
-            calibration_done[3] and state == "ANXIOUS_CALIBRATION_3" %} Running {%
-            else %} Done {% endif %}
+            and state == "STRESSED_CALIBRATION_2" %} Waiting {% elif not
+            calibration_done[3] and state == "STRESSED_CALIBRATION_3" %} Running
+            {% else %} Done {% endif %}
           </td>
         </tr>
 
@@ -113,7 +113,7 @@
           <td>{{ game_flags_values[4] }}</td>
           <td>
             {% if not calibration_done[3] %} - {% elif state ==
-            "ANXIOUS_CALIBRATION_3" %} Waiting {% else %} Running {% endif %}
+            "STRESSED_CALIBRATION_3" %} Waiting {% else %} Running {% endif %}
           </td>
         </tr>
 
@@ -178,27 +178,27 @@
           </td>
         </tr>
 
-        <!-- Anxious Baseline -->
+        <!-- Stressed Baseline -->
         <tr>
-          <td>Anxious Baseline</td>
+          <td>Stressed Baseline 1</td>
           <td>
             {% if baselines[1] is defined and baselines[1] is not none %} {{
             baselines[1] | round(3) }} {% else %} - {% endif %}
           </td>
         </tr>
 
-        <!-- Anxious Baseline 2-->
+        <!-- Stressed Baseline 2-->
         <tr>
-          <td>Anxious Baseline 2</td>
+          <td>Stressed Baseline 2</td>
           <td>
             {% if baselines[2] is defined and baselines[2] is not none %} {{
             baselines[2] | round(3) }} {% else %} - {% endif %}
           </td>
         </tr>
 
-        <!-- Anxious Baseline 3-->
+        <!-- Stressed Baseline 3-->
         <tr>
-          <td>Anxious Baseline 3</td>
+          <td>Stressed Baseline 3</td>
           <td>
             {% if baselines[3] is defined and baselines[3] is not none %} {{
             baselines[3] | round(3) }} {% else %} - {% endif %}
