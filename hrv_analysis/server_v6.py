@@ -1,5 +1,3 @@
-# Three stressed calibration implementation and minor changes
-
 from pythonosc import dispatcher
 from pythonosc import osc_server
 from flask import Flask, jsonify, request, render_template
@@ -8,15 +6,18 @@ import queue
 import signal
 import sys
 import socket
+from test_values import test_values
 from calm_calibration import calm_calibration
 from stressed_calibration import stressed_calibration
 from data_analysis import data_analysis, get_analysis_results
+from compute_baselines import compute_baselines
 
 # Flask app
 app = Flask(__name__)
 
 # Global variables for states and queues
-state = "WAITING"  # States: WAITING, CALM_CALIBRATION, stressed_CALIBRATION, DATA_ANALYSIS
+state = "WAITING"  # States: WAITING, TEST, CALM_CALIBRATION, STRESSED_CALIBRATION, DATA_ANALYSIS
+test_ppg_queue = queue.Queue()  # Queue for Test PPG Data
 calm_ppg_queue = queue.Queue()  # Queue for Calm Calibration PPG data
 calm_eda_queue = queue.Queue()  # Queue for Calm Calibration EDA data
 stressed_ppg_queue_1 = queue.Queue()  # Queue for Stressed Calibration 1 PPG data
@@ -30,6 +31,7 @@ analysis_eda_queue = queue.Queue()  # Queue for Data Analysis EDA data
 stop_event = threading.Event()
 
 # Global variables for game flags
+testing_value = 0
 calm_calibration_value = 0
 stressed_calibration_value_1 = 0
 stressed_calibration_value_2 = 0
@@ -38,6 +40,7 @@ data_analysis_value = 0
 ability_value = 0
 
 # Global booleans to check whether we can change the state or not
+testing_done = False
 calm_calibration_done = False
 stressed_calibration_done_1 = False
 stressed_calibration_done_2 = False
@@ -55,7 +58,7 @@ general_start_time = None
 
 @app.route('/')
 def index():
-    global calm_calibration_value, stressed_calibration_value, data_analysis_value, ability_value
+    global calm_calibration_value, stressed_calibration_value_1, stressed_calibration_value_2, stressed_calibration_value_3, data_analysis_value, ability_value
     global calm_calibration_done, stressed_calibration_done_1, stressed_calibration_done_2, stressed_calibration_done_3, state
     global calm_baseline_hrv, stressed_baseline_hrv_1, stressed_baseline_hrv_2, stressed_baseline_hrv_3
     results = get_analysis_results()
@@ -72,10 +75,11 @@ def get_results():
 
 @app.route('/game_flags', methods=['POST', 'GET'])
 def game_flags():
-    global calm_calibration_value, stressed_calibration_value_1, stressed_calibration_value_2, stressed_calibration_value_3, data_analysis_value, ability_value
+    global testing_value, calm_calibration_value, stressed_calibration_value_1, stressed_calibration_value_2, stressed_calibration_value_3, data_analysis_value, ability_value
     if request.method == 'POST':
         if request.is_json:
             data = request.get_json()
+            testing_value = data.get('Testing', 0)
             calm_calibration_value = data.get('CalmCalib', 0)
             stressed_calibration_value_1 = data.get('StressedCalib1', 0)
             stressed_calibration_value_2 = data.get('StressedCalib2', 0)
@@ -83,6 +87,7 @@ def game_flags():
             data_analysis_value = data.get('DataAnalysis', 0)
             ability_value = data.get('Breathing', 0)
         else:
+            testing_value = 0
             calm_calibration_value = 0
             stressed_calibration_value_1 = 0
             stressed_calibration_value_2 = 0
@@ -91,6 +96,7 @@ def game_flags():
             ability_value = 0
         return jsonify(
             message="Game flags updated",
+            testing_value=testing_value,
             calm_calibration_value=calm_calibration_value,
             stressed_calibration_value_1=stressed_calibration_value_1,
             stressed_calibration_value_2=stressed_calibration_value_2,
@@ -100,6 +106,7 @@ def game_flags():
         ), 200
     elif request.method == 'GET':
         return jsonify(
+            testing_value=testing_value,
             calm_calibration_value=calm_calibration_value,
             stressed_calibration_value_1=stressed_calibration_value_1,
             stressed_calibration_value_2=stressed_calibration_value_2,
@@ -138,9 +145,18 @@ def handle_state_changes():
     """Thread to manage state changes based on game flags."""
     global state
     while not stop_event.is_set():
+        # If the calm calibration flag is received while in WAITING, skip testing and go directly to CALM_CALIBRATION
         if calm_calibration_value == 1 and state == "WAITING":
             state = "CALM_CALIBRATION"
-            print("State changed to CALM_CALIBRATION")
+            print("State changed to CALM_CALIBRATION (skipping TESTING)")
+        # Else, if the testing flag is received while in WAITING, go to TESTING
+        elif testing_value == 1 and state == "WAITING":
+            state = "TESTING"
+            print("State changed to TESTING")
+        # If we're already in TESTING and then receive the calm calibration flag, move to CALM_CALIBRATION
+        elif calm_calibration_value == 1 and state == "TESTING":
+            state = "CALM_CALIBRATION"
+            print("State changed to CALM_CALIBRATION from TESTING")
 
         elif stressed_calibration_value_1 == 1 and state == "CALM_CALIBRATION" and calm_calibration_done == True:
             state = "STRESSED_CALIBRATION_1"
@@ -163,7 +179,12 @@ def handle_state_changes():
 
 def measurements_handler(address, *args):
     global state
-    if state == "CALM_CALIBRATION":
+    if state == "TESTING":
+        if "PPG:GRN" in address:
+            for arg in args:
+                test_ppg_queue.put(arg)
+                
+    elif state == "CALM_CALIBRATION":
         if "PPG:GRN" in address:
             for arg in args:
                 calm_ppg_queue.put(arg)
@@ -215,6 +236,19 @@ def run_osc_listener(ip, port):
     finally:
         server.server_close()
 
+
+def run_testing():
+    global testing_value, testing_done
+    while not stop_event.is_set():
+        if state == "TESTING":
+            # Pass a lambda to get the current state so testing_values can exit when state changes
+            test_values(test_ppg_queue, stop_event, lambda: state)
+            testing_value = 0
+            testing_done = True
+            print("Testing HRV values completed.")
+            break
+        threading.Event().wait(0.1)
+        
 
 def run_calm_calibration():
     global calm_baseline_hrv, calm_calibration_value, general_start_time, calm_calibration_done
@@ -288,13 +322,22 @@ def run_data_analysis():
     global general_start_time, calm_baseline_hrv, stressed_baseline_hrv_1, stressed_baseline_hrv_2, stressed_baseline_hrv_3
     while not stop_event.is_set():
         if state == "DATA_ANALYSIS":
-            if general_start_time == None or calm_baseline_hrv == None or stressed_baseline_hrv_1 == None or stressed_baseline_hrv_2 == None or stressed_baseline_hrv_3 == None:
+            if general_start_time is None or calm_baseline_hrv is None or stressed_baseline_hrv_1 is None or stressed_baseline_hrv_2 is None or stressed_baseline_hrv_3 is None:
                 print("Error fetching general logging starting time or baselines. Press Ctrl+C to shut down the server.")
                 break
+            # Compute the combined stressed baseline and its standard deviation
+            combined_stressed_baseline, std_dev = compute_baselines(
+                calm_baseline_hrv,
+                stressed_baseline_hrv_1,
+                stressed_baseline_hrv_2,
+                stressed_baseline_hrv_3
+            )
+            print("Combined Stressed Baseline HRV:", combined_stressed_baseline)
+            print("Standard Deviation of Stressed HRV:", std_dev)
             print("Data analysis running...")
-            data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv) # Later pass stressed baselines as arguments
+            data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv, combined_stressed_baseline, std_dev)  # Later pass stressed baselines as arguments
         threading.Event().wait(0.1)
-    
+
 
 def main():
     ip = '127.0.0.1'
@@ -309,6 +352,7 @@ def main():
     # Threads for OSC Listener, State Management, and Processing
     osc_thread = threading.Thread(target=run_osc_listener, args=(ip, port))
     state_thread = threading.Thread(target=handle_state_changes)
+    test_thread = threading.Thread(target=run_testing)
     calm_thread = threading.Thread(target=run_calm_calibration)
     stressed_thread_1 = threading.Thread(target=run_stressed_calibration_1)
     stressed_thread_2 = threading.Thread(target=run_stressed_calibration_2)
@@ -317,6 +361,7 @@ def main():
 
     osc_thread.start()
     state_thread.start()
+    test_thread.start()
     calm_thread.start()
     stressed_thread_1.start()
     stressed_thread_2.start()
@@ -329,6 +374,7 @@ def main():
 
     osc_thread.join()
     state_thread.join()
+    test_thread.join()
     calm_thread.join()
     stressed_thread_1.join()
     stressed_thread_2.join()

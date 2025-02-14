@@ -65,9 +65,9 @@
           <td>Calm Calibration</td>
           <td>{{ game_flags_values[0] }}</td>
           <td>
-            {% if not calibration_done[0] and state == "WAITING" %} Waiting {%
-            elif not calibration_done[0] and state == "CALM_CALIBRATION" %}
-            Running {% else %} Done {% endif %}
+            {% if not calibration_done[0] and (state == "WAITING" or state ==
+            "TESTING")%} Waiting {% elif not calibration_done[0] and state ==
+            "CALM_CALIBRATION" %} Running {% else %} Done {% endif %}
           </td>
         </tr>
 
@@ -125,6 +125,11 @@
             {% if state != "DATA_ANALYSIS" %} - {% elif game_flags_values[5] ==
             1 %} Activated {% else %} Deactivated {% endif %}
           </td>
+        </tr>
+        <!-- State -->
+        <tr>
+          <td>Actual State</td>
+          <td colspan="2">{{ state }}</td>
         </tr>
       </tbody>
     </table>

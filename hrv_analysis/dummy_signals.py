@@ -7,6 +7,17 @@ import threading
 binary_value = 0
 value_lock = threading.Lock()
 
+# Function to send testing signal
+def send_testing_signal(value):
+    try:
+        response = requests.post('http://127.0.0.1:5000/game_flags', json={"Testing": value})
+        if response.status_code == 200:
+            print(f"Testing signal sent with value: {value}")
+        else:
+            print(f"Failed to send testing signal: {response.status_code}")
+    except requests.ConnectionError:
+        print("Connection error. Is the server running?")
+        
 # Function to send calm calibration signal
 def send_calm_calibration_signal(value):
     try:
@@ -86,8 +97,14 @@ def reset_ability_value_after_delay():
 def check_for_keypress():
     global binary_value
     while True:
+        # Testing: Press '!'
+        if keyboard.is_pressed('!'):
+            print("Testing signal triggered.")
+            send_testing_signal(1)
+            time.sleep(0.5)
+            
         # Calm calibration: Press '@'
-        if keyboard.is_pressed('@'):
+        elif keyboard.is_pressed('@'):
             print("Calm calibration signal triggered.")
             send_calm_calibration_signal(1)
             time.sleep(0.5)
@@ -127,6 +144,6 @@ def check_for_keypress():
             time.sleep(0.5)
 
 if __name__ == "__main__":
-    print("Press '@' for calm calibration, '#' for stressed calibration 1, '$' for stressed calibration 2,") 
+    print("Press '!' for testing, '@' for calm calibration, '#' for stressed calibration 1, '$' for stressed calibration 2,") 
     print("'%' for stressed calibration 3, '^' for data analysis, and '&' for ability signal.")
     check_for_keypress()

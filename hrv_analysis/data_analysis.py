@@ -1,11 +1,6 @@
-import warnings
-from neurokit2 import NeuroKitWarning
-warnings.filterwarnings('ignore', category=NeuroKitWarning)
-
-import neurokit2 as nk
 import numpy as np
 import queue
-from peaks_hrv_functions import detect_peaks, calculate_rmssd
+from hrv_calculation_functions import detect_peaks, calculate_rmssd
 from collections import deque
 import threading
 import requests
@@ -20,8 +15,8 @@ results = {}    # This will store all the analysis results
 general_log_file = "./logs/general_log.txt"
 current_log_file = "./logs/data_analysis_log.txt"
 ability_log_file = "./logs/ability_log.txt"
-ppg_csv_file = "./logs/measurements/analysis_ppg_values.csv"
-eda_csv_file = "./logs/measurements/analysis_eda_values.csv"
+ppg_csv_file = "./measurements/analysis_ppg_values.csv"
+eda_csv_file = "./measurements/analysis_eda_values.csv"
 
 # Write headers only once at the beginning
 with open(ppg_csv_file, 'w', newline='') as csvfile:

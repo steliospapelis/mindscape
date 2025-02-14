@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 from scipy.signal import butter, filtfilt, find_peaks
 
 def butter_bandpass(lowcut, highcut, fs, order=3):

@@ -7,33 +7,33 @@ Stressed Calibration 1 Starting...
 
 The next 3 segments will be skipped
 
-Segment 1 skipped - General Timestamp 1min 49sec
+Segment 1 skipped - General Timestamp 1min 19sec
 (Stressed Calibration 1 Timestamp 0min 27sec)
-Current HRV: 308.00806079913133
+Current HRV: 308.2318876296289
 
-Segment 2 skipped - General Timestamp 1min 51sec
+Segment 2 skipped - General Timestamp 1min 22sec
 (Stressed Calibration 1 Timestamp 0min 30sec)
-Current HRV: 310.46683425514846
+Current HRV: 303.94626718111437
 
-Segment 3 skipped - General Timestamp 1min 58sec
+Segment 3 skipped - General Timestamp 1min 28sec
 (Stressed Calibration 1 Timestamp 0min 36sec)
-Current HRV: 289.3440858217081
+Current HRV: 282.63639775041946
 
 
 The next 3 segments will be used to calculate the stressed baseline.
 
-Segment 4 - General Timestamp 2min 3sec
+Segment 4 - General Timestamp 1min 33sec
 (Stressed Calibration 1 Timestamp 0min 41sec)
-Current HRV: 301.05561406261916
+Current HRV: 308.54497241083027
 
-Segment 5 - General Timestamp 2min 5sec
+Segment 5 - General Timestamp 1min 36sec
 (Stressed Calibration 1 Timestamp 0min 44sec)
-Current HRV: 308.40524169256315
+Current HRV: 310.5667788703921
 
-Segment 6 - General Timestamp 2min 12sec
-(Stressed Calibration 1 Timestamp 0min 51sec)
-Current HRV: 278.2581287346276
+Segment 6 - General Timestamp 1min 42sec
+(Stressed Calibration 1 Timestamp 0min 50sec)
+Current HRV: 259.7562960417578
 
-Stressed Baseline 1 HRV established: 295.90632816326996
+Stressed Baseline 1 HRV established: 292.9560157743267
 
 
