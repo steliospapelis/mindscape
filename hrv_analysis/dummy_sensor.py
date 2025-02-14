@@ -32,7 +32,7 @@ def send_data_from_file(filepath, ip, port, delay):
 if __name__ == "__main__":
     #filepath = 'C:/Users/nikol/Desktop/University/8th_semester/biomedical_technologies/HRV Analysis/real_time_data/output_all_measurements.txt'  # Path to your file with data
     #filepath = './real_time_data/output_all_measurements.txt'
-    filepath = 'real_time_data/live_output.txt'
+    filepath = 'data/real_time_data/live_output.txt'
     ip = '127.0.0.1' 
     port = 12345  
     delay = 0.003  # Delay in seconds between messages

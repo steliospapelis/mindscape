@@ -6,11 +6,11 @@ import queue
 import signal
 import sys
 import socket
-from test_values import test_values
-from calm_calibration import calm_calibration
-from stressed_calibration import stressed_calibration
-from data_analysis import data_analysis, get_analysis_results
-from compute_baselines import compute_baselines
+from functions.test_values import test_values
+from functions.calm_calibration import calm_calibration
+from functions.stressed_calibration import stressed_calibration
+from functions.data_analysis import data_analysis, get_analysis_results
+from functions.compute_baselines import compute_baselines
 
 # Flask app
 app = Flask(__name__)

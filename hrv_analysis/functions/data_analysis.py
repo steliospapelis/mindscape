@@ -1,6 +1,6 @@
 import numpy as np
 import queue
-from hrv_calculation_functions import detect_peaks, calculate_rmssd
+from functions.hrv_calculation_functions import detect_peaks, calculate_rmssd
 from collections import deque
 import threading
 import requests

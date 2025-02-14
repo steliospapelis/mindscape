@@ -1,0 +1,22 @@
+{
+    "calm_values": [
+        {
+            "segment": 4,
+            "timestamp_min": 0,
+            "timestamp_sec": 44,
+            "HRV": 256.08457654616296
+        },
+        {
+            "segment": 5,
+            "timestamp_min": 0,
+            "timestamp_sec": 49,
+            "HRV": 309.4600414292277
+        },
+        {
+            "segment": 6,
+            "timestamp_min": 0,
+            "timestamp_sec": 52,
+            "HRV": 302.6989703759606
+        }
+    ]
+}
