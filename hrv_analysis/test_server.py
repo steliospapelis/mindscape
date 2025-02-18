@@ -11,6 +11,7 @@ from functions.calm_calibration import calm_calibration
 from functions.stressed_calibration import stressed_calibration
 from functions.data_analysis import data_analysis, get_analysis_results
 from functions.compute_baselines import compute_baselines
+import time
 
 # Flask app
 app = Flask(__name__)
@@ -145,78 +146,17 @@ def handle_state_changes():
     """Thread to manage state changes based on game flags."""
     global state
     while not stop_event.is_set():
-        # If the calm calibration flag is received while in WAITING, skip testing and go directly to CALM_CALIBRATION
-        if calm_calibration_value == 1 and state == "WAITING":
-            state = "CALM_CALIBRATION"
-            print("State changed to CALM_CALIBRATION (skipping TESTING)")
-        # Else, if the testing flag is received while in WAITING, go to TESTING
-        elif testing_value == 1 and state == "WAITING":
-            state = "TESTING"
-            print("State changed to TESTING")
-        # If we're already in TESTING and then receive the calm calibration flag, move to CALM_CALIBRATION
-        elif calm_calibration_value == 1 and state == "TESTING":
-            state = "CALM_CALIBRATION"
-            print("State changed to CALM_CALIBRATION from TESTING")
-
-        elif stressed_calibration_value_1 == 1 and state == "CALM_CALIBRATION" and calm_calibration_done == True:
-            state = "STRESSED_CALIBRATION_1"
-            print("State changed to STRESSED_CALIBRATION_1")
-
-        elif stressed_calibration_value_2 == 1 and state == "STRESSED_CALIBRATION_1" and stressed_calibration_done_1 == True:
-            state = "STRESSED_CALIBRATION_2"
-            print("State changed to STRESSED_CALIBRATION_2")
-
-        elif stressed_calibration_value_3 == 1 and state == "STRESSED_CALIBRATION_2" and stressed_calibration_done_2 == True:
-            state = "STRESSED_CALIBRATION_3"
-            print("State changed to STRESSED_CALIBRATION_3")
-
-        elif data_analysis_value == 1 and state == "STRESSED_CALIBRATION_3" and stressed_calibration_done_3 == True:
+        # Wait in WAITING state until we receive the DataAnalysis flag
+        if data_analysis_value == 1 and state == "WAITING":
             state = "DATA_ANALYSIS"
             print("State changed to DATA_ANALYSIS")
-
         threading.Event().wait(0.1)  # Prevent CPU overutilization
 
 
 def measurements_handler(address, *args):
     global state
-    if state == "TESTING":
-        if "PPG:GRN" in address:
-            for arg in args:
-                test_ppg_queue.put(arg)
-                
-    elif state == "CALM_CALIBRATION":
-        if "PPG:GRN" in address:
-            for arg in args:
-                calm_ppg_queue.put(arg)
-        elif "EDA" in address:
-            for arg in args:
-                calm_eda_queue.put(arg)
-
-    elif state == "STRESSED_CALIBRATION_1":
-        if "PPG:GRN" in address:
-            for arg in args:
-                stressed_ppg_queue_1.put(arg)
-        elif "EDA" in address:
-            for arg in args:
-                stressed_eda_queue_1.put(arg)
-
-    elif state == "STRESSED_CALIBRATION_2":
-        if "PPG:GRN" in address:
-            for arg in args:
-                stressed_ppg_queue_2.put(arg)
-        elif "EDA" in address:
-            for arg in args:
-                stressed_eda_queue_2.put(arg)
-
-    elif state == "STRESSED_CALIBRATION_3":
-        if "PPG:GRN" in address:
-            for arg in args:
-                stressed_ppg_queue_3.put(arg)
-        elif "EDA" in address:
-            for arg in args:
-                stressed_eda_queue_3.put(arg)
-
-    elif state == "DATA_ANALYSIS":
+    # In test mode, direct all OSC data to analysis queues.
+    if state == "DATA_ANALYSIS":
         if "PPG:GRN" in address:
             for arg in args:
                 analysis_ppg_queue.put(arg)
@@ -237,106 +177,25 @@ def run_osc_listener(ip, port):
         server.server_close()
 
 
-def run_testing():
-    global testing_value, testing_done
-    while not stop_event.is_set():
-        if state == "TESTING":
-            # Pass a lambda to get the current state so testing_values can exit when state changes
-            test_values(test_ppg_queue, stop_event, lambda: state)
-            testing_value = 0
-            testing_done = True
-            print("Testing HRV values completed.")
-            break
-        threading.Event().wait(0.1)
-        
-
-def run_calm_calibration():
-    global calm_baseline_hrv, calm_calibration_value, general_start_time, calm_calibration_done
-    while not stop_event.is_set():
-        if state == "CALM_CALIBRATION":
-            calm_baseline_hrv, general_start_time = calm_calibration(calm_ppg_queue, calm_eda_queue, stop_event)
-            calm_calibration_value = 0
-            calm_calibration_done = True
-            if calm_baseline_hrv == 0:
-                print("Error during calm calibration. Press Ctrl+C to shut down the server.")
-                break
-            print(f"Calm calibration completed. Calm Baseline: {calm_baseline_hrv}")
-            break
-
-        threading.Event().wait(0.1)
-
-
-def run_stressed_calibration_1():
-    global stressed_baseline_hrv_1, stressed_calibration_value_1, general_start_time, stressed_calibration_done_1
-    while not stop_event.is_set():
-        if state == "STRESSED_CALIBRATION_1":
-            if general_start_time == None:
-                print("Error fetching general logging starting time. Press Ctrl+C to shut down the server.")
-                break
-            stressed_baseline_hrv_1 = stressed_calibration(stressed_ppg_queue_1, stressed_eda_queue_1, stop_event, general_start_time, 1)
-            stressed_calibration_value_1 = 0
-            stressed_calibration_done_1 = True
-            if stressed_baseline_hrv_1 == 0:
-                print("Error during stressed calibration 1. Press Ctrl+C to shut down the server.")
-                break
-            print(f"Stressed calibration 1 completed. Stressed Baseline 1: {stressed_baseline_hrv_1}")
-            break
-        threading.Event().wait(0.1)
-
-def run_stressed_calibration_2():
-    global stressed_baseline_hrv_2, stressed_calibration_value_2, general_start_time, stressed_calibration_done_2
-    while not stop_event.is_set():
-        if state == "STRESSED_CALIBRATION_2":
-            if general_start_time == None:
-                print("Error fetching general logging starting time. Press Ctrl+C to shut down the server.")
-                break
-            stressed_baseline_hrv_2 = stressed_calibration(stressed_ppg_queue_2, stressed_eda_queue_2, stop_event, general_start_time, 2)
-            stressed_calibration_value_2 = 0
-            stressed_calibration_done_2 = True
-            if stressed_baseline_hrv_2 == 0:
-                print("Error during stressed calibration. Press Ctrl+C to shut down the server.")
-                break
-            print(f"Stressed calibration 2 completed. Stressed Baseline 2: {stressed_baseline_hrv_2}")
-            break
-        threading.Event().wait(0.1)
-
-def run_stressed_calibration_3():
-    global stressed_baseline_hrv_3, stressed_calibration_value_3, general_start_time, stressed_calibration_done_3
-    while not stop_event.is_set():
-        if state == "STRESSED_CALIBRATION_3":
-            if general_start_time == None:
-                print("Error fetching general logging starting time. Press Ctrl+C to shut down the server.")
-                break
-            stressed_baseline_hrv_3 = stressed_calibration(stressed_ppg_queue_3, stressed_eda_queue_3, stop_event, general_start_time, 3)
-            stressed_calibration_value_3 = 0
-            stressed_calibration_done_3 = True
-            if stressed_baseline_hrv_3 == 0:
-                print("Error during stressed calibration 3. Press Ctrl+C to shut down the server.")
-                break
-            print(f"Stressed calibration completed. Stressed Baseline 3: {stressed_baseline_hrv_3}")
-            break
-        threading.Event().wait(0.1)
-
-
 def run_data_analysis():
     global general_start_time, calm_baseline_hrv, stressed_baseline_hrv_1, stressed_baseline_hrv_2, stressed_baseline_hrv_3
     while not stop_event.is_set():
         if state == "DATA_ANALYSIS":
-            if general_start_time is None or calm_baseline_hrv is None or stressed_baseline_hrv_1 is None or stressed_baseline_hrv_2 is None or stressed_baseline_hrv_3 is None:
-                print("Error fetching general logging starting time or baselines. Press Ctrl+C to shut down the server.")
-                break
-            # Compute the combined stressed baseline and its standard deviation
-            stressed_baseline_hrv, std_dev = compute_baselines(
-                calm_baseline_hrv,
-                stressed_baseline_hrv_1,
-                stressed_baseline_hrv_2,
-                stressed_baseline_hrv_3
-            )
-            print("Combined Stressed Baseline HRV: ", stressed_baseline_hrv)
+            # Set dummy calibration values
+            general_start_time = time.time()
+            calm_baseline_hrv = 400  # dummy value for calm baseline
+            stressed_baseline_hrv_1 = 280  # dummy value for stressed baseline 1
+            stressed_baseline_hrv_2 = 290  # dummy value for stressed baseline 2
+            stressed_baseline_hrv_3 = 300  # dummy value for stressed baseline 3
+            # Compute combined stressed baseline and standard deviation
+            stressed_baseline = (stressed_baseline_hrv_1 + stressed_baseline_hrv_2 + stressed_baseline_hrv_3)/3
+            std_dev = 10
+            print("Combined Stressed Baseline HRV: ", stressed_baseline)
             print("Standard Deviation of Stressed HRV: ", std_dev)
-            print("Decision Threshold: ", stressed_baseline_hrv + std_dev)
+            print("Decision Threshold: ", stressed_baseline + std_dev)
             print("Data analysis running...")
-            data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv, stressed_baseline_hrv, std_dev)  
+            data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv, stressed_baseline, std_dev)
+            # data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv)
         threading.Event().wait(0.1)
 
 
@@ -350,23 +209,13 @@ def main():
     # Handle Ctrl+C signal to stop the server
     #signal.signal(signal.SIGINT, lambda signal, frame: handle_shutdown(signal, frame, stop_event, ip, port))
 
-    # Threads for OSC Listener, State Management, and Processing
+    # In test mode, we only use the OSC listener, state management, and data analysis threads.
     osc_thread = threading.Thread(target=run_osc_listener, args=(ip, port))
     state_thread = threading.Thread(target=handle_state_changes)
-    test_thread = threading.Thread(target=run_testing)
-    calm_thread = threading.Thread(target=run_calm_calibration)
-    stressed_thread_1 = threading.Thread(target=run_stressed_calibration_1)
-    stressed_thread_2 = threading.Thread(target=run_stressed_calibration_2)
-    stressed_thread_3 = threading.Thread(target=run_stressed_calibration_3)
     analysis_thread = threading.Thread(target=run_data_analysis)
 
     osc_thread.start()
     state_thread.start()
-    test_thread.start()
-    calm_thread.start()
-    stressed_thread_1.start()
-    stressed_thread_2.start()
-    stressed_thread_3.start()
     analysis_thread.start()
 
     # Run Flask in the main thread
@@ -375,11 +224,6 @@ def main():
 
     osc_thread.join()
     state_thread.join()
-    test_thread.join()
-    calm_thread.join()
-    stressed_thread_1.join()
-    stressed_thread_2.join()
-    stressed_thread_3.join()
     analysis_thread.join()
 
 

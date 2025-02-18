@@ -7,7 +7,7 @@ import requests
 import time
 import csv
 import json
-
+import os
 
 output_value_lock = threading.Lock()
 
@@ -40,7 +40,7 @@ def add_log_entry(entry, only_general_log=False, ability_log=False):
         with open(current_log_file, 'a') as f:
             f.write(entry)
             
-        # If this is an ability measurement, also log it to ability_log.txt
+    # If this is an ability measurement, also log it to ability_log.txt
     if ability_log:
         with open(ability_log_file, 'a') as f:
             f.write(entry)
@@ -74,7 +74,7 @@ def fetch_ability_value(stop_flag):
 
 
 # Function to set all the output values in a dictionary
-def set_analysis_results(binary_output, current_hrv):   #categorical_output
+def set_analysis_results(binary_output, categorical_output, current_hrv):
     with output_value_lock:
         results['current_hrv'] = current_hrv
         results['binary_output'] = binary_output
@@ -87,14 +87,15 @@ def get_analysis_results():
         return results
 
 
-def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calm_baseline_hrv, stressed_baseline_hrv, std_dev):   # Include stressed baseline later
+def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calm_baseline_hrv, stressed_baseline, std_dev): 
     sampling_rate = 100
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
     step_counter = 0
     current_step = 0
     buffer = deque(maxlen=window_size)
-
+    
+    previous_hrv_values = deque(maxlen=3)
 
     in_analysis = False  # Flag to indicate if ability analysis is currently running
     ability_detected = False  # To track if the ability was activated
@@ -112,14 +113,13 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
         
     # Create or clear the general_log_file at the start
     with open(general_log_file, 'a') as f:
-    # with open(general_log_file, 'w') as f:
         f.write("Starting data analysis logging...\n")
         f.write("Waiting for the first window to fill (about 30 seconds)\n\n")
         
-    # Create or clear the general_log_file at the start
+    # Create or clear the ability_log_file at the start
     with open(ability_log_file, 'w') as f:
         f.write("Starting ability logging...\n\n")
-    
+        
     # Clear the analysis JSON file at the start (NDJSON logging)
     with open(analysis_json_file, 'w') as f:
         f.write("")
@@ -161,7 +161,7 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                             
                         # Empty the eda_data_queue into a list
                         # Since sampling rate is 15hz then we should have 75 measurements in a 5 second step
-                        # We save only the new 5 second of data for each segment
+                        # We save only the new 5 seconds of data for each segment
                         eda_values = []
                         while not eda_data_queue.empty() and len(eda_values) < 75:
                             eda_values.append(eda_data_queue.get())
@@ -184,17 +184,19 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                             add_log_entry(log_msg, ability_log=True)
                             
                         # Start logging only for steps 6, 7, and 8 after detection
-                        if ability_detected and current_step == ability_measurement_step:
-                            ability_logging_active = True  # Activate ability logging for this and the next two steps
+                        if ability_detected and current_step in [ability_measurement_step, ability_measurement_step + 1, ability_measurement_step + 2]:
+                            ability_logging_active = True  # Activate ability logging for these segments
+                        else:
+                            ability_logging_active = False
                         
                         # Reset the in_analysis flag when ability_value returns to 0
-                        elif ability_value == 0 and in_analysis:
+                        if ability_value == 0 and in_analysis:
                             in_analysis = False
                             ability_detected = False  # Reset detection flag
             
                         # Simplified rule-based logic:
                         # Define the threshold as the stressed baseline plus the standard deviation.
-                        threshold = stressed_baseline_hrv + std_dev
+                        threshold = stressed_baseline + std_dev
 
                         # If the current HRV is below the threshold, mark as stressed (1); otherwise, calm (0).
                         if current_hrv < threshold:
@@ -205,7 +207,6 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         # Compare to threshold
                         change_from_threshold = (current_hrv - threshold) / threshold * 100
 
-
                         log_msg = (f"Segment {current_step} - "
                             f"General Timestamp {general_timestamp_minutes}min {general_timestamp_seconds}sec\n"
                             f"(Data Timestamp {timestamp_minutes}min {timestamp_seconds}sec)\n")
@@ -214,9 +215,9 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         # Handle ability measurements during steps 6, 7, 8 after detection
                         if ability_detected and current_step in [ability_measurement_step, ability_measurement_step + 1, ability_measurement_step + 2]:
                             label_number = current_step - ability_measurement_step + 1
+                            ability_measurement = True
                             log_msg = f"ABILITY MEASUREMENT {label_number} for segment {current_step}.\n"
                             add_log_entry(log_msg, ability_log=True)  # Log this to both files
-                            ability_measurement = True  #log segment in values json
                             
                         log_msg = f"Current HRV: {current_hrv}\n"
                         add_log_entry(log_msg, ability_log=ability_logging_active)
@@ -224,14 +225,14 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         log_msg = f"Change from Threshold: {change_from_threshold:.2f}%\n"
                         add_log_entry(log_msg, ability_log=ability_logging_active)
 
-                        # Log both the binary and categorical output
-                        add_log_entry(f"Binary Output (0: calm, 1: stressed) = {binary_output}\n\n", ability_log=ability_logging_active)
+                        # Log the binary output
+                        add_log_entry(f"Binary Output (0: calm, 1: stressed) = {binary_output}\n", ability_log=ability_logging_active)
                             
                         # Set the full result with all required values
                         set_analysis_results(
                             current_hrv=current_hrv,
                             binary_output=binary_output,
-                            # categorical_output=binary_output
+                            # categorical_output=0
                         )
                         
                         # Create a JSON log entry for this analysis segment, including output and ability measurement flag
@@ -243,11 +244,10 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                             "binary_output": binary_output,
                             "ability_measurement": ability_measurement
                         }
-                        
                         # Immediately append the JSON entry to file in NDJSON format
-                        with open("analysis_json_file", "a") as json_file:
+                        with open(analysis_json_file, "a") as json_file:
                             json_file.write(json.dumps(analysis_entry) + "\n")
-                        
+                            
                         if ability_detected and current_step == (ability_measurement_step + 2):
                             ability_logging_active = False
                             ability_measurement = False
@@ -265,4 +265,3 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
         return 0  # Return 0 in case of an error
          
     return 0
-

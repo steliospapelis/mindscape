@@ -6,7 +6,6 @@ import threading
 import requests
 import time
 import csv
-import json
 
 
 output_value_lock = threading.Lock()
@@ -18,7 +17,6 @@ current_log_file = "./logs/data_analysis_log.txt"
 ability_log_file = "./logs/ability_log.txt"
 ppg_csv_file = "./measurements/analysis_ppg_values.csv"
 eda_csv_file = "./measurements/analysis_eda_values.csv"
-analysis_json_file = "./hrv_values/analysis_values.json"
 
 # Write headers only once at the beginning
 with open(ppg_csv_file, 'w', newline='') as csvfile:
@@ -74,11 +72,11 @@ def fetch_ability_value(stop_flag):
 
 
 # Function to set all the output values in a dictionary
-def set_analysis_results(binary_output, current_hrv):   #categorical_output
+def set_analysis_results(binary_output, categorical_output, current_hrv):
     with output_value_lock:
         results['current_hrv'] = current_hrv
         results['binary_output'] = binary_output
-        # results['categorical_output'] = categorical_output
+        results['categorical_output'] = categorical_output
 
 
 # Function to get all the results
@@ -87,20 +85,20 @@ def get_analysis_results():
         return results
 
 
-def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calm_baseline_hrv, stressed_baseline_hrv, std_dev):   # Include stressed baseline later
+def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calm_baseline_hrv):   # Include stressed baseline later
     sampling_rate = 100
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
     step_counter = 0
     current_step = 0
     buffer = deque(maxlen=window_size)
-
+    
+    previous_hrv_values = deque(maxlen=3)
 
     in_analysis = False  # Flag to indicate if ability analysis is currently running
     ability_detected = False  # To track if the ability was activated
     ability_measurement_step = None  # Tracks when ability measurements should start
     ability_logging_active = False  # Tracks whether ability logging should be done
-    ability_measurement = False # Tracks the logged ability measurements for the json logging
     
     # Start the time counter when the function is called
     start_time = time.time()
@@ -112,17 +110,12 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
         
     # Create or clear the general_log_file at the start
     with open(general_log_file, 'a') as f:
-    # with open(general_log_file, 'w') as f:
         f.write("Starting data analysis logging...\n")
         f.write("Waiting for the first window to fill (about 30 seconds)\n\n")
         
     # Create or clear the general_log_file at the start
     with open(ability_log_file, 'w') as f:
         f.write("Starting ability logging...\n\n")
-    
-    # Clear the analysis JSON file at the start (NDJSON logging)
-    with open(analysis_json_file, 'w') as f:
-        f.write("")
         
     try:
         while not stop_event.is_set() or not ppg_data_queue.empty():   
@@ -192,19 +185,36 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                             in_analysis = False
                             ability_detected = False  # Reset detection flag
             
-                        # Simplified rule-based logic:
-                        # Define the threshold as the stressed baseline plus the standard deviation.
-                        threshold = stressed_baseline_hrv + std_dev
+                        # Compare to baseline and previous HRV
+                        change_from_baseline = (current_hrv - calm_baseline_hrv) / calm_baseline_hrv * 100
 
-                        # If the current HRV is below the threshold, mark as stressed (1); otherwise, calm (0).
-                        if current_hrv < threshold:
-                            binary_output = 1  # stressed
+                        if len(previous_hrv_values) > 0:
+                            change_from_previous = (current_hrv - previous_hrv_values[-1]) / previous_hrv_values[-1] * 100
+                            previous_hrv_for_change = previous_hrv_values[-1]
                         else:
-                            binary_output = 0  # calm
-                            
-                        # Compare to threshold
-                        change_from_threshold = (current_hrv - threshold) / threshold * 100
+                            change_from_previous = 0
+                            previous_hrv_for_change = None
 
+                        previous_hrv_values.append(current_hrv)
+
+                        if len(previous_hrv_values) == 3:
+                            previous_hrv_array = np.array(previous_hrv_values)
+                            mean_last_three_hrv = np.mean(previous_hrv_array)
+                            excluded_value = None
+
+                            # Detect and exclude outliers from the mean calculation if they differ more than 20%
+                            diffs = np.abs(np.diff(previous_hrv_array) / previous_hrv_array[:-1])
+                            if np.any(diffs > 0.2):
+                                excluded_indices = np.where(diffs > 0.2)[0]
+                                if len(excluded_indices) > 0:
+                                    excluded_index = excluded_indices[0]
+                                    excluded_value = previous_hrv_array[excluded_index + 1]
+                                    mean_last_three_hrv = np.mean([value for value, diff in zip(previous_hrv_array, diffs) if diff <= 0.3])
+
+                            change_from_mean_last_three = (current_hrv - mean_last_three_hrv) / mean_last_three_hrv * 100
+                        else:
+                            change_from_mean_last_three = 0
+                            excluded_value = None
 
                         log_msg = (f"Segment {current_step} - "
                             f"General Timestamp {general_timestamp_minutes}min {general_timestamp_seconds}sec\n"
@@ -216,41 +226,72 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                             label_number = current_step - ability_measurement_step + 1
                             log_msg = f"ABILITY MEASUREMENT {label_number} for segment {current_step}.\n"
                             add_log_entry(log_msg, ability_log=True)  # Log this to both files
-                            ability_measurement = True  #log segment in values json
                             
                         log_msg = f"Current HRV: {current_hrv}\n"
                         add_log_entry(log_msg, ability_log=ability_logging_active)
 
-                        log_msg = f"Change from Threshold: {change_from_threshold:.2f}%\n"
+                        log_msg = f"Change from Baseline: {change_from_baseline:.2f}%\n"
                         add_log_entry(log_msg, ability_log=ability_logging_active)
 
+                        log_msg = f"Change from Previous: {change_from_previous:.2f}%\n"
+                        add_log_entry(log_msg, ability_log=ability_logging_active)
+                        
+                        if previous_hrv_for_change is not None:
+                            log_msg = f"Previous HRV for Change: {previous_hrv_for_change}\n"
+                            add_log_entry(log_msg, ability_log=ability_logging_active)
+                            
+                        log_msg = f"Previous Three HRV Values: {list(previous_hrv_values)}\n"
+                        add_log_entry(log_msg, ability_log=ability_logging_active)
+                        log_msg = f"Change from Mean of Last Three: {change_from_mean_last_three:.2f}%\n"
+                        add_log_entry(log_msg, ability_log=ability_logging_active)
+
+                        if excluded_value is not None:
+                            log_msg = f"Excluded Value from Mean Calculation: {excluded_value}\n"
+                            add_log_entry(log_msg, ability_log=ability_logging_active)
+                        else:
+                            log_msg = f"No Value Excluded from Mean Calculation\n"
+                            add_log_entry(log_msg, ability_log=ability_logging_active)
+                        
+                        # Binary output (0: calm, 1: stressed)
+                        binary_output = 0
+                        total_change_from_previous = 0.8 * change_from_mean_last_three + 0.2 * change_from_previous
+                        if change_from_baseline <= -5:
+                            binary_output = 1
+                        elif change_from_baseline <= 5 and total_change_from_previous <= -5:
+                            binary_output = 1
+
+                        # Categorical output (0: very calm, 1: calm, 2: stressed, 3: very stressed)
+                        categorical_output = 0  # default to very calm
+
+                        # Determine the value for the new categorical output based on the change from baseline
+                        if change_from_baseline <= -10:
+                            categorical_output = 3  # very stressed
+                        if -10 < change_from_baseline <= -5:
+                            categorical_output = 2  # stressed
+                        elif -5 < change_from_baseline < 0:
+                            categorical_output = 1  # calm
+
+                        # Further refine based on total change from previous
+                        elif change_from_baseline <= 5 and total_change_from_previous <= -7.5:
+                            categorical_output = 3  # very stressed
+                        elif change_from_baseline <= 5 and total_change_from_previous <= -5:
+                            categorical_output = 2  # stressed
+                        elif change_from_baseline <= 5 and total_change_from_previous <= -2.5:
+                            categorical_output = 1  # calm
+
                         # Log both the binary and categorical output
-                        add_log_entry(f"Binary Output (0: calm, 1: stressed) = {binary_output}\n\n", ability_log=ability_logging_active)
+                        add_log_entry(f"Binary Output (0: calm, 1: stressed) = {binary_output}\n", ability_log=ability_logging_active)
+                        add_log_entry(f"Categorical Output (0: very calm, 1: calm, 2: stressed, 3: very stressed) = {categorical_output}\n\n", ability_log=ability_logging_active)
+                        
+                        if ability_detected and current_step == (ability_measurement_step + 2):
+                            ability_logging_active = False
                             
                         # Set the full result with all required values
                         set_analysis_results(
                             current_hrv=current_hrv,
                             binary_output=binary_output,
-                            # categorical_output=binary_output
+                            categorical_output=categorical_output
                         )
-                        
-                        # Create a JSON log entry for this analysis segment, including output and ability measurement flag
-                        analysis_entry = {
-                            "segment": current_step,
-                            "timestamp_min": timestamp_minutes,
-                            "timestamp_sec": timestamp_seconds,
-                            "HRV": current_hrv,
-                            "binary_output": binary_output,
-                            "ability_measurement": ability_measurement
-                        }
-                        
-                        # Immediately append the JSON entry to file in NDJSON format
-                        with open("analysis_json_file", "a") as json_file:
-                            json_file.write(json.dumps(analysis_entry) + "\n")
-                        
-                        if ability_detected and current_step == (ability_measurement_step + 2):
-                            ability_logging_active = False
-                            ability_measurement = False
   
                     step_counter = 0  # Reset step counter after processing
 

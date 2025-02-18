@@ -1,2 +1,27 @@
 Starting ability logging...
 
+
+Ability activated in segment 8. 
+Expect ability measurements in segments 13, 14, and 15.
+
+Segment 13 - General Timestamp 5min 11sec
+(Data Timestamp 1min 28sec)
+ABILITY MEASUREMENT 1 for segment 13.
+Current HRV: 284.66939889399185
+Change from Threshold: -9.32%
+Binary Output (0: calm, 1: stressed) = 1
+
+Segment 14 - General Timestamp 5min 15sec
+(Data Timestamp 1min 32sec)
+ABILITY MEASUREMENT 2 for segment 14.
+Current HRV: 306.98197183952476
+Change from Threshold: -2.21%
+Binary Output (0: calm, 1: stressed) = 1
+
+Segment 15 - General Timestamp 5min 17sec
+(Data Timestamp 1min 34sec)
+ABILITY MEASUREMENT 3 for segment 15.
+Current HRV: 294.5891352726533
+Change from Threshold: -6.16%
+Binary Output (0: calm, 1: stressed) = 1
+

@@ -137,6 +137,7 @@ def calm_calibration(ppg_data_queue, eda_data_queue, stop_event):
                             # Create a JSON log entry for this segment
                             log_entry = {
                                 "segment": current_step,
+                                "timestamp": elapsed_time,
                                 "timestamp_min": timestamp_minutes,
                                 "timestamp_sec": timestamp_seconds,
                                 "HRV": current_hrv

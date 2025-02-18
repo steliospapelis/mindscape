@@ -143,8 +143,10 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
                             # Create a JSON log entry for this segment
                             log_entry = {
                                 "segment": current_step,
+                                "general_timestamp": general_elapsed_time,
                                 "general_timestamp_min": general_timestamp_minutes,
                                 "general_timestamp_sec": general_timestamp_seconds,
+                                "timestamp": elapsed_time,
                                 "timestamp_min": timestamp_minutes,
                                 "timestamp_sec": timestamp_seconds,
                                 "HRV": current_hrv
