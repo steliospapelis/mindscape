@@ -12,16 +12,16 @@ output_value_lock = threading.Lock()
 
 def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calib_number):
     general_log_file = "./logs/general_log.txt"
-    current_log_file = f"./logs/stressed_calibration_{calib_number}_log.txt"
+    current_log_file = f"./logs/specific_logs/stressed_calibration_{calib_number}_log.txt"
     ppg_csv_file = f"./measurements/stressed_ppg_values_{calib_number}.csv"
     eda_csv_file = f"./measurements/stressed_eda_values_{calib_number}.csv"
-    hrv_json_file = "./hrv_values/calibration_values.json"
+    calibration_json_file = "./hrv_values/calibration_values.json"
     
     # Ensure the directories exist
     os.makedirs(os.path.dirname(general_log_file), exist_ok=True)
     os.makedirs(os.path.dirname(ppg_csv_file), exist_ok=True)
     os.makedirs(os.path.dirname(eda_csv_file), exist_ok=True)
-    os.makedirs(os.path.dirname(hrv_json_file), exist_ok=True)
+    os.makedirs(os.path.dirname(calibration_json_file), exist_ok=True)
 
     # Write headers only once at the beginning for CSV files
     with open(ppg_csv_file, 'w', newline='') as csvfile:
@@ -44,8 +44,8 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
     step_counter = 0
-    num_steps_for_baseline = 3  # (adjusted for stressed calibration)
-    num_steps_skipped = 3       # (adjusted for stressed calibration)
+    num_steps_skipped = 3       # 8
+    num_steps_for_baseline = 3  # 16
     current_step = 0
     buffer = deque(maxlen=window_size)
     stressed_baseline_hrv = []
@@ -65,6 +65,12 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
     with open(general_log_file, 'a') as f:
         f.write(f"Starting stressed calibration {calib_number} logging...\n")
         f.write("Waiting for the first window to fill (about 30 seconds)\n\n")
+        
+    with open(calibration_json_file, 'r') as f:
+        data = json.load(f)
+    data[f"stressed_values_{calib_number}"] = []  # Add the new empty array under the new key
+    with open(calibration_json_file, 'w') as f:
+        json.dump(data, f, indent=4)
         
     try:
         while not stop_event.is_set() or not ppg_data_queue.empty():
@@ -143,15 +149,24 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
                             # Create a JSON log entry for this segment
                             log_entry = {
                                 "segment": current_step,
-                                "general_timestamp": general_elapsed_time,
-                                "general_timestamp_min": general_timestamp_minutes,
-                                "general_timestamp_sec": general_timestamp_seconds,
                                 "timestamp": elapsed_time,
-                                "timestamp_min": timestamp_minutes,
-                                "timestamp_sec": timestamp_seconds,
+                                "general_timestamp": general_elapsed_time,
                                 "HRV": current_hrv
                             }
                             stressed_values_list.append(log_entry)
+                            
+                            # Load existing JSON object, update and save it so we see changes in real time
+                            if os.path.exists(calibration_json_file):
+                                with open(calibration_json_file, 'r') as json_file:
+                                    try:
+                                        data = json.load(json_file)
+                                    except json.JSONDecodeError:
+                                        data = {f"stressed_values_{calib_number}": []}
+                            else:
+                                data = {f"stressed_values_{calib_number}": []}
+                            data[f"stressed_values_{calib_number}"].append(log_entry)
+                            with open(calibration_json_file, 'w') as json_file:
+                                json.dump(data, json_file, indent=4)
                             
                             if current_step == num_steps_skipped + num_steps_for_baseline:
                                 # Calculate average baseline HRV after collecting enough data
@@ -166,17 +181,30 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
                                     add_log_entry("Waiting to recieve the data analysis flag...\n\n\n", only_general_log=True)
                                 
                                 # Read the existing JSON object from file (if it exists), update with new key, and write back
-                                if os.path.exists(hrv_json_file):
-                                    with open(hrv_json_file, 'r') as json_file:
-                                        try:
-                                            data = json.load(json_file)
-                                        except json.JSONDecodeError:
-                                            data = {}
-                                else:
-                                    data = {}
-                                data[f"stressed_values_{calib_number}"] = stressed_values_list
-                                with open(hrv_json_file, 'w') as json_file:
-                                    json.dump(data, json_file, indent=4)
+                                # if os.path.exists(calibration_json_file):
+                                #     with open(calibration_json_file, 'r') as json_file:
+                                #         try:
+                                #             data = json.load(json_file)
+                                #         except json.JSONDecodeError:
+                                #             data = {}
+                                # else:
+                                #     data = {}
+                                # data[f"stressed_values_{calib_number}"] = stressed_values_list
+                                # with open(calibration_json_file, 'w') as json_file:
+                                #     json.dump(data, json_file, indent=4)
+                                    
+                                # # Load existing JSON object, update and save it so we see changes in real time
+                                # if os.path.exists(calibration_json_file):
+                                #     with open(calibration_json_file, 'r') as json_file:
+                                #         try:
+                                #             data = json.load(json_file)
+                                #         except json.JSONDecodeError:
+                                #             data = {f"stressed_values_{calib_number}": []}
+                                # else:
+                                #     data = {f"stressed_values_{calib_number}": []}
+                                # data[f"stressed_values_{calib_number}"].append(log_entry)
+                                # with open(calibration_json_file, 'w') as json_file:
+                                #     json.dump(data, json_file, indent=4)
                                 
                                 return stressed_baseline_hrv
                         
@@ -184,7 +212,7 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
 
             except queue.Empty:
                 if stop_event.is_set():
-                    print("Stopping data processor.")
+                    print("Stopping stressed calibration.")
                     break  # Exit the loop if stop_event is set
                 
     except Exception as e:

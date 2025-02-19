@@ -5,7 +5,7 @@ from collections import deque
 import time
 
 def test_values(ppg_data_queue, stop_event, get_state):
-    current_log_file = "./logs/test_log.txt"
+    current_log_file = "./logs/specific_logs/test_log.txt"
 
     def add_log_entry(entry):
         with open(current_log_file, 'a') as f:

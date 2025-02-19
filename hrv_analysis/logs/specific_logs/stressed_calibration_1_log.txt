@@ -1,0 +1,39 @@
+Starting stressed calibration 1 logging...
+Waiting for the first window to fill (about 30 seconds)
+
+
+Stressed Calibration 1 Starting...
+
+
+The next 3 segments will be skipped
+
+Segment 1 skipped - General Timestamp 1min 21sec
+(Stressed Calibration 1 Timestamp 0min 28sec)
+Current HRV: 309.92768900792504
+
+Segment 2 skipped - General Timestamp 1min 29sec
+(Stressed Calibration 1 Timestamp 0min 35sec)
+Current HRV: 313.43480870883633
+
+Segment 3 skipped - General Timestamp 1min 32sec
+(Stressed Calibration 1 Timestamp 0min 39sec)
+Current HRV: 307.09989389054857
+
+
+The next 3 segments will be used to calculate the stressed baseline.
+
+Segment 4 - General Timestamp 1min 35sec
+(Stressed Calibration 1 Timestamp 0min 42sec)
+Current HRV: 294.5891352726533
+
+Segment 5 - General Timestamp 1min 44sec
+(Stressed Calibration 1 Timestamp 0min 50sec)
+Current HRV: 309.83866769659335
+
+Segment 6 - General Timestamp 1min 46sec
+(Stressed Calibration 1 Timestamp 0min 53sec)
+Current HRV: 310.0556123643317
+
+Stressed Baseline 1 HRV established: 304.82780511119273
+
+

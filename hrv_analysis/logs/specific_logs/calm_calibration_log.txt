@@ -1,5 +1,3 @@
-Starting general logging...
-
 Starting calm calibration logging...
 Waiting for the first window to fill (about 30 seconds)
 
@@ -31,13 +29,4 @@ Segment 6 - Timestamp 0min 54sec
 Current HRV: 302.04304329019067
 
 Calm Baseline HRV established: 292.7108771442093
-
-Calm calibration EDA values postprocessed.
-
-
--------------------------------------------------------------
-
-
-Waiting to recieve the stressed calibration 1 flag...
-
 

@@ -5,28 +5,28 @@ def send_data_from_file(filepath, ip, port, delay):
     # Initialize the OSC client
     client = udp_client.SimpleUDPClient(ip, port)
     
-    # Read data from the file
-    with open(filepath, 'r') as file:
-        for line in file:
-            line = line.strip()
-            if line:
-                # Extract the OSC address and the data
-                address_start = line.find("/EmotiBit/")
-                if address_start != -1:
-                    # Address is extended to include the type or color after the main type
-                    address_end = line.find(":", address_start)
-                    if address_end != -1:
-                        # Look for the second colon to include the subtype or color
-                        data_start = line.find("(", address_end)
-                        if data_start != -1:
-                            address = line[address_start:line.rfind(":", 0, data_start)]
-                            try:
-                                # Convert the tuple in the string to an actual tuple
-                                data = eval(line[data_start:])
-                                client.send_message(address, data)
-                                print(f"Sent data to {address} with message: {data}")
-                            except SyntaxError as e:
-                                print(f"Error parsing data: {line[data_start:]}", e)
+    while True:  # Loop indefinitely
+        with open(filepath, 'r') as file:
+            for line in file:
+                line = line.strip()
+                if line:
+                    # Extract the OSC address and the data
+                    address_start = line.find("/EmotiBit/")
+                    if address_start != -1:
+                        # Address is extended to include the type or color after the main type
+                        address_end = line.find(":", address_start)
+                        if address_end != -1:
+                            # Look for the second colon to include the subtype or color
+                            data_start = line.find("(", address_end)
+                            if data_start != -1:
+                                address = line[address_start:line.rfind(":", 0, data_start)]
+                                try:
+                                    # Convert the tuple in the string to an actual tuple
+                                    data = eval(line[data_start:])
+                                    client.send_message(address, data)
+                                    print(f"Sent data to {address} with message: {data}")
+                                except SyntaxError as e:
+                                    print(f"Error parsing data: {line[data_start:]}", e)
                 time.sleep(delay)  # Delay to simulate real-time data
 
 if __name__ == "__main__":
