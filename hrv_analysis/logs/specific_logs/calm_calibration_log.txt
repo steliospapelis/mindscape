@@ -7,26 +7,26 @@ Calm Calibration Starting...
 
 The next 3 segments will be skipped
 
-Segment 1 skipped - Timestamp 0min 29sec
-Current HRV: 286.42963443727496
+Segment 1 skipped - Timestamp 0min 30sec
+Current HRV: 280.76680715497685
 
-Segment 2 skipped - Timestamp 0min 33sec
-Current HRV: 296.92872320923533
+Segment 2 skipped - Timestamp 0min 35sec
+Current HRV: 309.38760423645357
 
-Segment 3 skipped - Timestamp 0min 36sec
-Current HRV: 307.01005262660885
+Segment 3 skipped - Timestamp 0min 38sec
+Current HRV: 309.12557430541915
 
 
 The next 3 segments will be used to calculate the calm baseline.
 
-Segment 4 - Timestamp 0min 43sec
-Current HRV: 270.66584564735905
+Segment 4 - Timestamp 0min 45sec
+Current HRV: 256.08457654616296
 
-Segment 5 - Timestamp 0min 47sec
-Current HRV: 300.99833886584827
+Segment 5 - Timestamp 0min 49sec
+Current HRV: 309.4600414292277
 
-Segment 6 - Timestamp 0min 50sec
-Current HRV: 305.12292604784716
+Segment 6 - Timestamp 0min 52sec
+Current HRV: 302.6989703759606
 
-Calm Baseline HRV established: 292.2623701870182
+Calm Baseline HRV established: 289.4145294504504
 

@@ -2,6 +2,7 @@ import numpy as np
 import queue
 from functions.hrv_calculation_functions import detect_peaks, calculate_rmssd
 from functions.postprocess_eda import split_raw_eda
+from functions.compute_threshold import compute_threshold
 from collections import deque
 import threading
 import time
@@ -220,33 +221,11 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
                                 if calib_number == 2:
                                     add_log_entry("Waiting to recieve the stressed calibration 3 flag...\n\n\n", only_general_log=True)
                                 if calib_number == 3:
+                                    threshold = compute_threshold()
+                                    add_log_entry(f"Decision Threshold: {threshold}\n\n")
                                     add_log_entry("Waiting to recieve the data analysis flag...\n\n\n", only_general_log=True)
-                                
-                                # Read the existing JSON object from file (if it exists), update with new key, and write back
-                                # if os.path.exists(calibration_json_file):
-                                #     with open(calibration_json_file, 'r') as json_file:
-                                #         try:
-                                #             data = json.load(json_file)
-                                #         except json.JSONDecodeError:
-                                #             data = {}
-                                # else:
-                                #     data = {}
-                                # data[f"stressed_values_{calib_number}"] = stressed_values_list
-                                # with open(calibration_json_file, 'w') as json_file:
-                                #     json.dump(data, json_file, indent=4)
-                                    
-                                # # Load existing JSON object, update and save it so we see changes in real time
-                                # if os.path.exists(calibration_json_file):
-                                #     with open(calibration_json_file, 'r') as json_file:
-                                #         try:
-                                #             data = json.load(json_file)
-                                #         except json.JSONDecodeError:
-                                #             data = {f"stressed_values_{calib_number}": []}
-                                # else:
-                                #     data = {f"stressed_values_{calib_number}": []}
-                                # data[f"stressed_values_{calib_number}"].append(log_entry)
-                                # with open(calibration_json_file, 'w') as json_file:
-                                #     json.dump(data, json_file, indent=4)
+                                    return stressed_baseline_hrv, threshold
+                            
                                 
                                 return stressed_baseline_hrv
                         

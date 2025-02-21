@@ -10,7 +10,6 @@ from functions.test_values import test_values
 from functions.calm_calibration import calm_calibration
 from functions.stressed_calibration import stressed_calibration
 from functions.data_analysis import data_analysis, get_analysis_results
-from functions.compute_baselines import compute_baselines
 from functions.postprocess_eda import split_raw_eda
 import time
 
@@ -127,20 +126,6 @@ def send_dummy_packet(ip, port):
         print("Dummy packet sent to unblock OSC listener.")
     except Exception as e:
         print(f"Error sending dummy packet: {e}")
-        
-
-# def handle_shutdown(signal, frame, stop_event, ip, port):
-#     print("Shutdown signal received. Stopping server...")
-#     stop_event.set()
-#     # Send a dummy packet to the OSC listener to unblock it
-#     #send_dummy_packet(ip, port)
-#     sys.exit(0)
-    
-def handle_shutdown(signal, frame):
-    global state
-    print("Shutdown signal received. Stopping server...")
-    stop_event.set()
-    sys.exit(0)
 
 
 def handle_state_changes():

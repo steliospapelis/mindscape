@@ -1,7 +1,6 @@
 import numpy as np
 import queue
 from functions.hrv_calculation_functions import detect_peaks, calculate_rmssd
-from functions.postprocess_eda import split_raw_eda
 from collections import deque
 import threading
 import requests
@@ -47,7 +46,7 @@ def get_analysis_results():
         return results
 
 
-def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calm_baseline_hrv, stressed_baseline_hrv, std_dev): 
+def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time, threshold): 
     # Function to add log entries to current_log_file and general_log_file
     
     general_log_file = "./logs/general_log.txt"
@@ -232,8 +231,6 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                             ability_detected = False  # Reset detection flag
             
                         # Simplified rule-based logic:
-                        # Define the threshold as the stressed baseline HRV plus the standard deviation.
-                        threshold = stressed_baseline_hrv + std_dev
 
                         # If the current HRV is below the threshold, mark as stressed (1); otherwise, calm (0).
                         if current_hrv < threshold:

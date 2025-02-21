@@ -164,13 +164,12 @@
           </td>
         </tr>
 
-        <!-- Categorical Value -->
+        <!-- Threshold -->
         <tr>
-          <td>Categorical Value</td>
+          <td>Threshold</td>
           <td>
-            {% if state == "DATA_ANALYSIS" and results.categorical_output is
-            defined and results.categorical_output is not none %} {{
-            results.categorical_output }} {% else %} - {% endif %}
+            {% if baselines[4] is defined and baselines[4] is not none %} {{
+            baselines[4] | round(3) }} {% else %} - {% endif %}
           </td>
         </tr>
 

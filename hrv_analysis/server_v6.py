@@ -10,7 +10,6 @@ from functions.test_values import test_values
 from functions.calm_calibration import calm_calibration
 from functions.stressed_calibration import stressed_calibration
 from functions.data_analysis import data_analysis, get_analysis_results
-from functions.compute_baselines import compute_baselines
 from functions.postprocess_eda import split_raw_eda
 
 # Flask app
@@ -52,6 +51,7 @@ calm_baseline_hrv = None
 stressed_baseline_hrv_1 = None
 stressed_baseline_hrv_2 = None
 stressed_baseline_hrv_3 = None
+threshold = None
 
 # Global variable for general logging start time
 general_start_time = None
@@ -61,11 +61,11 @@ general_start_time = None
 def index():
     global calm_calibration_value, stressed_calibration_value_1, stressed_calibration_value_2, stressed_calibration_value_3, data_analysis_value, ability_value
     global calm_calibration_done, stressed_calibration_done_1, stressed_calibration_done_2, stressed_calibration_done_3, state
-    global calm_baseline_hrv, stressed_baseline_hrv_1, stressed_baseline_hrv_2, stressed_baseline_hrv_3
+    global calm_baseline_hrv, stressed_baseline_hrv_1, stressed_baseline_hrv_2, stressed_baseline_hrv_3, threshold
     results = get_analysis_results()
     game_flags_values = [calm_calibration_value, stressed_calibration_value_1, stressed_calibration_value_2, stressed_calibration_value_3, data_analysis_value, ability_value]
     calibration_done = [calm_calibration_done, stressed_calibration_done_1, stressed_calibration_done_2, stressed_calibration_done_3]
-    baselines = [calm_baseline_hrv, stressed_baseline_hrv_1, stressed_baseline_hrv_2, stressed_baseline_hrv_3]
+    baselines = [calm_baseline_hrv, stressed_baseline_hrv_1, stressed_baseline_hrv_2, stressed_baseline_hrv_3, threshold]
     return render_template('index.html', results=results, game_flags_values=game_flags_values, calibration_done=calibration_done, baselines=baselines, state=state)
 
 # Route for returning the raw JSON data of the results
@@ -288,42 +288,34 @@ def run_stressed_calibration_2():
         threading.Event().wait(0.1)
 
 def run_stressed_calibration_3():
-    global stressed_baseline_hrv_3, stressed_calibration_value_3, general_start_time, stressed_calibration_done_3
+    global stressed_baseline_hrv_3, stressed_calibration_value_3, general_start_time, stressed_calibration_done_3, threshold
     while not stop_event.is_set():
         if state == "STRESSED_CALIBRATION_3":
             if general_start_time == None:
                 print("Error fetching general logging starting time. Press Ctrl+C to shut down the server.")
                 break
-            stressed_baseline_hrv_3 = stressed_calibration(stressed_ppg_queue_3, stressed_eda_queue_3, stop_event, general_start_time, 3)
+            stressed_baseline_hrv_3, threshold = stressed_calibration(stressed_ppg_queue_3, stressed_eda_queue_3, stop_event, general_start_time, 3)
             stressed_calibration_value_3 = 0
             stressed_calibration_done_3 = True
-            if stressed_baseline_hrv_3 == 0:
+            if stressed_baseline_hrv_3 == 0 or threshold == 0:
                 print("Error during stressed calibration 3. Press Ctrl+C to shut down the server.")
                 break
-            print(f"Stressed calibration completed. Stressed Baseline 3: {stressed_baseline_hrv_3}")
+            print(f"Stressed calibration completed.")
+            print(f"Stressed Baseline 3: {stressed_baseline_hrv_3}")
+            print(f"Decision Threshold: {threshold}")
             break
         threading.Event().wait(0.1)
 
 
 def run_data_analysis():
-    global general_start_time, calm_baseline_hrv, stressed_baseline_hrv_1, stressed_baseline_hrv_2, stressed_baseline_hrv_3
+    global general_start_time, threshold
     while not stop_event.is_set():
         if state == "DATA_ANALYSIS":
-            if general_start_time is None or calm_baseline_hrv is None or stressed_baseline_hrv_1 is None or stressed_baseline_hrv_2 is None or stressed_baseline_hrv_3 is None:
-                print("Error fetching general logging starting time or baselines. Press Ctrl+C to shut down the server.")
+            if general_start_time is None or threshold is None:
+                print("Error fetching general logging starting time or threshold. Press Ctrl+C to shut down the server.")
                 break
-            # Compute the combined stressed baseline and its standard deviation
-            stressed_baseline_hrv, std_dev = compute_baselines(
-                calm_baseline_hrv,
-                stressed_baseline_hrv_1,
-                stressed_baseline_hrv_2,
-                stressed_baseline_hrv_3
-            )
-            print("Combined Stressed Baseline HRV: ", stressed_baseline_hrv)
-            print("Standard Deviation of Stressed HRV: ", std_dev)
-            print("Decision Threshold: ", stressed_baseline_hrv + std_dev)
             print("Data analysis running...")
-            data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv, stressed_baseline_hrv, std_dev)  
+            data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, threshold)  
         threading.Event().wait(0.1)
 
 # def handle_shutdown(signal, frame, stop_event, ip, port):

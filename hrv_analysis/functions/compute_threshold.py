@@ -2,27 +2,27 @@ import json
 import os
 import numpy as np
 
-def compute_threshold(calm_baseline, stressed_baseline_1, stressed_baseline_2, stressed_baseline_3):
+def compute_threshold():
     """
-    This function takes as arguments the four baseline values (one calm and three stressed).
-    It calculates the mean of the 3 stressed baselines (stressed_baseline_hrv).
-    Then it opens the calibrations_values.json file (which contains the HRV values for the calibrations),
-    extracts all HRV values from the three stressed calibrations (from the JSON objects stressed_values_1, stressed_values_2, stressed_values_3),
-    and computes the standard deviation of these values.
-    Finally, it adds a new key "baselines" to the JSON object with the following fields:
+    This function reads the HRV calibration data from the JSON file (which contains 4 objects: 
+    calm_values and stressed_values_1, stressed_values_2, stressed_values_3).
+    It computes the calm baseline from the calm_values object, and for each of the stressed 
+    calibration objects it computes the stressed baseline as the mean of the HRV values.
+    It then computes:
+      - mean_all_stressed: the mean of the three stressed baselines,
+      - standard_deviation_all: the standard deviation of the three stressed baselines,
+      - threshold: the mean of only the last two stressed baselines (stressed_values_2 and stressed_values_3),
+    which will be used as the decision threshold in data analysis.
+    It logs back to the JSON file the computed values under a new key "baselines" with the following fields:
         - calm_baseline
-        - stressed_baseline (the computed mean of the 3 stressed baselines)
-        - standard_deviation
         - stressed_baseline_1
         - stressed_baseline_2
         - stressed_baseline_3
-    The updated JSON object is written back to the same calibrations_values.json file.
-    The function returns the computed stressed_baseline_hrv and the standard deviation.
+        - threshold
+    The updated JSON object is written back to the same calibration file.
+    The function returns the threshold.
     """
-    # Calculate the mean of the three stressed baselines
-    stressed_baseline_hrv = np.mean([stressed_baseline_1, stressed_baseline_2, stressed_baseline_3])
-    
-    # Define the path to the existing calibrations file
+    # Define the path to the existing calibration file
     calibrations_file = "./hrv_values/calibration_values.json"
     
     # Load the calibration data from file; if the file doesn't exist or is empty, use an empty dictionary
@@ -35,28 +35,61 @@ def compute_threshold(calm_baseline, stressed_baseline_1, stressed_baseline_2, s
     else:
         data = {}
     
-    # Extract HRV values from each of the three stressed calibration entries
-    stressed_hrv_values = []
-    for key in ["stressed_values_1", "stressed_values_2", "stressed_values_3"]:
+    # Compute calm baseline from calm_values object
+    calm_values = []
+    if "calm_values" in data:
+        for entry in data["calm_values"]:
+            if "HRV" in entry:
+                calm_values.append(entry["HRV"])
+    if calm_values:
+        calm_baseline = float(np.mean(calm_values))
+    else:
+        calm_baseline = None
+
+    # Compute stressed baselines for each stressed calibration object
+    stressed_baseline_1 = None
+    stressed_baseline_2 = None
+    stressed_baseline_3 = None
+    for key, var_name in zip(["stressed_values_1", "stressed_values_2", "stressed_values_3"],
+                             ["stressed_baseline_1", "stressed_baseline_2", "stressed_baseline_3"]):
+        values = []
         if key in data:
             for entry in data[key]:
                 if "HRV" in entry:
-                    stressed_hrv_values.append(entry["HRV"])
-    
-    # Compute the standard deviation of all stressed HRV values (if available)
-    if stressed_hrv_values:
-        standard_deviation = float(np.std(stressed_hrv_values))
+                    values.append(entry["HRV"])
+        if values:
+            baseline = float(np.mean(values))
+        else:
+            baseline = None
+        if var_name == "stressed_baseline_1":
+            stressed_baseline_1 = baseline
+        elif var_name == "stressed_baseline_2":
+            stressed_baseline_2 = baseline
+        elif var_name == "stressed_baseline_3":
+            stressed_baseline_3 = baseline
+
+    # Compute the mean of all 3 stressed baselines (if available)
+    stressed_baselines = [b for b in [stressed_baseline_1, stressed_baseline_2, stressed_baseline_3] if b is not None]
+    if stressed_baselines:
+        mean_all_stressed = float(np.mean(stressed_baselines))
+        standard_deviation_all = float(np.std(stressed_baselines))
     else:
-        standard_deviation = None
-    
-    # Create the baselines dictionary
+        mean_all_stressed = None
+        standard_deviation_all = None
+
+    # Compute the mean of only the last two stressed baselines as the threshold
+    if stressed_baseline_2 is not None and stressed_baseline_3 is not None:
+        threshold = float(np.mean([stressed_baseline_2, stressed_baseline_3]))
+    else:
+        threshold = None
+
+    # Create the baselines dictionary for logging
     baselines_dict = {
         "calm_baseline": calm_baseline,
-        "stressed_baseline": float(stressed_baseline_hrv),
-        "standard_deviation": standard_deviation,
         "stressed_baseline_1": stressed_baseline_1,
         "stressed_baseline_2": stressed_baseline_2,
-        "stressed_baseline_3": stressed_baseline_3
+        "stressed_baseline_3": stressed_baseline_3,
+        "threshold": threshold
     }
     
     # Add or update the "baselines" key in the JSON data
@@ -66,16 +99,9 @@ def compute_threshold(calm_baseline, stressed_baseline_1, stressed_baseline_2, s
     with open(calibrations_file, 'w') as f:
         json.dump(data, f, indent=4)
     
-    return stressed_baseline_hrv, standard_deviation
+    return threshold
 
 # Example usage (this block can be removed when integrating into your pipeline)
 if __name__ == "__main__":
-    # Example baseline values (replace these with actual baseline values)
-    calm_baseline = 500
-    stressed_baseline_1 = 400
-    stressed_baseline_2 = 420
-    stressed_baseline_3 = 410
-
-    stressed_mean, std_dev = compute_baselines(calm_baseline, stressed_baseline_1, stressed_baseline_2, stressed_baseline_3)
-    print("Stressed Baseline HRV:", stressed_mean)
-    print("Standard Deviation:", std_dev)
+    threshold_value = compute_threshold()
+    print("Threshold:", threshold_value)
