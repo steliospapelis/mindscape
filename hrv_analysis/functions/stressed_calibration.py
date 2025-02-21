@@ -1,10 +1,10 @@
 import numpy as np
 import queue
 from functions.hrv_calculation_functions import detect_peaks, calculate_rmssd
+from functions.postprocess_eda import split_raw_eda
 from collections import deque
 import threading
 import time
-import csv
 import json
 import os
 
@@ -13,24 +13,17 @@ output_value_lock = threading.Lock()
 def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calib_number):
     general_log_file = "./logs/general_log.txt"
     current_log_file = f"./logs/specific_logs/stressed_calibration_{calib_number}_log.txt"
-    ppg_csv_file = f"./measurements/stressed_ppg_values_{calib_number}.csv"
-    eda_csv_file = f"./measurements/stressed_eda_values_{calib_number}.csv"
+    ppg_json_file = f"./measurements/stressed_{calib_number}/stressed_ppg_values_{calib_number}.json"
+    eda_json_file = f"./measurements/stressed_{calib_number}/stressed_eda_values_{calib_number}.json"
+    raw_eda_json_file = f"./measurements/stressed_{calib_number}/stressed_raw_eda_values_{calib_number}.json"
     calibration_json_file = "./hrv_values/calibration_values.json"
     
     # Ensure the directories exist
     os.makedirs(os.path.dirname(general_log_file), exist_ok=True)
-    os.makedirs(os.path.dirname(ppg_csv_file), exist_ok=True)
-    os.makedirs(os.path.dirname(eda_csv_file), exist_ok=True)
+    os.makedirs(os.path.dirname(ppg_json_file), exist_ok=True)
+    os.makedirs(os.path.dirname(eda_json_file), exist_ok=True)
     os.makedirs(os.path.dirname(calibration_json_file), exist_ok=True)
-
-    # Write headers only once at the beginning for CSV files
-    with open(ppg_csv_file, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(["Segment", "PPG Values"])
-
-    with open(eda_csv_file, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(["Segment", "EDA Values"])
+    os.makedirs(os.path.dirname(raw_eda_json_file), exist_ok=True)
         
     # Function to add log entries to current_log_file and general_log_file
     def add_log_entry(entry, only_general_log=False):
@@ -52,6 +45,11 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
 
     # New list to accumulate JSON log entries for stressed calibration
     stressed_values_list = []
+    
+    # For EDA, assume sampling rate of 15Hz; define window and step sizes accordingly
+    eda_sampling_rate = 15
+    window_size_eda = int(30 * eda_sampling_rate)  # 450 samples (30 sec)
+    step_size_eda = int(5 * eda_sampling_rate)       # 75 samples (5 sec)
 
     # Start the time counter when the function is called
     start_time = time.time()
@@ -71,6 +69,15 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
     data[f"stressed_values_{calib_number}"] = []  # Add the new empty array under the new key
     with open(calibration_json_file, 'w') as f:
         json.dump(data, f, indent=4)
+        
+    # Write headers only once at the beginning for JSON files (initialize with an empty array)
+    with open(ppg_json_file, 'w') as f:
+        json.dump({"segments": []}, f, indent=4)
+    with open(eda_json_file, 'w') as f:
+        json.dump({"segments": []}, f, indent=4)
+    # Initialize the raw EDA file with an empty object
+    with open(raw_eda_json_file, 'w') as f:
+        json.dump({"raw_eda": []}, f, indent=4)
         
     try:
         while not stop_event.is_set() or not ppg_data_queue.empty():
@@ -99,22 +106,55 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
                         general_timestamp_minutes = int(general_elapsed_time // 60)  # Convert to minutes
                         general_timestamp_seconds = int(general_elapsed_time % 60)     # Get remaining seconds
                         
-                        # Append the segment data to the CSV file
-                        with open(ppg_csv_file, 'a', newline='') as csvfile:
-                            writer = csv.writer(csvfile)
-                            writer.writerow([current_step, list(buffer)])  # Segment number and buffer values
-                            
-                        # Empty the eda_data_queue into a list
-                        # Since sampling rate is 15hz then we should have 75 measurements in a 5 second step
-                        # We save only the new 5 seconds of data for each segment
-                        eda_values = []
-                        while not eda_data_queue.empty() and len(eda_values) < 75:
-                            eda_values.append(eda_data_queue.get())
-
-                        # Write the segment number and EDA values to the EDA CSV file
-                        with open(eda_csv_file, 'a', newline='') as csvfile:
-                            writer = csv.writer(csvfile)
-                            writer.writerow([current_step, eda_values])  # Segment number and EDA values 
+                        # PPG JSON logging: For current_step==1, store two segments:
+                        #   segment 0: first (window_size - step_size) samples (i.e. initial 25 seconds)
+                        #   segment 1: last step_size samples (i.e. last 5 seconds)
+                        if current_step == 1:
+                            first_ppg = list(buffer)[:window_size - step_size]
+                            second_ppg = list(buffer)[-step_size:]
+                            if os.path.exists(ppg_json_file):
+                                with open(ppg_json_file, 'r') as f:
+                                    try:
+                                        ppg_data = json.load(f)
+                                    except json.JSONDecodeError:
+                                        ppg_data = {"segments": []}
+                            else:
+                                ppg_data = {"segments": []}
+                            ppg_data["segments"].append({"segment": 0, "timestamp": 0, "general_timestamp": 0, "ppg_values": first_ppg})
+                            ppg_data["segments"].append({"segment": 1, "timestamp": elapsed_time, "general_timestamp": general_elapsed_time, "ppg_values": second_ppg})
+                            with open(ppg_json_file, 'w') as f:
+                                json.dump(ppg_data, f, indent=4)
+                        else:
+                            # For subsequent segments, store only the last step_size samples
+                            new_ppg = list(buffer)[-step_size:]
+                            if os.path.exists(ppg_json_file):
+                                with open(ppg_json_file, 'r') as f:
+                                    try:
+                                        ppg_data = json.load(f)
+                                    except json.JSONDecodeError:
+                                        ppg_data = {"segments": []}
+                            else:
+                                ppg_data = {"segments": []}
+                            ppg_data["segments"].append({"segment": current_step, "timestamp": elapsed_time, "general_timestamp": general_elapsed_time, "ppg_values": new_ppg})
+                            with open(ppg_json_file, 'w') as f:
+                                json.dump(ppg_data, f, indent=4)
+                        
+                        # EDA raw logging: Instead of splitting in real time, simply drain the eda queue for each iteration.
+                        # For each iteration drain all the values from the eda queue and append them to the raw file.
+                        if os.path.exists(raw_eda_json_file):
+                            with open(raw_eda_json_file, 'r') as f:
+                                try:
+                                    raw_eda_data = json.load(f)
+                                except json.JSONDecodeError:
+                                    raw_eda_data = {"raw_eda": []}
+                        else:
+                            raw_eda_data = {"raw_eda": []}
+                        new_eda = []
+                        while not eda_data_queue.empty():
+                            new_eda.append(eda_data_queue.get())
+                        raw_eda_data["raw_eda"].append({"eda_values": new_eda})
+                        with open(raw_eda_json_file, 'w') as f:
+                            json.dump(raw_eda_data, f, indent=4)
                             
                         if current_step == 1:
                             log_msg = f"\nStressed Calibration {calib_number} Starting...\n\n"
@@ -171,7 +211,9 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
                             if current_step == num_steps_skipped + num_steps_for_baseline:
                                 # Calculate average baseline HRV after collecting enough data
                                 stressed_baseline_hrv = np.mean(stressed_baseline_hrv)
-                                add_log_entry(f"Stressed Baseline {calib_number} HRV established: {stressed_baseline_hrv}\n\n\n")
+                                add_log_entry(f"Stressed Baseline {calib_number} HRV established: {stressed_baseline_hrv}\n\n")
+                                split_raw_eda(raw_eda_json_file, eda_json_file, ppg_json_file, window_size_eda, step_size_eda)
+                                add_log_entry(f"Stressed calibration {calib_number} EDA values postprocessed.\n\n\n", only_general_log=True)
                                 add_log_entry("-------------------------------------------------------------\n\n\n", only_general_log=True)
                                 if calib_number == 1:
                                     add_log_entry("Waiting to recieve the stressed calibration 2 flag...\n\n\n", only_general_log=True)

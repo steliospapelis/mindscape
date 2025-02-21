@@ -2,18 +2,89 @@
     "calm_values": [
         {
             "segment": 4,
-            "timestamp": 42.39717364311218,
-            "HRV": 302.2526536966494
+            "timestamp": 43.65705919265747,
+            "general_timestamp": 43.65705919265747,
+            "HRV": 270.66584564735905
         },
         {
             "segment": 5,
-            "timestamp": 50.23091435432434,
-            "HRV": 273.83693444578785
+            "timestamp": 47.60183930397034,
+            "general_timestamp": 47.60183930397034,
+            "HRV": 300.99833886584827
         },
         {
             "segment": 6,
-            "timestamp": 54.267088174819946,
-            "HRV": 302.04304329019067
+            "timestamp": 50.39749884605408,
+            "general_timestamp": 50.39749884605408,
+            "HRV": 305.12292604784716
         }
-    ]
+    ],
+    "stressed_values_1": [
+        {
+            "segment": 4,
+            "timestamp": 44.67057657241821,
+            "general_timestamp": 95.2908501625061,
+            "HRV": 282.09336515888964
+        },
+        {
+            "segment": 5,
+            "timestamp": 50.24380564689636,
+            "general_timestamp": 100.86407923698425,
+            "HRV": 310.45572731178544
+        },
+        {
+            "segment": 6,
+            "timestamp": 52.85767436027527,
+            "general_timestamp": 103.47794795036316,
+            "HRV": 308.2318876296289
+        }
+    ],
+    "stressed_values_2": [
+        {
+            "segment": 4,
+            "timestamp": 42.259453773498535,
+            "general_timestamp": 145.92479848861694,
+            "HRV": 305.63105998505165
+        },
+        {
+            "segment": 5,
+            "timestamp": 49.864646434783936,
+            "general_timestamp": 153.52999114990234,
+            "HRV": 278.68141906724486
+        },
+        {
+            "segment": 6,
+            "timestamp": 53.334555864334106,
+            "general_timestamp": 156.99990057945251,
+            "HRV": 309.10884144920374
+        }
+    ],
+    "stressed_values_3": [
+        {
+            "segment": 4,
+            "timestamp": 41.83474946022034,
+            "general_timestamp": 199.11810731887817,
+            "HRV": 308.2318876296289
+        },
+        {
+            "segment": 5,
+            "timestamp": 48.24606156349182,
+            "general_timestamp": 205.52941942214966,
+            "HRV": 293.9387691339814
+        },
+        {
+            "segment": 6,
+            "timestamp": 52.938982009887695,
+            "general_timestamp": 210.22233986854553,
+            "HRV": 308.6176073820269
+        }
+    ],
+    "baselines": {
+        "calm_baseline": 292.2623701870182,
+        "stressed_baseline": 300.5545071941601,
+        "standard_deviation": 11.751566550322526,
+        "stressed_baseline_1": 300.2603267001013,
+        "stressed_baseline_2": 297.8071068338334,
+        "stressed_baseline_3": 303.5960880485457
+    }
 }

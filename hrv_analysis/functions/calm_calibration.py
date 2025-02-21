@@ -118,8 +118,8 @@ def calm_calibration(ppg_data_queue, eda_data_queue, stop_event):
                                         ppg_data = {"segments": []}
                             else:
                                 ppg_data = {"segments": []}
-                            ppg_data["segments"].append({"segment": 0, "timestamp": 0, "ppg_values": first_ppg})
-                            ppg_data["segments"].append({"segment": 1, "timestamp": elapsed_time, "ppg_values": second_ppg})
+                            ppg_data["segments"].append({"segment": 0, "timestamp": 0, "general_timestamp": 0, "ppg_values": first_ppg})
+                            ppg_data["segments"].append({"segment": 1, "timestamp": elapsed_time, "general_timestamp": elapsed_time, "ppg_values": second_ppg})
                             with open(ppg_json_file, 'w') as f:
                                 json.dump(ppg_data, f, indent=4)
                         else:
@@ -133,7 +133,7 @@ def calm_calibration(ppg_data_queue, eda_data_queue, stop_event):
                                         ppg_data = {"segments": []}
                             else:
                                 ppg_data = {"segments": []}
-                            ppg_data["segments"].append({"segment": current_step, "timestamp": elapsed_time, "ppg_values": new_ppg})
+                            ppg_data["segments"].append({"segment": current_step, "timestamp": elapsed_time, "general_timestamp": elapsed_time, "ppg_values": new_ppg})
                             with open(ppg_json_file, 'w') as f:
                                 json.dump(ppg_data, f, indent=4)
                         
@@ -150,7 +150,7 @@ def calm_calibration(ppg_data_queue, eda_data_queue, stop_event):
                         new_eda = []
                         while not eda_data_queue.empty():
                             new_eda.append(eda_data_queue.get())
-                        raw_eda_data["raw_eda"].append({"EDA_values": new_eda})
+                        raw_eda_data["raw_eda"].append({"eda_values": new_eda})
                         with open(raw_eda_json_file, 'w') as f:
                             json.dump(raw_eda_data, f, indent=4)
                         
@@ -188,6 +188,7 @@ def calm_calibration(ppg_data_queue, eda_data_queue, stop_event):
                             log_entry = {
                                 "segment": current_step,
                                 "timestamp": elapsed_time,
+                                "general_timestamp": elapsed_time,
                                 "HRV": current_hrv
                             }
                             calm_values_list.append(log_entry)

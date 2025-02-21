@@ -11,6 +11,7 @@ from functions.calm_calibration import calm_calibration
 from functions.stressed_calibration import stressed_calibration
 from functions.data_analysis import data_analysis, get_analysis_results
 from functions.compute_baselines import compute_baselines
+from functions.postprocess_eda import split_raw_eda
 
 # Flask app
 app = Flask(__name__)
@@ -126,20 +127,6 @@ def send_dummy_packet(ip, port):
     except Exception as e:
         print(f"Error sending dummy packet: {e}")
         
-
-# def handle_shutdown(signal, frame, stop_event, ip, port):
-#     print("Shutdown signal received. Stopping server...")
-#     stop_event.set()
-#     # Send a dummy packet to the OSC listener to unblock it
-#     #send_dummy_packet(ip, port)
-#     sys.exit(0)
-    
-def handle_shutdown(signal, frame):
-    global state
-    print("Shutdown signal received. Stopping server...")
-    stop_event.set()
-    sys.exit(0)
-
 
 def handle_state_changes():
     """Thread to manage state changes based on game flags."""
@@ -338,6 +325,24 @@ def run_data_analysis():
             print("Data analysis running...")
             data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv, stressed_baseline_hrv, std_dev)  
         threading.Event().wait(0.1)
+
+# def handle_shutdown(signal, frame, stop_event, ip, port):
+#     print("Shutdown signal received. Stopping server...")
+#     stop_event.set()
+#     # Send a dummy packet to the OSC listener to unblock it
+#     #send_dummy_packet(ip, port)
+#     sys.exit(0)
+    
+def handle_shutdown(signal, frame):
+    global state
+    stop_event.set()
+    # Postprocess raw EDA values from data analysis before shuting down
+    if state == "DATA_ANALYSIS":
+        split_raw_eda()
+        print("Data Analysis EDA values postprocessed.")
+    
+    print("Shutdown signal received. Stopping server...")
+    sys.exit(0)
 
 
 def main():

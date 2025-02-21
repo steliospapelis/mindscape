@@ -1,49 +1,17 @@
 import numpy as np
 import queue
 from functions.hrv_calculation_functions import detect_peaks, calculate_rmssd
+from functions.postprocess_eda import split_raw_eda
 from collections import deque
 import threading
 import requests
 import time
-import csv
 import json
 import os
 
 output_value_lock = threading.Lock()
 
 results = {}    # This will store all the analysis results
-
-general_log_file = "./logs/general_log.txt"
-current_log_file = "./logs/specific_logs/data_analysis_log.txt"
-ability_log_file = "./logs/specific_logs/ability_log.txt"
-ppg_csv_file = "./measurements/analysis_ppg_values.csv"
-eda_csv_file = "./measurements/analysis_eda_values.csv"
-analysis_json_file = "./hrv_values/analysis_values.json"
-
-# Write headers only once at the beginning
-with open(ppg_csv_file, 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerow(["Segment", "PPG Values"])
-
-with open(eda_csv_file, 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerow(["Segment", "EDA Values"])
-
-
-# Function to add log entries to current_log_file and general_log_file
-def add_log_entry(entry, only_general_log=False, ability_log=False):
-        
-    with open(general_log_file, 'a') as f:
-        f.write(entry)
-        
-    if not only_general_log:
-        with open(current_log_file, 'a') as f:
-            f.write(entry)
-            
-    # If this is an ability measurement, also log it to ability_log.txt
-    if ability_log:
-        with open(ability_log_file, 'a') as f:
-            f.write(entry)
 
 
 def fetch_ability_value(stop_flag):
@@ -79,7 +47,40 @@ def get_analysis_results():
         return results
 
 
-def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calm_baseline_hrv, stressed_baseline_hrv, std_dev):   # Include stressed baseline later
+def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time, calm_baseline_hrv, stressed_baseline_hrv, std_dev): 
+    # Function to add log entries to current_log_file and general_log_file
+    
+    general_log_file = "./logs/general_log.txt"
+    current_log_file = "./logs/specific_logs/data_analysis_log.txt"
+    ability_log_file = "./logs/specific_logs/ability_log.txt"
+    ppg_json_file = "./measurements/analysis/analysis_ppg_values.json"
+    eda_json_file = "./measurements/analysis/analysis_eda_values.json"
+    raw_eda_json_file = "./measurements/analysis/analysis_raw_eda_values.json"
+    analysis_json_file = "./hrv_values/analysis_values.json"
+    
+    # Ensure the directories exist
+    os.makedirs(os.path.dirname(general_log_file), exist_ok=True)
+    os.makedirs(os.path.dirname(ppg_json_file), exist_ok=True)
+    os.makedirs(os.path.dirname(eda_json_file), exist_ok=True)
+    os.makedirs(os.path.dirname(analysis_json_file), exist_ok=True)
+    os.makedirs(os.path.dirname(raw_eda_json_file), exist_ok=True)
+    
+    
+    def add_log_entry(entry, only_general_log=False, ability_log=False):
+            
+        with open(general_log_file, 'a') as f:
+            f.write(entry)
+            
+        if not only_general_log:
+            with open(current_log_file, 'a') as f:
+                f.write(entry)
+                
+        # If this is an ability measurement, also log it to ability_log.txt
+        if ability_log:
+            with open(ability_log_file, 'a') as f:
+                f.write(entry)
+
+
     sampling_rate = 100
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
@@ -93,6 +94,11 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
     ability_measurement_step = None  # Tracks when ability measurements should start
     ability_logging_active = False  # Tracks whether ability logging should be done
     ability_measurement = False  # Tracks if the ability measurement is logged for this segment
+    
+    # For EDA, assume sampling rate of 15Hz; define window and step sizes accordingly
+    eda_sampling_rate = 15
+    window_size_eda = int(30 * eda_sampling_rate)  # 450 samples (30 sec)
+    step_size_eda = int(5 * eda_sampling_rate)       # 75 samples (5 sec)
     
     # Start the time counter when the function is called
     start_time = time.time()
@@ -114,6 +120,16 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
     # Clear the analysis JSON file at the start by writing an empty JSON object with an empty array
     with open(analysis_json_file, 'w') as f:
         json.dump({"analysis_values": []}, f, indent=4)
+    
+    # Write headers only once at the beginning for JSON files (initialize with an empty array)
+    with open(ppg_json_file, 'w') as f:
+        json.dump({"segments": []}, f, indent=4)
+    with open(eda_json_file, 'w') as f:
+        json.dump({"segments": []}, f, indent=4)
+    # Initialize the raw EDA file with an empty object
+    with open(raw_eda_json_file, 'w') as f:
+        json.dump({"raw_eda": []}, f, indent=4)
+        
         
     try:
         while not stop_event.is_set() or not ppg_data_queue.empty():   
@@ -142,22 +158,55 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         general_timestamp_minutes = int(general_elapsed_time // 60)  # Convert to minutes
                         general_timestamp_seconds = int(general_elapsed_time % 60)  # Get remaining seconds
                         
-                        # Append the segment data to the CSV file
-                        with open(ppg_csv_file, 'a', newline='') as csvfile:
-                            writer = csv.writer(csvfile)
-                            writer.writerow([current_step, list(buffer)])  # Segment number and buffer values
-                            
-                        # Empty the eda_data_queue into a list
-                        # Since sampling rate is 15hz then we should have 75 measurements in a 5 second step
-                        # We save only the new 5 seconds of data for each segment
-                        eda_values = []
-                        while not eda_data_queue.empty() and len(eda_values) < 75:
-                            eda_values.append(eda_data_queue.get())
-
-                        # Write the segment number and EDA values to the EDA CSV file
-                        with open(eda_csv_file, 'a', newline='') as csvfile:
-                            writer = csv.writer(csvfile)
-                            writer.writerow([current_step, eda_values])  # Segment number and EDA values 
+                        # PPG JSON logging: For current_step==1, store two segments:
+                        #   segment 0: first (window_size - step_size) samples (i.e. initial 25 seconds)
+                        #   segment 1: last step_size samples (i.e. last 5 seconds)
+                        if current_step == 1:
+                            first_ppg = list(buffer)[:window_size - step_size]
+                            second_ppg = list(buffer)[-step_size:]
+                            if os.path.exists(ppg_json_file):
+                                with open(ppg_json_file, 'r') as f:
+                                    try:
+                                        ppg_data = json.load(f)
+                                    except json.JSONDecodeError:
+                                        ppg_data = {"segments": []}
+                            else:
+                                ppg_data = {"segments": []}
+                            ppg_data["segments"].append({"segment": 0, "timestamp": 0, "general_timestamp": 0, "ppg_values": first_ppg})
+                            ppg_data["segments"].append({"segment": 1, "timestamp": elapsed_time, "general_timestamp": general_elapsed_time, "ppg_values": second_ppg})
+                            with open(ppg_json_file, 'w') as f:
+                                json.dump(ppg_data, f, indent=4)
+                        else:
+                            # For subsequent segments, store only the last step_size samples
+                            new_ppg = list(buffer)[-step_size:]
+                            if os.path.exists(ppg_json_file):
+                                with open(ppg_json_file, 'r') as f:
+                                    try:
+                                        ppg_data = json.load(f)
+                                    except json.JSONDecodeError:
+                                        ppg_data = {"segments": []}
+                            else:
+                                ppg_data = {"segments": []}
+                            ppg_data["segments"].append({"segment": current_step, "timestamp": elapsed_time, "general_timestamp": general_elapsed_time, "ppg_values": new_ppg})
+                            with open(ppg_json_file, 'w') as f:
+                                json.dump(ppg_data, f, indent=4)
+                        
+                        # EDA raw logging: Instead of splitting in real time, simply drain the eda queue for each iteration.
+                        # For each iteration drain all the values from the eda queue and append them to the raw file.
+                        if os.path.exists(raw_eda_json_file):
+                            with open(raw_eda_json_file, 'r') as f:
+                                try:
+                                    raw_eda_data = json.load(f)
+                                except json.JSONDecodeError:
+                                    raw_eda_data = {"raw_eda": []}
+                        else:
+                            raw_eda_data = {"raw_eda": []}
+                        new_eda = []
+                        while not eda_data_queue.empty():
+                            new_eda.append(eda_data_queue.get())
+                        raw_eda_data["raw_eda"].append({"eda_values": new_eda})
+                        with open(raw_eda_json_file, 'w') as f:
+                            json.dump(raw_eda_data, f, indent=4)
                             
                         # Fetch the ability_value from localhost
                         ability_value = fetch_ability_value(stop_event)
@@ -220,7 +269,6 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         set_analysis_results(
                             current_hrv=current_hrv,
                             binary_output=binary_output,
-                            # categorical_output=binary_output
                         )
                         
                         # Create a JSON log entry for this analysis segment, including output and ability measurement flag

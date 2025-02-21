@@ -1,8 +1,13 @@
-import json 
+import json  
 import os
 import numpy as np
 
-def split_raw_eda(raw_eda_file, output_file, ppg_json_file, window_size_eda, step_size_eda):
+# Default values to be called by server to do the data analysis eda values postprocessing
+def split_raw_eda(raw_eda_file="./measurements/analysis/analysis_raw_eda_values.json", 
+                  output_file="./measurements/analysis/analysis_eda_values.json", 
+                  ppg_json_file="./measurements/analysis/analysis_ppg_values.json", 
+                  window_size_eda=450, 
+                  step_size_eda=75):
     """
     Reads the raw EDA values from raw_eda_file (which is a JSON object with key "raw_eda" 
     containing a list of entries, each with a "eda_values" list).
@@ -10,7 +15,7 @@ def split_raw_eda(raw_eda_file, output_file, ppg_json_file, window_size_eda, ste
       - Segment 0: first (window_size_eda - step_size_eda) samples (i.e. initial 25 sec)
       - Each subsequent segment: step_size_eda samples.
     Additionally, for each segment, it extracts the timestamp fields ("timestamp", "timestamp_min", "timestamp_sec")
-    from the corresponding segment in the ppg_json_file and adds them to the EDA segment.
+    and the general timestamp ("general_timestamp") from the corresponding segment in the ppg_json_file and adds them to the EDA segment.
     The resulting segmentation is saved as a JSON object with key "segments" in output_file.
     """
     # Load raw EDA values
@@ -46,6 +51,7 @@ def split_raw_eda(raw_eda_file, output_file, ppg_json_file, window_size_eda, ste
     for seg in ppg_data.get("segments", []):
         if seg.get("segment") == 0:
             segment0["timestamp"] = seg.get("timestamp")
+            segment0["general_timestamp"] = seg.get("general_timestamp")
             break
     segment0["eda_values"] = all_eda[:first_segment_length]
     segments.append(segment0)
@@ -60,6 +66,7 @@ def split_raw_eda(raw_eda_file, output_file, ppg_json_file, window_size_eda, ste
         for seg in ppg_data.get("segments", []):
             if seg.get("segment") == seg_num:
                 segment_entry["timestamp"] = seg.get("timestamp")
+                segment_entry["general_timestamp"] = seg.get("general_timestamp")
                 break
         segment_entry["eda_values"] = chunk
         segments.append(segment_entry)
@@ -71,8 +78,4 @@ def split_raw_eda(raw_eda_file, output_file, ppg_json_file, window_size_eda, ste
 
 # Example usage (this block can be removed or commented out when integrating):
 if __name__ == "__main__":
-    raw_eda_file = "./measurements/raw_eda_values.json"
-    output_file = "./measurements/processed_eda_values.json"
-    ppg_json_file = "./measurements/calm_ppg_values.json"
-    # For a 30-second window at 15Hz, window_size_eda = 450, step_size_eda = 75
-    split_raw_eda(raw_eda_file, output_file, ppg_json_file=ppg_json_file, window_size_eda=450, step_size_eda=75)
+    split_raw_eda()

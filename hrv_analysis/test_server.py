@@ -11,6 +11,7 @@ from functions.calm_calibration import calm_calibration
 from functions.stressed_calibration import stressed_calibration
 from functions.data_analysis import data_analysis, get_analysis_results
 from functions.compute_baselines import compute_baselines
+from functions.postprocess_eda import split_raw_eda
 import time
 
 # Flask app
@@ -198,7 +199,18 @@ def run_data_analysis():
             # data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv)
         threading.Event().wait(0.1)
 
-
+def handle_shutdown(signal, frame):
+    global state
+    stop_event.set()
+    # Postprocess raw EDA values from data analysis before shuting down
+    if state == "DATA_ANALYSIS":
+        split_raw_eda()
+        print("Data Analysis EDA values postprocessed.")
+    
+    print("Shutdown signal received. Stopping server...")
+    sys.exit(0)
+    
+    
 def main():
     ip = '127.0.0.1'
     port = 12345

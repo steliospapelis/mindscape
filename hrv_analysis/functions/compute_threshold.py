@@ -2,7 +2,7 @@ import json
 import os
 import numpy as np
 
-def compute_baselines(calm_baseline, stressed_baseline_1, stressed_baseline_2, stressed_baseline_3):
+def compute_threshold(calm_baseline, stressed_baseline_1, stressed_baseline_2, stressed_baseline_3):
     """
     This function takes as arguments the four baseline values (one calm and three stressed).
     It calculates the mean of the 3 stressed baselines (stressed_baseline_hrv).
