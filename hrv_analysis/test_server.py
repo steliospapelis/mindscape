@@ -52,6 +52,7 @@ calm_baseline_hrv = None
 stressed_baseline_hrv_1 = None
 stressed_baseline_hrv_2 = None
 stressed_baseline_hrv_3 = None
+threshold = None
 
 # Global variable for general logging start time
 general_start_time = None
@@ -164,23 +165,15 @@ def run_osc_listener(ip, port):
 
 
 def run_data_analysis():
-    global general_start_time, calm_baseline_hrv, stressed_baseline_hrv_1, stressed_baseline_hrv_2, stressed_baseline_hrv_3
+    global general_start_time, threshold
     while not stop_event.is_set():
         if state == "DATA_ANALYSIS":
             # Set dummy calibration values
             general_start_time = time.time()
-            calm_baseline_hrv = 400  # dummy value for calm baseline
-            stressed_baseline_hrv_1 = 280  # dummy value for stressed baseline 1
-            stressed_baseline_hrv_2 = 290  # dummy value for stressed baseline 2
-            stressed_baseline_hrv_3 = 300  # dummy value for stressed baseline 3
-            # Compute combined stressed baseline and standard deviation
-            stressed_baseline = (stressed_baseline_hrv_1 + stressed_baseline_hrv_2 + stressed_baseline_hrv_3)/3
-            std_dev = 10
-            print("Combined Stressed Baseline HRV: ", stressed_baseline)
-            print("Standard Deviation of Stressed HRV: ", std_dev)
-            print("Decision Threshold: ", stressed_baseline + std_dev)
+            threshold = 300
+            print("Decision Threshold: ", threshold)
             print("Data analysis running...")
-            data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv, stressed_baseline, std_dev)
+            data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, threshold)
             # data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, calm_baseline_hrv)
         threading.Event().wait(0.1)
 

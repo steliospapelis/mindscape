@@ -208,7 +208,7 @@ def calm_calibration(ppg_data_queue, eda_data_queue, stop_event):
                             
                             if current_step == num_steps_skipped + num_steps_for_baseline:
                                 # Calculate average baseline HRV after collecting enough data
-                                calm_baseline_hrv = np.mean(calm_baseline_hrv)
+                                calm_baseline_hrv = round(np.mean(calm_baseline_hrv), 3)
                                 add_log_entry(f"Calm Baseline HRV established: {calm_baseline_hrv}\n\n")
                                 split_raw_eda(raw_eda_json_file, eda_json_file, ppg_json_file, window_size_eda, step_size_eda)
                                 add_log_entry("Calm calibration EDA values postprocessed.\n\n\n", only_general_log=True)

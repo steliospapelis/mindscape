@@ -24,6 +24,6 @@ def calculate_rmssd(rr_intervals):
         rr_diff_squared = np.square(rr_diff)
         mean_rr_diff_squared = np.mean(rr_diff_squared)
         rmssd = np.sqrt(mean_rr_diff_squared) * 1000 # Convert from seconds to milliseconds
-        return rmssd
+        return round(rmssd, 3)
     else:
         return None

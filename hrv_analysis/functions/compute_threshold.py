@@ -58,7 +58,7 @@ def compute_threshold():
                 if "HRV" in entry:
                     values.append(entry["HRV"])
         if values:
-            baseline = float(np.mean(values))
+            baseline = round(float(np.mean(values)), 3)
         else:
             baseline = None
         if var_name == "stressed_baseline_1":
@@ -71,15 +71,15 @@ def compute_threshold():
     # Compute the mean of all 3 stressed baselines (if available)
     stressed_baselines = [b for b in [stressed_baseline_1, stressed_baseline_2, stressed_baseline_3] if b is not None]
     if stressed_baselines:
-        mean_all_stressed = float(np.mean(stressed_baselines))
-        standard_deviation_all = float(np.std(stressed_baselines))
+        mean_all_stressed = round(float(np.mean(stressed_baselines)), 3)
+        standard_deviation_all = round(float(np.std(stressed_baselines)), 3)
     else:
         mean_all_stressed = None
         standard_deviation_all = None
 
     # Compute the mean of only the last two stressed baselines as the threshold
     if stressed_baseline_2 is not None and stressed_baseline_3 is not None:
-        threshold = float(np.mean([stressed_baseline_2, stressed_baseline_3]))
+        threshold = round(float(np.mean([stressed_baseline_2, stressed_baseline_3])), 3)
     else:
         threshold = None
 

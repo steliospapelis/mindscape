@@ -34,10 +34,13 @@ def fetch_ability_value(stop_flag):
 
 
 # Function to set all the output values in a dictionary
-def set_analysis_results(binary_output, current_hrv):   #categorical_output removed
+def set_analysis_results(binary_output, current_hrv, best_ability_number, best_ability_hrv):   
     with output_value_lock:
         results['current_hrv'] = current_hrv
         results['binary_output'] = binary_output
+        results['best_ability_number'] = best_ability_number
+        results['best_ability_hrv'] = best_ability_hrv
+        
 
 
 # Function to get all the results
@@ -47,7 +50,6 @@ def get_analysis_results():
 
 
 def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time, threshold): 
-    # Function to add log entries to current_log_file and general_log_file
     
     general_log_file = "./logs/general_log.txt"
     current_log_file = "./logs/specific_logs/data_analysis_log.txt"
@@ -93,6 +95,12 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
     ability_measurement_step = None  # Tracks when ability measurements should start
     ability_logging_active = False  # Tracks whether ability logging should be done
     ability_measurement = False  # Tracks if the ability measurement is logged for this segment
+    
+    # Variables for finding the best breathing rate
+    ability_number = 0
+    best_ability_number = 0
+    best_ability_hrv = 0
+    ability_hrv_values = []
     
     # For EDA, assume sampling rate of 15Hz; define window and step sizes accordingly
     eda_sampling_rate = 15
@@ -214,6 +222,8 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         if ability_value == 1 and not in_analysis:  # and current_step > num_steps_for_baseline + num_steps_skipped:
                             in_analysis = True
                             ability_detected = True
+                            ability_number += 1
+                            ability_hrv_values = []
                             ability_measurement_step = current_step + 5  # Start measurement after 5 steps
                             log_msg = (f"\nAbility activated in segment {current_step}. \nExpect ability measurements in "
                                     f"segments {ability_measurement_step}, {ability_measurement_step + 1}, and {ability_measurement_step + 2}.\n\n")
@@ -222,6 +232,7 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         # Start logging only for steps 6, 7, and 8 after detection
                         if ability_detected and current_step in [ability_measurement_step, ability_measurement_step + 1, ability_measurement_step + 2]:
                             ability_logging_active = True  # Activate ability logging for these segments
+                            ability_hrv_values.append(current_hrv)
                         else:
                             ability_logging_active = False
                         
@@ -245,7 +256,7 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                             f"General Timestamp {general_timestamp_minutes}min {general_timestamp_seconds}sec\n"
                             f"(Data Timestamp {timestamp_minutes}min {timestamp_seconds}sec)\n")
                         add_log_entry(log_msg, ability_log=ability_logging_active)
-                        
+                            
                         # Handle ability measurements during steps 6, 7, 8 after detection
                         if ability_detected and current_step in [ability_measurement_step, ability_measurement_step + 1, ability_measurement_step + 2]:
                             label_number = current_step - ability_measurement_step + 1
@@ -261,12 +272,6 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
 
                         add_log_entry(f"Binary Output (0: calm, 1: stressed) = {binary_output}\n\n", ability_log=ability_logging_active)
                         
-                            
-                        # Set the full result with all required values
-                        set_analysis_results(
-                            current_hrv=current_hrv,
-                            binary_output=binary_output,
-                        )
                         
                         # Create a JSON log entry for this analysis segment, including output and ability measurement flag
                         analysis_entry = {
@@ -291,11 +296,30 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         with open(analysis_json_file, "w") as f:
                             json.dump(data, f, indent=4)
                             
-                        
+                        # When deep breathing measurement period is over (after 3 segments), compare the mean HRV
                         if ability_detected and current_step == (ability_measurement_step + 2):
+                            mean_ability_hrv = round(np.mean(ability_hrv_values), 3)
+                            log_msg = f"Ability {ability_number} comlpeted with mean HRV: {mean_ability_hrv}\n"
+                            add_log_entry(log_msg, ability_log=True)
+                            if ability_number <= 5 and mean_ability_hrv > best_ability_hrv:
+                                best_ability_hrv = mean_ability_hrv
+                                best_ability_number = ability_number
+                                log_msg = f"New Best Ability with number {ability_number} and mean HRV: {mean_ability_hrv}\n\n\n"
+                                add_log_entry(log_msg, ability_log=True)
+                            
+                            # Reset ability measurement flags after deep breathing measurement period
                             ability_logging_active = False
                             ability_measurement = False
-  
+                        
+                        
+                        # Set the full result with all required values
+                        set_analysis_results(
+                            current_hrv=current_hrv,
+                            binary_output=binary_output,
+                            best_ability_number=best_ability_number,
+                            best_ability_hrv=best_ability_hrv
+                        )
+                        
                     step_counter = 0  # Reset step counter after processing
 
             except queue.Empty:

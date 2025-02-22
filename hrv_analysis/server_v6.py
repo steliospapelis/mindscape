@@ -317,13 +317,6 @@ def run_data_analysis():
             print("Data analysis running...")
             data_analysis(analysis_ppg_queue, analysis_eda_queue, stop_event, general_start_time, threshold)  
         threading.Event().wait(0.1)
-
-# def handle_shutdown(signal, frame, stop_event, ip, port):
-#     print("Shutdown signal received. Stopping server...")
-#     stop_event.set()
-#     # Send a dummy packet to the OSC listener to unblock it
-#     #send_dummy_packet(ip, port)
-#     sys.exit(0)
     
 def handle_shutdown(signal, frame):
     global state

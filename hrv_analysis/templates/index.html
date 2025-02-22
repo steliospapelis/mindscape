@@ -128,7 +128,7 @@
         </tr>
         <!-- State -->
         <tr>
-          <td>Actual State</td>
+          <td>Server State</td>
           <td colspan="2">{{ state }}</td>
         </tr>
       </tbody>
@@ -170,6 +170,26 @@
           <td>
             {% if baselines[4] is defined and baselines[4] is not none %} {{
             baselines[4] | round(3) }} {% else %} - {% endif %}
+          </td>
+        </tr>
+
+        <!-- Best Ability Number -->
+        <tr>
+          <td>Best Ability Number</td>
+          <td>
+            {% if state == "DATA_ANALYSIS" and results.best_ability_number is
+            defined and results.best_ability_number is not none %} {{
+            results.best_ability_number }} {% else %} - {% endif %}
+          </td>
+        </tr>
+
+        <!-- Best Ability Value -->
+        <tr>
+          <td>Best Ability HRV</td>
+          <td>
+            {% if state == "DATA_ANALYSIS" and results.best_ability_hrv is
+            defined and results.best_ability_hrv is not none %} {{
+            results.best_ability_hrv }} {% else %} - {% endif %}
           </td>
         </tr>
 
