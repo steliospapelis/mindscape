@@ -34,11 +34,11 @@ def fetch_ability_value(stop_flag):
 
 
 # Function to set all the output values in a dictionary
-def set_analysis_results(binary_output, current_hrv, best_ability_number, best_ability_hrv):   
+def set_analysis_results(binary_output, current_hrv, best_ability_index, best_ability_hrv):   
     with output_value_lock:
         results['current_hrv'] = current_hrv
         results['binary_output'] = binary_output
-        results['best_ability_number'] = best_ability_number
+        results['best_ability_index'] = best_ability_index
         results['best_ability_hrv'] = best_ability_hrv
         
 
@@ -97,8 +97,8 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
     ability_measurement = False  # Tracks if the ability measurement is logged for this segment
     
     # Variables for finding the best breathing rate
-    ability_number = 0
-    best_ability_number = 0
+    ability_index = 0
+    best_ability_index = 0
     best_ability_hrv = 0
     ability_hrv_values = []
     
@@ -222,7 +222,7 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         if ability_value == 1 and not in_analysis:  # and current_step > num_steps_for_baseline + num_steps_skipped:
                             in_analysis = True
                             ability_detected = True
-                            ability_number += 1
+                            ability_index += 1
                             ability_hrv_values = []
                             ability_measurement_step = current_step + 5  # Start measurement after 5 steps
                             log_msg = (f"\nAbility activated in segment {current_step}. \nExpect ability measurements in "
@@ -299,12 +299,12 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         # When deep breathing measurement period is over (after 3 segments), compare the mean HRV
                         if ability_detected and current_step == (ability_measurement_step + 2):
                             mean_ability_hrv = round(np.mean(ability_hrv_values), 3)
-                            log_msg = f"Ability {ability_number} comlpeted with mean HRV: {mean_ability_hrv}\n"
+                            log_msg = f"Ability {ability_index} comlpeted with mean HRV: {mean_ability_hrv}\n"
                             add_log_entry(log_msg, ability_log=True)
-                            if ability_number <= 5 and mean_ability_hrv > best_ability_hrv:
+                            if ability_index <= 5 and mean_ability_hrv > best_ability_hrv:
                                 best_ability_hrv = mean_ability_hrv
-                                best_ability_number = ability_number
-                                log_msg = f"New Best Ability with number {ability_number} and mean HRV: {mean_ability_hrv}\n\n\n"
+                                best_ability_index = ability_index
+                                log_msg = f"New Best Ability with number {ability_index} and mean HRV: {mean_ability_hrv}\n\n\n"
                                 add_log_entry(log_msg, ability_log=True)
                             
                             # Reset ability measurement flags after deep breathing measurement period
@@ -316,7 +316,7 @@ def data_analysis(ppg_data_queue, eda_data_queue, stop_event, general_start_time
                         set_analysis_results(
                             current_hrv=current_hrv,
                             binary_output=binary_output,
-                            best_ability_number=best_ability_number,
+                            best_ability_index=best_ability_index,
                             best_ability_hrv=best_ability_hrv
                         )
                         
