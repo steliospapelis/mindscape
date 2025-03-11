@@ -1,11 +1,14 @@
 from pythonosc import dispatcher
 from pythonosc import osc_server
 from flask import Flask, jsonify, request, render_template
+import os
 import threading
 import queue
 import signal
 import sys
 import socket
+import datetime
+import shutil
 from functions.test_values import test_values
 from functions.calm_calibration import calm_calibration
 from functions.stressed_calibration import stressed_calibration
@@ -325,7 +328,25 @@ def handle_shutdown(signal, frame):
     if state == "DATA_ANALYSIS":
         split_raw_eda()
         print("Data Analysis EDA values postprocessed.")
-    
+        # Create a results folder if it does not exist
+    results_dir = "./results"
+    os.makedirs(results_dir, exist_ok=True)
+
+    # Generate a timestamped folder name
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    run_results_folder = os.path.join(results_dir, f"results_{timestamp}")
+    os.makedirs(run_results_folder, exist_ok=True)
+
+    # Copy the logs, hrv_values, and measurements folders to the new results folder
+    for folder in ["logs", "hrv_values", "measurements"]:
+        src = f"./{folder}"
+        dest = os.path.join(run_results_folder, folder)
+        if os.path.exists(src):
+            shutil.copytree(src, dest)
+            print(f"Copied {folder} to {dest}")
+        else:
+            print(f"Skipping {folder} as it does not exist.")
+            
     print("Shutdown signal received. Stopping server...")
     sys.exit(0)
 

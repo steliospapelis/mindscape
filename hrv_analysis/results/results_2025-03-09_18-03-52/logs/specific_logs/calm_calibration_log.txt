@@ -1,0 +1,32 @@
+Starting calm calibration logging...
+Waiting for the first window to fill (about 30 seconds)
+
+
+Calm Calibration Starting...
+
+
+The next 3 segments will be skipped
+
+Segment 1 skipped - Timestamp 0min 27sec
+Current HRV: 294.993
+
+Segment 2 skipped - Timestamp 0min 35sec
+Current HRV: 306.892
+
+Segment 3 skipped - Timestamp 0min 38sec
+Current HRV: 310.461
+
+
+The next 3 segments will be used to calculate the calm baseline.
+
+Segment 4 - Timestamp 0min 41sec
+Current HRV: 289.793
+
+Segment 5 - Timestamp 0min 49sec
+Current HRV: 310.091
+
+Segment 6 - Timestamp 0min 52sec
+Current HRV: 305.521
+
+Calm Baseline HRV established: 301.802
+

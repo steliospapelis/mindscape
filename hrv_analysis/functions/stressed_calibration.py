@@ -38,8 +38,8 @@ def stressed_calibration(ppg_data_queue, eda_data_queue, stop_event, general_sta
     window_size = int(30 * sampling_rate)
     step_size = int(5 * sampling_rate)
     step_counter = 0
-    num_steps_skipped = 3       # 8
-    num_steps_for_baseline = 3  # 16
+    num_steps_skipped = 3       # 8 - 5
+    num_steps_for_baseline = 3  # 16 - 11
     current_step = 0
     buffer = deque(maxlen=window_size)
     stressed_baseline_hrv = []

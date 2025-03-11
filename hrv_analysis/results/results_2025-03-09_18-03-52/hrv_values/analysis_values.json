@@ -1,0 +1,52 @@
+{
+    "analysis_values": [
+        {
+            "segment": 1,
+            "timestamp": 29.213526248931885,
+            "general_timestamp": 980.1086277961731,
+            "HRV": 283.714,
+            "binary_output": 1,
+            "ability_measurement": false
+        },
+        {
+            "segment": 2,
+            "timestamp": 33.738834381103516,
+            "general_timestamp": 984.6339359283447,
+            "HRV": 296.704,
+            "binary_output": 0,
+            "ability_measurement": false
+        },
+        {
+            "segment": 3,
+            "timestamp": 36.52550148963928,
+            "general_timestamp": 987.4206030368805,
+            "HRV": 308.919,
+            "binary_output": 0,
+            "ability_measurement": false
+        },
+        {
+            "segment": 4,
+            "timestamp": 43.84463715553284,
+            "general_timestamp": 994.739738702774,
+            "HRV": 271.846,
+            "binary_output": 1,
+            "ability_measurement": false
+        },
+        {
+            "segment": 5,
+            "timestamp": 48.028412103652954,
+            "general_timestamp": 998.9235136508942,
+            "HRV": 301.142,
+            "binary_output": 0,
+            "ability_measurement": false
+        },
+        {
+            "segment": 6,
+            "timestamp": 50.77485680580139,
+            "general_timestamp": 1001.6699583530426,
+            "HRV": 304.308,
+            "binary_output": 0,
+            "ability_measurement": false
+        }
+    ]
+}

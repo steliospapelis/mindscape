@@ -1,0 +1,31 @@
+Starting ability logging...
+
+
+Ability activated in segment 2. 
+Expect ability measurements in segments 7, 8, and 9.
+
+Segment 7 - General Timestamp 8min 50sec
+(Data Timestamp 0min 58sec)
+ABILITY MEASUREMENT 1 for segment 7.
+Current HRV: 276.46
+Change from Threshold: -8.54%
+Binary Output (0: calm, 1: stressed) = 1
+
+Segment 8 - General Timestamp 8min 53sec
+(Data Timestamp 1min 1sec)
+ABILITY MEASUREMENT 2 for segment 8.
+Current HRV: 309.103
+Change from Threshold: 2.25%
+Binary Output (0: calm, 1: stressed) = 0
+
+Segment 9 - General Timestamp 8min 56sec
+(Data Timestamp 1min 4sec)
+ABILITY MEASUREMENT 3 for segment 9.
+Current HRV: 298.798
+Change from Threshold: -1.15%
+Binary Output (0: calm, 1: stressed) = 1
+
+Ability 1 comlpeted with mean HRV: 294.787
+New Best Ability with number 1 and mean HRV: 294.787
+
+

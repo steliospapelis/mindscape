@@ -42,7 +42,7 @@ def compute_threshold():
             if "HRV" in entry:
                 calm_values.append(entry["HRV"])
     if calm_values:
-        calm_baseline = float(np.mean(calm_values))
+        calm_baseline = round(float(np.mean(calm_values)), 3)
     else:
         calm_baseline = None
 

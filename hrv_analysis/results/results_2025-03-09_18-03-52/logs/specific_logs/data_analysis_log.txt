@@ -1,0 +1,39 @@
+Starting data analysis logging...
+Waiting for the first window to fill (about 30 seconds)
+
+Segment 1 - General Timestamp 16min 20sec
+(Data Timestamp 0min 29sec)
+Current HRV: 283.714
+Change from Threshold: -4.16%
+Binary Output (0: calm, 1: stressed) = 1
+
+Segment 2 - General Timestamp 16min 24sec
+(Data Timestamp 0min 33sec)
+Current HRV: 296.704
+Change from Threshold: 0.23%
+Binary Output (0: calm, 1: stressed) = 0
+
+Segment 3 - General Timestamp 16min 27sec
+(Data Timestamp 0min 36sec)
+Current HRV: 308.919
+Change from Threshold: 4.36%
+Binary Output (0: calm, 1: stressed) = 0
+
+Segment 4 - General Timestamp 16min 34sec
+(Data Timestamp 0min 43sec)
+Current HRV: 271.846
+Change from Threshold: -8.17%
+Binary Output (0: calm, 1: stressed) = 1
+
+Segment 5 - General Timestamp 16min 38sec
+(Data Timestamp 0min 48sec)
+Current HRV: 301.142
+Change from Threshold: 1.73%
+Binary Output (0: calm, 1: stressed) = 0
+
+Segment 6 - General Timestamp 16min 41sec
+(Data Timestamp 0min 50sec)
+Current HRV: 304.308
+Change from Threshold: 2.80%
+Binary Output (0: calm, 1: stressed) = 0
+
